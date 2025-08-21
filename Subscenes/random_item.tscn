@@ -11,5 +11,5 @@ shape = SubResource("CylinderShape3D_ry8o8")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
 radius = 0.1
-height = 0.4
+height = 0.3
 sides = 10

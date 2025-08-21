@@ -25,6 +25,9 @@ size = Vector3(1, 2, 0.7)
 transform = Transform3D(0.54822, -0.503586, 0.667724, 0, 0.798394, 0.602136, -0.836334, -0.330103, 0.437696, 3.26873, 2.51421, 0)
 shadow_enabled = true
 
+[node name="RandomPerson" parent="." instance=ExtResource("3_jv6wh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.941919, 1.05, 0.190989)
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -62,8 +65,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.934347, 1.13596, 2.39703)
 script = ExtResource("1_52fb6")
 spawnItem = ExtResource("2_6l7je")
 
-[node name="RandomPerson" parent="Control/SubViewportContainer2/SubViewport" instance=ExtResource("3_jv6wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.941919, 1.05, 0.190989)
+[node name="SpawnPosition" type="Node3D" parent="Control/SubViewportContainer2/SubViewport/WorldView"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.417351, -0.742975)
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 2
