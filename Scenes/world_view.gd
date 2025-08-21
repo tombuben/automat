@@ -1,6 +1,7 @@
 extends Camera3D
 
 @onready var spawn_position = $SpawnPosition
+@onready var aim_plane = $AimPlane
 @export var spawnItem : PackedScene
 
 func _input(event) -> void:
@@ -18,7 +19,7 @@ func _input(event) -> void:
 		if event.is_pressed():
 			charge()
 		if event.is_released():
-			shoot(relative_angle)
+			shoot(event.position)
 	elif event is InputEventMouseMotion:
 		print("Mouse Motion at: ", event.position)
 
@@ -58,19 +59,24 @@ func _process(delta: float) -> void:
 			tween.tween_property(object_to_shoot, "rotation", target_rotation, 1)
 			rotated_fast = true
 
-func shoot(relative_angle) -> void:
+func shoot(screen_position) -> void:
 	if object_to_shoot == null:
 		return
 	
-	tween.stop()
+	if tween != null:
+		tween.stop()
+	
+	var from = project_ray_origin(screen_position)
+	var ray_length = 2
+	var direction = project_ray_normal(screen_position) * ray_length
+	var target_position = from + direction
+	
 	object_to_shoot.reparent(self)
 	object_to_shoot.freeze = false
-	var applied_force = transform.basis.z * (-charge_duration * 5 - 1) + transform.basis.y * 3
-	
-	applied_force = applied_force.rotated(-transform.basis.y, deg_to_rad(relative_angle.x))
-	
+
 	# i shouldn't rotate this by this horizon, i should push the applied force vector up and down
-	applied_force = applied_force.rotated(-transform.basis.x, deg_to_rad(relative_angle.y))
+	var applied_force = target_position - object_to_shoot.global_position
+	applied_force += applied_force * charge_duration * 3
 	object_to_shoot.apply_central_impulse(applied_force)
 	object_to_shoot = null
 	charge_duration = 0
