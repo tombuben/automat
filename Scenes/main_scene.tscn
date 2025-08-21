@@ -1,9 +1,20 @@
-[gd_scene format=3 uid="uid://b6qthxoydelxv"]
+[gd_scene load_steps=4 format=3 uid="uid://b6qthxoydelxv"]
+
+[ext_resource type="Script" uid="uid://c56o0l1eo5f5k" path="res://Scenes/world_view.gd" id="1_52fb6"]
+[ext_resource type="PackedScene" uid="uid://c2vjbnjw2np13" path="res://Subscenes/random_item.tscn" id="2_6l7je"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6l7je"]
+size = Vector3(10, 0.1, 10)
 
 [node name="MainScene" type="Node3D"]
 
 [node name="Ground" type="CSGBox3D" parent="."]
 size = Vector3(10, 0.1, 10)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("BoxShape3D_6l7je")
 
 [node name="Automat" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16859, 1.08019, -0.00439191)
@@ -13,6 +24,9 @@ size = Vector3(1, 2, 0.7)
 transform = Transform3D(0.54822, -0.503586, 0.667724, 0, 0.798394, 0.602136, -0.836334, -0.330103, 0.437696, 3.26873, 2.51421, 0)
 shadow_enabled = true
 
+[node name="RandomItem" parent="." instance=ExtResource("2_6l7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08265, 2.37636, -1.8436)
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -20,8 +34,11 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Control"]
-offset_right = 960.0
-offset_bottom = 1080.0
+layout_mode = 0
+offset_left = 3.0
+offset_top = -6.0
+offset_right = 963.0
+offset_bottom = 1074.0
 
 [node name="SubViewport" type="SubViewport" parent="Control/SubViewportContainer"]
 handle_input_locally = false
@@ -32,6 +49,7 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21831, 1.12251, 1.79181)
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="Control"]
+layout_mode = 0
 offset_left = 960.0
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -43,6 +61,8 @@ render_target_update_mode = 4
 
 [node name="WorldView" type="Camera3D" parent="Control/SubViewportContainer2/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.893029, 1.12251, 2.24788)
+script = ExtResource("1_52fb6")
+spawnItem = ExtResource("2_6l7je")
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 2

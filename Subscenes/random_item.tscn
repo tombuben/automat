@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2vjbnjw2np13"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ry8o8"]
+height = 0.3
+radius = 0.1
+
+[node name="RandomItem" type="RigidBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_ry8o8")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+radius = 0.1
+height = 0.4
+sides = 10
