@@ -65,8 +65,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.934347, 1.13596, 2.39703)
 script = ExtResource("1_52fb6")
 spawnItem = ExtResource("2_6l7je")
 
-[node name="SpawnPosition" type="Node3D" parent="Control/SubViewportContainer2/SubViewport/WorldView"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.417351, -0.742975)
+[node name="AimRotation" type="Node3D" parent="Control/SubViewportContainer2/SubViewport/WorldView"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.7)
+
+[node name="SpawnPosition" type="Node3D" parent="Control/SubViewportContainer2/SubViewport/WorldView/AimRotation"]
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 2

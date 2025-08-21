@@ -1,30 +1,23 @@
 extends Camera3D
 
-@onready var spawn_position = $SpawnPosition
+@onready var aim_rotation = $AimRotation
+@onready var spawn_position = $AimRotation/SpawnPosition
 @onready var aim_plane = $AimPlane
 @export var spawnItem : PackedScene
+
+var screen_position : Vector2
 
 func _input(event) -> void:
 	# Mouse in viewport coordinates.
 	if event is InputEventMouseButton:
-		var relative_position = event.position / get_viewport().get_visible_rect().size.y
-		relative_position.x = (relative_position.x * 2) - 1
-		relative_position.y = (relative_position.y * 2) - 1
-		print("Mouse Click/Unclick at: ", relative_position)
-		
-		var relative_angle = relative_position * fov/2
-		print("Mouse Click/Unclick at: ", relative_angle)
-
 		#todo check left right mouse button :)
 		if event.is_pressed():
 			charge()
 		if event.is_released():
 			shoot(event.position)
 	elif event is InputEventMouseMotion:
-		print("Mouse Motion at: ", event.position)
+		screen_position = event.position
 
-	# Print the size of the viewport.
-	print("Viewport Resolution is: ", get_viewport().get_visible_rect().size)
 
 
 var object_to_shoot : RigidBody3D
@@ -43,10 +36,33 @@ func charge() -> void:
 	
 	
 func _process(delta: float) -> void:
+	
+	var relative_position = screen_position / get_viewport().get_visible_rect().size.y
+	relative_position.x = (relative_position.x * 2) - 1
+	relative_position.y = (relative_position.y * 2) - 1
+	var relative_angle = relative_position * fov/2
+	relative_angle *= -0.003
+	
+	var current_camera_quat = basis.get_rotation_quaternion()
+	var target_camera_quat = quaternion.from_euler(Vector3(relative_angle.y, relative_angle.x, 0))
+	var camera_rotation_speed = 2.0
+	var new_camera_quat = current_camera_quat.slerp(target_camera_quat, delta * camera_rotation_speed)
+	basis = Basis(new_camera_quat)
+	
 	if object_to_shoot != null:
 		spawn_position.rotate_z(charge_duration / 5)
 		charge_duration += delta
 		
+		var direction = project_ray_normal(screen_position)
+		var target_basis = Basis().looking_at(direction, Vector3.UP)
+
+		var current_quat = aim_rotation.basis.get_rotation_quaternion()
+		var target_quat = target_basis.get_rotation_quaternion()
+		
+		var aim_rotation_speed = 2.0
+		var new_quat = current_quat.slerp(target_quat, delta * aim_rotation_speed)
+		aim_rotation.transform.basis = Basis(new_quat)
+				
 		if rotated_fast == false and charge_duration > 1:
 			tween = get_tree().create_tween()
 			
@@ -61,6 +77,7 @@ func _process(delta: float) -> void:
 
 func shoot(screen_position) -> void:
 	if object_to_shoot == null:
+		print("no object")
 		return
 	
 	if tween != null:
@@ -71,13 +88,15 @@ func shoot(screen_position) -> void:
 	var direction = project_ray_normal(screen_position) * ray_length
 	var target_position = from + direction
 	
-	object_to_shoot.reparent(self)
+	object_to_shoot.reparent(get_parent())
 	object_to_shoot.freeze = false
 
 	# i shouldn't rotate this by this horizon, i should push the applied force vector up and down
 	var applied_force = target_position - object_to_shoot.global_position
 	applied_force += applied_force * charge_duration * 3
 	object_to_shoot.apply_central_impulse(applied_force)
+	
+	print("impulse")
 	object_to_shoot = null
 	charge_duration = 0
 	rotated_fast = false
