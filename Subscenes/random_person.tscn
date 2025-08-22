@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8l8mhyb5sfwf"]
+[gd_scene load_steps=5 format=3 uid="uid://b8l8mhyb5sfwf"]
+
+[ext_resource type="Texture2D" uid="uid://b6vfboinyegqy" path="res://Assets/concepts/NPCConcept.png" id="1_sr24p"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8gkds"]
 
@@ -15,7 +17,12 @@ gravity_scale = -10.0
 shape = SubResource("CapsuleShape3D_8gkds")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+visible = false
 mesh = SubResource("CapsuleMesh_8gkds")
+
+[node name="Sprite3D" type="Sprite3D" parent="RigidBody3D"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+texture = ExtResource("1_sr24p")
 
 [node name="PinJoint3D" type="PinJoint3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
