@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6qthxoydelxv"]
+[gd_scene load_steps=7 format=3 uid="uid://b6qthxoydelxv"]
 
 [ext_resource type="Script" uid="uid://c56o0l1eo5f5k" path="res://Scripts/world_view.gd" id="1_52fb6"]
 [ext_resource type="PackedScene" uid="uid://c2vjbnjw2np13" path="res://Subscenes/random_item.tscn" id="2_6l7je"]
+[ext_resource type="Script" uid="uid://dmbu0fdp3hxqq" path="res://Scripts/rotate_around.gd" id="2_x6ack"]
 [ext_resource type="PackedScene" uid="uid://b8l8mhyb5sfwf" path="res://Subscenes/random_person.tscn" id="3_jv6wh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6l7je"]
 size = Vector3(10, 0.1, 10)
+
+[sub_resource type="Curve" id="Curve_jv6wh"]
+_limits = [0.0, 1.0, 0.0, 2.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.05), 0.0, 0.0, 0, 0, Vector2(2, 0.01), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="MainScene" type="Node3D"]
 
@@ -26,7 +32,7 @@ transform = Transform3D(0.54822, -0.503586, 0.667724, 0, 0.798394, 0.602136, -0.
 shadow_enabled = true
 
 [node name="RandomPerson" parent="." instance=ExtResource("3_jv6wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.941919, 1.05, 0.190989)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.39046, 1.05, 1.08943)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -46,8 +52,12 @@ handle_input_locally = false
 size = Vector2i(960, 1080)
 render_target_update_mode = 4
 
-[node name="AutomatView" type="Camera3D" parent="Control/SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21831, 1.12251, 1.79181)
+[node name="RotateAround" type="Node3D" parent="Control/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09219, 1.2135, 0.168213)
+script = ExtResource("2_x6ack")
+
+[node name="AutomatView" type="Camera3D" parent="Control/SubViewportContainer/SubViewport/RotateAround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.08913)
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="Control"]
 layout_mode = 0
@@ -60,15 +70,19 @@ handle_input_locally = false
 size = Vector2i(960, 1080)
 render_target_update_mode = 4
 
-[node name="WorldView" type="Camera3D" parent="Control/SubViewportContainer2/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.934347, 1.13596, 2.39703)
-script = ExtResource("1_52fb6")
-spawnItem = ExtResource("2_6l7je")
+[node name="Node3D" type="Node3D" parent="Control/SubViewportContainer2/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47223, 1.46115, 3.07052)
 
-[node name="AimRotation" type="Node3D" parent="Control/SubViewportContainer2/SubViewport/WorldView"]
+[node name="WorldView" type="Camera3D" parent="Control/SubViewportContainer2/SubViewport/Node3D"]
+script = ExtResource("1_52fb6")
+spawn_shootable = ExtResource("2_6l7je")
+shake_curve = SubResource("Curve_jv6wh")
+
+[node name="AimRotation" type="Node3D" parent="Control/SubViewportContainer2/SubViewport/Node3D/WorldView"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.7)
 
-[node name="SpawnPosition" type="Node3D" parent="Control/SubViewportContainer2/SubViewport/WorldView/AimRotation"]
+[node name="SpawnPosition" type="Node3D" parent="Control/SubViewportContainer2/SubViewport/Node3D/WorldView/AimRotation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.199625, 0.263818)
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 2
