@@ -1,7 +1,14 @@
-extends AnimatableBody3D
+class_name CursorBody extends AnimatableBody3D
 
+## public
+var dragging : bool = false
+signal started_dragging(item)
+signal stopped_dragging(item)
+
+## private
 @onready var pin = $PinJoint3D
-var hoveredItem
+var moused_over_item
+var dragging_item
 
 func move_cursor():
 	var screen_position = get_viewport().get_mouse_position()
@@ -19,31 +26,47 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.is_pressed():
 			start_drag()
-		else:
+		elif event.is_released():
 			stop_drag()
 			
 	
 func _physics_process(delta: float) -> void:
 	move_cursor()
-	var screen_position = get_viewport().get_mouse_position()
-	var viewport_rect = get_viewport().get_visible_rect()
-	var camera = get_viewport().get_camera_3d()
-	var origin = camera.project_ray_origin(screen_position)
-	var direction = camera.project_ray_normal(screen_position) * 1
+	var screen_position: Vector2 = get_viewport().get_mouse_position()
+	var viewport_rect: Rect2 = get_viewport().get_visible_rect()
+	var camera: Camera3D = get_viewport().get_camera_3d()
+	var origin: Vector3 = camera.project_ray_origin(screen_position)
+	var direction: Vector3 = camera.project_ray_normal(screen_position) * 1
 	
-	var space_state = get_world_3d().direct_space_state
+	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 	
-	var collision_mask = 1 << 1
-	var query = PhysicsRayQueryParameters3D.create(origin, origin + direction, collision_mask)
-	var result = space_state.intersect_ray(query)
-	if result:
-		hoveredItem = result.collider
+	var mask: int = 1 << 1
+	var query = PhysicsRayQueryParameters3D.create(origin, origin + direction, mask)
+	var result: Dictionary = space_state.intersect_ray(query)
+	if result and result.collider is RigidBody3D:
+		moused_over_item = result.collider
+	else:
+		moused_over_item = null
+	
 	
 func start_drag():
-	pin.node_b = hoveredItem.get_path()
+	if moused_over_item == null:
+		return
+	
+	print(moused_over_item.get_path())
+	moused_over_item.freeze = false
+	pin.node_b = moused_over_item.get_path()
+	dragging = true
+	dragging_item = moused_over_item
+	emit_signal("started_dragging", moused_over_item)
 	pass
 
-func stop_drag():
-	# maybe add impulse? probably not needed though because of AnimatableBody
+func stop_drag():	
+	if not dragging:
+		return
+	
 	pin.node_b = NodePath("")
+	dragging = false
+	emit_signal("stopped_dragging", dragging_item)
+	dragging_item = null
 	pass

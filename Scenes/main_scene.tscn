@@ -1,19 +1,24 @@
-[gd_scene load_steps=12 format=3 uid="uid://b6qthxoydelxv"]
+[gd_scene load_steps=14 format=3 uid="uid://b6qthxoydelxv"]
 
 [ext_resource type="Script" uid="uid://c56o0l1eo5f5k" path="res://Scripts/world_view.gd" id="1_52fb6"]
 [ext_resource type="PackedScene" uid="uid://c2vjbnjw2np13" path="res://Subscenes/random_item.tscn" id="2_6l7je"]
 [ext_resource type="Script" uid="uid://dmbu0fdp3hxqq" path="res://Scripts/rotate_around.gd" id="2_x6ack"]
 [ext_resource type="PackedScene" uid="uid://b8l8mhyb5sfwf" path="res://Subscenes/random_person.tscn" id="3_jv6wh"]
+[ext_resource type="Script" uid="uid://7mv8rlcaqlga" path="res://Scripts/item_slot.gd" id="3_maf8m"]
 [ext_resource type="Script" uid="uid://dsalx1r160eac" path="res://Scripts/cursor_object.gd" id="5_6ev3c"]
 [ext_resource type="Texture2D" uid="uid://dc3kn44ygtcai" path="res://Assets/concepts/automatCleanConceptProBubnu1.png" id="5_iacmt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6l7je"]
 size = Vector3(10, 0.1, 10)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_huasi"]
+radius = 0.1
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_iacmt"]
 size = Vector3(1, 0.114258, 0.319092)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_iacmt"]
+radius = 0.01
 
 [sub_resource type="SphereMesh" id="SphereMesh_6ev3c"]
 radius = 0.05
@@ -68,9 +73,37 @@ physics_object_picking = true
 size = Vector2i(960, 1080)
 render_target_update_mode = 4
 
-[node name="RandomItem" parent="Control/SubViewportContainer/SubViewport" instance=ExtResource("2_6l7je")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.445, 1.596, 0.5)
+[node name="ItemSlot" type="Area3D" parent="Control/SubViewportContainer/SubViewport" node_paths=PackedStringArray("item_in_slot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.455, 1.84522, 0.489491)
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("3_maf8m")
+item_in_slot = NodePath("RandomItem")
+
+[node name="RandomItem" parent="Control/SubViewportContainer/SubViewport/ItemSlot" instance=ExtResource("2_6l7je")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
 collision_layer = 3
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/ItemSlot"]
+shape = SubResource("SphereShape3D_huasi")
+
+[node name="ItemSlot2" type="Area3D" parent="Control/SubViewportContainer/SubViewport" node_paths=PackedStringArray("item_in_slot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19922, 1.84522, 0.489491)
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("3_maf8m")
+item_in_slot = NodePath("RandomItem")
+
+[node name="RandomItem" parent="Control/SubViewportContainer/SubViewport/ItemSlot2" instance=ExtResource("2_6l7je")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
+collision_layer = 3
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/ItemSlot2"]
+shape = SubResource("SphereShape3D_huasi")
 
 [node name="Table" type="StaticBody3D" parent="Control/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28042, 0.945635, 0.699867)
@@ -88,7 +121,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.30489)
 
 [node name="CursorObject" type="AnimatableBody3D" parent="Control/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20982, 1.71966, 0.5)
-collision_layer = 0
+collision_layer = 16
 collision_mask = 0
 script = ExtResource("5_6ev3c")
 
@@ -99,6 +132,7 @@ shape = SubResource("SphereShape3D_iacmt")
 node_a = NodePath("..")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Control/SubViewportContainer/SubViewport/CursorObject"]
+visible = false
 mesh = SubResource("SphereMesh_6ev3c")
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="Control"]
