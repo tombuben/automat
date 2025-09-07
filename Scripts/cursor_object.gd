@@ -8,7 +8,7 @@ signal stopped_dragging(item)
 ## private
 @onready var pin = $PinJoint3D
 var moused_over_item
-var dragging_item
+var last_dragged_object
 
 func move_cursor():
 	var screen_position = get_viewport().get_mouse_position()
@@ -57,7 +57,7 @@ func start_drag():
 	moused_over_item.freeze = false
 	pin.node_b = moused_over_item.get_path()
 	dragging = true
-	dragging_item = moused_over_item
+	last_dragged_object = moused_over_item
 	emit_signal("started_dragging", moused_over_item)
 	pass
 
@@ -67,6 +67,5 @@ func stop_drag():
 	
 	pin.node_b = NodePath("")
 	dragging = false
-	emit_signal("stopped_dragging", dragging_item)
-	dragging_item = null
+	emit_signal("stopped_dragging", last_dragged_object)
 	pass

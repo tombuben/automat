@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b6qthxoydelxv"]
+[gd_scene load_steps=19 format=3 uid="uid://b6qthxoydelxv"]
 
 [ext_resource type="Script" uid="uid://c56o0l1eo5f5k" path="res://Scripts/world_view.gd" id="1_52fb6"]
 [ext_resource type="PackedScene" uid="uid://c2vjbnjw2np13" path="res://Subscenes/random_item.tscn" id="2_6l7je"]
@@ -16,6 +16,24 @@ radius = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iacmt"]
 size = Vector3(1, 0.114258, 0.319092)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_maf8m"]
+size = Vector3(0.489746, 0.692017, 0.319092)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m1efj"]
+size = Vector3(0.170654, 1.74869, 0.319092)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_huasi"]
+size = Vector3(0.489746, 0.692017, 0.319092)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mai8y"]
+size = Vector3(0.218384, 1.46027, 0.319092)
+
+[sub_resource type="Curve" id="Curve_maf8m"]
+_limits = [0.0, 1.0, -1.0, 1.0]
+bake_resolution = 1000
+_data = [Vector2(-1, 0), 0.0, 0.0, 0, 0, Vector2(0.179747, 0.113763), 0.224311, 0.224311, 0, 0, Vector2(0.782278, 1), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_iacmt"]
 radius = 0.01
@@ -105,16 +123,145 @@ axis_lock_angular_x = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/ItemSlot2"]
 shape = SubResource("SphereShape3D_huasi")
 
+[node name="ItemSlot3" type="Area3D" parent="Control/SubViewportContainer/SubViewport" node_paths=PackedStringArray("item_in_slot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925311, 1.81878, 0.489491)
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("3_maf8m")
+item_in_slot = NodePath("RandomItem")
+
+[node name="RandomItem" parent="Control/SubViewportContainer/SubViewport/ItemSlot3" instance=ExtResource("2_6l7je")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
+collision_layer = 3
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/ItemSlot3"]
+shape = SubResource("SphereShape3D_huasi")
+
+[node name="ItemSlot4" type="Area3D" parent="Control/SubViewportContainer/SubViewport" node_paths=PackedStringArray("item_in_slot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44782, 1.49412, 0.489491)
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("3_maf8m")
+item_in_slot = NodePath("RandomItem")
+
+[node name="RandomItem" parent="Control/SubViewportContainer/SubViewport/ItemSlot4" instance=ExtResource("2_6l7je")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
+collision_layer = 3
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/ItemSlot4"]
+shape = SubResource("SphereShape3D_huasi")
+
+[node name="ItemSlot5" type="Area3D" parent="Control/SubViewportContainer/SubViewport" node_paths=PackedStringArray("item_in_slot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18925, 1.50943, 0.489491)
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("3_maf8m")
+item_in_slot = NodePath("RandomItem")
+
+[node name="RandomItem" parent="Control/SubViewportContainer/SubViewport/ItemSlot5" instance=ExtResource("2_6l7je")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
+collision_layer = 3
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/ItemSlot5"]
+shape = SubResource("SphereShape3D_huasi")
+
+[node name="ItemSlot6" type="Area3D" parent="Control/SubViewportContainer/SubViewport" node_paths=PackedStringArray("item_in_slot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.918761, 1.50943, 0.489491)
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("3_maf8m")
+item_in_slot = NodePath("RandomItem")
+
+[node name="RandomItem" parent="Control/SubViewportContainer/SubViewport/ItemSlot6" instance=ExtResource("2_6l7je")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
+collision_layer = 3
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/ItemSlot6"]
+shape = SubResource("SphereShape3D_huasi")
+
+[node name="ItemSlot7" type="Area3D" parent="Control/SubViewportContainer/SubViewport" node_paths=PackedStringArray("item_in_slot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45803, 1.14368, 0.489491)
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("3_maf8m")
+item_in_slot = NodePath("RandomItem")
+
+[node name="RandomItem" parent="Control/SubViewportContainer/SubViewport/ItemSlot7" instance=ExtResource("2_6l7je")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
+collision_layer = 3
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/ItemSlot7"]
+shape = SubResource("SphereShape3D_huasi")
+
+[node name="ItemSlot8" type="Area3D" parent="Control/SubViewportContainer/SubViewport" node_paths=PackedStringArray("item_in_slot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19095, 1.15559, 0.489491)
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("3_maf8m")
+item_in_slot = NodePath("RandomItem")
+
+[node name="RandomItem" parent="Control/SubViewportContainer/SubViewport/ItemSlot8" instance=ExtResource("2_6l7je")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
+collision_layer = 3
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/ItemSlot8"]
+shape = SubResource("SphereShape3D_huasi")
+
+[node name="ItemSlot9" type="Area3D" parent="Control/SubViewportContainer/SubViewport" node_paths=PackedStringArray("item_in_slot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.922163, 1.15729, 0.489491)
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("3_maf8m")
+item_in_slot = NodePath("RandomItem")
+
+[node name="RandomItem" parent="Control/SubViewportContainer/SubViewport/ItemSlot9" instance=ExtResource("2_6l7je")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
+collision_layer = 3
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/ItemSlot9"]
+shape = SubResource("SphereShape3D_huasi")
+
 [node name="Table" type="StaticBody3D" parent="Control/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28042, 0.945635, 0.699867)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/Table"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.442871, -0.202026)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.59723, -0.202026)
 shape = SubResource("BoxShape3D_iacmt")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/Table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.255127, -0.308351, -0.202026)
+shape = SubResource("BoxShape3D_maf8m")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/Table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414673, 0.219985, -0.202026)
+shape = SubResource("BoxShape3D_m1efj")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/Table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.487675, -0.308351, -0.202026)
+shape = SubResource("BoxShape3D_huasi")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/Table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.623356, 0.407693, -0.202026)
+shape = SubResource("BoxShape3D_mai8y")
 
 [node name="RotateAround" type="Node3D" parent="Control/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17864, 1.50314, 0.0504672)
 script = ExtResource("2_x6ack")
+mouse_height_to_pos_curve = SubResource("Curve_maf8m")
 
 [node name="AutomatView" type="Camera3D" parent="Control/SubViewportContainer/SubViewport/RotateAround"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.30489)
