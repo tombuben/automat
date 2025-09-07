@@ -7,6 +7,7 @@ points = PackedVector3Array(-0.0132805, -0.019008, -0.205334, 0.0221538, 0.46844
 
 [node name="RandomItem" type="RigidBody3D"]
 mass = 0.35
+angular_damp = 10.0
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.0484524, 0)

@@ -45,6 +45,3 @@ func handle_camera_position(delta: float, mouse_pos : Vector2) -> void:
 	var direction = target_pos - global_position
 	var step = direction * speed_factor * delta
 	global_position += step
-
-	
-	#global_position = global_position.move_toward(target_pos, delta)

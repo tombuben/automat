@@ -15,7 +15,7 @@ size = Vector3(10, 0.1, 10)
 radius = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iacmt"]
-size = Vector3(1, 0.114258, 0.319092)
+size = Vector3(1, 0.219116, 0.319092)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_maf8m"]
 size = Vector3(0.489746, 0.692017, 0.319092)
@@ -101,8 +101,6 @@ item_in_slot = NodePath("RandomItem")
 [node name="RandomItem" parent="Control/SubViewportContainer/SubViewport/ItemSlot" instance=ExtResource("2_6l7je")]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
 collision_layer = 3
-axis_lock_linear_z = true
-axis_lock_angular_x = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/ItemSlot"]
 shape = SubResource("SphereShape3D_huasi")
@@ -117,8 +115,6 @@ item_in_slot = NodePath("RandomItem")
 [node name="RandomItem" parent="Control/SubViewportContainer/SubViewport/ItemSlot2" instance=ExtResource("2_6l7je")]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
 collision_layer = 3
-axis_lock_linear_z = true
-axis_lock_angular_x = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/ItemSlot2"]
 shape = SubResource("SphereShape3D_huasi")
@@ -133,8 +129,6 @@ item_in_slot = NodePath("RandomItem")
 [node name="RandomItem" parent="Control/SubViewportContainer/SubViewport/ItemSlot3" instance=ExtResource("2_6l7je")]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
 collision_layer = 3
-axis_lock_linear_z = true
-axis_lock_angular_x = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/ItemSlot3"]
 shape = SubResource("SphereShape3D_huasi")
@@ -149,8 +143,6 @@ item_in_slot = NodePath("RandomItem")
 [node name="RandomItem" parent="Control/SubViewportContainer/SubViewport/ItemSlot4" instance=ExtResource("2_6l7je")]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
 collision_layer = 3
-axis_lock_linear_z = true
-axis_lock_angular_x = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/ItemSlot4"]
 shape = SubResource("SphereShape3D_huasi")
@@ -165,8 +157,6 @@ item_in_slot = NodePath("RandomItem")
 [node name="RandomItem" parent="Control/SubViewportContainer/SubViewport/ItemSlot5" instance=ExtResource("2_6l7je")]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
 collision_layer = 3
-axis_lock_linear_z = true
-axis_lock_angular_x = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/ItemSlot5"]
 shape = SubResource("SphereShape3D_huasi")
@@ -181,8 +171,6 @@ item_in_slot = NodePath("RandomItem")
 [node name="RandomItem" parent="Control/SubViewportContainer/SubViewport/ItemSlot6" instance=ExtResource("2_6l7je")]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
 collision_layer = 3
-axis_lock_linear_z = true
-axis_lock_angular_x = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/ItemSlot6"]
 shape = SubResource("SphereShape3D_huasi")
@@ -197,8 +185,6 @@ item_in_slot = NodePath("RandomItem")
 [node name="RandomItem" parent="Control/SubViewportContainer/SubViewport/ItemSlot7" instance=ExtResource("2_6l7je")]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
 collision_layer = 3
-axis_lock_linear_z = true
-axis_lock_angular_x = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/ItemSlot7"]
 shape = SubResource("SphereShape3D_huasi")
@@ -213,8 +199,6 @@ item_in_slot = NodePath("RandomItem")
 [node name="RandomItem" parent="Control/SubViewportContainer/SubViewport/ItemSlot8" instance=ExtResource("2_6l7je")]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
 collision_layer = 3
-axis_lock_linear_z = true
-axis_lock_angular_x = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/ItemSlot8"]
 shape = SubResource("SphereShape3D_huasi")
@@ -229,8 +213,6 @@ item_in_slot = NodePath("RandomItem")
 [node name="RandomItem" parent="Control/SubViewportContainer/SubViewport/ItemSlot9" instance=ExtResource("2_6l7je")]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
 collision_layer = 3
-axis_lock_linear_z = true
-axis_lock_angular_x = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/ItemSlot9"]
 shape = SubResource("SphereShape3D_huasi")
@@ -239,7 +221,7 @@ shape = SubResource("SphereShape3D_huasi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28042, 0.945635, 0.699867)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/Table"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.59723, -0.202026)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.544801, -0.202026)
 shape = SubResource("BoxShape3D_iacmt")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/Table"]
@@ -277,6 +259,7 @@ shape = SubResource("SphereShape3D_iacmt")
 
 [node name="PinJoint3D" type="PinJoint3D" parent="Control/SubViewportContainer/SubViewport/CursorObject"]
 node_a = NodePath("..")
+params/impulse_clamp = 0.2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Control/SubViewportContainer/SubViewport/CursorObject"]
 visible = false
