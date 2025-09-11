@@ -32,11 +32,18 @@ func handle_camera_position(delta: float, mouse_pos : Vector2) -> void:
 		return
 	
 	var relative_position : float
-	if cursor_object.last_dragged_object.freeze:
-		relative_position = -1
-	else:	
-		var last_object_height = cursor_object.last_dragged_object.global_position.y
-		relative_position = remap(last_object_height, 0.5, 2, 1, -1)
+	if cursor_object.last_dragged_object.freeze: #Todo here check if the object is in item slot
+		pass
+		#relative_position = -1
+	else:
+		#var last_object_height = cursor_object.last_dragged_object.global_position.y
+		#relative_position = remap(last_object_height, 0.5, 2, 1, -1)
+		pass
+	
+	#todo remove this
+	var last_object_height = cursor_object.last_dragged_object.global_position.y
+	relative_position = remap(last_object_height, 0.5, 2, 1, -1)
+	#todo end
 	
 	var height_pos = mouse_height_to_pos_curve.sample(relative_position)	
 	target_pos.y = original_pos.y - height_pos * 0.6

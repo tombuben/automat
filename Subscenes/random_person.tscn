@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8l8mhyb5sfwf"]
+[gd_scene load_steps=6 format=3 uid="uid://b8l8mhyb5sfwf"]
 
+[ext_resource type="Script" uid="uid://b7ohdqhsdloap" path="res://Scripts/rotation_limiter.gd" id="1_afjl1"]
 [ext_resource type="Texture2D" uid="uid://b6vfboinyegqy" path="res://Assets/concepts/NPCConcept.png" id="1_sr24p"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8gkds"]
@@ -11,7 +12,10 @@
 [node name="RandomPerson" type="Node3D"]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
+axis_lock_angular_y = true
 gravity_scale = -10.0
+linear_damp = 5.0
+script = ExtResource("1_afjl1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("CapsuleShape3D_8gkds")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b6qthxoydelxv"]
+[gd_scene load_steps=21 format=3 uid="uid://b6qthxoydelxv"]
 
 [ext_resource type="Script" uid="uid://c56o0l1eo5f5k" path="res://Scripts/world_view.gd" id="1_52fb6"]
 [ext_resource type="PackedScene" uid="uid://c2vjbnjw2np13" path="res://Subscenes/random_item.tscn" id="2_6l7je"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://7mv8rlcaqlga" path="res://Scripts/item_slot.gd" id="3_maf8m"]
 [ext_resource type="Script" uid="uid://dsalx1r160eac" path="res://Scripts/cursor_object.gd" id="5_6ev3c"]
 [ext_resource type="Texture2D" uid="uid://dc3kn44ygtcai" path="res://Assets/concepts/automatCleanConceptProBubnu1.png" id="5_iacmt"]
+[ext_resource type="Script" uid="uid://vysddvus01vk" path="res://Scripts/dispensor_selector.gd" id="7_huasi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6l7je"]
 size = Vector3(10, 0.1, 10)
@@ -41,6 +42,9 @@ radius = 0.01
 [sub_resource type="SphereMesh" id="SphereMesh_6ev3c"]
 radius = 0.05
 height = 0.1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_76v2p"]
+size = Vector3(0.5, 0.5, 0.5)
 
 [sub_resource type="Curve" id="Curve_jv6wh"]
 _limits = [0.0, 1.0, 0.0, 2.0]
@@ -264,6 +268,13 @@ params/impulse_clamp = 0.2
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Control/SubViewportContainer/SubViewport/CursorObject"]
 visible = false
 mesh = SubResource("SphereMesh_6ev3c")
+
+[node name="DispensorSelector" type="Area3D" parent="Control/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18287, 0.637081, 0.503324)
+script = ExtResource("7_huasi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/DispensorSelector"]
+shape = SubResource("BoxShape3D_76v2p")
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="Control"]
 layout_mode = 0

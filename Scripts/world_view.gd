@@ -1,9 +1,12 @@
-extends Camera3D
+class_name WorldView extends Camera3D
 
 @onready var aim_rotation = $AimRotation
+@onready var aim_transform = aim_rotation.transform
 @onready var spawn_position = $AimRotation/SpawnPosition
+@onready var spawn_transform = spawn_position.transform
 @onready var aim_plane : AnimationPlayer = $AimPlane
 @onready var animation_player = $AnimationPlayer
+
 @export var spawn_shootable : PackedScene
 
 @export var shake_curve : Curve
@@ -27,12 +30,41 @@ var rotated_fast : bool
 var rotate_object_tween : Tween
 var push_back_camera_tween : Tween
 
-func charge() -> void:
-	if object_to_shoot != null:
-		return
+var charging : bool
+
+func _ready() -> void:
+	GlobalManager.world_view = self
+	
+	#spawn()
+
+func spawn() -> void: 
+	aim_rotation.transform = aim_transform
+	spawn_position.transform = spawn_transform
+	
 	object_to_shoot = spawn_shootable.instantiate()
 	spawn_position.add_child(object_to_shoot)
+	object_to_shoot.global_position = spawn_position.global_position
 	object_to_shoot.freeze = true
+	
+func spawn_duplicate(original : RigidBody3D) -> void:
+	aim_rotation.transform = aim_transform
+	spawn_position.transform = spawn_transform
+	
+	object_to_shoot = original.duplicate()
+	object_to_shoot.rotation = Vector3.ZERO
+	spawn_position.add_child(object_to_shoot)
+	object_to_shoot.global_position = spawn_position.global_position
+	object_to_shoot.freeze = true
+
+func delete_object_to_shoot() -> void:
+	if object_to_shoot:
+		object_to_shoot.queue_free()
+		object_to_shoot = null
+
+func charge() -> void:
+	if not object_to_shoot:
+		return
+	charging = true
 	charge_duration = 0
 	rotated_fast = false
 
@@ -44,7 +76,7 @@ func _process(delta: float) -> void:
 	
 	handle_camera_rotation(delta)
 	
-	if object_to_shoot != null:
+	if charging:
 		handle_object_aim_rotation(delta)
 		handle_camera_shake()
 
@@ -87,6 +119,8 @@ func handle_object_aim_rotation(delta: float) -> void:
 		
 		rotate_object_tween.tween_property(object_to_shoot, "rotation", target_rotation, 1)
 		rotated_fast = true
+		
+	GlobalManager.dispensor_selector.update_rotation(charge_duration)
 
 func handle_camera_shake() -> void:
 	var shake_strength = shake_curve.sample(charge_duration)
@@ -113,7 +147,6 @@ func shoot(screen_position) -> void:
 	applied_force += applied_force * charge_duration * 3
 	object_to_shoot.apply_central_impulse(applied_force)
 	
-	
 	push_back_camera_tween = get_tree().create_tween()
 	var original_position = position
 	var push_position = Vector3(0, 0, 0.25 * charge_duration)
@@ -123,8 +156,10 @@ func shoot(screen_position) -> void:
 	object_to_shoot = null
 	charge_duration = 0
 	rotated_fast = false
+	charging = false
 	
-	
-	#animation_player.play("camera_push_back")
+	#await get_tree().create_timer(1).timeout
+	#spawn()
+	GlobalManager.dispensor_selector.shoot_from_dispenser()
 	
 	

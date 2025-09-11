@@ -1,14 +1,23 @@
 class_name CursorBody extends AnimatableBody3D
 
 ## public
+
+func get_dragged_item() -> RigidBody3D:
+	if not dragging:
+		return null
+	return last_dragged_object
+
 var dragging : bool = false
 signal started_dragging(item)
 signal stopped_dragging(item)
 
 ## private
 @onready var pin = $PinJoint3D
-var moused_over_item
+var moused_over_item : RandomItem
 var last_dragged_object
+
+func _ready() -> void:
+	GlobalManager.cursor_body = self
 
 func move_cursor():
 	var screen_position = get_viewport().get_mouse_position()
@@ -54,7 +63,7 @@ func start_drag():
 		return
 	
 	print(moused_over_item.get_path())
-	moused_over_item.freeze = false
+	moused_over_item.take_out_of_slot()
 	pin.node_b = moused_over_item.get_path()
 	dragging = true
 	last_dragged_object = moused_over_item
