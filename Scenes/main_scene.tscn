@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b6qthxoydelxv"]
+[gd_scene load_steps=25 format=3 uid="uid://b6qthxoydelxv"]
 
 [ext_resource type="Script" uid="uid://c56o0l1eo5f5k" path="res://Scripts/world_view.gd" id="1_52fb6"]
 [ext_resource type="PackedScene" uid="uid://c2vjbnjw2np13" path="res://Subscenes/random_item.tscn" id="2_6l7je"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://dsalx1r160eac" path="res://Scripts/cursor_object.gd" id="5_6ev3c"]
 [ext_resource type="Texture2D" uid="uid://dc3kn44ygtcai" path="res://Assets/concepts/automatCleanConceptProBubnu1.png" id="5_iacmt"]
 [ext_resource type="Script" uid="uid://vysddvus01vk" path="res://Scripts/dispensor_selector.gd" id="7_huasi"]
+[ext_resource type="Script" uid="uid://ci5q4jckgmagi" path="res://Scripts/mouse_cursor.gd" id="10_76v2p"]
+[ext_resource type="Texture2D" uid="uid://1y7wg77wd30x" path="res://Assets/concepts/cursor.png" id="10_mai8y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6l7je"]
 size = Vector3(10, 0.1, 10)
@@ -18,6 +20,9 @@ radius = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iacmt"]
 size = Vector3(1, 0.219116, 0.319092)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_drdnd"]
+size = Vector3(1, 1.8985, 0.311646)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_maf8m"]
 size = Vector3(0.489746, 0.692017, 0.319092)
@@ -75,7 +80,7 @@ transform = Transform3D(0.54822, -0.503586, 0.667724, 0, 0.798394, 0.602136, -0.
 shadow_enabled = true
 
 [node name="RandomPerson" parent="." instance=ExtResource("3_jv6wh")]
-transform = Transform3D(0.279242, 0, -0.960221, 0, 1, 0, 0.960221, 0, 0.279242, 3.97298, 1.05, -0.956972)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46429, 1.05, 0.248835)
 
 [node name="Control" type="Control" parent="." node_paths=PackedStringArray("left_subviewport", "right_subviewport", "divider")]
 layout_mode = 3
@@ -233,6 +238,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28042, 0.945635, 0.699867)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.544801, -0.202026)
 shape = SubResource("BoxShape3D_iacmt")
 
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/Table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29489, -0.0151974)
+shape = SubResource("BoxShape3D_drdnd")
+
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/Table"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.255127, -0.308351, -0.202026)
 shape = SubResource("BoxShape3D_maf8m")
@@ -311,3 +320,10 @@ layout_mode = 2
 offset_left = 960.0
 offset_right = 962.0
 offset_bottom = 1080.0
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("10_76v2p")
+
+[node name="Cursor" type="Sprite2D" parent="Node2D"]
+position = Vector2(31.35, 40.57)
+texture = ExtResource("10_mai8y")

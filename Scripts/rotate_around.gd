@@ -1,10 +1,13 @@
-extends Node3D
+class_name RotateAround extends Node3D
 
 @export var mouse_height_to_pos_curve : Curve
 
 @onready var cursor_object : CursorBody = $"../CursorObject"
 @onready var original_pos = global_position
 @onready var target_pos = original_pos
+
+func _ready() -> void:
+	GlobalManager.rotate_around = self
 
 func _process(delta: float) -> void:
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -28,22 +31,14 @@ func handle_camera_rotation(delta: float, mouse_pos : Vector2) -> void:
 	basis = Basis(new_camera_quat)
 
 func handle_camera_position(delta: float, mouse_pos : Vector2) -> void:
-	if not cursor_object.last_dragged_object:
-		return
 	
 	var relative_position : float
-	if cursor_object.last_dragged_object.freeze: #Todo here check if the object is in item slot
-		pass
-		#relative_position = -1
+	if not cursor_object.last_dragged_object or cursor_object.last_dragged_object.in_slot:
+		relative_position = -1
 	else:
-		#var last_object_height = cursor_object.last_dragged_object.global_position.y
-		#relative_position = remap(last_object_height, 0.5, 2, 1, -1)
-		pass
-	
-	#todo remove this
-	var last_object_height = cursor_object.last_dragged_object.global_position.y
-	relative_position = remap(last_object_height, 0.5, 2, 1, -1)
-	#todo end
+		var last_object_height = cursor_object.last_dragged_object.global_position.y
+		relative_position = remap(last_object_height, 0.5, 2, 1, -1)
+
 	
 	var height_pos = mouse_height_to_pos_curve.sample(relative_position)	
 	target_pos.y = original_pos.y - height_pos * 0.6

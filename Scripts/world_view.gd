@@ -42,11 +42,17 @@ func spawn_duplicate(original : RigidBody3D) -> void:
 	object_to_shoot = original.duplicate()
 	object_to_shoot.rotation = Vector3.ZERO
 	spawn_position.add_child(object_to_shoot)
-	object_to_shoot.global_position = spawn_position.global_position
+	object_to_shoot.global_position = spawn_position.global_position + Vector3.DOWN * 0.1
 	object_to_shoot.freeze = true
+	
+	var tween = create_tween()
+	tween.tween_property(object_to_shoot, "global_position", spawn_position.global_position, 0.1)
 
 func delete_object_to_shoot() -> void:
 	if object_to_shoot:
+		var tween = create_tween()
+		tween.tween_property(object_to_shoot, "global_position", spawn_position.global_position + Vector3.DOWN * 0.1, 0.1)
+		await tween.finished
 		object_to_shoot.queue_free()
 		object_to_shoot = null
 
@@ -148,3 +154,4 @@ func shoot(screen_position) -> void:
 	charging = false
 
 	GlobalManager.dispensor_selector.shoot_from_dispenser()
+	GlobalManager.cursor_body.last_dragged_object = null

@@ -14,7 +14,7 @@ signal stopped_dragging(item)
 ## private
 @onready var pin = $PinJoint3D
 var moused_over_item : RandomItem
-var last_dragged_object
+var last_dragged_object : RandomItem
 
 func _ready() -> void:
 	GlobalManager.cursor_body = self

@@ -24,6 +24,7 @@ GlobalManager="*res://Scripts/global_manager.gd"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/resizable=false
+mouse_cursor/custom_image="uid://bqk00sbd4q21i"
 
 [layer_names]
 
