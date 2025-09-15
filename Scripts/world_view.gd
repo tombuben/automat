@@ -34,18 +34,7 @@ var charging : bool
 
 func _ready() -> void:
 	GlobalManager.world_view = self
-	
-	#spawn()
 
-func spawn() -> void: 
-	aim_rotation.transform = aim_transform
-	spawn_position.transform = spawn_transform
-	
-	object_to_shoot = spawn_shootable.instantiate()
-	spawn_position.add_child(object_to_shoot)
-	object_to_shoot.global_position = spawn_position.global_position
-	object_to_shoot.freeze = true
-	
 func spawn_duplicate(original : RigidBody3D) -> void:
 	aim_rotation.transform = aim_transform
 	spawn_position.transform = spawn_transform
@@ -157,9 +146,5 @@ func shoot(screen_position) -> void:
 	charge_duration = 0
 	rotated_fast = false
 	charging = false
-	
-	#await get_tree().create_timer(1).timeout
-	#spawn()
+
 	GlobalManager.dispensor_selector.shoot_from_dispenser()
-	
-	
