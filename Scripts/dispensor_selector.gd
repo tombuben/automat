@@ -20,12 +20,17 @@ func set_body_async(body : RigidBody3D) -> void:
 	if cursor.get_dragged_item() == body:
 		cursor.stopped_dragging.connect(set_body_async)
 	else:
-		body.freeze = true
-		var tween = create_tween()
-		var duration = 0.1
-		tween.tween_property(body, "global_position", global_position, duration)
-		tween.tween_property(body, "rotation", rotation, duration)
-		GlobalManager.world_view.spawn_duplicate(body)
+		set_body(body)
+		
+func set_body(body : RigidBody3D) -> void:
+	body.freeze = true
+	var tween = create_tween()
+	var duration = 0.1
+	tween.tween_property(body, "global_position", global_position, duration)
+	tween.tween_property(body, "rotation", rotation, duration)
+	GlobalManager.world_view.spawn_duplicate(body)
+	
+	expand_for_shooting()
 
 func _on_body_exited(body):
 	if body is RandomItem and not body.freeze:
@@ -34,9 +39,28 @@ func _on_body_exited(body):
 		GlobalManager.world_view.delete_object_to_shoot()
 		body_in_dispenser = null
 		
+		expand_for_selection()
+		
 func update_rotation(charge_duration : float):
 	body_in_dispenser.rotate_z(charge_duration / 5)
 
 func shoot_from_dispenser():
 	body_in_dispenser.queue_free()
 	body_in_dispenser = null
+	
+	expand_for_selection(0.5)
+
+
+func expand_for_shooting(duration = 1.0):
+	var tween = create_tween()
+	var screen_size = 0.3
+	tween.tween_property(GlobalManager.screen_resizer, "ratio", screen_size, duration)\
+		.set_trans(Tween.TRANS_BOUNCE)\
+		.set_ease(Tween.EASE_OUT)
+
+func expand_for_selection(duration = 1.0):
+	var tween = create_tween()
+	var screen_size = 0.6
+	tween.tween_property(GlobalManager.screen_resizer, "ratio", screen_size, duration)\
+		.set_trans(Tween.TRANS_BOUNCE)\
+		.set_ease(Tween.EASE_OUT)
