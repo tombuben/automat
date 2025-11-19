@@ -1,0 +1,47 @@
+~ start
+Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
+Nathan: Here are some choices.
+- First one
+	Nathan: You picked the first one.
+- Second one
+	Nathan: You picked the second one.
+- Start again => start
+- End the conversation => END
+Nathan: For more information see the online documentation.
+
+~ intro
+
+Emily: Hi! Did you know that toucans can eat lizards? They are omnivores like that. Like I also love fruit, but I don't know about eating lizards.
+Emily: Oh I am Emily by the way! I lost Franklin.
+ - Who is Franklin?
+	Emily: Franklin is my Toucan. Has a beak.
+ - Is Franklin a toucan?
+	Emily: Yup, big beak, a flying type of guy.
+Emily: Can you help me find him? Here is some cash. (1 coin) => END
+# Přetáhneme coin do ručiček automatu
+
+
+
+
+#_____________
+#
+#ITEMY
+#
+#Orange
+# - A refreshing fruit
+# - Vitamin C source
+#
+#Monsterous drink
+#- Liquid energy
+#- makes people feel fast
+#
+#Family photo
+#- taken from a photobank, this is their first time seeing each other
+#- they look so happy together
+#
+#Ping pong ball
+#- bounces a lot
+#- looks like an egg but more round
+#
+#
+Emily: There he is! Guess he was hungry. Thanks!!
