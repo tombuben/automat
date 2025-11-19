@@ -7,6 +7,7 @@ class_name ScreenResizer extends Control
 
 @export var divider : ColorRect
 
+@export var dialogue_resource : DialogueResource
 var ratio : float
 
 func _ready() -> void:
@@ -17,6 +18,8 @@ func _ready() -> void:
 	print(left_subviewport.size.x)
 	print(viewport.size.x)
 	print(ratio)
+	DialogueManager.show_dialogue_balloon(dialogue_resource, "intro")
+	
 
 func _process(delta: float) -> void:
 	var viewport = get_viewport()

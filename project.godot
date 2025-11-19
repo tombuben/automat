@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 GlobalManager="*res://Scripts/global_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
+[dialogue_manager]
+
+runtime/balloon_path="res://Scenes/DialogueBubble/balloon.tscn"
+
 [display]
 
 window/size/viewport_width=1920
