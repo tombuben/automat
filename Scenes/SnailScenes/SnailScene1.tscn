@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxw5al7swxe3"]
+
+[ext_resource type="Texture2D" uid="uid://ccc366karilrr" path="res://Assets/concepts/frog2.png" id="1_yf4a2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jo7c2"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nhh7a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf4a2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nhh7a"]
+size = Vector3(1, 0.8712158, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yf4a2"]
+
+[node name="SnailScene1" type="Node3D"]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Ground" type="CSGBox3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075529575, 0)
+size = Vector3(10, 0.1, 10)
+
+[node name="Ground" type="StaticBody3D" parent="Node/Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node/Ground/Ground"]
+shape = SubResource("BoxShape3D_jo7c2")
+
+[node name="Ground" type="Node3D" parent="."]
+transform = Transform3D(2.364, 0, 0, 0, 0.059, 0, 0, 0, 0.82, 0, 0, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_nhh7a")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Ground/MeshInstance3D"]
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/MeshInstance3D/RigidBody3D"]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999923, 0, 0, 0)
+shape = SubResource("BoxShape3D_yf4a2")
+
+[node name="Snail" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27321512, 0.12166074)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Snail"]
+axis_lock_linear_x = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Snail/RigidBody3D"]
+transform = Transform3D(0.239, 0, 0, 0, 0.239, 0, 0, 0, 0.239, -0.0061127245, 0.13719156, 0)
+shape = SubResource("BoxShape3D_nhh7a")
+debug_color = Color(0, 12.483121, 0, 0.41960785)
+
+[node name="Sprite3D" type="Sprite3D" parent="Snail/RigidBody3D"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0.13113438, 0)
+texture = ExtResource("1_yf4a2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Snail/RigidBody3D"]
+transform = Transform3D(0.212, 0, 0, 0, 0.212, 0, 0, 0, 0.215, 0, 0.15330756, 0)
+visible = false
+mesh = SubResource("BoxMesh_yf4a2")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2042214, 0.71421283)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, -7.081034e-08, -1.3336276e-07, 0, -0.8832217, 0.46895567, 1.509958e-07, 0.46895567, 0.8832217, 0.20122606, 1.707106, 3.257291)
