@@ -1,3 +1,59 @@
+~ day1_start
+=> capitalist
+
+~ capitalist
+do GlobalManager.play_animation.emit("capitalist_enter")
+do wait(GlobalManager.played_animation_duration)
+capitalist: What an useless vending machine, lets just put it here
+do GlobalManager.play_animation.emit("capitalist_leave")
+do wait(GlobalManager.played_animation_duration)
+=> duckman
+
+~ duckman
+do GlobalManager.play_animation.emit("duckman_enter")
+do wait(GlobalManager.played_animation_duration)
+duckman: Hi! Im duckman and i want bread!
+duckman: Here have an egg
+do GlobalManager.recieve_item.emit("egg")
+do GlobalManager.person_shoot_selection_started.emit("duckman")
+
+~ duckman_hit
+if GlobalManager.person_hit_with_item == "bread"
+	duckman: thanks for the bread!
+	do GlobalManager.play_animation.emit("duckman_leave")
+	do wait(GlobalManager.played_animation_duration)
+	=> grandma
+else
+	duckman: what is this! give me something else!
+	do GlobalManager.person_shoot_selection_started.emit("duckman")
+	=> END!
+
+~ grandma
+do GlobalManager.play_animation.emit("grandma_enter")
+do wait(GlobalManager.played_animation_duration)
+grandma: Hi! I'm grandma and i want to fix stuff here!
+do GlobalManager.person_shoot_selection_started.emit("grandma")
+
+~ grandma_hit
+if GlobalManager.person_hit_with_item == "energy_drink"
+	grandma: This gives me energy!
+	do GlobalManager.person_shoot_selection_started.emit("grandma")
+	=> END!
+elif GlobalManager.person_hit_with_item == "spare_parts"
+	grandma: oh this is useful, thanks!
+	do GlobalManager.play_animation.emit("grandma_leave")
+	do wait(GlobalManager.played_animation_duration)
+	=> capitalist_payment
+else
+	grandma: I don't need this!
+	do GlobalManager.person_shoot_selection_started.emit("grandma")
+	=> END!
+
+~ capitalist_payment
+do GlobalManager.play_animation.emit("capitalist_payment_enter")
+do wait(GlobalManager.played_animation_duration)
+
+
 ~ intro
 
 Emily: Hi! Did you know that toucans can eat lizards? They are omnivores like that. Like I also love fruit, but I don't know about eating lizards.
