@@ -1,21 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxw5al7swxe3"]
+[gd_scene load_steps=8 format=3 uid="uid://cxw5al7swxe3"]
 
 [ext_resource type="Script" uid="uid://8ctun1j1ppjl" path="res://Scenes/SnailScenes/SnailMovement.gd" id="1_jo7c2"]
 [ext_resource type="Texture2D" uid="uid://ccc366karilrr" path="res://Assets/concepts/frog2.png" id="1_yf4a2"]
+[ext_resource type="Texture2D" uid="uid://b6vfboinyegqy" path="res://Assets/concepts/NPCConcept.png" id="3_hfsvj"]
+[ext_resource type="Script" uid="uid://b5ylpcrve2f5x" path="res://Scenes/SnailScenes/camera_mover.gd" id="3_hr6cm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nhh7a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yf4a2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jo7c2"]
-size = Vector3(0.4189453, 0.45996094, 0.25)
+size = Vector3(0.56347656, 0.51416016, 0.25)
 
 [node name="SnailScene1" type="Node3D"]
 
 [node name="Ground" type="Node3D" parent="."]
-transform = Transform3D(4.336, 0, 0, 0, 0.108, 0, 0, 0, 1.504, 0, 0, -0.34906924)
+transform = Transform3D(31.233, 0, 0, 0, 0.108, 0, 0, 0, 1.504, 0, 0, -0.34906924)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0.18712005)
 mesh = SubResource("BoxMesh_nhh7a")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="Ground/MeshInstance3D"]
@@ -26,23 +29,58 @@ transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999923, 0, 0, 0)
 shape = SubResource("BoxShape3D_yf4a2")
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1.515, 0, 0, 0, 1.515, 0, 0, 0, 1.515, 0, 0, 0)
+transform = Transform3D(1.515, 0, 0, 0, 1.515, 0, 0, 0, 1.515, 0, 0.34084672, 0)
 up_direction = Vector3(0, -1, 0)
 script = ExtResource("1_jo7c2")
+speed = 2.0
 
 [node name="Visual" type="Node3D" parent="Player"]
 
 [node name="Sprite3D" type="Sprite3D" parent="Player/Visual"]
-transform = Transform3D(0.10800001, 0, 0, 0, 0.10800001, 0, 0, 0, 0.10800001, 0, 0.4593848, -0.2186237)
+transform = Transform3D(0.10800001, 0, 0, 0, 0.10800001, 0, 0, 0, 0.10800001, 0, 0.044435352, 0)
 pixel_size = 0.0095
 texture = ExtResource("1_yf4a2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38806152, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016845703, 0.11128977, 0)
 shape = SubResource("BoxShape3D_jo7c2")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63830936, 1.5786293)
+[node name="CameraMover" type="Node3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63830936, 1.5786291)
+script = ExtResource("3_hr6cm")
+target = NodePath("../Player")
+follow_time = 1.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraMover"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.288, 8)
+doppler_tracking = 1
+fov = 38.9
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, -7.081034e-08, -1.3336276e-07, 0, -0.8832217, 0.46895567, 1.509958e-07, 0.46895567, 0.8832217, 0.20122606, 1.707106, 3.257291)
+transform = Transform3D(-1, 4.2916167e-08, 7.6163936e-08, 0, -0.87121385, 0.49090374, 8.742278e-08, 0.49090374, 0.87121385, 0.20122606, 1.707106, 3.257291)
+
+[node name="BGObjects" type="Node" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="BGObjects"]
+transform = Transform3D(0.398, 0, 0, 0, 0.398, 0, 0, 0, 0.398, -1.5493565, 1.114307, -6.9672422)
+texture = ExtResource("3_hfsvj")
+
+[node name="Sprite3D2" type="Sprite3D" parent="BGObjects"]
+transform = Transform3D(0.398, 0, 0, 0, 0.398, 0, 0, 0, 0.398, 1.8434391, 0.13191664, -1.1256928)
+texture = ExtResource("3_hfsvj")
+
+[node name="Sprite3D3" type="Sprite3D" parent="BGObjects"]
+transform = Transform3D(0.398, 0, 0, 0, 0.398, 0, 0, 0, 0.398, -3.6908607, 0.43134713, -1.1256928)
+texture = ExtResource("3_hfsvj")
+
+[node name="Sprite3D4" type="Sprite3D" parent="BGObjects"]
+transform = Transform3D(0.398, 0, 0, 0, 0.398, 0, 0, 0, 0.398, 4.769156, 0.50044703, -4.8428197)
+texture = ExtResource("3_hfsvj")
+
+[node name="Sprite3D5" type="Sprite3D" parent="BGObjects"]
+transform = Transform3D(0.398, 0, 0, 0, 0.398, 0, 0, 0, 0.398, 10.052165, 0.50044703, -7.58954)
+texture = ExtResource("3_hfsvj")
+
+[node name="Sprite3D6" type="Sprite3D" parent="BGObjects"]
+transform = Transform3D(0.398, 0, 0, 0, 0.398, 0, 0, 0, 0.398, -9.951694, 0.50044703, -7.58954)
+texture = ExtResource("3_hfsvj")

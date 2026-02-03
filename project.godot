@@ -13,6 +13,7 @@ config_version=5
 config/name="automat"
 run/main_scene="uid://b6qthxoydelxv"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
@@ -34,6 +35,13 @@ mouse_cursor/custom_image="uid://bqk00sbd4q21i"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
+[importer_defaults]
+
+3d_texture={
+&"compress/mode": 0,
+&"mipmaps/generate": false
+}
 
 [input]
 
