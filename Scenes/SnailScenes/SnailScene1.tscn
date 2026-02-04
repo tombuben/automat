@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxw5al7swxe3"]
+[gd_scene load_steps=15 format=3 uid="uid://cxw5al7swxe3"]
 
 [ext_resource type="Script" uid="uid://8ctun1j1ppjl" path="res://Scenes/SnailScenes/SnailMovement.gd" id="1_jo7c2"]
 [ext_resource type="Texture2D" uid="uid://ccc366karilrr" path="res://Assets/concepts/frog2.png" id="1_yf4a2"]
 [ext_resource type="Texture2D" uid="uid://b6vfboinyegqy" path="res://Assets/concepts/NPCConcept.png" id="3_hfsvj"]
 [ext_resource type="Script" uid="uid://b5ylpcrve2f5x" path="res://Scenes/SnailScenes/camera_mover.gd" id="3_hr6cm"]
 [ext_resource type="Script" uid="uid://btrj1uws12nbs" path="res://Scenes/SnailScenes/camera_zone.gd" id="5_m5g3b"]
+[ext_resource type="Texture2D" uid="uid://1y7wg77wd30x" path="res://Assets/concepts/cursor.png" id="6_wfnla"]
+[ext_resource type="Script" uid="uid://dddyuvvp33qia" path="res://Scenes/SnailScenes/letter_interactable.gd" id="6_wgho2"]
+[ext_resource type="Texture2D" uid="uid://c6lqbgep87b41" path="res://Assets/concepts/Circle.png" id="8_e3ln3"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nhh7a"]
 
@@ -17,6 +20,8 @@ size = Vector3(0.56347656, 0.51416016, 0.25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hr6cm"]
 size = Vector3(7.8728027, 3.909668, 4.245117)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wfnla"]
 
 [node name="SnailScene1" type="Node3D"]
 
@@ -34,7 +39,7 @@ gravity_scale = 0.0
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999923, 0, 0, 0)
 shape = SubResource("BoxShape3D_yf4a2")
 
-[node name="Player" type="CharacterBody3D" parent="."]
+[node name="Player" type="CharacterBody3D" parent="." groups=["player"]]
 transform = Transform3D(1.515, 0, 0, 0, 1.515, 0, 0, 0, 1.515, 0, 0.34084672, 0)
 up_direction = Vector3(0, -1, 0)
 script = ExtResource("1_jo7c2")
@@ -55,7 +60,7 @@ shape = SubResource("BoxShape3D_jo7c2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63830936, 1.5786291)
 script = ExtResource("3_hr6cm")
 target = NodePath("../Player")
-follow_time = 1.0
+follow_time = 0.7
 look_ahead_distance = 0.5
 look_ahead_time = 0.3
 
@@ -108,3 +113,40 @@ script = ExtResource("5_m5g3b")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CameraZone/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.662829, 1.454834, 0)
 shape = SubResource("BoxShape3D_hr6cm")
+
+[node name="LetterInteractable" type="Node3D" parent="." node_paths=PackedStringArray("popup", "bubble", "text")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8824253, 0.6785445, 2.3841858e-07)
+script = ExtResource("6_wgho2")
+popup = NodePath("Popup")
+bubble = NodePath("Popup/Sprite3D")
+text = NodePath("Popup/Label3D")
+speed = 6.0
+text_delay = 6.082
+text_softness = 6.0
+
+[node name="Area3D" type="Area3D" parent="LetterInteractable"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LetterInteractable/Area3D"]
+shape = SubResource("BoxShape3D_wfnla")
+
+[node name="Sprite3D" type="Sprite3D" parent="LetterInteractable"]
+transform = Transform3D(1, 0, 0, 0, 0.17880218, 0.98388505, 0, -0.98388505, 0.17880218, 0, -0.49882483, 0)
+texture = ExtResource("6_wfnla")
+
+[node name="Popup" type="Node3D" parent="LetterInteractable"]
+
+[node name="Sprite3D" type="Sprite3D" parent="LetterInteractable/Popup"]
+transform = Transform3D(1.1194196, 0, 0, 0, 1.1943277, 0, 0, 0, 1, 0, 1.3535378, 0)
+texture = ExtResource("8_e3ln3")
+
+[node name="Label3D" type="Label3D" parent="LetterInteractable/Popup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3778374, 0.07966283)
+no_depth_test = true
+modulate = Color(0, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "What is a a circles favourite food? Steak"
+font_size = 39
+autowrap_mode = 2
+
+[connection signal="body_entered" from="LetterInteractable/Area3D" to="LetterInteractable" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="LetterInteractable/Area3D" to="LetterInteractable" method="_on_area_3d_body_exited"]
