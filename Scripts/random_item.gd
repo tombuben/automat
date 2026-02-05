@@ -1,5 +1,8 @@
 class_name RandomItem extends RigidBody3D
 
+@export var item_name : String
+@export var item_type : Array[String]
+
 var in_slot : ItemSlot
 
 func take_out_of_slot() -> void:

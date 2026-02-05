@@ -9,11 +9,13 @@ var rotate_around : RotateAround
 
 var screen_resizer : ScreenResizer
 
+var scene_dialogue_manager : SceneDialogueManager
+
 
 signal play_animation(animation_name : String)
-var played_animation_duration : float
+var current_animation_length : float
 
 signal person_shoot_selection_started(person_name : String)
-var person_hit_with_item : String
+var item_that_hit : RandomItem
 
 signal recieve_item(item : String)

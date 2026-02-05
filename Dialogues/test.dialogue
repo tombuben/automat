@@ -1,57 +1,89 @@
 ~ day1_start
-=> capitalist
+=> capitalist_first_enter
 
-~ capitalist
+~ capitalist_first_enter
 do GlobalManager.play_animation.emit("capitalist_enter")
-do wait(GlobalManager.played_animation_duration)
+do wait(GlobalManager.current_animation_length + 1)
 capitalist: What an useless vending machine, lets just put it here
+ - Im not useless!
+	do wait(0)
+	capitalist: Super super useless.
+	capitalist: Super super useless.
+ - Am i useless? =>< capitalist_long_useless_tirade
+do wait(0)
+capitalist: bla bla bla
+capitalist: a ted se zvetsi obrazovka
+do GlobalManager.play_animation.emit("screen_expand")
+do wait(GlobalManager.current_animation_length)
+capitalist: epicke co
+do GlobalManager.play_animation.emit("screen_shrink")
+capitalist: a rovnou pri tom i mluvim
+
 do GlobalManager.play_animation.emit("capitalist_leave")
-do wait(GlobalManager.played_animation_duration)
+do wait(GlobalManager.current_animation_length)
 => duckman
+
+~ capitalist_long_useless_tirade
+do wait(0)
+capitalist: Super super useless.Super super useless.Super super useless.
+=> END
 
 ~ duckman
 do GlobalManager.play_animation.emit("duckman_enter")
-do wait(GlobalManager.played_animation_duration)
+do wait(GlobalManager.current_animation_length)
 duckman: Hi! Im duckman and i want bread!
 duckman: Here have an egg
-do GlobalManager.recieve_item.emit("egg")
-do GlobalManager.person_shoot_selection_started.emit("duckman")
+#do GlobalManager.recieve_item.emit("egg")
+#do GlobalManager.person_shoot_selection_started.emit()
+=> END!
 
 ~ duckman_hit
-if GlobalManager.person_hit_with_item == "bread"
+if GlobalManager.item_that_hit.item_name == "bread"
 	duckman: thanks for the bread!
 	do GlobalManager.play_animation.emit("duckman_leave")
-	do wait(GlobalManager.played_animation_duration)
+	do wait(GlobalManager.current_animation_length)
 	=> grandma
+elif "metal" in GlobalManager.item_that_hit.item_type:
+	duckman: OUCH you hit me with a metal thing!
+	#do GlobalManager.person_shoot_selection_started.emit()
+	=> END!
 else
 	duckman: what is this! give me something else!
-	do GlobalManager.person_shoot_selection_started.emit("duckman")
+	#do GlobalManager.person_shoot_selection_started.emit()
 	=> END!
+	
+#not implemented yet
+~ duckman_miss
+duckman: Hey where U shooting at???
+do GlobalManager.person_shoot_selection_started.emit()
+=> END!
 
 ~ grandma
 do GlobalManager.play_animation.emit("grandma_enter")
-do wait(GlobalManager.played_animation_duration)
+do wait(GlobalManager.current_animation_length)
 grandma: Hi! I'm grandma and i want to fix stuff here!
-do GlobalManager.person_shoot_selection_started.emit("grandma")
+#do GlobalManager.person_shoot_selection_started.emit()
+=> END!
 
 ~ grandma_hit
-if GlobalManager.person_hit_with_item == "energy_drink"
+if GlobalManager.item_that_hit.item_name == "energy_drink"
 	grandma: This gives me energy!
-	do GlobalManager.person_shoot_selection_started.emit("grandma")
+	#do GlobalManager.person_shoot_selection_started.emit()
 	=> END!
-elif GlobalManager.person_hit_with_item == "spare_parts"
+elif GlobalManager.item_that_hit.item_name == "spare_parts"
 	grandma: oh this is useful, thanks!
 	do GlobalManager.play_animation.emit("grandma_leave")
-	do wait(GlobalManager.played_animation_duration)
+	do wait(GlobalManager.current_animation_length)
 	=> capitalist_payment
 else
 	grandma: I don't need this!
-	do GlobalManager.person_shoot_selection_started.emit("grandma")
+	#do GlobalManager.person_shoot_selection_started.emit()
 	=> END!
 
 ~ capitalist_payment
 do GlobalManager.play_animation.emit("capitalist_payment_enter")
-do wait(GlobalManager.played_animation_duration)
+do wait(GlobalManager.current_animation_length)
+=> END!
 
 
 ~ intro

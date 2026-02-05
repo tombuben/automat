@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8l8mhyb5sfwf"]
+[gd_scene format=3 uid="uid://b8l8mhyb5sfwf"]
 
 [ext_resource type="Script" uid="uid://b7ohdqhsdloap" path="res://Scripts/rotation_limiter.gd" id="1_afjl1"]
 [ext_resource type="Texture2D" uid="uid://b6vfboinyegqy" path="res://Assets/concepts/NPCConcept.png" id="1_sr24p"]
+[ext_resource type="Script" uid="uid://os1e3ic4o4wa" path="res://Scripts/random_person.gd" id="1_t8clt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8gkds"]
 
@@ -9,34 +10,36 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8gkds"]
 
-[node name="RandomPerson" type="Node3D"]
+[node name="RandomPerson" type="Node3D" unique_id=1055277779]
+script = ExtResource("1_t8clt")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=368135441]
+collision_layer = 2
 axis_lock_angular_y = true
 gravity_scale = -10.0
 linear_damp = 5.0
 script = ExtResource("1_afjl1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1897721447]
 shape = SubResource("CapsuleShape3D_8gkds")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1803611507]
 visible = false
 mesh = SubResource("CapsuleMesh_8gkds")
 
-[node name="Sprite3D" type="Sprite3D" parent="RigidBody3D"]
+[node name="Sprite3D" type="Sprite3D" parent="RigidBody3D" unique_id=82952497]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 texture = ExtResource("1_sr24p")
 
-[node name="PinJoint3D" type="PinJoint3D" parent="."]
+[node name="PinJoint3D" type="PinJoint3D" parent="." unique_id=318766112]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 node_a = NodePath("../RigidBody3D")
 node_b = NodePath("../StaticBody3D")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1792104469]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 collision_layer = 0
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1449975986]
 shape = SubResource("SphereShape3D_8gkds")

@@ -54,7 +54,6 @@ func shoot_from_dispenser():
 	
 	expand_for_selection(0.5)
 
-
 func expand_for_shooting(duration = 1.0):
 	var tween = create_tween()
 	var screen_size = 0.3
