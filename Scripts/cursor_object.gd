@@ -49,11 +49,13 @@ func _physics_process(delta: float) -> void:
 	
 	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 	
-	var mask: int = 1 << 1
-	var query = PhysicsRayQueryParameters3D.create(origin, origin + direction, mask)
-	var result: Dictionary = space_state.intersect_ray(query)
-	if result and result.collider is RigidBody3D:
-		moused_over_item = result.collider
+	var mask: int = 1 << 1	
+	var params := PhysicsPointQueryParameters3D.new()
+	params.position = global_position
+	params.collision_mask = mask
+	var result = space_state.intersect_point(params)
+	if len(result) and result[0].collider is RigidBody3D:
+		moused_over_item = result[0].collider
 	else:
 		moused_over_item = null
 	
