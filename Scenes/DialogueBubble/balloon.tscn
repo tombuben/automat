@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://or16w8auq1ai"]
 
 [ext_resource type="Script" uid="uid://bql6g5hapwq5m" path="res://Scenes/DialogueBubble/balloon.gd" id="1_36de5"]
+[ext_resource type="FontFile" uid="uid://cvd5j8d7y4hxx" path="res://Assets/WinkySans-VariableFont_wght.ttf" id="2_7qwyv"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 
@@ -52,6 +53,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="Theme" id="Theme_qq3yp"]
+default_font = ExtResource("2_7qwyv")
 default_font_size = 20
 Button/styles/disabled = SubResource("StyleBoxFlat_spyqn")
 Button/styles/focus = SubResource("StyleBoxFlat_ri4m3")
@@ -109,6 +111,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = -37.0
+offset_right = 21.0
+offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_qq3yp")
@@ -120,7 +126,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 963.0
-offset_top = -219.0
+offset_top = -1013.0
+offset_right = -1.565918
+offset_bottom = -794.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -153,6 +161,7 @@ scroll_active = false
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 35
 text = "Dialogue..."
 
 [node name="Control" type="Control" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=541740382]
@@ -176,10 +185,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 198.0
-offset_top = -226.0
-offset_right = 779.0
-offset_bottom = -156.0
+offset_left = 162.0
+offset_top = 387.0
+offset_right = 743.0
+offset_bottom = 457.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
@@ -190,6 +199,7 @@ response_template = NodePath("ResponseExample")
 
 [node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu" unique_id=145817079]
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Response example"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1502918690]

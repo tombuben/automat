@@ -4,38 +4,59 @@
 ~ capitalist_first_enter
 do GlobalManager.play_animation.emit("capitalist_enter")
 do wait(GlobalManager.current_animation_length + 1)
-capitalist: What an useless vending machine, lets just put it here
- - Im not useless!
+
+capitalist: Okay, so since you only take up space and eat my electricity
+capitalist: You are either making money or going to trash
+
+capitalist: Here is your "selling licence"
+capitalist: You take money and then give stuff to people
+capitalist: You cannot possibly fail at this
+
+capitalist: Okay, now try giving me the licence
+
+capitalist: OUCH
+capitalist: Wow okay, this is... yeah.
+capitalist: Good enough.
+
+capitalist: If anybody asks, you DO NOT know me
+
+ - But what if- =>< know_me_disagree
 	do wait(0)
 	capitalist: Super super useless.
 	capitalist: Super super useless.
- - Am i useless? =>< capitalist_long_useless_tirade
+ - Oh okay... 
 do wait(0)
-capitalist: bla bla bla
-capitalist: a ted se zvetsi obrazovka
-do GlobalManager.play_animation.emit("screen_expand")
-do wait(GlobalManager.current_animation_length)
-capitalist: epicke co
-do GlobalManager.play_animation.emit("screen_shrink")
-capitalist: a rovnou pri tom i mluvim
+
+~ capitalist_end_convo
+
+capitalist: I will be watching
+capitalist: I am off to pouring water out of my sunken submarine of a house.
 
 do GlobalManager.play_animation.emit("capitalist_leave")
 do wait(GlobalManager.current_animation_length)
 => duckman
 
-~ capitalist_long_useless_tirade
+~ know_me_disagree
 do wait(0)
-capitalist: Super super useless.Super super useless.Super super useless.
-=> END
+capitalist: No.
+=> capitalist_end_convo
+
+#do GlobalManager.play_animation.emit("screen_expand")
+#do wait(GlobalManager.current_animation_length)
+
+#do GlobalManager.play_animation.emit("screen_shrink")
+
 
 ~ duckman
 do GlobalManager.play_animation.emit("duckman_enter")
-do wait(GlobalManager.current_animation_length)
+do wait(GlobalManager.current_animation_length +1)
+
 duckman: Hi! Im duckman and i want bread!
-duckman: Here have an egg
+=> END!
+
+
 #do GlobalManager.recieve_item.emit("egg")
 #do GlobalManager.person_shoot_selection_started.emit()
-=> END!
 
 ~ duckman_hit
 if GlobalManager.item_that_hit.item_name == "bread"
