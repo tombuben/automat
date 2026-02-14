@@ -12,7 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://sy66csq6kpjk" path="res://Assets/LVL1Assets/Characters/Duckmancer.png" id="4_nt2eh"]
 [ext_resource type="Script" uid="uid://dsalx1r160eac" path="res://Scripts/cursor_object.gd" id="5_6ev3c"]
 [ext_resource type="Script" uid="uid://vysddvus01vk" path="res://Scripts/dispensor_selector.gd" id="7_huasi"]
-[ext_resource type="Script" path="res://Scripts/mouse_cursor.gd" id="10_76v2p"]
+[ext_resource type="PackedScene" uid="uid://do2eiuugsfc1a" path="res://Subscenes/Items/toast_item.tscn" id="8_nt2eh"]
+[ext_resource type="Script" uid="uid://ci5q4jckgmagi" path="res://Scripts/mouse_cursor.gd" id="10_76v2p"]
 [ext_resource type="Texture2D" uid="uid://1y7wg77wd30x" path="res://Assets/concepts/cursor.png" id="10_mai8y"]
 [ext_resource type="Script" uid="uid://c6qs8oiugm1gg" path="res://Scripts/global_animation_player.gd" id="13_ioaeq"]
 [ext_resource type="Script" uid="uid://cqptasjmaayf6" path="res://Scripts/scene_dialogue_manager.gd" id="14_7ewk0"]
@@ -51,15 +52,15 @@ size = Vector3(0.489746, 0.692017, 0.319092)
 [sub_resource type="BoxShape3D" id="BoxShape3D_mai8y"]
 size = Vector3(0.218384, 1.46027, 0.319092)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_76v2p"]
+size = Vector3(0.71972656, 0.70996094, 0.5)
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_iacmt"]
 radius = 0.01
 
 [sub_resource type="SphereMesh" id="SphereMesh_6ev3c"]
 radius = 0.05
 height = 0.1
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_76v2p"]
-size = Vector3(0.71972656, 0.70996094, 0.5)
 
 [sub_resource type="Curve" id="Curve_jv6wh"]
 _limits = [0.0, 1.0, 0.0, 2.0]
@@ -265,6 +266,12 @@ albedo_color = Color(0.1764706, 0.54901963, 0.5686275, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_8edxt"]
 material = SubResource("StandardMaterial3D_nt2eh")
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_nt2eh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5cm5d"]
+transparency = 1
+albedo_color = Color(1, 0, 1, 0.36862746)
+
 [node name="MainScene" type="Node3D" unique_id=350775679]
 
 [node name="Ground" type="CSGBox3D" parent="." unique_id=1178615179]
@@ -301,19 +308,20 @@ person_name = "grandma"
 [node name="Sprite3D" parent="Grandma/RigidBody3D" parent_id_path=PackedInt32Array(1055277779, 368135441) index="2" unique_id=82952497]
 texture = ExtResource("4_nt2eh")
 
-[node name="Node" type="Node" parent="." unique_id=1612036298]
+[node name="Node" type="Node3D" parent="." unique_id=1282403330]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.48224, 0, 0)
 
 [node name="box" type="CSGBox3D" parent="Node" unique_id=738468243]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4764967, 1.2301935, -0.00439191)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011609077, 1.2301935, -0.00439191)
 size = Vector3(1, 1.753, 0.7)
 
 [node name="Sprite3D" type="Sprite3D" parent="Node" unique_id=1087225422]
-transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -7.4623866, 1.171102, 0.364562)
+transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0.025719166, 1.171102, 0.364562)
 modulate = Color(1, 1, 1, 0.24313726)
 texture = ExtResource("3_8edxt")
 
 [node name="ItemSlot" type="Area3D" parent="Node" unique_id=821282033 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7605605, 1.84522, 0.489491)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27245474, 1.84522, 0.489491)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
@@ -328,7 +336,7 @@ item_type = Array[String](["meal"])
 shape = SubResource("SphereShape3D_huasi")
 
 [node name="ItemSlot2" type="Area3D" parent="Node" unique_id=1293194248 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.471566, 1.84522, 0.489491)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.016539574, 1.84522, 0.489491)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
@@ -343,7 +351,7 @@ item_type = Array[String](["metal", "meal"])
 shape = SubResource("SphereShape3D_huasi")
 
 [node name="ItemSlot3" type="Area3D" parent="Node" unique_id=1098058856 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.171691, 1.8435009, 0.489491)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31641483, 1.8435009, 0.489491)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
@@ -358,8 +366,7 @@ item_type = Array[String](["metal"])
 shape = SubResource("SphereShape3D_huasi")
 
 [node name="ItemSlot4" type="Area3D" parent="Node" unique_id=99053840 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7533803, 1.49412, 0.489491)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26527452, 1.49412, 0.489491)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
@@ -372,8 +379,7 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1
 shape = SubResource("SphereShape3D_huasi")
 
 [node name="ItemSlot5" type="Area3D" parent="Node" unique_id=912682092 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.49481, 1.50943, 0.489491)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0067043304, 1.50943, 0.489491)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
@@ -386,8 +392,7 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1
 shape = SubResource("SphereShape3D_huasi")
 
 [node name="ItemSlot6" type="Area3D" parent="Node" unique_id=1150150503 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2243214, 1.50943, 0.489491)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2641058, 1.509, 0.5)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
@@ -400,8 +405,7 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1
 shape = SubResource("SphereShape3D_huasi")
 
 [node name="ItemSlot7" type="Area3D" parent="Node" unique_id=981432456 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7635903, 1.14368, 0.489491)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27548456, 1.1699593, 0.489491)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
@@ -414,8 +418,7 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1
 shape = SubResource("SphereShape3D_huasi")
 
 [node name="ItemSlot8" type="Area3D" parent="Node" unique_id=2028433372 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4965105, 1.15559, 0.489491)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008404732, 1.15559, 0.489491)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
@@ -428,21 +431,20 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1
 shape = SubResource("SphereShape3D_huasi")
 
 [node name="ItemSlot9" type="Area3D" parent="Node" unique_id=324159926 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.227723, 1.15729, 0.489491)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26038265, 1.15729, 0.489491)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
-item_in_slot = NodePath("RandomItem")
+item_in_slot = NodePath("ToastItem")
 
-[node name="RandomItem" parent="Node/ItemSlot9" unique_id=503947899 instance=ExtResource("2_6l7je")]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
+[node name="ToastItem" parent="Node/ItemSlot9" unique_id=1837871512 instance=ExtResource("8_nt2eh")]
+transform = Transform3D(1, 0, 0, 0, 0.79968464, 0.60042024, 0, -0.60042024, 0.79968464, 0, 0, -0.116877675)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node/ItemSlot9" unique_id=728874747]
 shape = SubResource("SphereShape3D_huasi")
 
 [node name="Table" type="StaticBody3D" parent="Node" unique_id=801750209]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5774965, 0.90919584, 0.699867)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.089390755, 0.90919584, 0.699867)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node/Table" unique_id=914909532]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09487486, -0.6037723, -0.20202601)
@@ -473,6 +475,15 @@ debug_color = Color(0, 4.006028, 4.6620398, 0.41960785)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62335587, 0.51338404, -0.20202601)
 shape = SubResource("BoxShape3D_mai8y")
 debug_color = Color(0, 2.5736918, 2.998326, 0.41960785)
+
+[node name="DispensorSelector" type="Area3D" parent="Node" unique_id=340854766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0069241524, 0.6886339, 0.503324)
+script = ExtResource("7_huasi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node/DispensorSelector" unique_id=625571309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0025024414, 0)
+shape = SubResource("BoxShape3D_76v2p")
+debug_color = Color(0, 1.7336978, 0.4055968, 0.41960785)
 
 [node name="Control" type="Control" parent="." unique_id=1381454070 node_paths=PackedStringArray("left_subviewport", "right_subviewport", "divider")]
 layout_mode = 3
@@ -518,17 +529,7 @@ node_a = NodePath("..")
 params/impulse_clamp = 0.2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Control/SubViewportContainer/SubViewport/CursorObject" unique_id=113823246]
-visible = false
 mesh = SubResource("SphereMesh_6ev3c")
-
-[node name="DispensorSelector" type="Area3D" parent="Control/SubViewportContainer/SubViewport" unique_id=340854766]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4811816, 0.6886339, 0.503324)
-script = ExtResource("7_huasi")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Control/SubViewportContainer/SubViewport/DispensorSelector" unique_id=625571309]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0025024414, 0)
-shape = SubResource("BoxShape3D_76v2p")
-debug_color = Color(0, 1.7336978, 0.4055968, 0.41960785)
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="Control" unique_id=1904352335]
 layout_mode = 0
@@ -637,6 +638,13 @@ light_color = Color(0.55, 0.55, 0.55, 1)
 light_energy = 0.446
 light_indirect_energy = 0.51
 directional_shadow_mode = 0
+
+[node name="SelectionPlane" type="MeshInstance3D" parent="." unique_id=1437209716]
+transform = Transform3D(100, 0, 0, 0, -4.371139e-06, -100, 0, 100, -4.371139e-06, 0, 0, 0.5)
+visible = false
+mesh = SubResource("PlaneMesh_nt2eh")
+skeleton = NodePath("../BgObjects")
+surface_material_override/0 = SubResource("StandardMaterial3D_5cm5d")
 
 [editable path="Capitalist"]
 [editable path="Duckman"]

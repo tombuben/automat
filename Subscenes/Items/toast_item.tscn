@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://do2eiuugsfc1a"]
+
+[ext_resource type="Script" uid="uid://clluv3r6m72c2" path="res://Scripts/random_item.gd" id="1_osvde"]
+[ext_resource type="PackedScene" uid="uid://datdgya0d64vn" path="res://Assets/models/KenneyPlaceholders/sandwich.glb" id="2_pdneb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vkqkw"]
+size = Vector3(0.6447754, 0.7774048, 0.5761719)
+
+[node name="ToastItem" type="RigidBody3D" unique_id=1837871512]
+collision_layer = 3
+mass = 0.35
+angular_damp = 10.0
+script = ExtResource("1_osvde")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=7575584]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.008897759, 0)
+shape = SubResource("BoxShape3D_vkqkw")
+
+[node name="sandwich2" parent="." unique_id=1715378267 instance=ExtResource("2_pdneb")]
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, 0.5, 0, -0.5, -2.1855694e-08, 0, 0, 0.041840553)
