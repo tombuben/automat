@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dsapsx0cqw2o4"]
+
+[ext_resource type="PackedScene" uid="uid://b8l8mhyb5sfwf" path="res://Subscenes/random_person.tscn" id="1_rd34y"]
+[ext_resource type="Texture2D" uid="uid://c6ffp8w6xhpan" path="res://Assets/LVL1Assets/Characters/UnhingedGirl.png" id="2_rd34y"]
+
+[node name="UnhingedGirl" unique_id=1055277779 instance=ExtResource("1_rd34y")]
+
+[node name="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="2" unique_id=82952497]
+texture = ExtResource("2_rd34y")

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c7hss7u705toj"]
+
+[ext_resource type="PackedScene" uid="uid://b8l8mhyb5sfwf" path="res://Subscenes/random_person.tscn" id="1_5wa52"]
+[ext_resource type="Texture2D" uid="uid://bb288otal510h" path="res://Assets/LVL1Assets/Characters/Wanderer.png" id="2_y6fge"]
+
+[node name="Wanderer" unique_id=1055277779 instance=ExtResource("1_5wa52")]
+
+[node name="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="2" unique_id=82952497]
+texture = ExtResource("2_y6fge")

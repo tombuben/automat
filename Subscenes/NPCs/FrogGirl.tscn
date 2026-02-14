@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dhgrk7a5l1x5p"]
+
+[ext_resource type="PackedScene" uid="uid://b8l8mhyb5sfwf" path="res://Subscenes/random_person.tscn" id="1_02mjp"]
+[ext_resource type="Texture2D" uid="uid://co7k7euxwyspc" path="res://Assets/LVL1Assets/Characters/FrogGirl.png" id="2_02mjp"]
+
+[node name="FrogGirl" unique_id=1055277779 instance=ExtResource("1_02mjp")]
+
+[node name="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="2" unique_id=82952497]
+texture = ExtResource("2_02mjp")
