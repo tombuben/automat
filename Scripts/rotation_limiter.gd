@@ -9,3 +9,6 @@ func _integrate_forces(state):
 	elif rotation.y > max_angle:
 		rotation.y = max_angle
 		angular_velocity.y = -1
+	
+	#todo figure out why PhysicsBody3D axis lock isn't enough
+	rotation.y = 0
