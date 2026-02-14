@@ -69,11 +69,11 @@ func _process(delta: float) -> void:
 	if not viewport_rect.has_point(mouse_pos):
 		screen_position = get_viewport().get_visible_rect().size / 2
 	
-	handle_camera_rotation(delta)
+	#handle_camera_rotation(delta)
 	
 	if charging:
 		handle_object_aim_rotation(delta)
-		handle_camera_shake()
+		#handle_camera_shake()
 
 func handle_camera_rotation(delta: float) -> void:
 	
@@ -144,7 +144,7 @@ func shoot(screen_position) -> void:
 	
 	push_back_camera_tween = get_tree().create_tween()
 	var original_position = position
-	var push_position = Vector3(0, 0, 0.25 * charge_duration)
+	var push_position = Vector3(0, 0, 0 * charge_duration)
 	push_back_camera_tween.tween_property(self, "position", push_position, 0.06).set_trans(Tween.TRANS_BOUNCE)
 	push_back_camera_tween.tween_property(self, "position", original_position, 0.9)
 	

@@ -55,13 +55,17 @@ func shoot_from_dispenser():
 	expand_for_selection(0.5)
 
 func expand_for_shooting(duration = 1.0):
+	return
+	
 	var tween = create_tween()
-	var screen_size = 0.3
+	var screen_size = 0.0
 	tween.tween_property(GlobalManager.screen_resizer, "ratio", screen_size, duration)\
 		.set_trans(Tween.TRANS_BOUNCE)\
 		.set_ease(Tween.EASE_OUT)
 
 func expand_for_selection(duration = 1.0):
+	return
+	
 	var tween = create_tween()
 	var screen_size = 0.6
 	tween.tween_property(GlobalManager.screen_resizer, "ratio", screen_size, duration)\

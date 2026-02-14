@@ -6,15 +6,26 @@ do GlobalManager.play_animation.emit("capitalist_enter")
 do wait(GlobalManager.current_animation_length + 1)
 
 capitalist: Okay, so since you only take up space and eat my electricity
-capitalist: You are either making money or going to trash
+capitalist: You are either making money or going to the trash
 
 capitalist: Here is your "selling licence"
 capitalist: You take money and then give stuff to people
 capitalist: You cannot possibly fail at this
 
 capitalist: Okay, now try giving me the licence
+do wait(GlobalManager.current_animation_length)
 
-capitalist: OUCH
+=> END!
+
+~ capitalist_hit
+if GlobalManager.item_that_hit.item_name == "licence"
+	capitalist: OUCH
+else
+	duckman: what is this! give me something else!
+	#do GlobalManager.person_shoot_selection_started.emit()
+	=> END!
+	
+	
 capitalist: Wow okay, this is... yeah.
 capitalist: Good enough.
 
