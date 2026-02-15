@@ -13,16 +13,16 @@
 [ext_resource type="Script" uid="uid://dsalx1r160eac" path="res://Scripts/cursor_object.gd" id="5_6ev3c"]
 [ext_resource type="Script" uid="uid://vysddvus01vk" path="res://Scripts/dispensor_selector.gd" id="7_huasi"]
 [ext_resource type="PackedScene" uid="uid://do2eiuugsfc1a" path="res://Subscenes/Items/toast_item.tscn" id="8_nt2eh"]
-[ext_resource type="Script" uid="uid://ci5q4jckgmagi" path="res://Scripts/mouse_cursor.gd" id="10_76v2p"]
+[ext_resource type="Script" path="res://Scripts/mouse_cursor.gd" id="10_76v2p"]
 [ext_resource type="Texture2D" uid="uid://1y7wg77wd30x" path="res://Assets/concepts/cursor.png" id="10_mai8y"]
-[ext_resource type="Script" path="res://Scripts/global_animation_player.gd" id="13_ioaeq"]
-[ext_resource type="Script" path="res://Scripts/scene_dialogue_manager.gd" id="14_7ewk0"]
+[ext_resource type="Script" uid="uid://c6qs8oiugm1gg" path="res://Scripts/global_animation_player.gd" id="13_ioaeq"]
+[ext_resource type="Script" uid="uid://cqptasjmaayf6" path="res://Scripts/scene_dialogue_manager.gd" id="14_7ewk0"]
 [ext_resource type="Texture2D" uid="uid://cay2erkv5hxyt" path="res://Assets/LVL1Assets/TreeVillage1.png" id="16_psl12"]
 [ext_resource type="Texture2D" uid="uid://ch4c67k8mjan" path="res://Assets/LVL1Assets/TreeVillage2.png" id="17_2ebs2"]
 [ext_resource type="Texture2D" uid="uid://khkcfiit3svj" path="res://Assets/LVL1Assets/grass2.png" id="18_oyb3p"]
 [ext_resource type="Texture2D" uid="uid://bck5dx4xmvk3u" path="res://Assets/LVL1Assets/grass1.png" id="19_jvnna"]
 [ext_resource type="Texture2D" uid="uid://cxc5lqksvr7om" path="res://Assets/LVL1Assets/box1.png" id="20_8edxt"]
-[ext_resource type="Texture2D" uid="uid://d0nyx0j6qp8yp" path="res://Assets/LVL1Assets/box2.png" id="21_5oxhp"]
+[ext_resource type="Texture2D" uid="uid://c6lqbgep87b41" path="res://Assets/concepts/Circle.png" id="20_nt2eh"]
 [ext_resource type="Texture2D" uid="uid://b8lsd7x7o3k1a" path="res://Assets/LVL1Assets/box3.png" id="22_nt2eh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oyb3p"]
@@ -567,7 +567,8 @@ offset_bottom = 1080.0
 script = ExtResource("10_76v2p")
 
 [node name="Cursor" type="Sprite2D" parent="Mouse" unique_id=2068333559]
-position = Vector2(31.35, 40.57)
+position = Vector2(20.643991, 27.060059)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("10_mai8y")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2049604939]
@@ -595,14 +596,19 @@ no_depth_test = true
 texture = ExtResource("17_2ebs2")
 
 [node name="Tree3" type="Sprite3D" parent="BgObjects" unique_id=2048337180]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.473, 3.059, -16.320568)
-visible = false
-texture = ExtResource("17_2ebs2")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47912753, 2.793903, -6.305)
+modulate = Color(0.68235296, 0.7764706, 0.67058825, 1)
+texture = ExtResource("20_nt2eh")
+
+[node name="Tree5" type="Sprite3D" parent="BgObjects" unique_id=120409370]
+transform = Transform3D(0.833, 0, 0, 0, 0.833, 0, 0, 0, 0.833, 3.987, 2.044, -1.215)
+modulate = Color(0.61343336, 0.7, 0.602, 1)
+texture = ExtResource("20_nt2eh")
 
 [node name="Tree4" type="Sprite3D" parent="BgObjects" unique_id=779623739]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5.2785907, 2.924, -24.246544)
-visible = false
-texture = ExtResource("16_psl12")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.542, 3.076, -11.364)
+modulate = Color(0.71859336, 0.82, 0.7052, 1)
+texture = ExtResource("20_nt2eh")
 
 [node name="Grass1" type="Sprite3D" parent="BgObjects" unique_id=1227824285]
 transform = Transform3D(0.406, 0, 0, 0, 0.406, 0, 0, 0, 0.406, -0.605, 0.467, 0.561)
@@ -617,12 +623,6 @@ texture = ExtResource("19_jvnna")
 [node name="Box1" type="Sprite3D" parent="BgObjects" unique_id=1600336334]
 transform = Transform3D(0.471, 0, 0, 0, 0.471, 0, 0, 0, 0.471, -1.0811968, -1.696645, 1.5141225)
 texture = ExtResource("20_8edxt")
-
-[node name="Box2" type="Sprite3D" parent="BgObjects" unique_id=1281939710]
-transform = Transform3D(0.402, 0, 0, 0, 0.402, 0, 0, 0, 0.402, 1.204582, -0.17425779, 0.009783268)
-visible = false
-no_depth_test = true
-texture = ExtResource("21_5oxhp")
 
 [node name="Box3" type="Sprite3D" parent="BgObjects" unique_id=1471009303]
 transform = Transform3D(0.326, 0, 0, 0, 0.326, 0, 0, 0, 0.326, 3.3287525, -0.7405989, 8.372926)
@@ -645,6 +645,12 @@ visible = false
 mesh = SubResource("PlaneMesh_nt2eh")
 skeleton = NodePath("../BgObjects")
 surface_material_override/0 = SubResource("StandardMaterial3D_5cm5d")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1642644796]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7178668, 2.3032842, 0)
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Node3D" unique_id=2064846912]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23507309, 0.11193967, 0)
 
 [editable path="Capitalist"]
 [editable path="Duckman"]
