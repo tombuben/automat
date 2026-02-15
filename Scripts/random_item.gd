@@ -6,13 +6,20 @@ class_name RandomItem extends RigidBody3D
 var in_slot : ItemSlot
 
 func take_out_of_slot() -> void:
-	if in_slot:
-		in_slot.item_in_slot = null
-		in_slot = null
+	print("taking out of slot")
+	in_slot.slot_occupied = false
 	freeze = false
 	
 func insert_to_slot(slot : ItemSlot) -> void:
+	print("inserting to slot")
 	in_slot = slot
+	in_slot.slot_occupied = true
 	freeze = true
 	slot.item_in_slot = self
 	slot.reset_highlight()
+
+func return_to_slot() -> void:
+	print("returning to slot")
+	freeze = true
+	in_slot.slot_occupied = true
+	in_slot.reset_highlight()

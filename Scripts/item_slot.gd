@@ -1,10 +1,12 @@
 class_name ItemSlot extends Area3D
 
 @export var item_in_slot : RandomItem
+var slot_occupied : bool
+
 var highlighted : bool
 var old_item_position : Vector3
 var old_item_rotation : Vector3
-var cursor_body : CursorBody
+@onready var cursor_body : CursorBody = %CursorBody
 @onready var tween = create_tween().set_parallel(true)
 
 func _ready() -> void:
@@ -14,32 +16,31 @@ func _ready() -> void:
 	item_in_slot.insert_to_slot(self)
 	connect("body_entered", on_body_entered)
 	connect("body_exited", on_body_exited)
+	cursor_body.stopped_dragging.connect(stopped_dragging)
 
 func on_body_entered(body):
 	if body is CursorBody:
 		cursor_body = body
 		
-		cursor_body.stopped_dragging.connect(stopped_dragging)
-		if not body.dragging and item_in_slot and item_in_slot.in_slot:
+		var dispenser_body = GlobalManager.dispensor_selector.body_in_dispenser
+		if not body.dragging and dispenser_body != item_in_slot:
 			highlight_item()
 
 func on_body_exited(body):
 	if body is CursorBody:
-		if not body.dragging and item_in_slot and item_in_slot.in_slot:
+		var dispenser_body = GlobalManager.dispensor_selector.body_in_dispenser
+		if not body.dragging and dispenser_body != item_in_slot:
 			reset_highlight()
 		
-		body.stopped_dragging.disconnect(stopped_dragging)
-
 func stopped_dragging(item : RandomItem):
-	if not item_in_slot:
-		item.insert_to_slot(self)
+	if GlobalManager.dispensor_selector.body_in_dispenser == item:
+		return
+
+	if not slot_occupied:
+		item.return_to_slot()
 		
 	if item == item_in_slot:
 		highlight_item()
-		pass
-	elif	 not cursor_body.dragging and item_in_slot.in_slot:
-		highlight_item()
-		pass
 
 func highlight_item():
 	highlighted = true
