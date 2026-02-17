@@ -47,7 +47,8 @@
 [ext_resource type="Texture2D" uid="uid://dy3qo2qp3jave" path="res://Assets/LVL1Assets/BG/BgTree4th.png" id="24_p35vf"]
 [ext_resource type="Texture2D" uid="uid://b2hsf4l5a21fm" path="res://Assets/LVL1Assets/BG/BgTree4th2.png" id="25_stxua"]
 [ext_resource type="Texture2D" uid="uid://vwjl017qgxuh" path="res://Assets/LVL1Assets/Flower.png" id="27_p35vf"]
-[ext_resource type="Material" uid="uid://c18tvun8su7y" path="res://Materials/explosionSmoke3d.tres" id="29_37jd4"]
+[ext_resource type="PackedScene" uid="uid://1ajkf1bho0fa" path="res://Assets/ParticleEffects/explosion_particles.tscn" id="28_stxua"]
+[ext_resource type="Texture2D" uid="uid://c6lqbgep87b41" path="res://Assets/concepts/Circle.png" id="29_37jd4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oyb3p"]
 albedo_color = Color(0.1767, 0.55033505, 0.57, 1)
@@ -91,19 +92,21 @@ albedo_color = Color(0.1764706, 0.54901963, 0.5686275, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_8edxt"]
 material = SubResource("StandardMaterial3D_nt2eh")
 
-[sub_resource type="SphereMesh" id="SphereMesh_stxua"]
-material = ExtResource("29_37jd4")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfj8f"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("29_37jd4")
+
+[sub_resource type="QuadMesh" id="QuadMesh_stxua"]
+material = SubResource("StandardMaterial3D_gfj8f")
 
 [sub_resource type="Curve" id="Curve_37jd4"]
-_data = [Vector2(0, 1), 0.0, 0.19036259, 0, 0, Vector2(1, 0), -2.4840338, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.74242425, 1), 0.0, 0.0, 0, 0, Vector2(0.95117843, 0.8394867), -2.2563002, -2.2563002, 0, 0, Vector2(0.9983165, 0.49957633), -13.709787, 0.0, 0, 0]
+point_count = 4
 
-[sub_resource type="Gradient" id="Gradient_stxua"]
-colors = PackedColorArray(1, 1, 1, 1, 0.35099998, 0.47910014, 0.9, 1)
-
-[sub_resource type="Gradient" id="Gradient_gfj8f"]
-offsets = PackedFloat32Array(0.4530142, 0.5611702, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.8878058, 0.90995085, 0.98271275, 0.8271277, 0.35099998, 0.47910014, 0.9, 0)
+[sub_resource type="Gradient" id="Gradient_37jd4"]
+offsets = PackedFloat32Array(0, 0.05417407, 0.91918296, 1)
+colors = PackedColorArray(0.12660551, 0.12660551, 0.12660551, 0.12660551, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_iacmt"]
 radius = 0.01
@@ -580,25 +583,25 @@ environment = SubResource("Environment_lhp3t")
 [node name="BgObjects" type="Node3D" parent="World" unique_id=362169526]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96020675, 0)
 
-[node name="Node3D2" type="Node3D" parent="World/BgObjects" unique_id=1022017482]
+[node name="trees" type="Node3D" parent="World/BgObjects" unique_id=1022017482]
 
-[node name="Tree1" type="Sprite3D" parent="World/BgObjects/Node3D2" unique_id=1540012955]
+[node name="Tree1" type="Sprite3D" parent="World/BgObjects/trees" unique_id=1540012955]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.6026776, 2.269901, -0.326)
 no_depth_test = true
 texture = ExtResource("16_psl12")
 
-[node name="Tree2" type="Sprite3D" parent="World/BgObjects/Node3D2" unique_id=140200377]
+[node name="Tree2" type="Sprite3D" parent="World/BgObjects/trees" unique_id=140200377]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5.172, 2.3949106, -0.188)
 no_depth_test = true
 texture = ExtResource("17_2ebs2")
 
-[node name="Tree3" type="Sprite3D" parent="World/BgObjects/Node3D2" unique_id=214287031]
+[node name="Tree3" type="Sprite3D" parent="World/BgObjects/trees" unique_id=214287031]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5.129, 2.395, -0.301)
 no_depth_test = true
 texture = ExtResource("12_37jd4")
 
-[node name="Tree4" type="Sprite3D" parent="World/BgObjects/Node3D2" unique_id=169937335]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.8, 2.467, -0.362)
+[node name="Tree4" type="Sprite3D" parent="World/BgObjects/trees" unique_id=169937335]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.8, 2.467, -0.7955768)
 no_depth_test = true
 texture = ExtResource("13_gfj8f")
 
@@ -652,34 +655,34 @@ texture = ExtResource("18_kbbok")
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.098754, 1.0736132, -2.799798)
 texture = ExtResource("18_kbbok")
 
-[node name="Trees" type="Node3D" parent="World/BgObjects" unique_id=1640183641]
+[node name="TreesBG" type="Node3D" parent="World/BgObjects" unique_id=1640183641]
 transform = Transform3D(1.174, 0, 0, 0, 1.174, 0, 0, 0, 1.174, -1.6051346, 1.6692574, 0)
 
-[node name="Sprite3D" type="Sprite3D" parent="World/BgObjects/Trees" unique_id=1697578360]
+[node name="Sprite3D" type="Sprite3D" parent="World/BgObjects/TreesBG" unique_id=1697578360]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.584, 1.522, -4.299)
 texture = ExtResource("19_m0uwk")
 
-[node name="Sprite3D2" type="Sprite3D" parent="World/BgObjects/Trees" unique_id=1599820861]
+[node name="Sprite3D2" type="Sprite3D" parent="World/BgObjects/TreesBG" unique_id=1599820861]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.279, 1.725, -4.299)
 texture = ExtResource("20_mffef")
 
-[node name="Sprite3D3" type="Sprite3D" parent="World/BgObjects/Trees" unique_id=1105421514]
+[node name="Sprite3D3" type="Sprite3D" parent="World/BgObjects/TreesBG" unique_id=1105421514]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 5.151, 1.328, -5.83)
 texture = ExtResource("21_2h5y0")
 
-[node name="Sprite3D4" type="Sprite3D" parent="World/BgObjects/Trees" unique_id=235156492]
+[node name="Sprite3D4" type="Sprite3D" parent="World/BgObjects/TreesBG" unique_id=235156492]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 6.455751, 1.2030001, -6.8719997)
 texture = ExtResource("22_y0lwx")
 
-[node name="Sprite3D5" type="Sprite3D" parent="World/BgObjects/Trees" unique_id=2008932132]
+[node name="Sprite3D5" type="Sprite3D" parent="World/BgObjects/TreesBG" unique_id=2008932132]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.32798004, 1.2920021, -6.0219707)
 texture = ExtResource("23_2v2b7")
 
-[node name="Sprite3D6" type="Sprite3D" parent="World/BgObjects/Trees" unique_id=1928820780]
+[node name="Sprite3D6" type="Sprite3D" parent="World/BgObjects/TreesBG" unique_id=1928820780]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 5.233, 0.529, -7.618)
 texture = ExtResource("24_p35vf")
 
-[node name="Sprite3D7" type="Sprite3D" parent="World/BgObjects/Trees" unique_id=517868708]
+[node name="Sprite3D7" type="Sprite3D" parent="World/BgObjects/TreesBG" unique_id=517868708]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 1.2029041, 1.2963985, -7.6180086)
 texture = ExtResource("25_stxua")
 
@@ -704,56 +707,53 @@ texture = ExtResource("22_nt2eh")
 transform = Transform3D(0.69600004, 0, 0, 0, 0.69600004, 0, 0, 0, 0.69600004, 0.186, 2.194, 0)
 texture = ExtResource("27_p35vf")
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="World/BgObjects" unique_id=1005637877]
-transform = Transform3D(0.96593297, -0.23950598, 0.098032214, 0.2398789, 0.9707687, 0.008139962, -0.09711618, 0.01565321, 0.99514997, 1.6811091, 0.69099057, 0)
-amount = 30
-lifetime = 0.68
-explosiveness = 0.8
-mesh = SubResource("SphereMesh_stxua")
-emission_shape = 1
-emission_sphere_radius = 1.34
-spread = 180.0
-gravity = Vector3(0, 0.314, 0)
-initial_velocity_max = 1.0
-scale_amount_min = 0.22
-scale_amount_max = 0.79
-scale_amount_curve = SubResource("Curve_37jd4")
-color = Color(0.90625, 0.54573244, 0.14726564, 1)
-color_ramp = SubResource("Gradient_stxua")
+[node name="ExplosionParticles" parent="World/BgObjects" unique_id=429495551 instance=ExtResource("28_stxua")]
+transform = Transform3D(0.96593297, -0.23950599, 0.09803222, 0.23987888, 0.9707687, 0.008139956, -0.09711617, 0.01565321, 0.99514997, 1.6811091, 0.69099057, 0)
+visible = false
 
-[node name="SparkParticles" type="CPUParticles3D" parent="World/BgObjects" unique_id=1388042025]
-transform = Transform3D(0.96593297, -0.23950598, 0.098032214, 0.2398789, 0.9707687, 0.008139962, -0.09711618, 0.01565321, 0.99514997, 1.7415702, 0.61306095, 0)
-amount = 20
-lifetime = 0.74
-explosiveness = 0.8
-mesh = SubResource("SphereMesh_stxua")
-emission_shape = 1
-emission_sphere_radius = 1.34
-spread = 180.0
-gravity = Vector3(0, 0.742, 0)
-initial_velocity_min = 2.68
-initial_velocity_max = 5.49
-scale_amount_min = 0.0
-scale_amount_max = 0.15
+[node name="TreeParticles" type="CPUParticles3D" parent="World/BgObjects" unique_id=1261303191]
+transform = Transform3D(0.99761254, 0.06906002, 0, -0.06906002, 0.99761254, 0, 0, 0, 1, -1.6525817, 3.0327446, 0.2462995)
+amount = 6
+lifetime = 5.43
+preprocess = 6.85
+speed_scale = 0.15
+randomness = 0.27
+mesh = SubResource("QuadMesh_stxua")
+emission_shape = 3
+emission_box_extents = Vector3(1.937, 0.391, 0.079)
+particle_flag_disable_z = true
+spread = 72.06
+gravity = Vector3(0, -0.251, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+scale_amount_min = 0.12
+scale_amount_max = 0.14
 scale_amount_curve = SubResource("Curve_37jd4")
-color = Color(1.1079327, 0.60977876, 0.09901324, 1)
+color = Color(0.5254902, 0.4392157, 0.15686275, 1)
+color_ramp = SubResource("Gradient_37jd4")
 
-[node name="CPUParticles3D2" type="CPUParticles3D" parent="World/BgObjects" unique_id=63136711]
-transform = Transform3D(0.96593297, -0.23950598, 0.098032214, 0.2398789, 0.9707687, 0.008139962, -0.09711618, 0.01565321, 0.99514997, 1.73, 0.691, 0)
-amount = 34
-lifetime = 2.03
-explosiveness = 0.8
-mesh = SubResource("SphereMesh_stxua")
-emission_shape = 1
-emission_sphere_radius = 1.63
-spread = 180.0
-gravity = Vector3(0, 0.314, 0)
-initial_velocity_max = 0.35
-scale_amount_min = 0.22
-scale_amount_max = 0.79
+[node name="TreeParticles2" type="CPUParticles3D" parent="World/BgObjects" unique_id=1398845591]
+transform = Transform3D(0.99761254, 0.06906002, 0, -0.06906002, 0.99761254, 0, 0, 0, 1, 5.1015716, 3.159716, 0.6589616)
+amount = 6
+lifetime = 5.24
+preprocess = 6.85
+speed_scale = 0.15
+randomness = 0.26
+mesh = SubResource("QuadMesh_stxua")
+emission_shape = 3
+emission_box_extents = Vector3(1.937, 0.391, 0.079)
+particle_flag_disable_z = true
+spread = 72.06
+gravity = Vector3(0, -0.251, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+scale_amount_min = 0.12
+scale_amount_max = 0.14
 scale_amount_curve = SubResource("Curve_37jd4")
-color = Color(0.13540041, 0.14555103, 0.14687502, 1)
-color_ramp = SubResource("Gradient_gfj8f")
+color = Color(0.5254902, 0.4392157, 0.15686275, 1)
+color_ramp = SubResource("Gradient_37jd4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=1166853301]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0190233, 0.7518947, 6.58871)
@@ -815,10 +815,10 @@ mesh = SubResource("SphereMesh_6ev3c")
 [node name="Right viewport" type="SubViewportContainer" parent="UI Control" unique_id=1904352335]
 clip_children = 2
 layout_mode = 0
-offset_left = 742.8228
-offset_top = 10.933594
-offset_right = 1909.8228
-offset_bottom = 1090.9336
+offset_left = 745.7384
+offset_top = 12.183391
+offset_right = 1912.7384
+offset_bottom = 1092.1833
 
 [node name="UI" type="Control" parent="UI Control/Right viewport" unique_id=260902291]
 visible = false
@@ -944,3 +944,4 @@ surface_material_override/0 = SubResource("StandardMaterial3D_5cm5d")
 [editable path="World/Capitalist"]
 [editable path="World/Duckman"]
 [editable path="World/Grandma"]
+[editable path="World/BgObjects/ExplosionParticles"]

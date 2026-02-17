@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://1ajkf1bho0fa"]
+
+[ext_resource type="Material" uid="uid://c18tvun8su7y" path="res://Materials/explosionSmoke3d.tres" id="1_vkl3l"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_stxua"]
+material = ExtResource("1_vkl3l")
+
+[sub_resource type="Curve" id="Curve_37jd4"]
+_data = [Vector2(0, 1), 0.0, 0.19036259, 0, 0, Vector2(1, 0), -2.4840338, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_stxua"]
+colors = PackedColorArray(1, 1, 1, 1, 0.35099998, 0.47910014, 0.9, 1)
+
+[sub_resource type="Gradient" id="Gradient_gfj8f"]
+offsets = PackedFloat32Array(0.4530142, 0.5611702, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.8878058, 0.90995085, 0.98271275, 0.8271277, 0.35099998, 0.47910014, 0.9, 0)
+
+[node name="ExplosionParticles" type="CPUParticles3D" unique_id=429495551]
+transform = Transform3D(0.96593297, -0.23950598, 0.098032214, 0.2398789, 0.9707687, 0.008139962, -0.09711618, 0.01565321, 0.99514997, 0, 0, 0)
+emitting = false
+amount = 30
+lifetime = 0.68
+one_shot = true
+explosiveness = 0.8
+mesh = SubResource("SphereMesh_stxua")
+emission_shape = 1
+emission_sphere_radius = 1.34
+spread = 180.0
+gravity = Vector3(0, 0.314, 0)
+initial_velocity_max = 1.0
+scale_amount_min = 0.22
+scale_amount_max = 0.79
+scale_amount_curve = SubResource("Curve_37jd4")
+color = Color(0.90625, 0.54573244, 0.14726564, 1)
+color_ramp = SubResource("Gradient_stxua")
+
+[node name="SparkParticles" type="CPUParticles3D" parent="." unique_id=193525520]
+transform = Transform3D(1.0000001, 6.6356733e-09, 0, 7.450581e-09, 1.0000001, 0, 0, -9.313226e-10, 1.0000001, 0.03970766, -0.090132475, 0.005292803)
+emitting = false
+amount = 20
+lifetime = 0.74
+one_shot = true
+explosiveness = 0.8
+mesh = SubResource("SphereMesh_stxua")
+emission_shape = 1
+emission_sphere_radius = 1.34
+spread = 180.0
+gravity = Vector3(0, 0.742, 0)
+initial_velocity_min = 2.68
+initial_velocity_max = 5.49
+scale_amount_min = 0.0
+scale_amount_max = 0.15
+scale_amount_curve = SubResource("Curve_37jd4")
+color = Color(1.1079327, 0.60977876, 0.09901324, 1)
+
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="." unique_id=1454752980]
+transform = Transform3D(1.0000001, 6.6356733e-09, 0, 7.450581e-09, 1.0000001, 0, 0, -9.313226e-10, 1.0000001, 0.04722762, -0.01170063, 0.0047929585)
+emitting = false
+amount = 34
+lifetime = 2.03
+one_shot = true
+explosiveness = 0.8
+mesh = SubResource("SphereMesh_stxua")
+emission_shape = 1
+emission_sphere_radius = 1.63
+spread = 180.0
+gravity = Vector3(0, 0.314, 0)
+initial_velocity_max = 0.35
+scale_amount_min = 0.22
+scale_amount_max = 0.79
+scale_amount_curve = SubResource("Curve_37jd4")
+color = Color(0.13540041, 0.14555103, 0.14687502, 1)
+color_ramp = SubResource("Gradient_gfj8f")
