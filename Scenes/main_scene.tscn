@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://c56o0l1eo5f5k" path="res://Scripts/world_view.gd" id="1_52fb6"]
 [ext_resource type="Texture2D" uid="uid://c6wjbuc6was2n" path="res://Assets/LVL1Assets/Characters/capitalist.png" id="2_5oxhp"]
 [ext_resource type="PackedScene" uid="uid://c2vjbnjw2np13" path="res://Subscenes/random_item.tscn" id="2_6l7je"]
-[ext_resource type="Texture2D" uid="uid://b6vfboinyegqy" path="res://Assets/concepts/NPCConcept.png" id="2_lhp3t"]
 [ext_resource type="Texture2D" uid="uid://dbqd8w6ix0drb" path="res://Assets/VendingMachine/VendingMachine.png" id="3_8edxt"]
 [ext_resource type="PackedScene" uid="uid://b8l8mhyb5sfwf" path="res://Subscenes/random_person.tscn" id="3_jv6wh"]
 [ext_resource type="Script" uid="uid://by0rhh6airqjb" path="res://Scripts/screen_resizer.gd" id="3_m1efj"]
@@ -48,6 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://dy3qo2qp3jave" path="res://Assets/LVL1Assets/BG/BgTree4th.png" id="24_p35vf"]
 [ext_resource type="Texture2D" uid="uid://b2hsf4l5a21fm" path="res://Assets/LVL1Assets/BG/BgTree4th2.png" id="25_stxua"]
 [ext_resource type="Texture2D" uid="uid://vwjl017qgxuh" path="res://Assets/LVL1Assets/Flower.png" id="27_p35vf"]
+[ext_resource type="Material" uid="uid://c18tvun8su7y" path="res://Materials/explosionSmoke3d.tres" id="29_37jd4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oyb3p"]
 albedo_color = Color(0.1767, 0.55033505, 0.57, 1)
@@ -91,6 +91,20 @@ albedo_color = Color(0.1764706, 0.54901963, 0.5686275, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_8edxt"]
 material = SubResource("StandardMaterial3D_nt2eh")
 
+[sub_resource type="SphereMesh" id="SphereMesh_stxua"]
+material = ExtResource("29_37jd4")
+
+[sub_resource type="Curve" id="Curve_37jd4"]
+_data = [Vector2(0, 1), 0.0, 0.19036259, 0, 0, Vector2(1, 0), -2.4840338, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_stxua"]
+colors = PackedColorArray(1, 1, 1, 1, 0.35099998, 0.47910014, 0.9, 1)
+
+[sub_resource type="Gradient" id="Gradient_gfj8f"]
+offsets = PackedFloat32Array(0.4530142, 0.5611702, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.8878058, 0.90995085, 0.98271275, 0.8271277, 0.35099998, 0.47910014, 0.9, 0)
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_iacmt"]
 radius = 0.01
 
@@ -104,7 +118,7 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.05), 0.0, 0.0, 0, 0, Vector
 point_count = 3
 
 [sub_resource type="Animation" id="Animation_nt2eh"]
-length = 0.001
+length = 0.033333335
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -116,6 +130,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(9.315379, 1.0466022, 0.56822395)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("World/Capitalist/RigidBody3D/Sprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.4, 0.4, 0.4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("World/Capitalist/RigidBody3D/Sprite3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.13579047, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_7ewk0"]
@@ -132,6 +170,35 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 31.786623),
 "update": 0,
 "values": [Vector3(9.315379, 1.0466022, 0.56822395), Vector3(2.9512818, 1.8990225, 0.7008014), Vector3(1.293953, 1.1684115, 0.8349457)]
+}
+
+[sub_resource type="Animation" id="Animation_37jd4"]
+resource_name = "capitalist_idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("World/Capitalist/RigidBody3D/Sprite3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.4, 0.4, 0.4), Vector3(0.4, 0.39, 0.4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("World/Capitalist/RigidBody3D/Sprite3D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8000001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.032, 0), Vector3(0, -0.047, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_lhp3t"]
@@ -280,6 +347,7 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_nt2eh"),
 &"capitalist_enter": SubResource("Animation_7ewk0"),
+&"capitalist_idle": SubResource("Animation_37jd4"),
 &"capitalist_leave": SubResource("Animation_lhp3t"),
 &"capitalist_payment_enter": SubResource("Animation_b48ew"),
 &"duckman_enter": SubResource("Animation_gnsmo"),
@@ -315,13 +383,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.315379, 1.0466022, 0.568223
 person_name = "capitalist"
 
 [node name="Sprite3D" parent="World/Capitalist/RigidBody3D" parent_id_path=PackedInt32Array(1656012555, 368135441) index="2" unique_id=82952497]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -0.13579047, 0)
 texture = ExtResource("2_5oxhp")
-
-[node name="Sprite3D2" type="Sprite3D" parent="World/Capitalist/RigidBody3D" parent_id_path=PackedInt32Array(1656012555, 368135441) index="3" unique_id=53313488]
-transform = Transform3D(0.328, 0, 0, 0, 0.328, 0, 0, 0, 0.328, 0, 0, 0)
-visible = false
-modulate = Color(1, 0, 0, 1)
-texture = ExtResource("2_lhp3t")
 
 [node name="Duckman" parent="World" unique_id=1810524913 instance=ExtResource("3_jv6wh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.847282, 1.05, -2.0213985)
@@ -535,7 +598,7 @@ no_depth_test = true
 texture = ExtResource("12_37jd4")
 
 [node name="Tree4" type="Sprite3D" parent="World/BgObjects/Node3D2" unique_id=169937335]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.054, 2.438, -0.362)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.8, 2.467, -0.362)
 no_depth_test = true
 texture = ExtResource("13_gfj8f")
 
@@ -545,14 +608,14 @@ billboard = 1
 texture = ExtResource("18_oyb3p")
 
 [node name="Grass2" type="Sprite3D" parent="World/BgObjects" unique_id=1656765176]
-transform = Transform3D(0.24, 0, 0, 0, 0.24, 0, 0, 0, 0.24, 2.506, -0.411, 3.256)
+transform = Transform3D(0.204, 0, 0, 0, 0.204, 0, 0, 0, 0.204, 2.322, -0.411, 3.256)
 texture = ExtResource("18_oyb3p")
 
 [node name="houses" type="Node3D" parent="World/BgObjects" unique_id=606721069]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.094, -0.55, 0)
 
 [node name="house1" type="Sprite3D" parent="World/BgObjects/houses" unique_id=77088063]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1.286, 1.091, -0.98)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1.503, 1.091, -0.98)
 flip_h = true
 texture = ExtResource("14_vggli")
 
@@ -561,7 +624,7 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.99, 1.091, -1.282)
 texture = ExtResource("14_vggli")
 
 [node name="house3" type="Sprite3D" parent="World/BgObjects/houses" unique_id=516178978]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1.1416081, 1.091, -1.8613353)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1.142, 0.975, -1.861)
 flip_h = true
 texture = ExtResource("15_r0xgx")
 
@@ -574,7 +637,7 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.3734128, 1.091, -1.86
 texture = ExtResource("16_r0xgx")
 
 [node name="house6" type="Sprite3D" parent="World/BgObjects/houses" unique_id=216366838]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.5036182, 1.0736132, -2.2919612)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.613, 1.074, -2.292)
 texture = ExtResource("17_nrumr")
 
 [node name="house7" type="Sprite3D" parent="World/BgObjects/houses" unique_id=1661456567]
@@ -629,17 +692,68 @@ mesh = SubResource("BoxMesh_8edxt")
 transform = Transform3D(0.282, 0, 0, 0, 0.282, 0, 0, 0, 0.282, 2.823, -0.635, 2.944)
 
 [node name="Sud" type="Sprite3D" parent="World/BgObjects/Node3D" unique_id=1471009303]
-transform = Transform3D(0.833, 0, 0, 0, 0.833, 0, 0, 0, 0.833, -0.551, 0.319, 0.034)
+transform = Transform3D(0.739, 0, 0, 0, 0.739, 0, 0, 0, 0.739, -1.269, 0.5, 0.034)
 texture = ExtResource("22_nt2eh")
 
 [node name="Sud2" type="Sprite3D" parent="World/BgObjects/Node3D" unique_id=361510961]
-transform = Transform3D(0.833, 0, 0, 0, 0.833, 0, 0, 0, 0.833, -8.24, 0.297, 0.919)
+transform = Transform3D(0.674, 0, 0, 0, 0.674, 0, 0, 0, 0.674, -7.939, 0.914, 0.919)
 flip_h = true
 texture = ExtResource("22_nt2eh")
 
 [node name="Sprite3D" type="Sprite3D" parent="World/BgObjects/Node3D/Sud2" unique_id=2011852107]
 transform = Transform3D(0.69600004, 0, 0, 0, 0.69600004, 0, 0, 0, 0.69600004, 0.186, 2.194, 0)
 texture = ExtResource("27_p35vf")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="World/BgObjects" unique_id=1005637877]
+transform = Transform3D(0.96593297, -0.23950598, 0.098032214, 0.2398789, 0.9707687, 0.008139962, -0.09711618, 0.01565321, 0.99514997, 1.6811091, 0.69099057, 0)
+amount = 30
+lifetime = 0.68
+explosiveness = 0.8
+mesh = SubResource("SphereMesh_stxua")
+emission_shape = 1
+emission_sphere_radius = 1.34
+spread = 180.0
+gravity = Vector3(0, 0.314, 0)
+initial_velocity_max = 1.0
+scale_amount_min = 0.22
+scale_amount_max = 0.79
+scale_amount_curve = SubResource("Curve_37jd4")
+color = Color(0.90625, 0.54573244, 0.14726564, 1)
+color_ramp = SubResource("Gradient_stxua")
+
+[node name="SparkParticles" type="CPUParticles3D" parent="World/BgObjects" unique_id=1388042025]
+transform = Transform3D(0.96593297, -0.23950598, 0.098032214, 0.2398789, 0.9707687, 0.008139962, -0.09711618, 0.01565321, 0.99514997, 1.7415702, 0.61306095, 0)
+amount = 20
+lifetime = 0.74
+explosiveness = 0.8
+mesh = SubResource("SphereMesh_stxua")
+emission_shape = 1
+emission_sphere_radius = 1.34
+spread = 180.0
+gravity = Vector3(0, 0.742, 0)
+initial_velocity_min = 2.68
+initial_velocity_max = 5.49
+scale_amount_min = 0.0
+scale_amount_max = 0.15
+scale_amount_curve = SubResource("Curve_37jd4")
+color = Color(1.1079327, 0.60977876, 0.09901324, 1)
+
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="World/BgObjects" unique_id=63136711]
+transform = Transform3D(0.96593297, -0.23950598, 0.098032214, 0.2398789, 0.9707687, 0.008139962, -0.09711618, 0.01565321, 0.99514997, 1.73, 0.691, 0)
+amount = 34
+lifetime = 2.03
+explosiveness = 0.8
+mesh = SubResource("SphereMesh_stxua")
+emission_shape = 1
+emission_sphere_radius = 1.63
+spread = 180.0
+gravity = Vector3(0, 0.314, 0)
+initial_velocity_max = 0.35
+scale_amount_min = 0.22
+scale_amount_max = 0.79
+scale_amount_curve = SubResource("Curve_37jd4")
+color = Color(0.13540041, 0.14555103, 0.14687502, 1)
+color_ramp = SubResource("Gradient_gfj8f")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=1166853301]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0190233, 0.7518947, 6.58871)
@@ -707,6 +821,7 @@ offset_right = 1909.8228
 offset_bottom = 1090.9336
 
 [node name="UI" type="Control" parent="UI Control/Right viewport" unique_id=260902291]
+visible = false
 layout_mode = 2
 
 [node name="LeftHand" type="TextureRect" parent="UI Control/Right viewport/UI" unique_id=832482246]

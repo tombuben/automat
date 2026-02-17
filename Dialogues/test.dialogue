@@ -5,6 +5,8 @@
 do GlobalManager.play_animation.emit("capitalist_enter")
 do wait(GlobalManager.current_animation_length + 1)
 
+do GlobalManager.play_animation.emit("capitalist_idle")
+
 capitalist: Okay, so since you only take up space and eat my electricity
 capitalist: You are either making money or going to the trash
 
