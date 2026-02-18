@@ -12,43 +12,32 @@
 [ext_resource type="Script" uid="uid://dsalx1r160eac" path="res://Scripts/cursor_object.gd" id="5_6ev3c"]
 [ext_resource type="Script" uid="uid://vysddvus01vk" path="res://Scripts/dispensor_selector.gd" id="7_huasi"]
 [ext_resource type="PackedScene" uid="uid://do2eiuugsfc1a" path="res://Subscenes/Items/toast_item.tscn" id="8_nt2eh"]
-[ext_resource type="Script" path="res://Scripts/mouse_cursor.gd" id="10_76v2p"]
+[ext_resource type="Script" uid="uid://ci5q4jckgmagi" path="res://Scripts/mouse_cursor.gd" id="10_76v2p"]
 [ext_resource type="Texture2D" uid="uid://1y7wg77wd30x" path="res://Assets/concepts/cursor.png" id="10_mai8y"]
 [ext_resource type="Texture2D" uid="uid://k41vohdmp65j" path="res://Assets/LVL1Assets/foretree1.png" id="12_37jd4"]
-[ext_resource type="Texture2D" uid="uid://bekfev8md5bi2" path="res://Assets/VendingMachine/Hands/SmallButton1.png" id="13_5bov3"]
 [ext_resource type="Texture2D" uid="uid://c7mkgo08m6rxo" path="res://Assets/LVL1Assets/foretree2.png" id="13_gfj8f"]
-[ext_resource type="Script" uid="uid://c6qs8oiugm1gg" path="res://Scripts/global_animation_player.gd" id="13_ioaeq"]
-[ext_resource type="Texture2D" uid="uid://dffn0bxh63v31" path="res://Assets/VendingMachine/Hands/HandLeft.png" id="13_yb0ja"]
-[ext_resource type="Script" uid="uid://cqptasjmaayf6" path="res://Scripts/scene_dialogue_manager.gd" id="14_7ewk0"]
+[ext_resource type="Script" path="res://Scripts/global_animation_player.gd" id="13_ioaeq"]
+[ext_resource type="Script" path="res://Scripts/scene_dialogue_manager.gd" id="14_7ewk0"]
 [ext_resource type="Texture2D" uid="uid://catr65dtplt1a" path="res://Assets/LVL1Assets/BG/house1st.png" id="14_vggli"]
-[ext_resource type="Texture2D" uid="uid://iv2gqmfgdxqe" path="res://Assets/VendingMachine/Hands/SmallButton1Down.png" id="14_xle81"]
 [ext_resource type="Texture2D" uid="uid://bqi14r8c2mjp6" path="res://Assets/LVL1Assets/BG/house2nd1.png" id="15_r0xgx"]
-[ext_resource type="Texture2D" uid="uid://b2kl41mhad2j" path="res://Assets/VendingMachine/Hands/LaunchButton.png" id="16_15kh8"]
 [ext_resource type="Texture2D" uid="uid://cay2erkv5hxyt" path="res://Assets/LVL1Assets/TreeVillage1.png" id="16_psl12"]
 [ext_resource type="Texture2D" uid="uid://obf0hyssqlkx" path="res://Assets/LVL1Assets/BG/house2nd2.png" id="16_r0xgx"]
-[ext_resource type="Texture2D" uid="uid://b3wixn2q4acce" path="res://Assets/VendingMachine/Hands/PutBackButton.png" id="16_vggli"]
 [ext_resource type="Texture2D" uid="uid://ch4c67k8mjan" path="res://Assets/LVL1Assets/TreeVillage2.png" id="17_2ebs2"]
 [ext_resource type="Texture2D" uid="uid://4to4ird1lhnj" path="res://Assets/LVL1Assets/BG/house3rd.png" id="17_nrumr"]
-[ext_resource type="Texture2D" uid="uid://cs2yri6pngpu8" path="res://Assets/VendingMachine/Hands/PutBackButtonDown.png" id="17_r0xgx"]
-[ext_resource type="Texture2D" uid="uid://dr1sjswir6cy4" path="res://Assets/VendingMachine/Hands/LaunchButtonDown.png" id="17_viu5a"]
 [ext_resource type="Texture2D" uid="uid://brgr10byhrt44" path="res://Assets/LVL1Assets/BG/house3rd2.png" id="18_kbbok"]
-[ext_resource type="Texture2D" uid="uid://dwejvy41bc5ia" path="res://Assets/VendingMachine/Hands/HandRight.png" id="18_nrumr"]
 [ext_resource type="Texture2D" uid="uid://khkcfiit3svj" path="res://Assets/LVL1Assets/grass2.png" id="18_oyb3p"]
 [ext_resource type="Texture2D" uid="uid://dlbjehj8kvjqv" path="res://Assets/LVL1Assets/BG/BgTree1st.png" id="19_m0uwk"]
 [ext_resource type="Texture2D" uid="uid://c1skulm7nyq6a" path="res://Assets/LVL1Assets/BG/BgTree2nd.png" id="20_mffef"]
 [ext_resource type="Texture2D" uid="uid://c0gc6uxfv8w12" path="res://Assets/LVL1Assets/BG/BgTree2nd2.png" id="21_2h5y0"]
-[ext_resource type="Texture2D" uid="uid://bhxls85nhrlwi" path="res://Assets/VendingMachine/Hands/SmallButton2.png" id="21_kbbok"]
-[ext_resource type="Texture2D" uid="uid://bys41aa3lihw3" path="res://Assets/VendingMachine/Hands/SmallButton2Down.png" id="22_m0uwk"]
 [ext_resource type="Texture2D" uid="uid://b8lsd7x7o3k1a" path="res://Assets/LVL1Assets/box3.png" id="22_nt2eh"]
 [ext_resource type="Texture2D" uid="uid://3f5jiraw8m2k" path="res://Assets/LVL1Assets/BG/BgTree2nd1.png" id="22_y0lwx"]
 [ext_resource type="Texture2D" uid="uid://df8ce4bhkx7ao" path="res://Assets/LVL1Assets/BG/BgTree3rd.png" id="23_2v2b7"]
-[ext_resource type="Texture2D" uid="uid://cy8dx6ydly3x3" path="res://Assets/VendingMachine/Hands/SmallButton3.png" id="23_mffef"]
-[ext_resource type="Texture2D" uid="uid://bcfxgbi4ansxg" path="res://Assets/VendingMachine/Hands/SmallButton3Down.png" id="24_2h5y0"]
 [ext_resource type="Texture2D" uid="uid://dy3qo2qp3jave" path="res://Assets/LVL1Assets/BG/BgTree4th.png" id="24_p35vf"]
 [ext_resource type="Texture2D" uid="uid://b2hsf4l5a21fm" path="res://Assets/LVL1Assets/BG/BgTree4th2.png" id="25_stxua"]
 [ext_resource type="Texture2D" uid="uid://vwjl017qgxuh" path="res://Assets/LVL1Assets/Flower.png" id="27_p35vf"]
 [ext_resource type="PackedScene" uid="uid://1ajkf1bho0fa" path="res://Assets/ParticleEffects/explosion_particles.tscn" id="28_stxua"]
 [ext_resource type="Material" uid="uid://devm043yr2tp8" path="res://Materials/waterParticles.tres" id="29_37jd4"]
+[ext_resource type="PackedScene" uid="uid://cci8wr48xkh26" path="res://Subscenes/hand_selection_ui.tscn" id="33_nrumr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oyb3p"]
 albedo_color = Color(0.1767, 0.55033505, 0.57, 1)
@@ -838,77 +827,8 @@ offset_top = 12.183391
 offset_right = 1912.7384
 offset_bottom = 1092.1833
 
-[node name="UI" type="Control" parent="UI Control/Right viewport" unique_id=260902291]
-visible = false
+[node name="HandSelectionUI" parent="UI Control/Right viewport" unique_id=637314647 instance=ExtResource("33_nrumr")]
 layout_mode = 2
-
-[node name="LeftHand" type="TextureRect" parent="UI Control/Right viewport/UI" unique_id=832482246]
-layout_mode = 0
-offset_left = 4.50865
-offset_top = 734.4897
-offset_right = 804.50867
-offset_bottom = 1534.49
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("13_yb0ja")
-
-[node name="PutBackButton" type="TextureButton" parent="UI Control/Right viewport/UI/LeftHand" unique_id=712676623]
-visible = false
-layout_mode = 0
-offset_left = 202.65488
-offset_top = 224.66853
-offset_right = 602.6549
-offset_bottom = 624.6685
-texture_normal = ExtResource("16_vggli")
-texture_pressed = ExtResource("17_r0xgx")
-
-[node name="RightHand" type="TextureRect" parent="UI Control/Right viewport/UI" unique_id=2082928197]
-layout_mode = 0
-offset_left = 505.43695
-offset_top = 734.48926
-offset_right = 1305.437
-offset_bottom = 1534.4893
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("18_nrumr")
-
-[node name="SmallButton1" type="TextureButton" parent="UI Control/Right viewport/UI/RightHand" unique_id=1576757513]
-visible = false
-layout_mode = 0
-offset_left = 475.8888
-offset_top = 372.12936
-offset_right = 625.8888
-offset_bottom = 522.1294
-texture_normal = ExtResource("13_5bov3")
-texture_pressed = ExtResource("14_xle81")
-
-[node name="SmallButton2" type="TextureButton" parent="UI Control/Right viewport/UI/RightHand" unique_id=1516905741]
-visible = false
-layout_mode = 0
-offset_left = 464.21967
-offset_top = 286.0822
-offset_right = 614.21967
-offset_bottom = 436.0822
-texture_normal = ExtResource("21_kbbok")
-texture_pressed = ExtResource("22_m0uwk")
-
-[node name="LaunchButton" type="TextureButton" parent="UI Control/Right viewport/UI/RightHand" unique_id=27399422]
-visible = false
-layout_mode = 0
-offset_left = 193.17902
-offset_top = 216.25378
-offset_right = 593.179
-offset_bottom = 616.2538
-texture_normal = ExtResource("16_15kh8")
-texture_pressed = ExtResource("17_viu5a")
-
-[node name="SmallButton3" type="TextureButton" parent="UI Control/Right viewport/UI/RightHand" unique_id=1080715336]
-visible = false
-layout_mode = 0
-offset_left = 173.60306
-offset_top = 351.40018
-offset_right = 323.60306
-offset_bottom = 501.40018
-texture_normal = ExtResource("23_mffef")
-texture_pressed = ExtResource("24_2h5y0")
 
 [node name="SubViewport" type="SubViewport" parent="UI Control/Right viewport" unique_id=1231747041]
 handle_input_locally = false
