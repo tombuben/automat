@@ -3,7 +3,7 @@
 
 ~ capitalist_first_enter
 do GlobalManager.play_animation.emit("capitalist_enter")
-do wait(GlobalManager.current_animation_length + 1)
+do wait(GlobalManager.current_animation_length)
 
 do GlobalManager.play_animation.emit("capitalist_idle")
 

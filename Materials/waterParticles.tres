@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://devm043yr2tp8"]
 
-[ext_resource type="Texture2D" uid="uid://c6lqbgep87b41" path="res://Assets/concepts/Circle.png" id="1_o7sbb"]
+[ext_resource type="Texture2D" uid="uid://7yurslfhvn12" path="res://Assets/LVL1Assets/leaf.png" id="1_o7sbb"]
 
 [resource]
 transparency = 1
