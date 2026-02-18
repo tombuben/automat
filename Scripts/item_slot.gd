@@ -43,6 +43,9 @@ func stopped_dragging(item : RandomItem):
 		highlight_item()
 
 func highlight_item():
+	if item_in_slot == null:
+		return
+		
 	highlighted = true
 	item_in_slot.freeze = true
 	if highlighted and item_in_slot.freeze:
@@ -51,9 +54,11 @@ func highlight_item():
 		tween = create_tween()
 		tween.tween_property(item_in_slot, "global_position", global_position, duration)
 		tween.tween_property(item_in_slot, "rotation", rotation, duration)
-	return
-	
+
 func reset_highlight():
+	if item_in_slot == null:
+		return
+
 	highlighted = false
 	item_in_slot.freeze = true
 	
