@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cci8wr48xkh26"]
 
+[ext_resource type="Script" uid="uid://t8h8dusf8jcl" path="res://Subscenes/hand_selection_ui.gd" id="1_7jw3s"]
 [ext_resource type="Texture2D" uid="uid://dffn0bxh63v31" path="res://Assets/VendingMachine/Hands/HandLeft.png" id="1_46wwl"]
 [ext_resource type="Texture2D" uid="uid://b3wixn2q4acce" path="res://Assets/VendingMachine/Hands/PutBackButton.png" id="2_7jw3s"]
 [ext_resource type="Texture2D" uid="uid://cs2yri6pngpu8" path="res://Assets/VendingMachine/Hands/PutBackButtonDown.png" id="3_0t6n0"]
@@ -13,10 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://cy8dx6ydly3x3" path="res://Assets/VendingMachine/Hands/SmallButton3.png" id="11_uouj8"]
 [ext_resource type="Texture2D" uid="uid://bcfxgbi4ansxg" path="res://Assets/VendingMachine/Hands/SmallButton3Down.png" id="12_4q7og"]
 
-[node name="HandSelectionUI" type="Control" unique_id=637314647]
-visible = false
+[node name="HandSelectionUI" type="Control" unique_id=637314647 node_paths=PackedStringArray("PutBackButton")]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_7jw3s")
+PutBackButton = NodePath("LeftHand/PutBackButton")
 
 [node name="LeftHand" type="TextureRect" parent="." unique_id=158913913]
 layout_mode = 0
@@ -28,7 +30,6 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_46wwl")
 
 [node name="PutBackButton" type="TextureButton" parent="LeftHand" unique_id=1862463268]
-visible = false
 layout_mode = 0
 offset_left = 202.65488
 offset_top = 224.66853

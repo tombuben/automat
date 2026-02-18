@@ -68,10 +68,10 @@ func start_drag():
 	pin.node_b = moused_over_item.get_path()
 	dragging = true
 	last_dragged_object = moused_over_item
-	
-	moused_over_item.axis_lock_angular_x = true
-	moused_over_item.axis_lock_angular_y = true
-	moused_over_item.axis_lock_angular_z = true
+	if last_dragged_object is RigidBody3D:
+		last_dragged_object.axis_lock_angular_x = true
+		last_dragged_object.axis_lock_angular_y = true
+		last_dragged_object.axis_lock_angular_z = true
 	emit_signal("started_dragging", moused_over_item)
 	pass
 
@@ -82,8 +82,9 @@ func stop_drag():
 	pin.node_b = NodePath("")
 	dragging = false
 	
-	moused_over_item.axis_lock_angular_x = false
-	moused_over_item.axis_lock_angular_y = false
-	moused_over_item.axis_lock_angular_z = false
+	if last_dragged_object is RigidBody3D:
+		last_dragged_object.axis_lock_angular_x = false
+		last_dragged_object.axis_lock_angular_y = false
+		last_dragged_object.axis_lock_angular_z = false
 	emit_signal("stopped_dragging", last_dragged_object)
 	pass

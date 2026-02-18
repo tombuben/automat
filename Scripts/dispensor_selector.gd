@@ -9,11 +9,9 @@ func _ready() -> void:
 
 func _on_body_entered(body):
 	if body is RandomItem:
-		print("Item in hands")
-		body_in_dispenser = body
 		set_body_async(body)
 
-func set_body_async(body : RigidBody3D) -> void:
+func set_body_async(body : RandomItem) -> void:
 	var cursor = GlobalManager.cursor_body
 	cursor.stopped_dragging.disconnect(set_body_async)
 	if cursor.get_dragged_item() == body:
@@ -21,11 +19,17 @@ func set_body_async(body : RigidBody3D) -> void:
 	else:
 		set_body(body)
 
-func set_body(body : RigidBody3D) -> void:
+func set_body(body : RandomItem) -> void:
+	remove_from_dispenser()
+	body_in_dispenser = body
 	body.freeze = true
+	show_ui(body)
 	start_shooting(body)
 
-func start_shooting(body : RigidBody3D):
+func show_ui(body : RandomItem):
+	pass
+
+func start_shooting(body : RandomItem):
 	var tween = create_tween()
 	var duration = 0.1
 	tween.tween_property(body, "global_position", global_position, duration)
@@ -35,12 +39,18 @@ func start_shooting(body : RigidBody3D):
 
 func _on_body_exited(body):
 	if body is RandomItem and not body.freeze:
-		var cursor = GlobalManager.cursor_body
-		cursor.stopped_dragging.disconnect(set_body_async)
-		GlobalManager.world_view.delete_object_to_shoot()
-		body_in_dispenser = null
-
+		remove_from_dispenser()
 		expand_for_selection()
+	
+func remove_from_dispenser():
+	var cursor = GlobalManager.cursor_body
+	cursor.stopped_dragging.disconnect(set_body_async)
+	GlobalManager.world_view.delete_object_to_shoot()
+	
+	if body_in_dispenser:
+		body_in_dispenser.return_to_slot()
+	body_in_dispenser = null
+	
 
 func update_rotation(charge_duration : float):
 	body_in_dispenser.rotate_z(charge_duration / 5)
