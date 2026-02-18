@@ -64,11 +64,14 @@ func start_drag():
 	if moused_over_item == null:
 		return
 	
-	print(moused_over_item.get_path())
 	moused_over_item.take_out_of_slot()
 	pin.node_b = moused_over_item.get_path()
 	dragging = true
 	last_dragged_object = moused_over_item
+	
+	moused_over_item.axis_lock_angular_x = true
+	moused_over_item.axis_lock_angular_y = true
+	moused_over_item.axis_lock_angular_z = true
 	emit_signal("started_dragging", moused_over_item)
 	pass
 
@@ -78,5 +81,9 @@ func stop_drag():
 	
 	pin.node_b = NodePath("")
 	dragging = false
+	
+	moused_over_item.axis_lock_angular_x = false
+	moused_over_item.axis_lock_angular_y = false
+	moused_over_item.axis_lock_angular_z = false
 	emit_signal("stopped_dragging", last_dragged_object)
 	pass
