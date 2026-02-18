@@ -60,6 +60,8 @@ func shoot_from_dispenser():
 	var tween = create_tween()
 	tween.tween_property(body_in_dispenser, "global_position", global_position + Vector3.BACK, 0.1)
 	await tween.finished
+	body_in_dispenser.in_slot.respawn()
+	
 	body_in_dispenser.queue_free()
 	body_in_dispenser = null
 

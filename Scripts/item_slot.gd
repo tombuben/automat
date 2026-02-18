@@ -1,6 +1,7 @@
 class_name ItemSlot extends Area3D
 
 @export var item_in_slot : RandomItem
+var item_backup : RandomItem
 var slot_occupied : bool
 
 var highlighted : bool
@@ -10,6 +11,8 @@ var old_item_rotation : Vector3
 @onready var tween = create_tween().set_parallel(true)
 
 func _ready() -> void:
+	item_backup = item_in_slot.duplicate()
+	
 	old_item_position = item_in_slot.global_position
 	old_item_rotation = item_in_slot.rotation
 	
@@ -68,3 +71,10 @@ func reset_highlight():
 	tween = create_tween()
 	tween.tween_property(item_in_slot, "global_position", old_item_position, duration)
 	tween.tween_property(item_in_slot, "rotation", old_item_rotation, duration)
+	
+func respawn():
+	var new_item = item_backup.duplicate()
+	add_child(new_item)
+	new_item.global_position = old_item_position
+	new_item.rotation = old_item_rotation
+	new_item.insert_to_slot(self)
