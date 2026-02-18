@@ -63,6 +63,9 @@ func _physics_process(delta: float) -> void:
 func start_drag():
 	if moused_over_item == null:
 		return
+		
+	if moused_over_item != GlobalManager.dispensor_selector.body_in_dispenser:
+		GlobalManager.dispensor_selector.remove_from_dispenser()
 	
 	moused_over_item.take_out_of_slot()
 	pin.node_b = moused_over_item.get_path()
