@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://cvd5j8d7y4hxx" path="res://Assets/WinkySans-VariableFont_wght.ttf" id="2_7qwyv"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="Script" uid="uid://djflsm1xdxvu8" path="res://ScaleInTextEffect.gd" id="4_m7ytr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -90,6 +91,10 @@ corner_radius_top_left = 35
 corner_radius_top_right = 35
 corner_radius_bottom_right = 35
 corner_radius_bottom_left = 35
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_mu5lg"]
+script = ExtResource("4_m7ytr")
+metadata/_custom_type_script = "uid://djflsm1xdxvu8"
 
 [sub_resource type="Animation" id="Animation_nlsx6"]
 length = 0.001
@@ -213,12 +218,10 @@ scroll_active = true
 scroll_following = true
 horizontal_alignment = 1
 vertical_alignment = 1
-skip_action = null
-seconds_per_step = null
-pause_at_characters = null
-skip_pause_at_character_if_followed_by = null
-skip_pause_at_abbreviations = null
-seconds_per_pause_step = null
+custom_effects = [SubResource("RichTextEffect_mu5lg")]
+seconds_per_letter = null
+scale_duration = null
+letter_spacing = null
 
 [node name="Control" type="Control" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=541740382]
 custom_minimum_size = Vector2(20, 10)

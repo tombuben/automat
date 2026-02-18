@@ -2,9 +2,12 @@
 
 @tool
 
+
 ## A RichTextLabel specifically for use with [b]Dialogue Manager[/b] dialogue.
 class_name DialogueLabel extends RichTextLabel
 
+func _ready() -> void:
+	bbcode_enabled = true
 
 ## Emitted for each letter typed out.
 signal spoke(letter: String, letter_index: int, speed: float)
@@ -89,8 +92,10 @@ func _process(delta: float) -> void:
 
 ## Sets the label's text from the current dialogue line. Override if you want
 ## to do something more interesting in your subclass.
-func _update_text() -> void:
-	text = dialogue_line.text
+	bbcode_enabled = true
+
+func _update_text() -> void: text = dialogue_line.text
+
 
 
 ## Start typing out the text
@@ -220,3 +225,5 @@ func _should_auto_pause() -> bool:
 		return false
 
 	return parsed_text[visible_characters - 1] in pause_at_characters.split()
+	
+	

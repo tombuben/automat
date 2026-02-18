@@ -48,7 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://b2hsf4l5a21fm" path="res://Assets/LVL1Assets/BG/BgTree4th2.png" id="25_stxua"]
 [ext_resource type="Texture2D" uid="uid://vwjl017qgxuh" path="res://Assets/LVL1Assets/Flower.png" id="27_p35vf"]
 [ext_resource type="PackedScene" uid="uid://1ajkf1bho0fa" path="res://Assets/ParticleEffects/explosion_particles.tscn" id="28_stxua"]
-[ext_resource type="Texture2D" uid="uid://c6lqbgep87b41" path="res://Assets/concepts/Circle.png" id="29_37jd4"]
+[ext_resource type="Material" uid="uid://devm043yr2tp8" path="res://Materials/waterParticles.tres" id="29_37jd4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oyb3p"]
 albedo_color = Color(0.1767, 0.55033505, 0.57, 1)
@@ -92,16 +92,11 @@ albedo_color = Color(0.1764706, 0.54901963, 0.5686275, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_8edxt"]
 material = SubResource("StandardMaterial3D_nt2eh")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfj8f"]
-transparency = 1
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("29_37jd4")
-
 [sub_resource type="QuadMesh" id="QuadMesh_stxua"]
-material = SubResource("StandardMaterial3D_gfj8f")
+material = ExtResource("29_37jd4")
 
 [sub_resource type="Curve" id="Curve_37jd4"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.74242425, 1), 0.0, 0.0, 0, 0, Vector2(0.95117843, 0.8394867), -2.2563002, -2.2563002, 0, 0, Vector2(0.9983165, 0.49957633), -13.709787, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.43097645, 1), 0.0, 0.0, 0, 0, Vector2(0.81986535, 0.8457814), -1.0015231, -1.0015231, 0, 0, Vector2(0.9983165, 0.49957633), -2.6393046, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="Gradient" id="Gradient_37jd4"]
@@ -588,11 +583,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96020675, 0)
 [node name="Tree1" type="Sprite3D" parent="World/BgObjects/trees" unique_id=1540012955]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.6026776, 2.269901, -0.326)
 no_depth_test = true
+alpha_cut = 2
 texture = ExtResource("16_psl12")
 
 [node name="Tree2" type="Sprite3D" parent="World/BgObjects/trees" unique_id=140200377]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5.172, 2.3949106, -0.188)
 no_depth_test = true
+alpha_cut = 2
 texture = ExtResource("17_2ebs2")
 
 [node name="Tree3" type="Sprite3D" parent="World/BgObjects/trees" unique_id=214287031]
@@ -692,7 +689,7 @@ visible = false
 mesh = SubResource("BoxMesh_8edxt")
 
 [node name="Node3D" type="Node3D" parent="World/BgObjects" unique_id=1944300022]
-transform = Transform3D(0.282, 0, 0, 0, 0.282, 0, 0, 0, 0.282, 2.823, -0.635, 2.944)
+transform = Transform3D(0.282, 0, 0, 0, 0.282, 0, 0, 0, 0.282, 2.765, -0.717, 2.944)
 
 [node name="Sud" type="Sprite3D" parent="World/BgObjects/Node3D" unique_id=1471009303]
 transform = Transform3D(0.739, 0, 0, 0, 0.739, 0, 0, 0, 0.739, -1.269, 0.5, 0.034)
@@ -712,7 +709,7 @@ transform = Transform3D(0.96593297, -0.23950599, 0.09803222, 0.23987888, 0.97076
 visible = false
 
 [node name="TreeParticles" type="CPUParticles3D" parent="World/BgObjects" unique_id=1261303191]
-transform = Transform3D(0.99761254, 0.06906002, 0, -0.06906002, 0.99761254, 0, 0, 0, 1, -1.6525817, 3.0327446, 0.2462995)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6525817, 3.0327446, 0.2462995)
 amount = 6
 lifetime = 5.43
 preprocess = 6.85
@@ -734,7 +731,7 @@ color = Color(0.5254902, 0.4392157, 0.15686275, 1)
 color_ramp = SubResource("Gradient_37jd4")
 
 [node name="TreeParticles2" type="CPUParticles3D" parent="World/BgObjects" unique_id=1398845591]
-transform = Transform3D(0.99761254, 0.06906002, 0, -0.06906002, 0.99761254, 0, 0, 0, 1, 5.1015716, 3.159716, 0.6589616)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1015716, 3.159716, 0.6589616)
 amount = 6
 lifetime = 5.24
 preprocess = 6.85
@@ -753,6 +750,27 @@ scale_amount_min = 0.12
 scale_amount_max = 0.14
 scale_amount_curve = SubResource("Curve_37jd4")
 color = Color(0.5254902, 0.4392157, 0.15686275, 1)
+color_ramp = SubResource("Gradient_37jd4")
+
+[node name="WaterParticles" type="CPUParticles3D" parent="World/BgObjects" unique_id=543881548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8235348, -0.2722544, 1.194552)
+amount = 6
+lifetime = 6.3999999999999995
+preprocess = 3.59
+randomness = 0.45
+mesh = SubResource("QuadMesh_stxua")
+emission_shape = 3
+emission_box_extents = Vector3(3.547, 0.391, 0.079)
+particle_flag_disable_z = true
+spread = 72.06
+gravity = Vector3(0, 0.018, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+scale_amount_min = 0.12
+scale_amount_max = 0.14
+scale_amount_curve = SubResource("Curve_37jd4")
+color = Color(0.055009756, 0.409375, 0.35425153, 1)
 color_ramp = SubResource("Gradient_37jd4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=1166853301]
