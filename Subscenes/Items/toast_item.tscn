@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://do2eiuugsfc1a"]
 
 [ext_resource type="Script" uid="uid://clluv3r6m72c2" path="res://Scripts/random_item.gd" id="1_osvde"]
-[ext_resource type="PackedScene" uid="uid://datdgya0d64vn" path="res://Assets/models/KenneyPlaceholders/sandwich.glb" id="2_pdneb"]
+[ext_resource type="PackedScene" uid="uid://b0l5aytwnswl4" path="res://Assets/models/KenneyPlaceholders/loaf.glb" id="2_pdneb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vkqkw"]
 size = Vector3(0.6447754, 0.7774048, 0.5761719)
@@ -16,5 +16,5 @@ script = ExtResource("1_osvde")
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.008897759, 0)
 shape = SubResource("BoxShape3D_vkqkw")
 
-[node name="sandwich2" parent="." unique_id=1715378267 instance=ExtResource("2_pdneb")]
-transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, 0.5, 0, -0.5, -2.1855694e-08, 0, 0, 0.041840553)
+[node name="loaf2" parent="." unique_id=1532853442 instance=ExtResource("2_pdneb")]
+transform = Transform3D(-0.0045918743, 0, 0.5213768, 0, 0.522, 0, -0.09388777, 0, -0.025499558, -0.0021276772, -0.119090684, 0.0040253997)

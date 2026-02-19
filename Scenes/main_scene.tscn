@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://sy66csq6kpjk" path="res://Assets/LVL1Assets/Characters/Duckmancer.png" id="4_nt2eh"]
 [ext_resource type="Script" uid="uid://dsalx1r160eac" path="res://Scripts/cursor_object.gd" id="5_6ev3c"]
 [ext_resource type="Script" uid="uid://vysddvus01vk" path="res://Scripts/dispensor_selector.gd" id="7_huasi"]
+[ext_resource type="PackedScene" uid="uid://cikppqmxn7xox" path="res://Subscenes/Items/safety_donut_item2.tscn" id="7_m0uwk"]
+[ext_resource type="PackedScene" uid="uid://cm6u4hvk1v5dr" path="res://Subscenes/Items/fish_food.tscn" id="8_mffef"]
 [ext_resource type="PackedScene" uid="uid://do2eiuugsfc1a" path="res://Subscenes/Items/toast_item.tscn" id="8_nt2eh"]
 [ext_resource type="Script" path="res://Scripts/mouse_cursor.gd" id="10_76v2p"]
 [ext_resource type="Texture2D" uid="uid://1y7wg77wd30x" path="res://Assets/concepts/cursor.png" id="10_mai8y"]
@@ -37,7 +39,8 @@
 [ext_resource type="Texture2D" uid="uid://vwjl017qgxuh" path="res://Assets/LVL1Assets/Flower.png" id="27_p35vf"]
 [ext_resource type="PackedScene" uid="uid://1ajkf1bho0fa" path="res://Assets/ParticleEffects/explosion_particles.tscn" id="28_stxua"]
 [ext_resource type="Material" uid="uid://devm043yr2tp8" path="res://Materials/waterParticles.tres" id="29_37jd4"]
-[ext_resource type="PackedScene" path="res://Subscenes/hand_selection_ui.tscn" id="33_nrumr"]
+[ext_resource type="Texture2D" uid="uid://c6lqbgep87b41" path="res://Assets/concepts/Circle.png" id="30_kbbok"]
+[ext_resource type="PackedScene" uid="uid://cci8wr48xkh26" path="res://Subscenes/hand_selection_ui.tscn" id="33_nrumr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oyb3p"]
 albedo_color = Color(0.1767, 0.55033505, 0.57, 1)
@@ -91,6 +94,14 @@ point_count = 4
 [sub_resource type="Gradient" id="Gradient_37jd4"]
 offsets = PackedFloat32Array(0, 0.05417407, 0.91918296, 1)
 colors = PackedColorArray(0.12660551, 0.12660551, 0.12660551, 0.12660551, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0uwk"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("30_kbbok")
+
+[sub_resource type="QuadMesh" id="QuadMesh_mffef"]
+material = SubResource("StandardMaterial3D_m0uwk")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_iacmt"]
 radius = 0.01
@@ -357,7 +368,7 @@ albedo_color = Color(1, 0, 1, 0.36862746)
 
 [node name="Ground" type="CSGBox3D" parent="World" unique_id=1178615179]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1072998, 0, -14.843262)
-size = Vector3(29.118896, 0.1, 46.10205)
+size = Vector3(191.84473, 0.1, 46.10205)
 material = SubResource("StandardMaterial3D_oyb3p")
 
 [node name="Ground" type="StaticBody3D" parent="World/Ground" unique_id=1064246348]
@@ -391,9 +402,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.48224, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011609077, 1.2301935, -0.00439191)
 size = Vector3(1, 1.753, 0.7)
 
-[node name="Sprite3D" type="Sprite3D" parent="World/Automat" unique_id=1087225422]
+[node name="AutomatSprite" type="Sprite3D" parent="World/Automat" unique_id=1087225422]
 transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0.025719166, 1.171102, 0.364562)
-modulate = Color(1, 1, 1, 0.24313726)
 texture = ExtResource("3_8edxt")
 
 [node name="ItemSlot" type="Area3D" parent="World/Automat" unique_id=821282033 node_paths=PackedStringArray("item_in_slot")]
@@ -431,12 +441,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31641483, 1.8435009, 0.4894
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
-item_in_slot = NodePath("RandomItem")
+item_in_slot = NodePath("SafetyDonutItem")
 
-[node name="RandomItem" parent="World/Automat/ItemSlot3" unique_id=721104863 instance=ExtResource("2_6l7je")]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
-item_name = "spare_parts"
-item_type = Array[String](["metal"])
+[node name="SafetyDonutItem" parent="World/Automat/ItemSlot3" unique_id=1837871512 instance=ExtResource("7_m0uwk")]
+transform = Transform3D(1, 0, 0, 0, 0.9291326, 0.36974674, 0, -0.36974674, 0.9291326, -0.018854141, 0.004671812, -0.08785647)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot3" unique_id=1902727124]
 shape = SubResource("SphereShape3D_huasi")
@@ -446,13 +454,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26527452, 1.49412, 0.48949
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
-item_in_slot = NodePath("RandomItem")
-
-[node name="RandomItem" parent="World/Automat/ItemSlot4" unique_id=1974602858 instance=ExtResource("2_6l7je")]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
+item_in_slot = NodePath("FishFoodItem")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot4" unique_id=1129424357]
 shape = SubResource("SphereShape3D_huasi")
+
+[node name="FishFoodItem" parent="World/Automat/ItemSlot4" unique_id=1967725391 instance=ExtResource("8_mffef")]
+transform = Transform3D(0.913, 0, 0, 0, 0.8780698, 0.25012475, 0, -0.25012475, 0.8780698, -0.0021514893, -0.020774603, -0.0534454)
 
 [node name="ItemSlot5" type="Area3D" parent="World/Automat" unique_id=912682092 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0067043304, 1.50943, 0.489491)
@@ -507,14 +515,14 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1
 shape = SubResource("SphereShape3D_huasi")
 
 [node name="ItemSlot9" type="Area3D" parent="World/Automat" unique_id=324159926 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26038265, 1.15729, 0.489491)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30226612, 1.1621081, 0.489491)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
 item_in_slot = NodePath("ToastItem")
 
-[node name="ToastItem" parent="World/Automat/ItemSlot9" unique_id=1837871512 instance=ExtResource("8_nt2eh")]
-transform = Transform3D(1, 0, 0, 0, 0.79968464, 0.60042024, 0, -0.60042024, 0.79968464, 0, 0, -0.116877675)
+[node name="ToastItem" parent="World/Automat/ItemSlot9" unique_id=1085995190 instance=ExtResource("8_nt2eh")]
+transform = Transform3D(1, 0, 0, 0, 0.9291326, 0.36974674, 0, -0.36974674, 0.9291326, 0, 0.028060079, -0.11261594)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot9" unique_id=728874747]
 shape = SubResource("SphereShape3D_huasi")
@@ -710,46 +718,48 @@ emission_box_extents = Vector3(1.937, 0.391, 0.079)
 particle_flag_disable_z = true
 spread = 72.06
 gravity = Vector3(0, -0.251, 0)
+angular_velocity_min = 11.76
+angular_velocity_max = 40.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 orbit_velocity_curve = null
-scale_amount_min = 0.12
-scale_amount_max = 0.14
+scale_amount_min = 0.4
+scale_amount_max = 0.4
 scale_amount_curve = SubResource("Curve_37jd4")
-color = Color(0.5254902, 0.4392157, 0.15686275, 1)
 color_ramp = SubResource("Gradient_37jd4")
 
-[node name="TreeParticles2" type="CPUParticles3D" parent="World/BgObjects" unique_id=1398845591]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1015716, 3.159716, 0.6589616)
+[node name="TreeParticles2" type="CPUParticles3D" parent="World/BgObjects" unique_id=726451505]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0786786, 3.8830278, 0.58947635)
 amount = 6
-lifetime = 5.24
+lifetime = 5.43
 preprocess = 6.85
 speed_scale = 0.15
-randomness = 0.26
+randomness = 0.27
 mesh = SubResource("QuadMesh_stxua")
 emission_shape = 3
 emission_box_extents = Vector3(1.937, 0.391, 0.079)
 particle_flag_disable_z = true
 spread = 72.06
 gravity = Vector3(0, -0.251, 0)
+angular_velocity_min = 11.76
+angular_velocity_max = 40.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 orbit_velocity_curve = null
-scale_amount_min = 0.12
-scale_amount_max = 0.14
+scale_amount_min = 0.4
+scale_amount_max = 0.4
 scale_amount_curve = SubResource("Curve_37jd4")
-color = Color(0.5254902, 0.4392157, 0.15686275, 1)
 color_ramp = SubResource("Gradient_37jd4")
 
 [node name="WaterParticles" type="CPUParticles3D" parent="World/BgObjects" unique_id=543881548]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8235348, -0.2722544, 1.194552)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8235348, -0.2722544, 1.4788923)
 amount = 6
 lifetime = 6.3999999999999995
 preprocess = 3.59
 randomness = 0.45
-mesh = SubResource("QuadMesh_stxua")
+mesh = SubResource("QuadMesh_mffef")
 emission_shape = 3
-emission_box_extents = Vector3(3.547, 0.391, 0.079)
+emission_box_extents = Vector3(3.547, 0.391, 1.181)
 particle_flag_disable_z = true
 spread = 72.06
 gravity = Vector3(0, 0.018, 0)

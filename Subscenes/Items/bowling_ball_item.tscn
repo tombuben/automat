@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dbiny0q0riq71"]
+
+[ext_resource type="Script" uid="uid://clluv3r6m72c2" path="res://Scripts/random_item.gd" id="1_hb3gc"]
+[ext_resource type="PackedScene" uid="uid://brkco424nk1y8" path="res://Assets/models/KenneyPlaceholders/avocado.glb" id="3_tm273"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vkqkw"]
+size = Vector3(0.6447754, 0.7774048, 0.7036133)
+
+[node name="bowling_ball" type="RigidBody3D" unique_id=1837871512]
+collision_layer = 3
+mass = 0.35
+angular_damp = 10.0
+script = ExtResource("1_hb3gc")
+item_name = "bowling_ball"
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=7575584]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.008897759, -0.015930176)
+shape = SubResource("BoxShape3D_vkqkw")
+debug_color = Color(0, 11.618606, 13.50434, 0.41960785)
+
+[node name="avocado2" parent="." unique_id=1423883594 instance=ExtResource("3_tm273")]
+transform = Transform3D(1.522, 0, 0, 0, 1.029, 0, 0, 0, 1.471, -0.01933156, -0.120346606, -0.0069027543)

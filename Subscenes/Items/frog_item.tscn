@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cximmwwcbirk5"]
+
+[ext_resource type="Script" uid="uid://clluv3r6m72c2" path="res://Scripts/random_item.gd" id="1_qte6n"]
+[ext_resource type="PackedScene" uid="uid://di456l4kbm0nh" path="res://Assets/models/KenneyPlaceholders/watermelon.glb" id="2_qte6n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vkqkw"]
+size = Vector3(0.6447754, 0.7774048, 0.5761719)
+
+[node name="frog" type="RigidBody3D" unique_id=1837871512]
+collision_layer = 3
+mass = 0.35
+angular_damp = 10.0
+script = ExtResource("1_qte6n")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=7575584]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.008897759, 0)
+shape = SubResource("BoxShape3D_vkqkw")
+
+[node name="watermelon" parent="." unique_id=1523281108 instance=ExtResource("2_qte6n")]
+transform = Transform3D(-0.49178573, 0.07526615, -0.049817577, 0, 0.2759685, 0.41694292, 0.09025954, 0.41009316, -0.27143472, -0.02222988, -0.05297055, -0.08968303)

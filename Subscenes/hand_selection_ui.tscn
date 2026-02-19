@@ -22,28 +22,28 @@ PutBackButton = NodePath("LeftHand/PutBackButton")
 
 [node name="LeftHand" type="TextureRect" parent="." unique_id=158913913]
 layout_mode = 0
-offset_left = 4.50865
-offset_top = 734.4897
-offset_right = 804.50867
-offset_bottom = 1534.49
+offset_left = 17.7086
+offset_top = 665.6606
+offset_right = 817.7086
+offset_bottom = 1465.6609
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_46wwl")
 
 [node name="PutBackButton" type="TextureButton" parent="LeftHand" unique_id=1862463268]
 layout_mode = 0
-offset_left = 202.65488
-offset_top = 224.66853
-offset_right = 602.6549
-offset_bottom = 624.6685
+offset_left = 206.85344
+offset_top = 198.07765
+offset_right = 606.85345
+offset_bottom = 598.07764
 texture_normal = ExtResource("2_7jw3s")
 texture_pressed = ExtResource("3_0t6n0")
 
 [node name="RightHand" type="TextureRect" parent="." unique_id=1542833452]
 layout_mode = 0
-offset_left = 505.43695
-offset_top = 734.48926
-offset_right = 1305.437
-offset_bottom = 1534.4893
+offset_left = 518.6369
+offset_top = 667.9031
+offset_right = 1318.637
+offset_bottom = 1467.9031
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_wu56a")
 

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cikppqmxn7xox"]
+
+[ext_resource type="Script" uid="uid://clluv3r6m72c2" path="res://Scripts/random_item.gd" id="1_bpmi3"]
+[ext_resource type="PackedScene" uid="uid://c0bkytwt3d5ag" path="res://Assets/models/KenneyPlaceholders/donut.glb" id="3_vkjiv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vkqkw"]
+size = Vector3(0.6447754, 0.7774048, 0.5761719)
+
+[node name="ToastItem" type="RigidBody3D" unique_id=1837871512]
+collision_layer = 3
+mass = 0.35
+angular_damp = 10.0
+script = ExtResource("1_bpmi3")
+item_name = "safety_donut"
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=7575584]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.008897759, 0)
+shape = SubResource("BoxShape3D_vkqkw")
+debug_color = Color(0, 11.618606, 13.50434, 0.41960785)
+
+[node name="donut2" parent="." unique_id=1957107194 instance=ExtResource("3_vkjiv")]
+transform = Transform3D(1, 0, 0, 0, 0.029666198, -0.9995599, 0, 0.9995599, 0.029666198, 0.0026003048, -0.005116338, -0.036)
