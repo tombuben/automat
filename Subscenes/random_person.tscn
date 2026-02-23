@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://os1e3ic4o4wa" path="res://Scripts/random_person.gd" id="1_t8clt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8gkds"]
+height = 1.1816406
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8gkds"]
 

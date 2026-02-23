@@ -7,8 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://b8l8mhyb5sfwf" path="res://Subscenes/random_person.tscn" id="3_jv6wh"]
 [ext_resource type="Script" uid="uid://by0rhh6airqjb" path="res://Scripts/screen_resizer.gd" id="3_m1efj"]
 [ext_resource type="Script" uid="uid://7mv8rlcaqlga" path="res://Scripts/item_slot.gd" id="3_maf8m"]
+[ext_resource type="PackedScene" uid="uid://dpsrcljrkbfti" path="res://Subscenes/NPCs/Duckmancer.tscn" id="3_rlvbq"]
+[ext_resource type="PackedScene" uid="uid://cewxrrxqdih8w" path="res://Subscenes/NPCs/duck1.tscn" id="4_2v2b7"]
 [ext_resource type="Resource" uid="uid://4f6bltfcmio5" path="res://Dialogues/test.dialogue" id="4_drdnd"]
-[ext_resource type="Texture2D" uid="uid://sy66csq6kpjk" path="res://Assets/LVL1Assets/Characters/Duckmancer.png" id="4_nt2eh"]
+[ext_resource type="Texture2D" uid="uid://b4w1i1ea71lob" path="res://Assets/LVL1Assets/Characters/Grandma.png" id="5_2v2b7"]
 [ext_resource type="Script" uid="uid://dsalx1r160eac" path="res://Scripts/cursor_object.gd" id="5_6ev3c"]
 [ext_resource type="PackedScene" uid="uid://de0v3rev5opou" path="res://Subscenes/Items/licence_item.tscn" id="7_2h5y0"]
 [ext_resource type="Script" uid="uid://vysddvus01vk" path="res://Scripts/dispensor_selector.gd" id="7_huasi"]
@@ -156,6 +158,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(0, -0.13579047, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("World/Duckmancer:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(9.70923, 1.2149334, 0.06381273)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("World/Duckmancer:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_7ewk0"]
 resource_name = "capitalist_enter"
@@ -256,17 +282,47 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_gnsmo"]
 resource_name = "duckman_enter"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("World/Duckman:position")
+tracks/0/path = NodePath("World/Duckmancer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.7839313, 7.4722595, 0.06381273), Vector3(1.354, 1.215, 0.644)]
+}
+
+[sub_resource type="Animation" id="Animation_rlvbq"]
+resource_name = "duckman_idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("World/Duckmancer:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(6.3677163, 1.05, -0.019103408), Vector3(1.3929276, 1.05, 0.19816601)]
+"values": [Vector3(1, 1, 1), Vector3(1, 1.036, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("World/Duckmancer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.3540001, 1.215, 0.644), Vector3(1.354, 1.253, 0.644)]
 }
 
 [sub_resource type="Animation" id="Animation_psl12"]
@@ -274,14 +330,14 @@ resource_name = "duckman_enter"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("World/Duckman:position")
+tracks/0/path = NodePath("World/Duckmancer:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(1.3929276, 1.05, 0.19816601), Vector3(6.3677163, 1.05, -0.019103408)]
+"values": [Vector3(1.3540001, 1.215, 0.644), Vector3(1.437, 6.015, 0.644)]
 }
 
 [sub_resource type="Animation" id="Animation_oyb3p"]
@@ -352,6 +408,7 @@ _data = {
 &"capitalist_leave": SubResource("Animation_lhp3t"),
 &"capitalist_payment_enter": SubResource("Animation_b48ew"),
 &"duckman_enter": SubResource("Animation_gnsmo"),
+&"duckman_idle": SubResource("Animation_rlvbq"),
 &"duckman_leave": SubResource("Animation_psl12"),
 &"grandma_enter": SubResource("Animation_oyb3p"),
 &"grandma_leave": SubResource("Animation_jvnna"),
@@ -387,16 +444,37 @@ person_name = "capitalist"
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -0.13579047, 0)
 texture = ExtResource("2_5oxhp")
 
-[node name="Duckman" parent="World" unique_id=1810524913 instance=ExtResource("3_jv6wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.847282, 1.05, -2.0213985)
+[node name="Duckmancer" parent="World" unique_id=1055277779 instance=ExtResource("3_rlvbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.70923, 1.2149334, 0.06381273)
 person_name = "duckman"
 
-[node name="Grandma" parent="World" unique_id=1055277779 instance=ExtResource("3_jv6wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.282389, 1.05, -0.006733775)
+[node name="Duck1" parent="World/Duckmancer" unique_id=1706409578 instance=ExtResource("4_2v2b7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78654194, 0.45378244, 0)
+person_name = "duck"
+
+[node name="Sprite3D" parent="World/Duckmancer/Duck1/RigidBody3D" parent_id_path=PackedInt32Array(1706409578, 368135441) index="2" unique_id=82952497]
+sorting_offset = 0.283
+
+[node name="Duck2" parent="World/Duckmancer" unique_id=1562666708 instance=ExtResource("4_2v2b7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07556152, 1.0664648, 0)
+person_name = "duck"
+
+[node name="Sprite3D" parent="World/Duckmancer/Duck2/RigidBody3D" parent_id_path=PackedInt32Array(1562666708, 368135441) index="2" unique_id=82952497]
+sorting_offset = 0.283
+
+[node name="Duck3" parent="World/Duckmancer" unique_id=53555252 instance=ExtResource("4_2v2b7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.98298836, 0.4307605, 0)
+person_name = "duck"
+
+[node name="Sprite3D" parent="World/Duckmancer/Duck3/RigidBody3D" parent_id_path=PackedInt32Array(53555252, 368135441) index="2" unique_id=82952497]
+sorting_offset = 0.283
+
+[node name="Grandma" parent="World" unique_id=693099124 instance=ExtResource("3_jv6wh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9874167, 1.05, 1.5673971)
 person_name = "grandma"
 
-[node name="Sprite3D" parent="World/Grandma/RigidBody3D" parent_id_path=PackedInt32Array(1055277779, 368135441) index="2" unique_id=82952497]
-texture = ExtResource("4_nt2eh")
+[node name="Sprite3D" parent="World/Grandma/RigidBody3D" parent_id_path=PackedInt32Array(693099124, 368135441) index="2" unique_id=82952497]
+texture = ExtResource("5_2v2b7")
 
 [node name="Automat" type="Node3D" parent="World" unique_id=1282403330]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.48224, 0, 0)
@@ -735,6 +813,7 @@ visible = false
 
 [node name="TreeParticles" type="CPUParticles3D" parent="World/BgObjects" unique_id=1261303191]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6525817, 3.0327446, 0.2462995)
+sorting_offset = 0.906
 amount = 6
 lifetime = 5.43
 preprocess = 6.85
@@ -758,6 +837,7 @@ color_ramp = SubResource("Gradient_37jd4")
 
 [node name="TreeParticles2" type="CPUParticles3D" parent="World/BgObjects" unique_id=726451505]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0786786, 3.8830278, 0.58947635)
+sorting_offset = 0.906
 amount = 6
 lifetime = 5.43
 preprocess = 6.85
@@ -918,6 +998,9 @@ skeleton = NodePath("../World/BgObjects")
 surface_material_override/0 = SubResource("StandardMaterial3D_5cm5d")
 
 [editable path="World/Capitalist"]
-[editable path="World/Duckman"]
+[editable path="World/Duckmancer"]
+[editable path="World/Duckmancer/Duck1"]
+[editable path="World/Duckmancer/Duck2"]
+[editable path="World/Duckmancer/Duck3"]
 [editable path="World/Grandma"]
 [editable path="World/BgObjects/ExplosionParticles"]

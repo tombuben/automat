@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cewxrrxqdih8w"]
+
+[ext_resource type="PackedScene" uid="uid://b8l8mhyb5sfwf" path="res://Subscenes/random_person.tscn" id="1_52284"]
+[ext_resource type="Texture2D" uid="uid://bqatnd7msigp3" path="res://Assets/LVL1Assets/Characters/Duck.png" id="2_52284"]
+
+[node name="Duck1" unique_id=1055277779 instance=ExtResource("1_52284")]
+
+[node name="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="2" unique_id=82952497]
+texture = ExtResource("2_52284")
+
+[node name="StaticBody3D" parent="." index="2" unique_id=1792104469]
+transform = Transform3D(0.614, 0, 0, 0, 0.614, 0, 0, 0, 0.614, 0, -0.42492616, 0)

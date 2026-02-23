@@ -43,7 +43,7 @@ elif "fishFood" in GlobalManager.item_that_hit.item_type:
 
 elif "hammer" in GlobalManager.item_that_hit.item_type:
 	capitalist: I cannot die
-	capitalist: I still need to make money
+	capitalist: I still need to be rich
 	=> END!
 
 elif "frog" in GlobalManager.item_that_hit.item_type:
@@ -58,7 +58,7 @@ else
 	=> END!
 	
 
-capitalist: Okay, now try to make money this way somehow.
+capitalist: Okay, now try to make money somehow this way.
 
  - How do I make money? =>< know_me_disagree
 	do wait(0)
@@ -94,6 +94,7 @@ do wait(GlobalManager.current_animation_length)
 ~ duckman
 do GlobalManager.play_animation.emit("duckman_enter")
 do wait(GlobalManager.current_animation_length +1)
+do GlobalManager.play_animation.emit("duckman_idle")
 
 duckman: Hi! Im duckman and i want bread!
 => END!
@@ -122,6 +123,14 @@ else
 duckman: Hey where U shooting at???
 do GlobalManager.person_shoot_selection_started.emit()
 => END!
+
+
+~ duck_hit
+if GlobalManager.item_that_hit.item_name == "bread"
+	duckman: thanks for the bread!
+	do GlobalManager.play_animation.emit("duckman_leave")
+	do wait(GlobalManager.current_animation_length)
+
 
 ~ grandma
 do GlobalManager.play_animation.emit("grandma_enter")
