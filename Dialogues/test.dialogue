@@ -21,38 +21,69 @@ do wait(GlobalManager.current_animation_length)
 
 ~ capitalist_hit
 if GlobalManager.item_that_hit.item_name == "licence"
-	capitalist: OUCH
+	capitalist: EEP
+
+
+elif "bread" in GlobalManager.item_that_hit.item_type:
+	capitalist: That's bread. You just gave me bread.
+	capitalist: It's pretty stale now
+	=> END!
+
+
+elif "donut" in GlobalManager.item_that_hit.item_type:
+	capitalist: Please for the love of god just give me the licence
+	=> END!
+
+
+
+elif "fishFood" in GlobalManager.item_that_hit.item_type:
+	capitalist: It tastes like salty sand
+	capitalist: GIVE ME THE LICENCE
+	=> END!
+
+elif "hammer" in GlobalManager.item_that_hit.item_type:
+	capitalist: I cannot die
+	capitalist: I still need to make money
+	=> END!
+
+elif "frog" in GlobalManager.item_that_hit.item_type:
+	capitalist: All my businesses have failed
+	capitalist: I think you are about to be the fifth one
+	=> END!
+
+
 else
-	duckman: what is this! give me something else!
+	capitalist: what is this! give me something else!
 	#do GlobalManager.person_shoot_selection_started.emit()
 	=> END!
 	
-	
-capitalist: Wow okay, this is... yeah.
-capitalist: Good enough.
 
-capitalist: If anybody asks, you DO NOT know me
+capitalist: Okay, now try to make money this way somehow.
 
- - But what if- =>< know_me_disagree
+ - How do I make money? =>< know_me_disagree
 	do wait(0)
-	capitalist: Super super useless.
-	capitalist: Super super useless.
- - Oh okay... 
-do wait(0)
+	~ know_me_disagree
+	do wait(0)
+	capitalist: Real funny
+	=> capitalist_end_convo
+
+ - But what even is money? =>< know_me_agree
+	do wait(0)
+	~ know_me_agree
+	capitalist: I care way too little about you to explain
+	capitalist: Please try to exist usefully
+	=> capitalist_end_convo
+
 
 ~ capitalist_end_convo
-
-capitalist: I will be watching
-capitalist: I am off to pouring water out of my sunken submarine of a house.
+capitalist: I am off to pouring water out of my sunken house
+capitalist: I will be back
 
 do GlobalManager.play_animation.emit("capitalist_leave")
 do wait(GlobalManager.current_animation_length)
 => duckman
 
-~ know_me_disagree
-do wait(0)
-capitalist: No.
-=> capitalist_end_convo
+
 
 #do GlobalManager.play_animation.emit("screen_expand")
 #do wait(GlobalManager.current_animation_length)

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://de0v3rev5opou"]
+
+[ext_resource type="Script" uid="uid://clluv3r6m72c2" path="res://Scripts/random_item.gd" id="1_jb6m5"]
+[ext_resource type="PackedScene" uid="uid://b0l5aytwnswl4" path="res://Assets/models/KenneyPlaceholders/loaf.glb" id="2_7f672"]
+[ext_resource type="PackedScene" uid="uid://dgdc0fl5ewp1g" path="res://Assets/models/KenneyPlaceholders/cutting-board.glb" id="3_7f672"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vkqkw"]
+size = Vector3(0.6447754, 0.7774048, 0.5761719)
+
+[node name="LicenceItem" type="RigidBody3D" unique_id=1837871512]
+collision_layer = 3
+mass = 0.35
+angular_damp = 10.0
+script = ExtResource("1_jb6m5")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=7575584]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.008897759, 0)
+shape = SubResource("BoxShape3D_vkqkw")
+
+[node name="loaf2" parent="." unique_id=1532853442 instance=ExtResource("2_7f672")]
+transform = Transform3D(-0.0045918743, 0, 0.5213768, 0, 0.522, 0, -0.09388777, 0, -0.025499558, -0.0021276772, -0.119090684, 0.0040253997)
+visible = false
+
+[node name="cutting-board2" parent="." unique_id=1905048113 instance=ExtResource("3_7f672")]
+transform = Transform3D(0.312, 0, 0, 0, 3.7205627e-09, -0.312, 0, 0.312, 3.7205627e-09, -0.005695872, -0.014627464, -0.0050651655)

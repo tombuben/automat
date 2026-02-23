@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bll46git7a4ek"]
+
+[ext_resource type="Script" uid="uid://clluv3r6m72c2" path="res://Scripts/random_item.gd" id="1_71338"]
+[ext_resource type="PackedScene" uid="uid://b0l5aytwnswl4" path="res://Assets/models/KenneyPlaceholders/loaf.glb" id="2_b0axw"]
+[ext_resource type="PackedScene" uid="uid://8blhyn2s5h3w" path="res://Assets/models/KenneyPlaceholders/cooking-knife-chopping.glb" id="3_b0axw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vkqkw"]
+size = Vector3(0.6447754, 0.7774048, 0.5761719)
+
+[node name="Hammer" type="RigidBody3D" unique_id=1837871512]
+collision_layer = 3
+mass = 0.35
+angular_damp = 10.0
+script = ExtResource("1_71338")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=7575584]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.008897759, 0)
+shape = SubResource("BoxShape3D_vkqkw")
+
+[node name="loaf2" parent="." unique_id=1532853442 instance=ExtResource("2_b0axw")]
+transform = Transform3D(-0.0045918743, 0, 0.5213768, 0, 0.522, 0, -0.09388777, 0, -0.025499558, -0.0021276772, -0.119090684, 0.0040253997)
+visible = false
+
+[node name="cooking-knife-chopping2" parent="." unique_id=546120447 instance=ExtResource("3_b0axw")]
+transform = Transform3D(-0.0034424576, -0.12324215, 0.69921345, -0.7097232, 0.01982432, 0, -0.019523146, -0.6989409, -0.12329021, -0.017257746, -0.07108569, 0)

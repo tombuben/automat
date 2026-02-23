@@ -10,12 +10,15 @@
 [ext_resource type="Resource" uid="uid://4f6bltfcmio5" path="res://Dialogues/test.dialogue" id="4_drdnd"]
 [ext_resource type="Texture2D" uid="uid://sy66csq6kpjk" path="res://Assets/LVL1Assets/Characters/Duckmancer.png" id="4_nt2eh"]
 [ext_resource type="Script" uid="uid://dsalx1r160eac" path="res://Scripts/cursor_object.gd" id="5_6ev3c"]
+[ext_resource type="PackedScene" uid="uid://de0v3rev5opou" path="res://Subscenes/Items/licence_item.tscn" id="7_2h5y0"]
 [ext_resource type="Script" uid="uid://vysddvus01vk" path="res://Scripts/dispensor_selector.gd" id="7_huasi"]
 [ext_resource type="PackedScene" uid="uid://cikppqmxn7xox" path="res://Subscenes/Items/safety_donut_item2.tscn" id="7_m0uwk"]
 [ext_resource type="PackedScene" uid="uid://cm6u4hvk1v5dr" path="res://Subscenes/Items/fish_food.tscn" id="8_mffef"]
 [ext_resource type="PackedScene" uid="uid://do2eiuugsfc1a" path="res://Subscenes/Items/toast_item.tscn" id="8_nt2eh"]
-[ext_resource type="Script" path="res://Scripts/mouse_cursor.gd" id="10_76v2p"]
+[ext_resource type="Script" uid="uid://ci5q4jckgmagi" path="res://Scripts/mouse_cursor.gd" id="10_76v2p"]
 [ext_resource type="Texture2D" uid="uid://1y7wg77wd30x" path="res://Assets/concepts/cursor.png" id="10_mai8y"]
+[ext_resource type="PackedScene" uid="uid://bll46git7a4ek" path="res://Subscenes/Items/hammer_item.tscn" id="10_y0lwx"]
+[ext_resource type="PackedScene" uid="uid://cximmwwcbirk5" path="res://Subscenes/Items/frog_item.tscn" id="11_igw8g"]
 [ext_resource type="Texture2D" uid="uid://k41vohdmp65j" path="res://Assets/LVL1Assets/foretree1.png" id="12_37jd4"]
 [ext_resource type="Texture2D" uid="uid://c7mkgo08m6rxo" path="res://Assets/LVL1Assets/foretree2.png" id="13_gfj8f"]
 [ext_resource type="Script" uid="uid://c6qs8oiugm1gg" path="res://Scripts/global_animation_player.gd" id="13_ioaeq"]
@@ -411,27 +414,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27245474, 1.84522, 0.48949
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
-item_in_slot = NodePath("RandomItem")
+item_in_slot = NodePath("ToastItem")
 
-[node name="RandomItem" parent="World/Automat/ItemSlot" unique_id=224246817 instance=ExtResource("2_6l7je")]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
+[node name="ToastItem" parent="World/Automat/ItemSlot" unique_id=1837871512 instance=ExtResource("8_nt2eh")]
+transform = Transform3D(1, 0, 0, 0, 0.97437006, 0.22495104, 0, -0.22495104, 0.97437006, 0.0163064, -0.003581643, -0.08863926)
 item_name = "bread"
-item_type = Array[String](["meal"])
+item_type = Array[String](["bread"])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot" unique_id=141080273]
 shape = SubResource("SphereShape3D_huasi")
 
 [node name="ItemSlot2" type="Area3D" parent="World/Automat" unique_id=1293194248 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.016539574, 1.84522, 0.489491)
+transform = Transform3D(1, 0, 0, 0, 0.9378889, 0.34693566, 0, -0.34693566, 0.9378889, 0.016539574, 1.84522, 0.489491)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
-item_in_slot = NodePath("RandomItem")
+item_in_slot = NodePath("LicenceItem")
 
-[node name="RandomItem" parent="World/Automat/ItemSlot2" unique_id=320637297 instance=ExtResource("2_6l7je")]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
+[node name="LicenceItem" parent="World/Automat/ItemSlot2" unique_id=1914462249 instance=ExtResource("7_2h5y0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008052826, 0.033046365, -0.06248188)
 item_name = "licence"
-item_type = Array[String](["metal", "meal"])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot2" unique_id=577018261]
 shape = SubResource("SphereShape3D_huasi")
@@ -443,8 +445,9 @@ collision_mask = 16
 script = ExtResource("3_maf8m")
 item_in_slot = NodePath("SafetyDonutItem")
 
-[node name="SafetyDonutItem" parent="World/Automat/ItemSlot3" unique_id=1837871512 instance=ExtResource("7_m0uwk")]
+[node name="SafetyDonutItem" parent="World/Automat/ItemSlot3" unique_id=827200447 instance=ExtResource("7_m0uwk")]
 transform = Transform3D(1, 0, 0, 0, 0.9291326, 0.36974674, 0, -0.36974674, 0.9291326, -0.018854141, 0.004671812, -0.08785647)
+item_type = Array[String](["donut"])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot3" unique_id=1902727124]
 shape = SubResource("SphereShape3D_huasi")
@@ -456,21 +459,24 @@ collision_mask = 16
 script = ExtResource("3_maf8m")
 item_in_slot = NodePath("FishFoodItem")
 
+[node name="FishFoodItem" parent="World/Automat/ItemSlot4" unique_id=1967725391 instance=ExtResource("8_mffef")]
+transform = Transform3D(0.913, 0, 0, 0, 0.8780698, 0.25012475, 0, -0.25012475, 0.8780698, -0.0021514893, -0.020774603, -0.0534454)
+item_type = Array[String](["fishFood"])
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot4" unique_id=1129424357]
 shape = SubResource("SphereShape3D_huasi")
 
-[node name="FishFoodItem" parent="World/Automat/ItemSlot4" unique_id=1967725391 instance=ExtResource("8_mffef")]
-transform = Transform3D(0.913, 0, 0, 0, 0.8780698, 0.25012475, 0, -0.25012475, 0.8780698, -0.0021514893, -0.020774603, -0.0534454)
-
 [node name="ItemSlot5" type="Area3D" parent="World/Automat" unique_id=912682092 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0067043304, 1.50943, 0.489491)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12130737, 1.5299689, 0.489491)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
-item_in_slot = NodePath("RandomItem")
+item_in_slot = NodePath("Hammer")
 
-[node name="RandomItem" parent="World/Automat/ItemSlot5" unique_id=48752579 instance=ExtResource("2_6l7je")]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
+[node name="Hammer" parent="World/Automat/ItemSlot5" unique_id=1062784544 instance=ExtResource("10_y0lwx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15190125, 0.002992034, -0.052236795)
+item_name = "hammer"
+item_type = Array[String](["hammer"])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot5" unique_id=1004973013]
 shape = SubResource("SphereShape3D_huasi")
@@ -480,51 +486,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2641058, 1.509, 0.5)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
-item_in_slot = NodePath("RandomItem")
+item_in_slot = NodePath("frog")
 
-[node name="RandomItem" parent="World/Automat/ItemSlot6" unique_id=1802622467 instance=ExtResource("2_6l7je")]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
+[node name="frog" parent="World/Automat/ItemSlot6" unique_id=1968186880 instance=ExtResource("11_igw8g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04473543, 0, -0.109182715)
+item_type = Array[String](["frog"])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot6" unique_id=342014291]
-shape = SubResource("SphereShape3D_huasi")
-
-[node name="ItemSlot7" type="Area3D" parent="World/Automat" unique_id=981432456 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27548456, 1.1699593, 0.489491)
-collision_layer = 0
-collision_mask = 16
-script = ExtResource("3_maf8m")
-item_in_slot = NodePath("RandomItem")
-
-[node name="RandomItem" parent="World/Automat/ItemSlot7" unique_id=1696317655 instance=ExtResource("2_6l7je")]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot7" unique_id=1578564752]
-shape = SubResource("SphereShape3D_huasi")
-
-[node name="ItemSlot8" type="Area3D" parent="World/Automat" unique_id=2028433372 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008404732, 1.15559, 0.489491)
-collision_layer = 0
-collision_mask = 16
-script = ExtResource("3_maf8m")
-item_in_slot = NodePath("RandomItem")
-
-[node name="RandomItem" parent="World/Automat/ItemSlot8" unique_id=39503010 instance=ExtResource("2_6l7je")]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, -0.1)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot8" unique_id=1855276946]
-shape = SubResource("SphereShape3D_huasi")
-
-[node name="ItemSlot9" type="Area3D" parent="World/Automat" unique_id=324159926 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30226612, 1.1621081, 0.489491)
-collision_layer = 0
-collision_mask = 16
-script = ExtResource("3_maf8m")
-item_in_slot = NodePath("ToastItem")
-
-[node name="ToastItem" parent="World/Automat/ItemSlot9" unique_id=1085995190 instance=ExtResource("8_nt2eh")]
-transform = Transform3D(1, 0, 0, 0, 0.9291326, 0.36974674, 0, -0.36974674, 0.9291326, 0, 0.028060079, -0.11261594)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot9" unique_id=728874747]
 shape = SubResource("SphereShape3D_huasi")
 
 [node name="Table" type="StaticBody3D" parent="World/Automat" unique_id=801750209]
@@ -568,6 +536,66 @@ script = ExtResource("7_huasi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0025024414, 0)
 shape = SubResource("BoxShape3D_76v2p")
 debug_color = Color(0, 1.7336978, 0.4055968, 0.41960785)
+
+[node name="Label" type="Label" parent="World/Automat" unique_id=973422206]
+z_index = 29
+offset_left = 187.5718
+offset_top = 257.93924
+offset_right = 259.57178
+offset_bottom = 292.93924
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Bread"
+
+[node name="Label2" type="Label" parent="World/Automat" unique_id=1959496497]
+z_index = 29
+offset_left = 332.0771
+offset_top = 257.93924
+offset_right = 404.0771
+offset_bottom = 292.93924
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Licence"
+
+[node name="Label3" type="Label" parent="World/Automat" unique_id=1796067273]
+z_index = 29
+offset_left = 434.5855
+offset_top = 257.93924
+offset_right = 628.5855
+offset_bottom = 292.93924
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Inflatable donut"
+
+[node name="Label4" type="Label" parent="World/Automat" unique_id=1844145937]
+z_index = 29
+offset_left = 161.87689
+offset_top = 430.8037
+offset_right = 355.8769
+offset_bottom = 465.8037
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Fish food"
+
+[node name="Label5" type="Label" parent="World/Automat" unique_id=1432652585]
+z_index = 29
+offset_left = 315.86536
+offset_top = 430.8037
+offset_right = 509.86536
+offset_bottom = 465.8037
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "hammer"
+
+[node name="Label6" type="Label" parent="World/Automat" unique_id=1092040419]
+z_index = 29
+offset_left = 488.8305
+offset_top = 430.8037
+offset_right = 682.8305
+offset_bottom = 465.8037
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Frog"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=2137756423]
 environment = SubResource("Environment_lhp3t")
