@@ -849,7 +849,8 @@ flip_h = true
 texture = ExtResource("18_oyb3p")
 
 [node name="Grass3" type="Sprite3D" parent="World/BgObjects" unique_id=623773024]
-transform = Transform3D(0.566, 0, 0, 0, 0.566, 0, 0, 0, 0.566, 3.9713106, -0.38199997, 0.119)
+transform = Transform3D(0.443, 0, 0, 0, 0.443, 0, 0, 0, 0.443, 3.9713106, -0.38199997, 0.119)
+sorting_offset = 1.008
 flip_h = true
 texture = ExtResource("18_oyb3p")
 
@@ -1051,7 +1052,7 @@ color_ramp = SubResource("Gradient_5w0f0")
 [node name="CPUParticles3D2" type="CPUParticles3D" parent="World/BgObjects" unique_id=691504400]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3919121, -0.55545056, 0)
 amount = 1
-lifetime = 4.88
+lifetime = 7.06
 preprocess = 1.45
 explosiveness = 0.72
 mesh = SubResource("QuadMesh_so8ax")

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dffn0bxh63v31" path="res://Assets/VendingMachine/Hands/HandLeft.png" id="1_46wwl"]
 [ext_resource type="Texture2D" uid="uid://b3wixn2q4acce" path="res://Assets/VendingMachine/Hands/PutBackButton.png" id="2_7jw3s"]
 [ext_resource type="Texture2D" uid="uid://cs2yri6pngpu8" path="res://Assets/VendingMachine/Hands/PutBackButtonDown.png" id="3_0t6n0"]
+[ext_resource type="Script" uid="uid://d3tbdp3yiaof" path="res://Subscenes/UIhover.gd" id="3_wu56a"]
 [ext_resource type="Texture2D" uid="uid://dwejvy41bc5ia" path="res://Assets/VendingMachine/Hands/HandRight.png" id="4_wu56a"]
 [ext_resource type="Texture2D" uid="uid://bekfev8md5bi2" path="res://Assets/VendingMachine/Hands/SmallButton1.png" id="5_f2y2y"]
 [ext_resource type="Texture2D" uid="uid://iv2gqmfgdxqe" path="res://Assets/VendingMachine/Hands/SmallButton1Down.png" id="6_cmlgi"]
@@ -18,36 +19,55 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_7jw3s")
-PutBackButton = NodePath("LeftHand/PutBackButton")
+PutBackButton = NodePath("PutBackButton")
 
-[node name="LeftHand" type="TextureRect" parent="." unique_id=158913913]
+[node name="PutBackButton" type="TextureButton" parent="." unique_id=1862463268]
+z_index = 2
 layout_mode = 0
-offset_left = -10.352862
-offset_top = 665.6606
-offset_right = 789.64716
-offset_bottom = 1465.6609
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("1_46wwl")
-
-[node name="PutBackButton" type="TextureButton" parent="LeftHand" unique_id=1862463268]
-layout_mode = 0
-offset_left = 206.85344
-offset_top = 198.07765
-offset_right = 606.85345
-offset_bottom = 598.07764
+offset_left = 157.84517
+offset_top = 815.50854
+offset_right = 557.84515
+offset_bottom = 1215.5085
+scale = Vector2(0.75, 0.75)
 texture_normal = ExtResource("2_7jw3s")
 texture_pressed = ExtResource("3_0t6n0")
+script = ExtResource("3_wu56a")
+hover_offset = 60.0
+tween_duration = 0.5
 
-[node name="RightHand" type="TextureRect" parent="." unique_id=1542833452]
+[node name="LeftHand" type="TextureRect" parent="PutBackButton" unique_id=158913913]
+z_index = -1
 layout_mode = 0
-offset_left = 490.57544
-offset_top = 667.9031
-offset_right = 1290.5756
-offset_bottom = 1467.9031
-scale = Vector2(0.8, 0.8)
+offset_left = -197.07063
+offset_top = -187.30994
+offset_right = 602.9294
+offset_bottom = 612.69037
+texture = ExtResource("1_46wwl")
+
+[node name="LaunchButton" type="TextureButton" parent="." unique_id=15324101]
+z_index = 2
+layout_mode = 0
+offset_left = 639.359
+offset_top = 819.494
+offset_right = 1039.359
+offset_bottom = 1219.494
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("9_vbpje")
+texture_pressed = ExtResource("10_6n6xq")
+script = ExtResource("3_wu56a")
+hover_offset = 60.0
+tween_duration = 0.5
+
+[node name="RightHand" type="TextureRect" parent="LaunchButton" unique_id=1542833452]
+z_index = -1
+layout_mode = 0
+offset_left = -193.29999
+offset_top = -189.48865
+offset_right = 606.70013
+offset_bottom = 610.51135
 texture = ExtResource("4_wu56a")
 
-[node name="SmallButton1" type="TextureButton" parent="RightHand" unique_id=1619349774]
+[node name="SmallButton1" type="TextureButton" parent="LaunchButton/RightHand" unique_id=1619349774]
 visible = false
 layout_mode = 0
 offset_left = 475.8888
@@ -57,7 +77,7 @@ offset_bottom = 522.1294
 texture_normal = ExtResource("5_f2y2y")
 texture_pressed = ExtResource("6_cmlgi")
 
-[node name="SmallButton2" type="TextureButton" parent="RightHand" unique_id=1458851669]
+[node name="SmallButton2" type="TextureButton" parent="LaunchButton/RightHand" unique_id=1458851669]
 visible = false
 layout_mode = 0
 offset_left = 464.21967
@@ -67,16 +87,7 @@ offset_bottom = 436.0822
 texture_normal = ExtResource("7_hhd7d")
 texture_pressed = ExtResource("8_y134d")
 
-[node name="LaunchButton" type="TextureButton" parent="RightHand" unique_id=15324101]
-layout_mode = 0
-offset_left = 178.65906
-offset_top = 188.42374
-offset_right = 578.65906
-offset_bottom = 588.4237
-texture_normal = ExtResource("9_vbpje")
-texture_pressed = ExtResource("10_6n6xq")
-
-[node name="SmallButton3" type="TextureButton" parent="RightHand" unique_id=519990847]
+[node name="SmallButton3" type="TextureButton" parent="LaunchButton/RightHand" unique_id=519990847]
 visible = false
 layout_mode = 0
 offset_left = 173.60306

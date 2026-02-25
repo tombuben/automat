@@ -65,6 +65,8 @@ MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
 
+[sub_resource type="Theme" id="Theme_7qwyv"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7ytr"]
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 6
@@ -76,8 +78,6 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-
-[sub_resource type="Theme" id="Theme_7qwyv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qwyv"]
 bg_color = Color(0, 0, 0, 1)
@@ -151,6 +151,24 @@ scale = Vector2(2.400001, 2)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(0, 0, 9.166687, 14, 10.833313, 14, 20, 0, 9.916357, 0)
 
+[node name="CharacterLabel" type="RichTextLabel" parent="Balloon" unique_id=613805791]
+unique_name_in_owner = true
+z_index = 11
+layout_mode = 0
+offset_left = 805.00006
+offset_top = 75.0
+offset_right = 973.30524
+offset_bottom = 119.00001
+rotation = -0.25132743
+mouse_filter = 1
+theme = SubResource("Theme_7qwyv")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Character"
+fit_content = true
+scroll_active = false
+
 [node name="PanelContainer" type="PanelContainer" parent="Balloon" unique_id=1542593386]
 z_index = 5
 layout_mode = 0
@@ -160,19 +178,6 @@ offset_right = 969.3052
 offset_bottom = 130.0
 rotation = -0.25132743
 theme_override_styles/panel = SubResource("StyleBoxFlat_m7ytr")
-
-[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/PanelContainer" unique_id=613805791]
-unique_name_in_owner = true
-z_index = 11
-layout_mode = 2
-mouse_filter = 1
-theme = SubResource("Theme_7qwyv")
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 32
-bbcode_enabled = true
-text = "Character"
-fit_content = true
-scroll_active = false
 
 [node name="MarginContainer" type="MarginContainer" parent="Balloon" unique_id=978174234]
 layout_mode = 1
@@ -213,12 +218,6 @@ scroll_active = true
 scroll_following = true
 horizontal_alignment = 1
 vertical_alignment = 1
-skip_action = null
-seconds_per_step = null
-pause_at_characters = null
-skip_pause_at_character_if_followed_by = null
-skip_pause_at_abbreviations = null
-seconds_per_pause_step = null
 
 [node name="Control" type="Control" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=541740382]
 custom_minimum_size = Vector2(20, 10)
