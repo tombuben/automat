@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ov2vajd47wc5"]
+
+[ext_resource type="Shader" uid="uid://c42r6waoujhrg" path="res://Scenes/windSprite3D.gdshader" id="1_0tmtc"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4j8bk"]
+load_path = "res://.godot/imported/TreeVillage1Crown.png-d17d14bcf2b8a51cff7fd16b9b04dcbd.s3tc.ctex"
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_0tmtc")
+shader_parameter/albedo_texture = SubResource("CompressedTexture2D_4j8bk")
+shader_parameter/wind_strength = 0.5950000282625
+shader_parameter/wind_speed = 0.7250000344375
+shader_parameter/wind_scale = 3.12400014839

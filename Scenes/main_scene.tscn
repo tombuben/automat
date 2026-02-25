@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://4f6bltfcmio5" path="res://Dialogues/test.dialogue" id="4_drdnd"]
 [ext_resource type="Texture2D" uid="uid://b4w1i1ea71lob" path="res://Assets/LVL1Assets/Characters/Grandma.png" id="5_2v2b7"]
 [ext_resource type="Script" uid="uid://dsalx1r160eac" path="res://Scripts/cursor_object.gd" id="5_6ev3c"]
+[ext_resource type="PackedScene" uid="uid://cxappahvrmfki" path="res://Subscenes/NPCs/DrowningPerson.tscn" id="5_p35vf"]
 [ext_resource type="PackedScene" uid="uid://de0v3rev5opou" path="res://Subscenes/Items/licence_item.tscn" id="7_2h5y0"]
 [ext_resource type="Script" uid="uid://vysddvus01vk" path="res://Scripts/dispensor_selector.gd" id="7_huasi"]
 [ext_resource type="PackedScene" uid="uid://cikppqmxn7xox" path="res://Subscenes/Items/safety_donut_item2.tscn" id="7_m0uwk"]
@@ -31,21 +32,29 @@
 [ext_resource type="Texture2D" uid="uid://obf0hyssqlkx" path="res://Assets/LVL1Assets/BG/house2nd2.png" id="16_r0xgx"]
 [ext_resource type="Texture2D" uid="uid://ch4c67k8mjan" path="res://Assets/LVL1Assets/TreeVillage2.png" id="17_2ebs2"]
 [ext_resource type="Texture2D" uid="uid://4to4ird1lhnj" path="res://Assets/LVL1Assets/BG/house3rd.png" id="17_nrumr"]
+[ext_resource type="Shader" uid="uid://c42r6waoujhrg" path="res://Scenes/windSprite3D.gdshader" id="17_v1fg3"]
+[ext_resource type="Material" uid="uid://ov2vajd47wc5" path="res://Materials/swayMaterial.tres" id="17_wrtin"]
+[ext_resource type="Texture2D" uid="uid://uoolpd713scy" path="res://Assets/LVL1Assets/TreeVillage1Crown.png" id="17_yu1ej"]
 [ext_resource type="Texture2D" uid="uid://brgr10byhrt44" path="res://Assets/LVL1Assets/BG/house3rd2.png" id="18_kbbok"]
 [ext_resource type="Texture2D" uid="uid://khkcfiit3svj" path="res://Assets/LVL1Assets/grass2.png" id="18_oyb3p"]
+[ext_resource type="Texture2D" uid="uid://caekwxocv5mjy" path="res://Assets/LVL1Assets/TreeVillage2Crown.png" id="19_5w0f0"]
 [ext_resource type="Texture2D" uid="uid://dlbjehj8kvjqv" path="res://Assets/LVL1Assets/BG/BgTree1st.png" id="19_m0uwk"]
 [ext_resource type="Texture2D" uid="uid://c1skulm7nyq6a" path="res://Assets/LVL1Assets/BG/BgTree2nd.png" id="20_mffef"]
 [ext_resource type="Texture2D" uid="uid://c0gc6uxfv8w12" path="res://Assets/LVL1Assets/BG/BgTree2nd2.png" id="21_2h5y0"]
+[ext_resource type="Texture2D" uid="uid://bck5dx4xmvk3u" path="res://Assets/LVL1Assets/grass1.png" id="21_so8ax"]
 [ext_resource type="Texture2D" uid="uid://b8lsd7x7o3k1a" path="res://Assets/LVL1Assets/box3.png" id="22_nt2eh"]
 [ext_resource type="Texture2D" uid="uid://3f5jiraw8m2k" path="res://Assets/LVL1Assets/BG/BgTree2nd1.png" id="22_y0lwx"]
 [ext_resource type="Texture2D" uid="uid://df8ce4bhkx7ao" path="res://Assets/LVL1Assets/BG/BgTree3rd.png" id="23_2v2b7"]
 [ext_resource type="Texture2D" uid="uid://dy3qo2qp3jave" path="res://Assets/LVL1Assets/BG/BgTree4th.png" id="24_p35vf"]
 [ext_resource type="Texture2D" uid="uid://b2hsf4l5a21fm" path="res://Assets/LVL1Assets/BG/BgTree4th2.png" id="25_stxua"]
+[ext_resource type="Texture2D" uid="uid://ld7i70bjfpj4" path="res://Assets/LVL1Assets/ripplesHouses.png" id="26_gfj8f"]
 [ext_resource type="Texture2D" uid="uid://vwjl017qgxuh" path="res://Assets/LVL1Assets/Flower.png" id="27_p35vf"]
 [ext_resource type="PackedScene" uid="uid://1ajkf1bho0fa" path="res://Assets/ParticleEffects/explosion_particles.tscn" id="28_stxua"]
 [ext_resource type="Material" uid="uid://devm043yr2tp8" path="res://Materials/waterParticles.tres" id="29_37jd4"]
 [ext_resource type="Texture2D" uid="uid://c6lqbgep87b41" path="res://Assets/concepts/Circle.png" id="30_kbbok"]
 [ext_resource type="PackedScene" uid="uid://cci8wr48xkh26" path="res://Subscenes/hand_selection_ui.tscn" id="33_nrumr"]
+[ext_resource type="Texture2D" uid="uid://cknh5ndlhrrxu" path="res://Assets/gradient.png" id="38_stxua"]
+[ext_resource type="Texture2D" uid="uid://vgra0kky4iw1" path="res://Assets/LVL1Assets/ripple1.png" id="39_37jd4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oyb3p"]
 albedo_color = Color(0.1767, 0.55033505, 0.57, 1)
@@ -83,6 +92,17 @@ background_color = Color(0.7647059, 0.8666667, 0.7490196, 1)
 ambient_light_color = Color(0.47553658, 0.47553694, 0.47553682, 1)
 fog_sky_affect = 0.783
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_2v2b7"]
+size = Vector3(3.2211304, 12.885498, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tar5f"]
+render_priority = 0
+shader = ExtResource("17_v1fg3")
+shader_parameter/albedo_texture = ExtResource("19_5w0f0")
+shader_parameter/wind_strength = 0.5950000282625
+shader_parameter/wind_speed = 0.7250000344375
+shader_parameter/wind_scale = 3.12400014839
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nt2eh"]
 albedo_color = Color(0.1764706, 0.54901963, 0.5686275, 1)
 
@@ -107,6 +127,22 @@ albedo_texture = ExtResource("30_kbbok")
 
 [sub_resource type="QuadMesh" id="QuadMesh_mffef"]
 material = SubResource("StandardMaterial3D_m0uwk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfj8f"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("39_37jd4")
+
+[sub_resource type="QuadMesh" id="QuadMesh_so8ax"]
+material = SubResource("StandardMaterial3D_gfj8f")
+
+[sub_resource type="Curve" id="Curve_yu1ej"]
+_data = [Vector2(0, 0), 0.0, 2.2914026, 0, 0, Vector2(1, 0.97482145), -0.038546737, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_5w0f0"]
+offsets = PackedFloat32Array(0, 0.5905861, 1)
+colors = PackedColorArray(0.153125, 0.6125, 0.5638603, 1, 0.17254902, 0.72156864, 0.6627451, 1, 1, 1, 1, 0)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_iacmt"]
 radius = 0.01
@@ -181,6 +217,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("World/DrowningPerson:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(8.652418, 0.487, 0.761)]
 }
 
 [sub_resource type="Animation" id="Animation_7ewk0"]
@@ -278,6 +326,54 @@ tracks/2/keys = {
 "handle_modes": PackedInt32Array(2, 2, 2, 2, 2),
 "points": PackedFloat32Array(0.9232508, -0.25, 0, 0.25, 0, 0.8095504, -0.041666668, 0.035078906, 0.041666668, -0.035078906, 0.50230396, -0.083333336, 0.08734801, 0.083333336, -0.08734801, 0.18022092, -0.041666668, 0.0522691, 0.041666668, -0.0522691, -0.124925256, -0.16666667, 0.17469601, 0, 0),
 "times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
+}
+
+[sub_resource type="Animation" id="Animation_p35vf"]
+resource_name = "drowning_person_enter"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("World/DrowningPerson:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(6.161, 0.487, 0.761), Vector3(1.282, 0.487, 0.761)]
+}
+
+[sub_resource type="Animation" id="Animation_stxua"]
+resource_name = "drowning_person_idle"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("World/DrowningPerson:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.282, 0.487, 0.761), Vector3(1.282, 0.487, 0.761)]
+}
+
+[sub_resource type="Animation" id="Animation_gfj8f"]
+resource_name = "drowning_person_leave"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("World/DrowningPerson:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.282, 0.487, 0.761), Vector3(-3.438, 0.487, 0.761)]
 }
 
 [sub_resource type="Animation" id="Animation_gnsmo"]
@@ -407,6 +503,9 @@ _data = {
 &"capitalist_idle": SubResource("Animation_37jd4"),
 &"capitalist_leave": SubResource("Animation_lhp3t"),
 &"capitalist_payment_enter": SubResource("Animation_b48ew"),
+&"drowning_person_enter": SubResource("Animation_p35vf"),
+&"drowning_person_idle": SubResource("Animation_stxua"),
+&"drowning_person_leave": SubResource("Animation_gfj8f"),
 &"duckman_enter": SubResource("Animation_gnsmo"),
 &"duckman_idle": SubResource("Animation_rlvbq"),
 &"duckman_leave": SubResource("Animation_psl12"),
@@ -468,6 +567,10 @@ person_name = "duck"
 
 [node name="Sprite3D" parent="World/Duckmancer/Duck3/RigidBody3D" parent_id_path=PackedInt32Array(53555252, 368135441) index="2" unique_id=82952497]
 sorting_offset = 0.283
+
+[node name="DrowningPerson" parent="World" unique_id=118794775 instance=ExtResource("5_p35vf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.652418, 0.487, 0.761)
+person_name = "drowning_person"
 
 [node name="Grandma" parent="World" unique_id=693099124 instance=ExtResource("3_jv6wh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9874167, 1.05, 1.5673971)
@@ -689,11 +792,40 @@ no_depth_test = true
 alpha_cut = 2
 texture = ExtResource("16_psl12")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="World/BgObjects/trees/Tree1" unique_id=1884128477]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BgObjects/trees/Tree1/StaticBody3D" unique_id=1011059713]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2149353, -1.0889893, 0)
+shape = SubResource("BoxShape3D_2v2b7")
+debug_color = Color(0, 0.35975474, 0.70196074, 1)
+
+[node name="TreeCrown" type="Sprite3D" parent="World/BgObjects/trees/Tree1" unique_id=412764303]
+sorting_offset = 1.812
+material_override = ExtResource("17_wrtin")
+no_depth_test = true
+alpha_cut = 2
+texture = ExtResource("17_yu1ej")
+
 [node name="Tree2" type="Sprite3D" parent="World/BgObjects/trees" unique_id=140200377]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5.172, 2.3949106, -0.188)
 no_depth_test = true
 alpha_cut = 2
 texture = ExtResource("17_2ebs2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World/BgObjects/trees/Tree2" unique_id=1338376649]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BgObjects/trees/Tree2/StaticBody3D" unique_id=1008468481]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2149353, -1.0889893, 0)
+shape = SubResource("BoxShape3D_2v2b7")
+debug_color = Color(0, 0.35975474, 0.70196074, 1)
+
+[node name="TreeCrown" type="Sprite3D" parent="World/BgObjects/trees/Tree2" unique_id=2144627833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, 0, 0)
+sorting_offset = 3.465
+material_override = SubResource("ShaderMaterial_tar5f")
+no_depth_test = true
+alpha_cut = 2
+texture = ExtResource("19_5w0f0")
 
 [node name="Tree3" type="Sprite3D" parent="World/BgObjects/trees" unique_id=214287031]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5.129, 2.395, -0.301)
@@ -706,13 +838,25 @@ no_depth_test = true
 texture = ExtResource("13_gfj8f")
 
 [node name="Grass1" type="Sprite3D" parent="World/BgObjects" unique_id=1227824285]
-transform = Transform3D(0.667, 0, 0, 0, 0.667, 0, 0, 0, 0.667, -1.379, -0.5, -0.599)
+transform = Transform3D(0.544, 0, 0, 0, 0.626, 0, 0, 0, 0.626, -1.379, -0.355, -0.599)
+sorting_offset = 1.283
 billboard = 1
 texture = ExtResource("18_oyb3p")
 
 [node name="Grass2" type="Sprite3D" parent="World/BgObjects" unique_id=1656765176]
-transform = Transform3D(0.204, 0, 0, 0, 0.204, 0, 0, 0, 0.204, 2.322, -0.411, 3.256)
+transform = Transform3D(0.19, 0, 0, 0, 0.19, 0, 0, 0, 0.19, 0.481, -0.389, 3.271)
+flip_h = true
 texture = ExtResource("18_oyb3p")
+
+[node name="Grass3" type="Sprite3D" parent="World/BgObjects" unique_id=623773024]
+transform = Transform3D(0.566, 0, 0, 0, 0.566, 0, 0, 0, 0.566, 3.9713106, -0.38199997, 0.119)
+flip_h = true
+texture = ExtResource("18_oyb3p")
+
+[node name="Grass4" type="Sprite3D" parent="World/BgObjects" unique_id=75102539]
+transform = Transform3D(0.451, 0, 0, 0, 0.451, 0, 0, 0, 0.451, 2.751, -0.382, -2.578)
+sorting_offset = 1.334
+texture = ExtResource("21_so8ax")
 
 [node name="houses" type="Node3D" parent="World/BgObjects" unique_id=606721069]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.094, -0.55, 0)
@@ -754,6 +898,11 @@ texture = ExtResource("18_kbbok")
 [node name="house9" type="Sprite3D" parent="World/BgObjects/houses" unique_id=1878674511]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.098754, 1.0736132, -2.799798)
 texture = ExtResource("18_kbbok")
+
+[node name="Sprite3D" type="Sprite3D" parent="World/BgObjects/houses" unique_id=902179242]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93, 0.175, -2.697)
+sorting_offset = 1.11
+texture = ExtResource("26_gfj8f")
 
 [node name="TreesBG" type="Node3D" parent="World/BgObjects" unique_id=1640183641]
 transform = Transform3D(1.174, 0, 0, 0, 1.174, 0, 0, 0, 1.174, -1.6051346, 1.6692574, 0)
@@ -880,6 +1029,39 @@ scale_amount_curve = SubResource("Curve_37jd4")
 color = Color(0.055009756, 0.409375, 0.35425153, 1)
 color_ramp = SubResource("Gradient_37jd4")
 
+[node name="Gradient" type="Sprite3D" parent="World/BgObjects" unique_id=203641363]
+transform = Transform3D(1, 0, 0, 0, -0.034899462, 0.99939084, 0, -0.99939084, -0.034899462, 0.465, -0.416, -0.27064174)
+modulate = Color(0.18521485, 0.68125, 0.6645297, 1)
+texture = ExtResource("38_stxua")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="World/BgObjects" unique_id=1023709538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3919121, -0.55545056, 0)
+amount = 1
+lifetime = 4.88
+preprocess = 1.45
+explosiveness = 0.72
+mesh = SubResource("QuadMesh_so8ax")
+emission_shape = 3
+emission_box_extents = Vector3(3.204, 0.058, 1.305)
+gravity = Vector3(0, 0, 0)
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_yu1ej")
+color_ramp = SubResource("Gradient_5w0f0")
+
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="World/BgObjects" unique_id=691504400]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3919121, -0.55545056, 0)
+amount = 1
+lifetime = 4.88
+preprocess = 1.45
+explosiveness = 0.72
+mesh = SubResource("QuadMesh_so8ax")
+emission_shape = 3
+emission_box_extents = Vector3(3.204, 0.058, 1.305)
+gravity = Vector3(0, 0, 0)
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_yu1ej")
+color_ramp = SubResource("Gradient_5w0f0")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=1166853301]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0190233, 0.7518947, 6.58871)
 light_color = Color(0.55, 0.55, 0.55, 1)
@@ -915,7 +1097,6 @@ render_target_update_mode = 4
 
 [node name="RotateAround" type="Node3D" parent="UI Control/Left viewport/SubViewport" unique_id=1713345572]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.450026, 1.20314, 0.050467193)
-visible = false
 
 [node name="AutomatView" type="Camera3D" parent="UI Control/Left viewport/SubViewport/RotateAround" unique_id=429397114]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.028, 1.691)
@@ -970,13 +1151,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.199625, 0.263818)
 
 [node name="DividerLine" type="ColorRect" parent="UI Control" unique_id=1998815211]
 layout_mode = 0
-offset_right = 2.0
-offset_bottom = 1080.0
+offset_left = -5.859375
+offset_top = 12.004028
+offset_right = 4.140625
+offset_bottom = 1092.004
+color = Color(0, 0, 0, 1)
 
 [node name="Mouse" type="Node2D" parent="." unique_id=2070419755]
 script = ExtResource("10_76v2p")
 
 [node name="Cursor" type="Sprite2D" parent="Mouse" unique_id=2068333559]
+z_index = 345
 position = Vector2(20.643991, 27.060059)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("10_mai8y")
