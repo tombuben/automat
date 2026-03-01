@@ -1,4 +1,4 @@
-extends RigidBody3D
+class_name RotationLimiter extends RigidBody3D
 
 func _integrate_forces(state):
 	var min_angle = deg_to_rad(-45)

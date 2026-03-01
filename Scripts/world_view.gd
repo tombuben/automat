@@ -13,6 +13,17 @@ class_name WorldView extends Camera3D
 
 var screen_position : Vector2
 
+var object_to_shoot : RigidBody3D
+var charge_duration : float
+var rotated_fast : bool
+var rotate_object_tween : Tween
+var push_back_camera_tween : Tween
+
+var charging : bool
+
+func _ready() -> void:
+	GlobalManager.world_view = self
+
 func _input(event) -> void:
 	# Mouse in viewport coordinates.
 	if event is InputEventMouseButton:
@@ -24,16 +35,17 @@ func _input(event) -> void:
 	elif event is InputEventMouseMotion:
 		screen_position = event.position
 
-var object_to_shoot : RigidBody3D
-var charge_duration : float
-var rotated_fast : bool
-var rotate_object_tween : Tween
-var push_back_camera_tween : Tween
-
-var charging : bool
-
-func _ready() -> void:
-	GlobalManager.world_view = self
+func _process(delta: float) -> void:
+	var mouse_pos = get_viewport().get_mouse_position()
+	var viewport_rect = get_viewport().get_visible_rect()
+	if not viewport_rect.has_point(mouse_pos):
+		screen_position = get_viewport().get_visible_rect().size / 2
+	
+	#handle_camera_rotation(delta)
+	
+	if charging:
+		handle_object_aim_rotation(delta)
+		#handle_camera_shake()
 
 func spawn_duplicate(original : RigidBody3D) -> void:
 	aim_rotation.transform = aim_transform
@@ -63,17 +75,6 @@ func charge() -> void:
 	charge_duration = 0
 	rotated_fast = false
 
-func _process(delta: float) -> void:
-	var mouse_pos = get_viewport().get_mouse_position()
-	var viewport_rect = get_viewport().get_visible_rect()
-	if not viewport_rect.has_point(mouse_pos):
-		screen_position = get_viewport().get_visible_rect().size / 2
-	
-	#handle_camera_rotation(delta)
-	
-	if charging:
-		handle_object_aim_rotation(delta)
-		#handle_camera_shake()
 
 func handle_camera_rotation(delta: float) -> void:
 	
@@ -92,6 +93,7 @@ func handle_camera_rotation(delta: float) -> void:
 func handle_object_aim_rotation(delta: float) -> void:
 	spawn_position.rotate_z(charge_duration / 5)
 	charge_duration += delta
+	charge_duration = clamp(charge_duration, 0, 2)
 	
 	var direction = project_ray_normal(screen_position)
 	var target_basis = Basis().looking_at(direction, Vector3.UP)
@@ -139,7 +141,7 @@ func shoot(screen_position) -> void:
 
 	# i shouldn't rotate this by this horizon, i should push the applied force vector up and down
 	var applied_force = target_position - object_to_shoot.global_position
-	applied_force += applied_force * charge_duration * 3
+	applied_force += applied_force * charge_duration
 	object_to_shoot.apply_central_impulse(applied_force)
 	
 	push_back_camera_tween = get_tree().create_tween()

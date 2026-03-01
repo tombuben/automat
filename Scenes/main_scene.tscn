@@ -18,8 +18,11 @@
 [ext_resource type="PackedScene" uid="uid://cikppqmxn7xox" path="res://Subscenes/Items/safety_donut_item2.tscn" id="7_m0uwk"]
 [ext_resource type="PackedScene" uid="uid://cm6u4hvk1v5dr" path="res://Subscenes/Items/fish_food.tscn" id="8_mffef"]
 [ext_resource type="PackedScene" uid="uid://do2eiuugsfc1a" path="res://Subscenes/Items/toast_item.tscn" id="8_nt2eh"]
+[ext_resource type="Texture2D" uid="uid://cl3e5pg8gmwjd" path="res://Assets/VendingMachine/automatFace.png" id="8_tar5f"]
+[ext_resource type="Texture2D" uid="uid://cmq5qxhnvxum" path="res://Assets/VendingMachine/handsClosed.png" id="9_tscpr"]
 [ext_resource type="Script" uid="uid://ci5q4jckgmagi" path="res://Scripts/mouse_cursor.gd" id="10_76v2p"]
 [ext_resource type="Texture2D" uid="uid://1y7wg77wd30x" path="res://Assets/concepts/cursor.png" id="10_mai8y"]
+[ext_resource type="Texture2D" uid="uid://dwlqtr5m6tb2h" path="res://Assets/VendingMachine/handsOpen.png" id="10_n1krg"]
 [ext_resource type="PackedScene" uid="uid://bll46git7a4ek" path="res://Subscenes/Items/hammer_item.tscn" id="10_y0lwx"]
 [ext_resource type="PackedScene" uid="uid://cximmwwcbirk5" path="res://Subscenes/Items/frog_item.tscn" id="11_igw8g"]
 [ext_resource type="Texture2D" uid="uid://k41vohdmp65j" path="res://Assets/LVL1Assets/foretree1.png" id="12_37jd4"]
@@ -61,6 +64,25 @@ albedo_color = Color(0.1767, 0.55033505, 0.57, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6l7je"]
 size = Vector3(19.907227, 0.1, 8.550537)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tscpr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_tscpr")
+}],
+"loop": true,
+"name": &"close_hand",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_n1krg")
+}],
+"loop": true,
+"name": &"open_hand",
+"speed": 12.0
+}]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_huasi"]
 radius = 0.1
@@ -328,6 +350,9 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
 }
 
+[sub_resource type="Animation" id="Animation_n1krg"]
+resource_name = "close_hand"
+
 [sub_resource type="Animation" id="Animation_p35vf"]
 resource_name = "drowning_person_enter"
 length = 2.0
@@ -466,6 +491,9 @@ tracks/0/keys = {
 "values": [Vector3(1.4365497, 1.05, 0.018334985), Vector3(-5.5906672, 1.05, -2.0110993)]
 }
 
+[sub_resource type="Animation" id="Animation_tscpr"]
+resource_name = "open_hand"
+
 [sub_resource type="Animation" id="Animation_2ebs2"]
 resource_name = "expand_screen"
 tracks/0/type = "value"
@@ -503,6 +531,7 @@ _data = {
 &"capitalist_idle": SubResource("Animation_37jd4"),
 &"capitalist_leave": SubResource("Animation_lhp3t"),
 &"capitalist_payment_enter": SubResource("Animation_b48ew"),
+&"close_hand": SubResource("Animation_n1krg"),
 &"drowning_person_enter": SubResource("Animation_p35vf"),
 &"drowning_person_idle": SubResource("Animation_stxua"),
 &"drowning_person_leave": SubResource("Animation_gfj8f"),
@@ -511,6 +540,7 @@ _data = {
 &"duckman_leave": SubResource("Animation_psl12"),
 &"grandma_enter": SubResource("Animation_oyb3p"),
 &"grandma_leave": SubResource("Animation_jvnna"),
+&"open_hand": SubResource("Animation_tscpr"),
 &"screen_expand": SubResource("Animation_2ebs2"),
 &"screen_shrink": SubResource("Animation_8edxt")
 }
@@ -583,12 +613,24 @@ texture = ExtResource("5_2v2b7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.48224, 0, 0)
 
 [node name="box" type="CSGBox3D" parent="World/Automat" unique_id=738468243]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011609077, 1.2301935, -0.00439191)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011609077, 1.2301935, -0.16988623)
 size = Vector3(1, 1.753, 0.7)
 
 [node name="AutomatSprite" type="Sprite3D" parent="World/Automat" unique_id=1087225422]
-transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0.025719166, 1.171102, 0.364562)
+transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0.025719166, 1.171102, 0.19906768)
 texture = ExtResource("3_8edxt")
+
+[node name="Sprite3D" type="Sprite3D" parent="World/Automat/AutomatSprite" unique_id=1586256850]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.851985, 0)
+sorting_offset = 0.152
+texture = ExtResource("8_tar5f")
+
+[node name="openHands" type="AnimatedSprite3D" parent="World/Automat/AutomatSprite" unique_id=404451573]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022598267, -3.1319523, 0)
+sorting_offset = 0.21
+sprite_frames = SubResource("SpriteFrames_tscpr")
+animation = &"close_hand"
+frame_progress = 0.42844397
 
 [node name="ItemSlot" type="Area3D" parent="World/Automat" unique_id=821282033 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27245474, 1.84522, 0.489491)
@@ -598,12 +640,13 @@ script = ExtResource("3_maf8m")
 item_in_slot = NodePath("ToastItem")
 
 [node name="ToastItem" parent="World/Automat/ItemSlot" unique_id=1837871512 instance=ExtResource("8_nt2eh")]
-transform = Transform3D(1, 0, 0, 0, 0.97437006, 0.22495104, 0, -0.22495104, 0.97437006, 0.0163064, -0.003581643, -0.08863926)
+transform = Transform3D(1, 0, 0, 0, 0.97437006, 0.22495104, 0, -0.22495104, 0.97437006, 0.0163064, -0.003581643, -0.25413358)
 item_name = "bread"
 item_type = Array[String](["bread"])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot" unique_id=141080273]
 shape = SubResource("SphereShape3D_huasi")
+debug_color = Color(0, 0.5950001, 0.7, 1)
 
 [node name="ItemSlot2" type="Area3D" parent="World/Automat" unique_id=1293194248 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(1, 0, 0, 0, 0.9378889, 0.34693566, 0, -0.34693566, 0.9378889, 0.016539574, 1.84522, 0.489491)
@@ -613,11 +656,12 @@ script = ExtResource("3_maf8m")
 item_in_slot = NodePath("LicenceItem")
 
 [node name="LicenceItem" parent="World/Automat/ItemSlot2" unique_id=1914462249 instance=ExtResource("7_2h5y0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008052826, 0.033046365, -0.06248188)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008052826, 0.09046233, -0.2176972)
 item_name = "licence"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot2" unique_id=577018261]
 shape = SubResource("SphereShape3D_huasi")
+debug_color = Color(0, 0.5950001, 0.7, 1)
 
 [node name="ItemSlot3" type="Area3D" parent="World/Automat" unique_id=1098058856 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31641483, 1.8435009, 0.489491)
@@ -627,11 +671,12 @@ script = ExtResource("3_maf8m")
 item_in_slot = NodePath("SafetyDonutItem")
 
 [node name="SafetyDonutItem" parent="World/Automat/ItemSlot3" unique_id=827200447 instance=ExtResource("7_m0uwk")]
-transform = Transform3D(1, 0, 0, 0, 0.9291326, 0.36974674, 0, -0.36974674, 0.9291326, -0.018854141, 0.004671812, -0.08785647)
+transform = Transform3D(1, 0, 0, 0, 0.9291326, 0.36974674, 0, -0.36974674, 0.9291326, -0.018854141, 0.004671812, -0.2533508)
 item_type = Array[String](["donut"])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot3" unique_id=1902727124]
 shape = SubResource("SphereShape3D_huasi")
+debug_color = Color(0, 0.5950001, 0.7, 1)
 
 [node name="ItemSlot4" type="Area3D" parent="World/Automat" unique_id=99053840 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26527452, 1.49412, 0.489491)
@@ -641,26 +686,28 @@ script = ExtResource("3_maf8m")
 item_in_slot = NodePath("FishFoodItem")
 
 [node name="FishFoodItem" parent="World/Automat/ItemSlot4" unique_id=1967725391 instance=ExtResource("8_mffef")]
-transform = Transform3D(0.913, 0, 0, 0, 0.8780698, 0.25012475, 0, -0.25012475, 0.8780698, -0.0021514893, -0.020774603, -0.0534454)
+transform = Transform3D(1, 0, 0, 0, 0.9617413, 0.2739592, 0, -0.2739592, 0.9617413, -0.0021514893, -0.020774603, -0.21893972)
 item_type = Array[String](["fishFood"])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot4" unique_id=1129424357]
 shape = SubResource("SphereShape3D_huasi")
+debug_color = Color(0, 0.5950001, 0.7, 1)
 
 [node name="ItemSlot5" type="Area3D" parent="World/Automat" unique_id=912682092 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12130737, 1.5299689, 0.489491)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007917881, 1.5299689, 0.489491)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
 item_in_slot = NodePath("Hammer")
 
 [node name="Hammer" parent="World/Automat/ItemSlot5" unique_id=1062784544 instance=ExtResource("10_y0lwx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15190125, 0.002992034, -0.052236795)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014067173, 0.002992034, -0.21773112)
 item_name = "hammer"
 item_type = Array[String](["hammer"])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot5" unique_id=1004973013]
 shape = SubResource("SphereShape3D_huasi")
+debug_color = Color(0, 0.5950001, 0.7, 1)
 
 [node name="ItemSlot6" type="Area3D" parent="World/Automat" unique_id=1150150503 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2641058, 1.509, 0.5)
@@ -670,11 +717,12 @@ script = ExtResource("3_maf8m")
 item_in_slot = NodePath("frog")
 
 [node name="frog" parent="World/Automat/ItemSlot6" unique_id=1968186880 instance=ExtResource("11_igw8g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04473543, 0, -0.109182715)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04473543, 0, -0.27467704)
 item_type = Array[String](["frog"])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot6" unique_id=342014291]
 shape = SubResource("SphereShape3D_huasi")
+debug_color = Color(0, 0.5950001, 0.7, 1)
 
 [node name="Table" type="StaticBody3D" parent="World/Automat" unique_id=801750209]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.089390755, 0.90919584, 0.699867)
@@ -717,16 +765,6 @@ script = ExtResource("7_huasi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0025024414, 0)
 shape = SubResource("BoxShape3D_76v2p")
 debug_color = Color(0, 1.7336978, 0.4055968, 0.41960785)
-
-[node name="Label" type="Label" parent="World/Automat" unique_id=973422206]
-z_index = 29
-offset_left = 187.5718
-offset_top = 257.93924
-offset_right = 259.57178
-offset_bottom = 292.93924
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
-text = "Bread"
 
 [node name="Label2" type="Label" parent="World/Automat" unique_id=1959496497]
 z_index = 29
@@ -936,6 +974,16 @@ texture = ExtResource("24_p35vf")
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 1.2029041, 1.2963985, -7.6180086)
 texture = ExtResource("25_stxua")
 
+[node name="Label" type="Label" parent="World/BgObjects/TreesBG" unique_id=973422206]
+z_index = 29
+offset_left = 187.5718
+offset_top = 257.93924
+offset_right = 259.57178
+offset_bottom = 292.93924
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Bread"
+
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="World/BgObjects" unique_id=1388228440]
 transform = Transform3D(32.095, 0, 0, 0, 2.4440968, 1.4798849, 0, -18.317663, 0.1974587, 3.558, 0.476, -8.992)
 visible = false
@@ -1100,14 +1148,16 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.450026, 1.20314, 0.050467193)
 
 [node name="AutomatView" type="Camera3D" parent="UI Control/Left viewport/SubViewport/RotateAround" unique_id=429397114]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.028, 1.691)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005474925, 2.2198036)
+fov = 50.0
 
-[node name="CursorBody" type="AnimatableBody3D" parent="UI Control/Left viewport/SubViewport" unique_id=1055788589]
+[node name="CursorBody" type="AnimatableBody3D" parent="UI Control/Left viewport/SubViewport" unique_id=1055788589 node_paths=PackedStringArray("open_hands")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7001376, 1.71966, 0.5)
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("5_6ev3c")
+open_hands = NodePath("../../../../World/Automat/AutomatSprite/openHands")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="UI Control/Left viewport/SubViewport/CursorBody" unique_id=2035323944]
 shape = SubResource("SphereShape3D_iacmt")

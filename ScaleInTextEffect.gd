@@ -3,7 +3,7 @@ extends RichTextEffect
 
 var bbcode = "scale"
 
-func _process_custom_fx(char_fx):
+func _process_custom_fx(char_fx : CharFXTransform):
 	var t = char_fx.elapsed_time * 8.0
 	var scale = clamp(t, 0.0, 1.0)
 

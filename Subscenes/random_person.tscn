@@ -5,11 +5,13 @@
 [ext_resource type="Script" uid="uid://os1e3ic4o4wa" path="res://Scripts/random_person.gd" id="1_t8clt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8gkds"]
-height = 1.1816406
+radius = 1.0102539
+height = 2.2333984
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8gkds"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8gkds"]
+radius = 0.26209363
 
 [node name="RandomPerson" type="Node3D" unique_id=1055277779]
 script = ExtResource("1_t8clt")
