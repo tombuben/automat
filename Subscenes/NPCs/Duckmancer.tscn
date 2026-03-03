@@ -5,5 +5,11 @@
 
 [node name="Duckmancer" unique_id=1055277779 instance=ExtResource("1_wwmqf")]
 
+[node name="MeshInstance3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="1" unique_id=1803611507]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025814056, 0, 0)
+
 [node name="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="2" unique_id=82952497]
 texture = ExtResource("2_wwmqf")
+
+[node name="PinJoint3D" parent="." index="1" unique_id=318766112]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030132294, -0.8268897, 0)

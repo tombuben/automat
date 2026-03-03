@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://by0rhh6airqjb" path="res://Scripts/screen_resizer.gd" id="3_m1efj"]
 [ext_resource type="Script" uid="uid://7mv8rlcaqlga" path="res://Scripts/item_slot.gd" id="3_maf8m"]
 [ext_resource type="PackedScene" uid="uid://dpsrcljrkbfti" path="res://Subscenes/NPCs/Duckmancer.tscn" id="3_rlvbq"]
-[ext_resource type="PackedScene" uid="uid://cewxrrxqdih8w" path="res://Subscenes/NPCs/duck1.tscn" id="4_2v2b7"]
 [ext_resource type="Resource" uid="uid://4f6bltfcmio5" path="res://Dialogues/test.dialogue" id="4_drdnd"]
 [ext_resource type="Texture2D" uid="uid://b4w1i1ea71lob" path="res://Assets/LVL1Assets/Characters/Grandma.png" id="5_2v2b7"]
 [ext_resource type="Script" uid="uid://dsalx1r160eac" path="res://Scripts/cursor_object.gd" id="5_6ev3c"]
@@ -19,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cm6u4hvk1v5dr" path="res://Subscenes/Items/fish_food.tscn" id="8_mffef"]
 [ext_resource type="PackedScene" uid="uid://do2eiuugsfc1a" path="res://Subscenes/Items/toast_item.tscn" id="8_nt2eh"]
 [ext_resource type="Texture2D" uid="uid://cl3e5pg8gmwjd" path="res://Assets/VendingMachine/automatFace.png" id="8_tar5f"]
+[ext_resource type="Script" uid="uid://0fdvigrrpcro" path="res://Scenes/cursorFollow.gd" id="9_n1krg"]
 [ext_resource type="Texture2D" uid="uid://cmq5qxhnvxum" path="res://Assets/VendingMachine/handsClosed.png" id="9_tscpr"]
 [ext_resource type="Script" uid="uid://ci5q4jckgmagi" path="res://Scripts/mouse_cursor.gd" id="10_76v2p"]
 [ext_resource type="Texture2D" uid="uid://1y7wg77wd30x" path="res://Assets/concepts/cursor.png" id="10_mai8y"]
@@ -219,26 +219,26 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("World/Duckmancer:position")
+tracks/3/path = NodePath("World/Duckmancer:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(9.70923, 1.2149334, 0.06381273)]
+"values": [Vector3(1, 1, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("World/Duckmancer:scale")
+tracks/4/path = NodePath("World/Duckmancer:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1, 1, 1)]
+"values": [Vector3(9.70923, 1.2149334, 0.06381273)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -424,26 +424,26 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("World/Duckmancer:scale")
+tracks/0/path = NodePath("World/Duckmancer:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(1, 1, 1), Vector3(1, 1.036, 1)]
+"values": [Vector3(1.3540001, 1.215, 0.644), Vector3(1.354, 1.253, 0.644)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("World/Duckmancer:position")
+tracks/1/path = NodePath("World/Duckmancer:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(1.3540001, 1.215, 0.644), Vector3(1.354, 1.253, 0.644)]
+"values": [Vector3(1, 1, 1), Vector3(1, 1.036, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_psl12"]
@@ -577,37 +577,16 @@ texture = ExtResource("2_5oxhp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.70923, 1.2149334, 0.06381273)
 person_name = "duckman"
 
-[node name="Duck1" parent="World/Duckmancer" unique_id=1706409578 instance=ExtResource("4_2v2b7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78654194, 0.45378244, 0)
-person_name = "duck"
-
-[node name="Sprite3D" parent="World/Duckmancer/Duck1/RigidBody3D" parent_id_path=PackedInt32Array(1706409578, 368135441) index="2" unique_id=82952497]
-sorting_offset = 0.283
-
-[node name="Duck2" parent="World/Duckmancer" unique_id=1562666708 instance=ExtResource("4_2v2b7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07556152, 1.0664648, 0)
-person_name = "duck"
-
-[node name="Sprite3D" parent="World/Duckmancer/Duck2/RigidBody3D" parent_id_path=PackedInt32Array(1562666708, 368135441) index="2" unique_id=82952497]
-sorting_offset = 0.283
-
-[node name="Duck3" parent="World/Duckmancer" unique_id=53555252 instance=ExtResource("4_2v2b7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.98298836, 0.4307605, 0)
-person_name = "duck"
-
-[node name="Sprite3D" parent="World/Duckmancer/Duck3/RigidBody3D" parent_id_path=PackedInt32Array(53555252, 368135441) index="2" unique_id=82952497]
-sorting_offset = 0.283
-
-[node name="DrowningPerson" parent="World" unique_id=118794775 instance=ExtResource("5_p35vf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.652418, 0.487, 0.761)
-person_name = "drowning_person"
-
 [node name="Grandma" parent="World" unique_id=693099124 instance=ExtResource("3_jv6wh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9874167, 1.05, 1.5673971)
 person_name = "grandma"
 
 [node name="Sprite3D" parent="World/Grandma/RigidBody3D" parent_id_path=PackedInt32Array(693099124, 368135441) index="2" unique_id=82952497]
 texture = ExtResource("5_2v2b7")
+
+[node name="DrowningPerson" parent="World" unique_id=118794775 instance=ExtResource("5_p35vf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.652418, 0.487, 0.761)
+person_name = "drowning_person"
 
 [node name="Automat" type="Node3D" parent="World" unique_id=1282403330]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.48224, 0, 0)
@@ -620,10 +599,14 @@ size = Vector3(1, 1.753, 0.7)
 transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0.025719166, 1.171102, 0.19906768)
 texture = ExtResource("3_8edxt")
 
-[node name="Sprite3D" type="Sprite3D" parent="World/Automat/AutomatSprite" unique_id=1586256850]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.851985, 0)
+[node name="automatFace" type="Sprite3D" parent="World/Automat/AutomatSprite" unique_id=1586256850 node_paths=PackedStringArray("target_viewport_container")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7739773, 0)
 sorting_offset = 0.152
 texture = ExtResource("8_tar5f")
+script = ExtResource("9_n1krg")
+follow_strength = 0.035
+follow_speed = 4.5
+target_viewport_container = NodePath("../../../../UI Control/Left viewport")
 
 [node name="openHands" type="AnimatedSprite3D" parent="World/Automat/AutomatSprite" unique_id=404451573]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022598267, -3.1319523, 0)
@@ -1235,8 +1218,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_5cm5d")
 
 [editable path="World/Capitalist"]
 [editable path="World/Duckmancer"]
-[editable path="World/Duckmancer/Duck1"]
-[editable path="World/Duckmancer/Duck2"]
-[editable path="World/Duckmancer/Duck3"]
 [editable path="World/Grandma"]
 [editable path="World/BgObjects/ExplosionParticles"]

@@ -7,13 +7,7 @@ do wait(GlobalManager.current_animation_length)
 
 do GlobalManager.play_animation.emit("capitalist_idle")
 
-capitalist: Okay, so since you only take up space and eat my electricity
 capitalist: You are either making money or going to the trash
-
-capitalist: Here is your "selling licence"
-capitalist: You take money and then give stuff to people
-capitalist: You cannot possibly fail at this
-
 capitalist: Okay, now try giving me the licence
 do wait(GlobalManager.current_animation_length)
 
@@ -23,18 +17,14 @@ do wait(GlobalManager.current_animation_length)
 if GlobalManager.item_that_hit.item_name == "licence"
 	capitalist: EEP
 
-
 elif "bread" in GlobalManager.item_that_hit.item_type:
 	capitalist: That's bread. You just gave me bread.
 	capitalist: It's pretty stale now
 	=> END!
 
-
 elif "donut" in GlobalManager.item_that_hit.item_type:
 	capitalist: Please for the love of god just give me the licence
 	=> END!
-
-
 
 elif "fishFood" in GlobalManager.item_that_hit.item_type:
 	capitalist: It tastes like salty sand
@@ -50,7 +40,6 @@ elif "frog" in GlobalManager.item_that_hit.item_type:
 	capitalist: All my businesses have failed
 	capitalist: I think you are about to be the fifth one
 	=> END!
-
 
 else
 	capitalist: what is this! give me something else!
@@ -83,13 +72,10 @@ do GlobalManager.play_animation.emit("capitalist_leave")
 do wait(GlobalManager.current_animation_length)
 => duckman
 
-
-
 #do GlobalManager.play_animation.emit("screen_expand")
 #do wait(GlobalManager.current_animation_length)
 
 #do GlobalManager.play_animation.emit("screen_shrink")
-
 
 ~ duckman
 do GlobalManager.play_animation.emit("duckman_enter")
@@ -98,17 +84,15 @@ do GlobalManager.play_animation.emit("duckman_idle")
 
 duckman: Hi! Im duckman and i want bread!
 => END!
-
-
 #do GlobalManager.recieve_item.emit("egg")
 #do GlobalManager.person_shoot_selection_started.emit()
 
 ~ duckman_hit
+
 if GlobalManager.item_that_hit.item_name == "bread"
 	duckman: thanks for the bread!
-	do GlobalManager.play_animation.emit("duckman_leave")
-	do wait(GlobalManager.current_animation_length)
-	=> grandma
+	=> duckman_leave
+
 elif "metal" in GlobalManager.item_that_hit.item_type:
 	duckman: OUCH you hit me with a metal thing!
 	#do GlobalManager.person_shoot_selection_started.emit()
@@ -118,40 +102,27 @@ else
 	#do GlobalManager.person_shoot_selection_started.emit()
 	=> END!
 	
-#not implemented yet
-~ duckman_miss
-duckman: Hey where U shooting at???
-do GlobalManager.person_shoot_selection_started.emit()
-=> END!
-
-
-~ duck_hit
-if GlobalManager.item_that_hit.item_name == "bread"
-	duckman: thanks for the bread!
+~ duckman_leave	
 	do GlobalManager.play_animation.emit("duckman_leave")
 	do wait(GlobalManager.current_animation_length)
+	=> grandma
 
 
 ~ grandma
-do GlobalManager.play_animation.emit("grandma_enter")
-do wait(GlobalManager.current_animation_length)
-grandma: Hi! I'm grandma and i want to fix stuff here!
-#do GlobalManager.person_shoot_selection_started.emit()
-=> END!
+	do GlobalManager.play_animation.emit("grandma_enter")
+	do wait(GlobalManager.current_animation_length)
+	grandma: Hi! I'm grandma and i want to fix stuff here!
+	#do GlobalManager.person_shoot_selection_started.emit()
+	=> END!
+
+
 
 ~ grandma_hit
 if GlobalManager.item_that_hit.item_name == "hammer"
 	grandma: oh this is useful, thanks!
 	#do GlobalManager.person_shoot_selection_started.emit()
 	=> drowning_person_enter
-elif GlobalManager.item_that_hit.item_name == "hammer"
-	do GlobalManager.play_animation.emit("grandma_leave")
-	do wait(GlobalManager.current_animation_length)
-	=> drowning_person_enter
-else
-	grandma: I don't need this!
-	#do GlobalManager.person_shoot_selection_started.emit()
-	=> END!
+
 ~ drowning_person_enter
 	
 do GlobalManager.play_animation.emit("drowning_person_enter")
@@ -177,22 +148,7 @@ do wait(GlobalManager.current_animation_length)
 => END!
 
 
-~ intro
 
-Emily: Hi! Did you know that toucans can eat lizards? They are omnivores like that. Like I also love fruit, but I don't know about eating lizards.
-Emily: Oh I am Emily by the way! I lost Franklin.
- - Who is Franklin?
-	Emily: Franklin is my Toucan. Has a beak.
- - Is Franklin a toucan? =>< longer_text
-Emily: Can you help me find him? Here is some cash. (1 coin)
-=> END!
-# Přetáhneme coin do ručiček automatu
-
-~ longer_text
-Emily: Yup, big beak.
-Emily: biiig beak.
-Emily: biiiiiig beak, a flying type of guy.
-=> END
 
 
 #_____________
