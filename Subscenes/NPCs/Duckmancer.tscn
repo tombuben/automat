@@ -3,7 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://b8l8mhyb5sfwf" path="res://Subscenes/random_person.tscn" id="1_wwmqf"]
 [ext_resource type="Texture2D" uid="uid://sy66csq6kpjk" path="res://Assets/LVL1Assets/Characters/Duckmancer.png" id="2_wwmqf"]
 
-[node name="Duckmancer" unique_id=1055277779 instance=ExtResource("1_wwmqf")]
+[node name="RandomPerson" unique_id=1055277779 instance=ExtResource("1_wwmqf")]
+person_name = "duckman"
 
 [node name="MeshInstance3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="1" unique_id=1803611507]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025814056, 0, 0)

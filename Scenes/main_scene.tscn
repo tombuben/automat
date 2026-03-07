@@ -575,7 +575,6 @@ texture = ExtResource("2_5oxhp")
 
 [node name="Duckmancer" parent="World" unique_id=1055277779 instance=ExtResource("3_rlvbq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.70923, 1.2149334, 0.06381273)
-person_name = "duckman"
 
 [node name="Grandma" parent="World" unique_id=693099124 instance=ExtResource("3_jv6wh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9874167, 1.05, 1.5673971)
@@ -1176,14 +1175,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.4802938)
 script = ExtResource("1_52fb6")
 spawn_shootable = ExtResource("2_6l7je")
 shake_curve = SubResource("Curve_jv6wh")
-charge_fov = 75.0
+charge_fov = 72.5
 fov_speed = 3.0
 recoil_kickback = 0.277
 recoil_tilt = 4.0
 recoil_spring = 28.0
 recoil_damping = 16.255
-shoot_shake_duration = 1.19
-shoot_shake_strength = 0.001
+shoot_shake_duration = 0.01
+shoot_shake_strength = 0.175
 
 [node name="AimRotation" type="Node3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" unique_id=1338827862]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.7)
