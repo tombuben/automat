@@ -1178,6 +1178,12 @@ spawn_shootable = ExtResource("2_6l7je")
 shake_curve = SubResource("Curve_jv6wh")
 charge_fov = 75.0
 fov_speed = 3.0
+recoil_kickback = 0.277
+recoil_tilt = 4.0
+recoil_spring = 28.0
+recoil_damping = 16.255
+shoot_shake_duration = 1.19
+shoot_shake_strength = 0.001
 
 [node name="AimRotation" type="Node3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" unique_id=1338827862]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.7)
