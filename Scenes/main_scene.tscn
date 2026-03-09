@@ -173,10 +173,9 @@ radius = 0.01
 radius = 0.05
 height = 0.1
 
-[sub_resource type="Curve" id="Curve_jv6wh"]
-_limits = [0.0, 1.0, 0.0, 2.0]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.05), 0.0, 0.0, 0, 0, Vector2(2, 0.01), 0.0, 0.0, 0, 0]
-point_count = 3
+[sub_resource type="Curve" id="Curve_tscpr"]
+_data = [Vector2(0.009900987, 0), 0.0, 0.489615, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="Animation" id="Animation_nt2eh"]
 length = 0.033333335
@@ -207,46 +206,34 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("World/Capitalist/RigidBody3D/Sprite3D:position")
+tracks/2/path = NodePath("World/Duckmancer:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, -0.13579047, 0)]
+"values": [Vector3(1, 1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("World/Duckmancer:scale")
+tracks/3/path = NodePath("World/Duckmancer:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1, 1, 1)]
+"values": [Vector3(9.70923, 1.2149334, 0.06381273)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("World/Duckmancer:position")
+tracks/4/path = NodePath("World/DrowningPerson:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(9.70923, 1.2149334, 0.06381273)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("World/DrowningPerson:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -266,7 +253,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.33333334, 0.7),
 "transitions": PackedFloat32Array(1, 1, 31.786623),
 "update": 0,
-"values": [Vector3(9.315379, 1.0466022, 0.56822395), Vector3(2.9512818, 1.8990225, 0.7008014), Vector3(1.293953, 1.1684115, 0.8349457)]
+"values": [Vector3(9.315379, 1.0466022, 0.56822395), Vector3(2.9512818, 1.8990225, 0.7008014), Vector3(1.294, 1.168, 0.451)]
 }
 
 [sub_resource type="Animation" id="Animation_37jd4"]
@@ -284,18 +271,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0.4, 0.4, 0.4), Vector3(0.4, 0.39, 0.4)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("World/Capitalist/RigidBody3D/Sprite3D:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.8000001),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -0.032, 0), Vector3(0, -0.047, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_lhp3t"]
@@ -570,7 +545,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.315379, 1.0466022, 0.568223
 person_name = "capitalist"
 
 [node name="Sprite3D" parent="World/Capitalist/RigidBody3D" parent_id_path=PackedInt32Array(1656012555, 368135441) index="2" unique_id=82952497]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -0.13579047, 0)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -0.032, 0)
 texture = ExtResource("2_5oxhp")
 
 [node name="Duckmancer" parent="World" unique_id=1055277779 instance=ExtResource("3_rlvbq")]
@@ -1172,17 +1147,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47223, 1.46115, 3.07052)
 
 [node name="WorldView" type="Camera3D" parent="UI Control/Right viewport/SubViewport/Node3D" unique_id=1226399393]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.4802938)
+fov = 70.0
 script = ExtResource("1_52fb6")
 spawn_shootable = ExtResource("2_6l7je")
-shake_curve = SubResource("Curve_jv6wh")
-charge_fov = 72.5
-fov_speed = 3.0
-recoil_kickback = 0.277
-recoil_tilt = 4.0
-recoil_spring = 28.0
-recoil_damping = 16.255
-shoot_shake_duration = 0.01
-shoot_shake_strength = 0.175
+shake_curve = SubResource("Curve_tscpr")
+shoot_strength = 0.703
+throw_arc = 0.237
+normal_fov = 78.0
+charge_fov = 79.0
+shoot_shake_duration = 0.086
+shoot_shake_strength = 0.001
 
 [node name="AimRotation" type="Node3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" unique_id=1338827862]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.7)

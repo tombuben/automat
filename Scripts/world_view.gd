@@ -11,6 +11,16 @@ class_name WorldView extends Camera3D
 @export var shake_curve : Curve
 
 # -------------------------
+# SHOOT STRENGTH
+# -------------------------
+@export var shoot_strength : float = 1.0
+
+# -------------------------
+# THROW ARC
+# -------------------------
+@export var throw_arc : float = 0.25   # upward arc multiplier
+
+# -------------------------
 # FOV SETTINGS
 # -------------------------
 @export var normal_fov : float = 70.0
@@ -260,24 +270,37 @@ func shoot(screen_position) -> void:
 		rotate_object_tween.stop()
 
 	var from = project_ray_origin(screen_position)
-
 	var ray_length = 2
-
 	var direction = project_ray_normal(screen_position) * ray_length
-
 	var target_position = from + direction
 
 	object_to_shoot.reparent(get_parent())
 	object_to_shoot.freeze = false
 
+	# -------------------------
+	# calculate applied force
+	# -------------------------
 	var applied_force = target_position - object_to_shoot.global_position
-
 	applied_force += applied_force * charge_duration
+	applied_force *= shoot_strength
+
+	# -------------------------
+	# add slight upward arc
+	# -------------------------
+	applied_force.y += applied_force.length() * throw_arc
+
+	# -------------------------
+	# optional random spin
+	# -------------------------
+	object_to_shoot.angular_velocity = Vector3(
+		randf_range(-1.5,1.5),
+		randf_range(-1.5,1.5),
+		randf_range(-1.5,1.5)
+	)
 
 	object_to_shoot.apply_central_impulse(applied_force)
 
 	add_recoil(1.0 + charge_duration)
-
 	shoot_shake_timer = shoot_shake_duration
 
 	object_to_shoot = null
