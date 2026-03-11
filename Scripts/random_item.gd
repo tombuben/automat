@@ -5,6 +5,8 @@ class_name RandomItem extends RigidBody3D
 
 var in_slot : ItemSlot
 
+var hit_speed : int
+
 func take_out_of_slot() -> void:
 	in_slot.slot_occupied = false
 	freeze = false

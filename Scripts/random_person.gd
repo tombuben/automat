@@ -17,8 +17,7 @@ func body_entered(body: Node):
 	if body is RandomItem:
 		var item = body as RandomItem
 		
-		print(item.item_name)
-
+		item.hit_speed = item.linear_velocity.length()
 		GlobalManager.item_that_hit = item
 		GlobalManager.scene_dialogue_manager.show_dialogue(person_name + "_hit")
 
