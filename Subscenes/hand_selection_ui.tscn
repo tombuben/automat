@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://t8h8dusf8jcl" path="res://Subscenes/hand_selection_ui.gd" id="1_7jw3s"]
 [ext_resource type="Texture2D" uid="uid://dffn0bxh63v31" path="res://Assets/VendingMachine/Hands/HandLeft.png" id="1_46wwl"]
 [ext_resource type="Texture2D" uid="uid://b3wixn2q4acce" path="res://Assets/VendingMachine/Hands/PutBackButton.png" id="2_7jw3s"]
+[ext_resource type="Script" uid="uid://cv4tcuco58w1f" path="res://Scripts/object_preview_spawn_point.gd" id="2_f2y2y"]
 [ext_resource type="Texture2D" uid="uid://cs2yri6pngpu8" path="res://Assets/VendingMachine/Hands/PutBackButtonDown.png" id="3_0t6n0"]
 [ext_resource type="Script" uid="uid://d3tbdp3yiaof" path="res://Subscenes/UIhover.gd" id="3_wu56a"]
 [ext_resource type="Texture2D" uid="uid://dwejvy41bc5ia" path="res://Assets/VendingMachine/Hands/HandRight.png" id="4_wu56a"]
@@ -15,19 +16,77 @@
 [ext_resource type="Texture2D" uid="uid://cy8dx6ydly3x3" path="res://Assets/VendingMachine/Hands/SmallButton3.png" id="11_uouj8"]
 [ext_resource type="Texture2D" uid="uid://bcfxgbi4ansxg" path="res://Assets/VendingMachine/Hands/SmallButton3Down.png" id="12_4q7og"]
 
-[node name="HandSelectionUI" type="Control" unique_id=637314647 node_paths=PackedStringArray("PutBackButton")]
+[node name="HandSelectionUI" type="Control" unique_id=637314647 node_paths=PackedStringArray("put_back_button", "launch_button", "object_preview_spawn_point", "item_name_label")]
+visible = false
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_7jw3s")
-PutBackButton = NodePath("PutBackButton")
+put_back_button = NodePath("PutBackButton")
+launch_button = NodePath("LaunchButton")
+object_preview_spawn_point = NodePath("SubViewportContainer/SubViewport/Camera3D/ObjectPreviewSpawnPoint")
+item_name_label = NodePath("ItemName")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1267326475]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="ItemName" type="RichTextLabel" parent="." unique_id=35319702]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 200.0
+grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+theme_override_font_sizes/normal_font_size = 50
+horizontal_alignment = 1
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=996379110]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1363525237]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 0
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=395911224]
+
+[node name="ObjectPreviewSpawnPoint" type="Node3D" parent="SubViewportContainer/SubViewport/Camera3D" unique_id=1374654660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+script = ExtResource("2_f2y2y")
 
 [node name="PutBackButton" type="TextureButton" parent="." unique_id=1862463268]
 z_index = 2
-layout_mode = 0
-offset_left = 157.84517
-offset_top = 815.50854
-offset_right = 557.84515
-offset_bottom = 1215.5085
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -407.0
+offset_top = -326.0
+offset_right = -7.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(0.75, 0.75)
 texture_normal = ExtResource("2_7jw3s")
 texture_pressed = ExtResource("3_0t6n0")
@@ -46,11 +105,18 @@ texture = ExtResource("1_46wwl")
 
 [node name="LaunchButton" type="TextureButton" parent="." unique_id=15324101]
 z_index = 2
-layout_mode = 0
-offset_left = 639.359
-offset_top = 819.494
-offset_right = 1039.359
-offset_bottom = 1219.494
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 112.0
+offset_top = -317.0
+offset_right = 512.0
+offset_bottom = 83.00012
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(0.75, 0.75)
 texture_normal = ExtResource("9_vbpje")
 texture_pressed = ExtResource("10_6n6xq")

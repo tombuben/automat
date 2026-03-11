@@ -118,6 +118,7 @@ if GlobalManager.item_that_hit.item_name == "hammer"
 	do GlobalManager.play_animation.emit("grandma_leave")
 	do wait(GlobalManager.current_animation_length)
 	=> drowning_person_enter
+=> END!
 
 ~ drowning_person_enter
 	
@@ -138,6 +139,7 @@ if GlobalManager.item_that_hit.item_name == "safety_donut"
 	do GlobalManager.play_animation.emit("drowning_person_leave")
 	do wait(GlobalManager.current_animation_length)
 	=> capitalist_payment
+=> END!
 
 ~ capitalist_payment
 do GlobalManager.play_animation.emit("capitalist_payment_enter")

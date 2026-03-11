@@ -20,37 +20,48 @@ func set_body_async(body : RandomItem) -> void:
 		set_body(body)
 
 func set_body(body : RandomItem) -> void:
-	remove_from_dispenser()
+	if body_in_dispenser:
+		remove_from_dispenser()
 	body_in_dispenser = body
 	body.freeze = true
 	show_ui(body)
-	start_shooting(body)
+	hold_item(body)
+	#start_shooting(body)
 
-func show_ui(body : RandomItem):
-	pass
+func show_ui(item : RandomItem):
+	GlobalManager.hand_selection_ui.show_ui_for_item(item)
 
-func start_shooting(body : RandomItem):
+func hide_ui():
+	GlobalManager.hand_selection_ui.hide_ui()
+
+func hold_item(body : RandomItem):
 	var tween = create_tween()
 	var duration = 0.1
 	tween.tween_property(body, "global_position", global_position, duration)
 	tween.tween_property(body, "rotation", rotation, duration)
+
+func start_shooting(body : RandomItem):
 	GlobalManager.world_view.spawn_duplicate(body)
-	expand_for_shooting()
+	GlobalManager.expand_for_shooting()
 
 func _on_body_exited(body):
 	if body is RandomItem and not body.freeze:
 		remove_from_dispenser()
-		expand_for_selection()
-	
-func remove_from_dispenser():
+		GlobalManager.expand_for_selection()
+
+func stop_holding():
 	var cursor = GlobalManager.cursor_body
 	cursor.stopped_dragging.disconnect(set_body_async)
-	GlobalManager.world_view.delete_object_to_shoot()
 	
 	if body_in_dispenser:
 		body_in_dispenser.return_to_slot()
 	body_in_dispenser = null
 	
+	hide_ui()
+
+func remove_from_dispenser():
+	GlobalManager.world_view.delete_object_to_shoot()
+	stop_holding()
 
 func update_rotation(charge_duration : float):
 	body_in_dispenser.rotate_z(charge_duration / 5)
@@ -65,22 +76,4 @@ func shoot_from_dispenser():
 	body_in_dispenser.queue_free()
 	body_in_dispenser = null
 
-	expand_for_selection(0.5)
-
-func expand_for_shooting(duration = 1.0):
-	return
-
-	var tween = create_tween()
-	var screen_size = 0.0
-	tween.tween_property(GlobalManager.screen_resizer, "ratio", screen_size, duration)\
-		.set_trans(Tween.TRANS_BOUNCE)\
-		.set_ease(Tween.EASE_OUT)
-
-func expand_for_selection(duration = 1.0):
-	return
-
-	var tween = create_tween()
-	var screen_size = 0.6
-	tween.tween_property(GlobalManager.screen_resizer, "ratio", screen_size, duration)\
-		.set_trans(Tween.TRANS_BOUNCE)\
-		.set_ease(Tween.EASE_OUT)
+	GlobalManager.expand_for_selection(0.5)

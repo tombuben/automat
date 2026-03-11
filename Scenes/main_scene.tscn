@@ -1075,13 +1075,22 @@ light_energy = 0.446
 light_indirect_energy = 0.51
 directional_shadow_mode = 0
 
+[node name="Mouse" type="Node2D" parent="." unique_id=2070419755]
+script = ExtResource("10_76v2p")
+
+[node name="Cursor" type="Sprite2D" parent="Mouse" unique_id=2068333559]
+z_index = 345
+position = Vector2(20.643991, 27.060059)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("10_mai8y")
+
 [node name="UI Control" type="Control" parent="." unique_id=1381454070 node_paths=PackedStringArray("left_subviewport", "right_subviewport", "divider")]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 6.859375
-offset_top = -12.004028
-offset_right = 46.859375
-offset_bottom = 27.995972
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("3_m1efj")
 left_subviewport = NodePath("Left viewport/SubViewport")
 right_subviewport = NodePath("Right viewport/SubViewport")
@@ -1089,11 +1098,12 @@ divider = NodePath("DividerLine")
 dialogue_resource = ExtResource("4_drdnd")
 
 [node name="Left viewport" type="SubViewportContainer" parent="UI Control" unique_id=35627735]
-layout_mode = 0
-offset_left = -5.9587097
-offset_top = 12.256836
-offset_right = 745.04126
-offset_bottom = 1092.2568
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 751.0
+grow_vertical = 2
+stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="UI Control/Left viewport" unique_id=658604717]
 handle_input_locally = false
@@ -1124,18 +1134,20 @@ node_a = NodePath("..")
 params/impulse_clamp = 0.2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="UI Control/Left viewport/SubViewport/CursorBody" unique_id=113823246]
+visible = false
 mesh = SubResource("SphereMesh_6ev3c")
 
 [node name="Right viewport" type="SubViewportContainer" parent="UI Control" unique_id=1904352335]
 clip_children = 2
-layout_mode = 0
-offset_left = 745.7384
-offset_top = 12.183391
-offset_right = 1912.7384
-offset_bottom = 1092.1833
-
-[node name="HandSelectionUI" parent="UI Control/Right viewport" unique_id=637314647 instance=ExtResource("33_nrumr")]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1167.0
+grow_horizontal = 0
+grow_vertical = 2
+stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="UI Control/Right viewport" unique_id=1231747041]
 handle_input_locally = false
@@ -1164,22 +1176,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.7)
 [node name="SpawnPosition" type="Node3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView/AimRotation" unique_id=1983533065]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.199625, 0.263818)
 
+[node name="HandSelectionUI" parent="UI Control/Right viewport" unique_id=637314647 instance=ExtResource("33_nrumr")]
+layout_mode = 2
+
 [node name="DividerLine" type="ColorRect" parent="UI Control" unique_id=1998815211]
-layout_mode = 0
-offset_left = -5.859375
-offset_top = 12.004028
-offset_right = 4.140625
-offset_bottom = 1092.004
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 10.0
+grow_vertical = 2
 color = Color(0, 0, 0, 1)
-
-[node name="Mouse" type="Node2D" parent="." unique_id=2070419755]
-script = ExtResource("10_76v2p")
-
-[node name="Cursor" type="Sprite2D" parent="Mouse" unique_id=2068333559]
-z_index = 345
-position = Vector2(20.643991, 27.060059)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("10_mai8y")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2049604939]
 libraries/ = SubResource("AnimationLibrary_lhp3t")

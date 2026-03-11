@@ -263,7 +263,6 @@ func handle_object_aim_rotation(delta: float) -> void:
 func shoot(screen_position) -> void:
 
 	if object_to_shoot == null:
-		print("no object")
 		return
 
 	if rotate_object_tween != null:

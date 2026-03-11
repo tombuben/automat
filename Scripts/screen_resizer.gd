@@ -9,23 +9,21 @@ class_name ScreenResizer extends Control
 
 @export var dialogue_resource : DialogueResource
 @export var ratio : float
+var original_ration : float
 
 func _ready() -> void:
 	GlobalManager.screen_resizer = self
 	
 	var viewport = get_viewport()
 	ratio = left_subviewport.size.x / float(viewport.size.x)
-	print(left_subviewport.size.x)
-	print(viewport.size.x)
-	print(ratio)
+	original_ration = ratio
 	DialogueManager.show_dialogue_balloon(dialogue_resource, "day1_start")
 	
 
 func _process(delta: float) -> void:
 	var viewport = get_viewport()
-	left_subviewport.size.x = ratio * float(viewport.size.x)
-	
-	right_subviewport.size.x = viewport.size.x - left_subviewport.size.x
+	left_subviewport_container.size.x = ratio * float(viewport.size.x)
+	right_subviewport_container.size.x = viewport.size.x - left_subviewport.size.x
 	right_subviewport_container.position.x = left_subviewport.size.x
 	
 	divider.position.x = left_subviewport.size.x - divider.size.x / 2.0
