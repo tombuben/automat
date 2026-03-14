@@ -22,11 +22,15 @@ func set_body_async(body : RandomItem) -> void:
 func set_body(body : RandomItem) -> void:
 	if body_in_dispenser:
 		remove_from_dispenser()
+
 	body_in_dispenser = body
 	body.freeze = true
+
 	show_ui(body)
 	hold_item(body)
-	#start_shooting(body)
+
+	# Expand screen when item is selected
+	GlobalManager.expand_for_shooting()
 
 func show_ui(item : RandomItem):
 	GlobalManager.hand_selection_ui.show_ui_for_item(item)
@@ -42,7 +46,6 @@ func hold_item(body : RandomItem):
 
 func start_shooting(body : RandomItem):
 	GlobalManager.world_view.spawn_duplicate(body)
-	GlobalManager.expand_for_shooting()
 
 func _on_body_exited(body):
 	if body is RandomItem and not body.freeze:
@@ -55,24 +58,29 @@ func stop_holding():
 	
 	if body_in_dispenser:
 		body_in_dispenser.return_to_slot()
+
 	body_in_dispenser = null
 	
 	hide_ui()
+
+	# Shrink screen when item is removed / put back
+	GlobalManager.expand_for_selection()
 
 func remove_from_dispenser():
 	GlobalManager.world_view.delete_object_to_shoot()
 	stop_holding()
 
 func update_rotation(charge_duration : float):
-	body_in_dispenser.rotate_z(charge_duration / 5)
+	if body_in_dispenser:
+		body_in_dispenser.rotate_z(charge_duration / 5)
 
 func shoot_from_dispenser():
 
 	var tween = create_tween()
 	tween.tween_property(body_in_dispenser, "global_position", global_position + Vector3.BACK, 0.1)
 	await tween.finished
+
 	body_in_dispenser.in_slot.respawn()
-	
 	body_in_dispenser.queue_free()
 	body_in_dispenser = null
 

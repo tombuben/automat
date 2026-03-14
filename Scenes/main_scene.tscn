@@ -1096,6 +1096,7 @@ left_subviewport = NodePath("Left viewport/SubViewport")
 right_subviewport = NodePath("Right viewport/SubViewport")
 divider = NodePath("DividerLine")
 dialogue_resource = ExtResource("4_drdnd")
+ratio = 0.7
 
 [node name="Left viewport" type="SubViewportContainer" parent="UI Control" unique_id=35627735]
 layout_mode = 1
