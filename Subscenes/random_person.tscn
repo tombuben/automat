@@ -19,6 +19,7 @@ script = ExtResource("1_t8clt")
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=368135441]
 collision_layer = 2
 axis_lock_angular_y = true
+mass = 3.0
 gravity_scale = -10.0
 linear_damp = 5.0
 script = ExtResource("1_afjl1")
