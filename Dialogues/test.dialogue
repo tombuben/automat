@@ -2,6 +2,8 @@
 => capitalist_first_enter
 
 ~ capitalist_first_enter
+#do GlobalManager.play_animation.emit("screen_expand")
+
 do GlobalManager.play_animation.emit("capitalist_enter")
 do wait(GlobalManager.current_animation_length)
 

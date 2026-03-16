@@ -4,7 +4,6 @@
 [ext_resource type="FontFile" uid="uid://cvd5j8d7y4hxx" path="res://Assets/WinkySans-VariableFont_wght.ttf" id="2_7qwyv"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
-[ext_resource type="Script" uid="uid://djflsm1xdxvu8" path="res://ScaleInTextEffect.gd" id="4_m7ytr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -92,10 +91,6 @@ corner_radius_top_right = 35
 corner_radius_bottom_right = 35
 corner_radius_bottom_left = 35
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_mu5lg"]
-script = ExtResource("4_m7ytr")
-metadata/_custom_type_script = "uid://djflsm1xdxvu8"
-
 [sub_resource type="Animation" id="Animation_nlsx6"]
 length = 0.001
 tracks/0/type = "bezier"
@@ -160,10 +155,10 @@ polygon = PackedVector2Array(0, 0, 9.166687, 14, 10.833313, 14, 20, 0, 9.916357,
 unique_name_in_owner = true
 z_index = 11
 layout_mode = 0
-offset_left = 805.00006
-offset_top = 75.0
-offset_right = 973.30524
-offset_bottom = 119.00001
+offset_left = 778.00006
+offset_top = 105.84009
+offset_right = 946.30524
+offset_bottom = 149.84009
 rotation = -0.25132743
 mouse_filter = 1
 theme = SubResource("Theme_7qwyv")
@@ -177,10 +172,10 @@ scroll_active = false
 [node name="PanelContainer" type="PanelContainer" parent="Balloon" unique_id=1542593386]
 z_index = 5
 layout_mode = 0
-offset_left = 789.0
-offset_top = 73.99999
-offset_right = 969.3052
-offset_bottom = 130.0
+offset_left = 762.0
+offset_top = 104.84007
+offset_right = 942.3052
+offset_bottom = 160.84009
 rotation = -0.25132743
 theme_override_styles/panel = SubResource("StyleBoxFlat_m7ytr")
 
@@ -190,10 +185,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 808.0
-offset_top = -1013.0
-offset_right = -97.0
-offset_bottom = -785.0
+offset_left = 777.0
+offset_top = -1003.0
+offset_right = -66.0
+offset_bottom = -746.1599
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -217,13 +212,13 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 41
+theme_override_font_sizes/normal_font_size = 43
 text = "Dialogue..."
 scroll_active = true
 scroll_following = true
 horizontal_alignment = 1
 vertical_alignment = 1
-custom_effects = [SubResource("RichTextEffect_mu5lg")]
+custom_effects = [null]
 
 [node name="Control" type="Control" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=541740382]
 custom_minimum_size = Vector2(20, 10)

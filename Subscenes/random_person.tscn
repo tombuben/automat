@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b7ohdqhsdloap" path="res://Scripts/rotation_limiter.gd" id="1_afjl1"]
 [ext_resource type="Texture2D" uid="uid://b6vfboinyegqy" path="res://Assets/concepts/NPCConcept.png" id="1_sr24p"]
 [ext_resource type="Script" uid="uid://os1e3ic4o4wa" path="res://Scripts/random_person.gd" id="1_t8clt"]
+[ext_resource type="Material" uid="uid://c18tvun8su7y" path="res://Materials/explosionSmoke3d.tres" id="4_mu26o"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8gkds"]
 radius = 0.6777344
@@ -13,15 +14,25 @@ height = 2.2333984
 [sub_resource type="SphereShape3D" id="SphereShape3D_8gkds"]
 radius = 0.26209363
 
-[node name="RandomPerson" type="Node3D" unique_id=1055277779]
+[sub_resource type="QuadMesh" id="QuadMesh_2cf6g"]
+material = ExtResource("4_mu26o")
+
+[sub_resource type="Curve" id="Curve_mu26o"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.02738154), -2.9253776, 0.0, 0, 0]
+point_count = 2
+
+[node name="RandomPerson" type="Node3D" unique_id=1055277779 node_paths=PackedStringArray("hit_particles")]
 script = ExtResource("1_t8clt")
+hit_particles = NodePath("CPUParticles3D")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=368135441]
 collision_layer = 2
 axis_lock_angular_y = true
-mass = 3.0
+axis_lock_angular_z = true
+mass = 16.324
 gravity_scale = -10.0
-linear_damp = 5.0
+linear_damp = 4.0
+angular_damp = 4.0
 script = ExtResource("1_afjl1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1897721447]
@@ -39,6 +50,9 @@ texture = ExtResource("1_sr24p")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.67424077, 0)
 node_a = NodePath("../RigidBody3D")
 node_b = NodePath("../StaticBody3D")
+params/bias = 0.01
+params/damping = 0.01
+params/impulse_clamp = 1.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1792104469]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -47,3 +61,27 @@ collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1449975986]
 shape = SubResource("SphereShape3D_8gkds")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=215583882]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020814478, -0.31781024, -0.3538339)
+emitting = false
+amount = 13
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("QuadMesh_2cf6g")
+emission_shape = 1
+emission_sphere_radius = 0.35
+direction = Vector3(0.019, 0.129, 0)
+spread = 66.41
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 8.0
+radial_accel_min = 2.97
+radial_accel_max = 2.97
+damping_min = 5.0
+damping_max = 10.0
+angle_max = 105.9
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_mu26o")
