@@ -1,4 +1,5 @@
-class_name WorldView extends Camera3D
+class_name WorldView
+extends Camera3D
 
 @onready var aim_rotation = $AimRotation
 @onready var aim_transform = aim_rotation.transform
@@ -11,14 +12,19 @@ class_name WorldView extends Camera3D
 @export var shake_curve : Curve
 
 # -------------------------
+# SPAWN SCALE
+# -------------------------
+@export var spawn_scale : float = 1.2
+
+# -------------------------
 # SHOOT STRENGTH
 # -------------------------
-@export var shoot_strength : float = 1.0
+@export var shoot_strength : float = 8.0
 
 # -------------------------
 # THROW ARC
 # -------------------------
-@export var throw_arc : float = 0.25   # upward arc multiplier
+@export var throw_arc : float = 0.25
 
 # -------------------------
 # FOV SETTINGS
@@ -72,6 +78,12 @@ var rotate_object_tween : Tween
 var charging : bool
 
 # -------------------------
+# CHARGE SETTINGS
+# -------------------------
+@export var max_charge_duration : float = 2.0
+@export var charge_speed : float = 1.0
+
+# -------------------------
 # READY
 # -------------------------
 func _ready() -> void:
@@ -103,7 +115,6 @@ func _process(delta: float) -> void:
 
 	handle_fov(delta)
 	handle_recoil(delta)
-
 	handle_hit_shake(delta)
 	handle_quick_shoot_shake(delta)
 
@@ -116,7 +127,7 @@ func _process(delta: float) -> void:
 func handle_fov(delta: float) -> void:
 	var target_fov = normal_fov
 	if charging:
-		var charge_ratio = clamp(charge_duration / 2.0, 0.0, 1.0)
+		var charge_ratio = clamp(charge_duration / max_charge_duration, 0.0, 1.0)
 		target_fov = lerp(normal_fov, charge_fov, charge_ratio)
 	fov = lerp(fov, target_fov, delta * fov_speed)
 
@@ -126,10 +137,8 @@ func handle_fov(delta: float) -> void:
 func handle_recoil(delta: float) -> void:
 	recoil_pos_vel += (-recoil_pos * recoil_spring) * delta
 	recoil_rot_vel += (-recoil_rot * recoil_spring) * delta
-
 	recoil_pos_vel *= 1.0 - recoil_damping * delta
 	recoil_rot_vel *= 1.0 - recoil_damping * delta
-
 	recoil_pos += recoil_pos_vel * delta
 	recoil_rot += recoil_rot_vel * delta
 
@@ -138,26 +147,21 @@ func add_recoil(force: float) -> void:
 	recoil_rot_vel += deg_to_rad(recoil_tilt * force)
 
 # -------------------------
-# HIT SHAKE TRIGGER
+# HIT SHAKE
 # -------------------------
 func play_hit_shake(strength: float = 0.15, duration: float = 0.15) -> void:
 	hit_shake_strength = strength
 	hit_shake_duration = duration
 	hit_shake_timer = duration
 
-# -------------------------
-# HIT SHAKE HANDLER
-# -------------------------
 func handle_hit_shake(delta: float) -> void:
 	if hit_shake_timer > 0.0:
 		hit_shake_timer -= delta
-
 		var shake_offset = Vector3(
 			randf_range(-hit_shake_strength, hit_shake_strength),
 			randf_range(-hit_shake_strength, hit_shake_strength),
 			randf_range(-hit_shake_strength, hit_shake_strength)
 		)
-
 		position = base_position + Vector3(0,0,recoil_pos) + shake_offset
 		rotation = base_rotation + Vector3(recoil_rot,0,0)
 
@@ -165,23 +169,18 @@ func handle_hit_shake(delta: float) -> void:
 # QUICK SHOOT SHAKE
 # -------------------------
 func handle_quick_shoot_shake(delta: float) -> void:
-
 	if hit_shake_timer > 0.0:
 		return
-
 	if shoot_shake_timer > 0.0:
 		shoot_shake_timer -= delta
-
 		var shake_offset = Vector3(
 			randf_range(-shoot_shake_strength, shoot_shake_strength),
 			randf_range(-shoot_shake_strength, shoot_shake_strength),
 			randf_range(-shoot_shake_strength, shoot_shake_strength)
 		)
-
 		position = base_position + Vector3(0,0,recoil_pos) + shake_offset
 	else:
 		position = base_position + Vector3(0,0,recoil_pos)
-
 	rotation = base_rotation + Vector3(recoil_rot,0,0)
 
 # -------------------------
@@ -193,11 +192,11 @@ func spawn_duplicate(original : RigidBody3D) -> void:
 
 	object_to_shoot = original.duplicate()
 	object_to_shoot.rotation = Vector3.ZERO
-
 	spawn_position.add_child(object_to_shoot)
 
-	object_to_shoot.global_position = spawn_position.global_position + Vector3.DOWN * 0.1
+	object_to_shoot.scale *= spawn_scale
 	object_to_shoot.freeze = true
+	object_to_shoot.global_position = spawn_position.global_position + Vector3.DOWN * 0.1
 
 	var tween = create_tween()
 	tween.tween_property(object_to_shoot, "global_position", spawn_position.global_position, 0.1)
@@ -205,17 +204,22 @@ func spawn_duplicate(original : RigidBody3D) -> void:
 func delete_object_to_shoot() -> void:
 	if object_to_shoot:
 		var tween = create_tween()
-		tween.tween_property(object_to_shoot, "global_position",
-			spawn_position.global_position + Vector3.DOWN * 0.1, 0.1)
-
+		tween.tween_property(
+			object_to_shoot,
+			"global_position",
+			spawn_position.global_position + Vector3.DOWN * 0.1,
+			0.1
+		)
 		await tween.finished
 		object_to_shoot.queue_free()
 		object_to_shoot = null
 
+# -------------------------
+# CHARGING
+# -------------------------
 func charge() -> void:
 	if not object_to_shoot:
 		return
-
 	charging = true
 	charge_duration = 0
 	rotated_fast = false
@@ -225,81 +229,56 @@ func charge() -> void:
 # -------------------------
 func handle_object_aim_rotation(delta: float) -> void:
 	spawn_position.rotate_z(charge_duration / 5)
-
-	charge_duration += delta
-	charge_duration = clamp(charge_duration,0,2)
+	charge_duration += delta * charge_speed
+	charge_duration = clamp(charge_duration, 0, max_charge_duration)
 
 	var direction = project_ray_normal(screen_position)
-
-	var target_basis = Basis().looking_at(direction, Vector3.UP)
-
+	var target_basis = Basis.looking_at(direction, Vector3.UP)
 	var current_quat = aim_rotation.basis.get_rotation_quaternion()
 	var target_quat = target_basis.get_rotation_quaternion()
-
 	var aim_rotation_speed = 2.0
 	var new_quat = current_quat.slerp(target_quat, delta * aim_rotation_speed)
-
 	aim_rotation.transform.basis = Basis(new_quat)
 
-	if rotated_fast == false and charge_duration > 1:
-
+	if not rotated_fast and charge_duration > max_charge_duration * 0.5:
 		rotate_object_tween = get_tree().create_tween()
-
-		var target_rotation = Vector3(
-			deg_to_rad(90),
-			deg_to_rad(0),
-			deg_to_rad(0)
-		)
-
+		var target_rotation = Vector3(deg_to_rad(90), 0, 0)
 		rotate_object_tween.tween_property(object_to_shoot, "rotation", target_rotation, 1)
-
 		rotated_fast = true
 
-	GlobalManager.dispensor_selector.update_rotation(charge_duration)
+	GlobalManager.dispensor_selector.update_rotation(charge_duration / max_charge_duration)
 
 # -------------------------
 # SHOOT
 # -------------------------
-func shoot(screen_position) -> void:
-
+func shoot(mouse_position : Vector2) -> void:
 	if object_to_shoot == null:
 		return
-
 	if rotate_object_tween != null:
 		rotate_object_tween.stop()
 
-	var from = project_ray_origin(screen_position)
+	var from = project_ray_origin(mouse_position)
 	var ray_length = 2
-	var direction = project_ray_normal(screen_position) * ray_length
+	var direction = project_ray_normal(mouse_position) * ray_length
 	var target_position = from + direction
 
 	object_to_shoot.reparent(get_parent())
 	object_to_shoot.freeze = false
 
-	# -------------------------
-	# calculate applied force
-	# -------------------------
-	var applied_force = target_position - object_to_shoot.global_position
-	applied_force += applied_force * charge_duration
-	applied_force *= shoot_strength
+	var normalized_charge = charge_duration / max_charge_duration
+	var power = shoot_strength * (1.0 + normalized_charge)
 
-	# -------------------------
-	# add slight upward arc
-	# -------------------------
-	applied_force.y += applied_force.length() * throw_arc
+	var applied_force = (target_position - object_to_shoot.global_position).normalized() * power
+	applied_force.y += power * throw_arc
 
-	# -------------------------
-	# optional random spin
-	# -------------------------
 	object_to_shoot.angular_velocity = Vector3(
 		randf_range(-1.5,1.5),
 		randf_range(-1.5,1.5),
 		randf_range(-1.5,1.5)
 	)
-
 	object_to_shoot.apply_central_impulse(applied_force)
 
-	add_recoil(1.0 + charge_duration)
+	add_recoil(1.0 + normalized_charge)
 	shoot_shake_timer = shoot_shake_duration
 
 	object_to_shoot = null

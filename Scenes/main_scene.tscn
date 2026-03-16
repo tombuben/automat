@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b8l8mhyb5sfwf" path="res://Subscenes/random_person.tscn" id="3_jv6wh"]
 [ext_resource type="Script" uid="uid://by0rhh6airqjb" path="res://Scripts/screen_resizer.gd" id="3_m1efj"]
 [ext_resource type="Script" uid="uid://7mv8rlcaqlga" path="res://Scripts/item_slot.gd" id="3_maf8m"]
-[ext_resource type="PackedScene" uid="uid://dpsrcljrkbfti" path="res://Subscenes/NPCs/Duckmancer.tscn" id="3_rlvbq"]
+[ext_resource type="PackedScene" uid="uid://dcyfvurn7rjbi" path="res://Subscenes/duckman.tscn" id="3_tscpr"]
 [ext_resource type="Resource" uid="uid://4f6bltfcmio5" path="res://Dialogues/test.dialogue" id="4_drdnd"]
 [ext_resource type="Script" uid="uid://dsalx1r160eac" path="res://Scripts/cursor_object.gd" id="5_6ev3c"]
 [ext_resource type="PackedScene" uid="uid://cxappahvrmfki" path="res://Subscenes/NPCs/DrowningPerson.tscn" id="5_p35vf"]
@@ -173,10 +173,6 @@ radius = 0.01
 radius = 0.05
 height = 0.1
 
-[sub_resource type="Curve" id="Curve_tscpr"]
-_data = [Vector2(0.009900987, 0), 0.0, 0.489615, 0, 0, Vector2(0.5173267, 0.7116983), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
 [sub_resource type="Animation" id="Animation_nt2eh"]
 length = 0.033333335
 tracks/0/type = "value"
@@ -206,46 +202,22 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("World/Duckmancer:scale")
+tracks/2/path = NodePath("World/DrowningPerson:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1, 1, 1)]
+"values": [Vector3(8.652418, 0.487, 0.761)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("World/Duckmancer:position")
+tracks/3/path = NodePath("UI Control:ratio")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(9.70923, 1.2149334, 0.06381273)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("World/DrowningPerson:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(8.652418, 0.487, 0.761)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("UI Control:ratio")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -391,62 +363,14 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_gnsmo"]
 resource_name = "duckman_enter"
 length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("World/Duckmancer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1.7839313, 7.4722595, 0.06381273), Vector3(1.354, 1.215, 0.644)]
-}
 
 [sub_resource type="Animation" id="Animation_rlvbq"]
 resource_name = "duckman_idle"
 length = 2.0
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("World/Duckmancer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1.3540001, 1.215, 0.644), Vector3(1.354, 1.253, 0.644)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("World/Duckmancer:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1, 1, 1), Vector3(1, 1.036, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_psl12"]
 resource_name = "duckman_enter"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("World/Duckmancer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1.3540001, 1.215, 0.644), Vector3(1.437, 6.015, 0.644)]
-}
 
 [sub_resource type="Animation" id="Animation_oyb3p"]
 resource_name = "grandma_enter"
@@ -533,27 +457,17 @@ shape = SubResource("BoxShape3D_6l7je")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.315379, 1.0466022, 0.56822395)
 person_name = "capitalist"
 
-[node name="Sprite3D" parent="World/Capitalist/RigidBody3D" parent_id_path=PackedInt32Array(1656012555, 368135441) index="2" unique_id=82952497]
+[node name="Sprite3D" parent="World/Capitalist/RigidBody3D" parent_id_path=PackedInt32Array(1656012555, 368135441) index="1" unique_id=82952497]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -0.032, 0)
 texture = ExtResource("2_5oxhp")
 
-[node name="Duckmancer" parent="World" unique_id=1055277779 instance=ExtResource("3_rlvbq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.70923, 1.2149334, 0.06381273)
-
-[node name="RigidBody3D" parent="World/Duckmancer" index="0" unique_id=368135441]
-axis_lock_angular_z = false
-mass = 1.0
-linear_damp = 5.0
-angular_damp = 0.0
-
-[node name="PinJoint3D" parent="World/Duckmancer" index="1" unique_id=318766112]
-params/bias = 0.3
-params/damping = 1.0
-params/impulse_clamp = 0.0
+[node name="duckman" parent="World" unique_id=1055277779 instance=ExtResource("3_tscpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.483951, 0.9286897, 0.079600334)
 
 [node name="DrowningPerson" parent="World" unique_id=118794775 instance=ExtResource("5_p35vf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.652418, 0.487, 0.761)
 person_name = "drowning_person"
+hitstop_duration = 0.05
 
 [node name="Automat" type="Node3D" parent="World" unique_id=1282403330]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.067283, 0, 0)
@@ -1477,20 +1391,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.683)
 fov = 70.0
 script = ExtResource("1_52fb6")
 spawn_shootable = ExtResource("2_6l7je")
-shake_curve = SubResource("Curve_tscpr")
-shoot_strength = 1.008
-throw_arc = 0.237
+spawn_scale = 2.203
+shoot_strength = 2.66
+throw_arc = 0.0
 normal_fov = 78.0
-charge_fov = 79.508
-fov_speed = 4.434
+charge_fov = 80.0
+fov_speed = 79.0
 shoot_shake_duration = 0.086
 shoot_shake_strength = 0.001
+max_charge_duration = 2.544
+charge_speed = 8.0
 
 [node name="AimRotation" type="Node3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" unique_id=1338827862]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.7)
 
 [node name="SpawnPosition" type="Node3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView/AimRotation" unique_id=1983533065]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.199625, 0.263818)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032999992, 0.09676564, -0.44761276)
 
 [node name="ColorRect" type="ColorRect" parent="UI Control/Right viewport/SubViewport" unique_id=320886693]
 material = ExtResource("55_tscpr")
@@ -1528,5 +1444,4 @@ skeleton = NodePath("../World/BgObjects")
 surface_material_override/0 = SubResource("StandardMaterial3D_5cm5d")
 
 [editable path="World/Capitalist"]
-[editable path="World/Duckmancer"]
 [editable path="World/BgObjects/ExplosionParticles"]

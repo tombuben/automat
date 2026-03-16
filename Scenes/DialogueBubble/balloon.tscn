@@ -219,6 +219,7 @@ scroll_following = true
 horizontal_alignment = 1
 vertical_alignment = 1
 custom_effects = [null]
+seconds_per_step = 0.008
 
 [node name="Control" type="Control" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=541740382]
 custom_minimum_size = Vector2(20, 10)

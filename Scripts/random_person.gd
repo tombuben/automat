@@ -3,6 +3,8 @@ extends Node3D
 
 @export var person_name: String
 @export var hit_particles: CPUParticles3D   # Assign in Inspector
+@export var hitstop_duration: float = 0.05  # How long the hitstop lasts
+@export var hitstop_scale: float = 0.01     # How slow the game goes during hitstop
 
 @onready var rigidbody: RigidBody3D = $RigidBody3D
 @onready var visual: Sprite3D = $Sprite3D
@@ -46,8 +48,11 @@ func body_entered(body: Node) -> void:
 		# Apply squash/stretch
 		apply_squash_and_stretch(item.hit_speed)
 
-		# Start cooldown
+		# Start hit cooldown
 		start_hit_cooldown()
+
+		# Apply hitstop
+		apply_hitstop()
 
 func start_hit_cooldown() -> void:
 	can_be_hit = false
@@ -87,5 +92,21 @@ func apply_squash_and_stretch(hit_speed: float) -> void:
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	current_hit_tween.tween_property(visual, "scale", Vector3.ONE, recover_duration)\
 		.set_delay(squash_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-
 	current_hit_tween.play()
+
+# -----------------------------
+# Hitstop
+# -----------------------------
+func apply_hitstop() -> void:
+	var original_time_scale = Engine.time_scale
+	Engine.time_scale = hitstop_scale
+
+	var t: Timer = Timer.new()
+	t.one_shot = true
+	t.wait_time = hitstop_duration
+	add_child(t)
+	t.start()
+	await t.timeout
+	t.queue_free()
+
+	Engine.time_scale = original_time_scale

@@ -1,29 +1,30 @@
-[gd_scene format=3 uid="uid://b8l8mhyb5sfwf"]
+[gd_scene format=3 uid="uid://dcyfvurn7rjbi"]
 
-[ext_resource type="Script" uid="uid://b7ohdqhsdloap" path="res://Scripts/rotation_limiter.gd" id="1_afjl1"]
-[ext_resource type="Texture2D" uid="uid://b6vfboinyegqy" path="res://Assets/concepts/NPCConcept.png" id="1_sr24p"]
-[ext_resource type="Script" uid="uid://os1e3ic4o4wa" path="res://Scripts/random_person.gd" id="1_t8clt"]
-[ext_resource type="Material" uid="uid://c18tvun8su7y" path="res://Materials/explosionSmoke3d.tres" id="4_mu26o"]
+[ext_resource type="Script" uid="uid://os1e3ic4o4wa" path="res://Scripts/random_person.gd" id="1_t1gw6"]
+[ext_resource type="Script" uid="uid://b7ohdqhsdloap" path="res://Scripts/rotation_limiter.gd" id="2_45bsk"]
+[ext_resource type="Texture2D" uid="uid://b6vfboinyegqy" path="res://Assets/concepts/NPCConcept.png" id="3_xdri6"]
+[ext_resource type="Material" uid="uid://c18tvun8su7y" path="res://Materials/explosionSmoke3d.tres" id="4_r46ae"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8gkds"]
+radius = 0.6777344
+height = 2.2333984
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8gkds"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_mu26o"]
-size = Vector3(1.5664063, 2.1499023, 0.4404297)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8gkds"]
 radius = 0.26209363
 
 [sub_resource type="QuadMesh" id="QuadMesh_2cf6g"]
-material = ExtResource("4_mu26o")
+material = ExtResource("4_r46ae")
 
 [sub_resource type="Curve" id="Curve_mu26o"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.02738154), -2.9253776, 0.0, 0, 0]
 point_count = 2
 
 [node name="RandomPerson" type="Node3D" unique_id=1055277779 node_paths=PackedStringArray("hit_particles")]
-script = ExtResource("1_t8clt")
+script = ExtResource("1_t1gw6")
+person_name = "duckman"
 hit_particles = NodePath("CPUParticles3D")
-hitstop_duration = 0.014
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=368135441]
 collision_layer = 2
@@ -33,7 +34,10 @@ mass = 16.324
 gravity_scale = -10.0
 linear_damp = 4.0
 angular_damp = 4.0
-script = ExtResource("1_afjl1")
+script = ExtResource("2_45bsk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1897721447]
+shape = SubResource("CapsuleShape3D_8gkds")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1803611507]
 visible = false
@@ -41,11 +45,7 @@ mesh = SubResource("CapsuleMesh_8gkds")
 
 [node name="Sprite3D" type="Sprite3D" parent="RigidBody3D" unique_id=82952497]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-texture = ExtResource("1_sr24p")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D" unique_id=1174005432]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28735352, -0.06591797)
-shape = SubResource("BoxShape3D_mu26o")
+texture = ExtResource("3_xdri6")
 
 [node name="PinJoint3D" type="PinJoint3D" parent="." unique_id=318766112]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.67424077, 0)

@@ -4,6 +4,6 @@
 
 [resource]
 shader = ExtResource("1_fcsu4")
-shader_parameter/alpha = 0.189
-shader_parameter/inner_radius = 0.762
+shader_parameter/alpha = 0.197
+shader_parameter/inner_radius = 0.69
 shader_parameter/outer_radius = 1.371
