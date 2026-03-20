@@ -12,6 +12,12 @@ extends Camera3D
 @export var shake_curve : Curve
 
 # -------------------------
+# SHOOT PARTICLES (NO SHAKE)
+# -------------------------
+@export var shoot_particles_root : Node3D
+@export var shoot_particles_delay : float = 0.0
+
+# -------------------------
 # SPAWN SCALE
 # -------------------------
 @export var spawn_scale : float = 1.2
@@ -91,6 +97,10 @@ func _ready() -> void:
 	fov = normal_fov
 	base_position = position
 	base_rotation = rotation
+
+	# Force all shoot particles to run in world space
+	if shoot_particles_root:
+		_set_particles_world_space(shoot_particles_root)
 
 # -------------------------
 # INPUT
@@ -184,6 +194,30 @@ func handle_quick_shoot_shake(delta: float) -> void:
 	rotation = base_rotation + Vector3(recoil_rot,0,0)
 
 # -------------------------
+# PARTICLES (WORLD SPACE)
+# -------------------------
+func play_shoot_particles(normalized_charge: float) -> void:
+	if shoot_particles_root == null:
+		return
+
+	if shoot_particles_delay > 0.0:
+		await get_tree().create_timer(shoot_particles_delay).timeout
+
+	_restart_particles_recursive(shoot_particles_root)
+
+func _restart_particles_recursive(node: Node) -> void:
+	if node is CPUParticles3D or node is GPUParticles3D:
+		node.restart()
+	for c in node.get_children():
+		_restart_particles_recursive(c)
+
+func _set_particles_world_space(node: Node) -> void:
+	if node is CPUParticles3D or node is GPUParticles3D:
+		node.local_coords = false
+	for c in node.get_children():
+		_set_particles_world_space(c)
+
+# -------------------------
 # OBJECT HANDLING
 # -------------------------
 func spawn_duplicate(original : RigidBody3D) -> void:
@@ -236,14 +270,12 @@ func handle_object_aim_rotation(delta: float) -> void:
 	var target_basis = Basis.looking_at(direction, Vector3.UP)
 	var current_quat = aim_rotation.basis.get_rotation_quaternion()
 	var target_quat = target_basis.get_rotation_quaternion()
-	var aim_rotation_speed = 2.0
-	var new_quat = current_quat.slerp(target_quat, delta * aim_rotation_speed)
+	var new_quat = current_quat.slerp(target_quat, delta * 2.0)
 	aim_rotation.transform.basis = Basis(new_quat)
 
 	if not rotated_fast and charge_duration > max_charge_duration * 0.5:
 		rotate_object_tween = get_tree().create_tween()
-		var target_rotation = Vector3(deg_to_rad(90), 0, 0)
-		rotate_object_tween.tween_property(object_to_shoot, "rotation", target_rotation, 1)
+		rotate_object_tween.tween_property(object_to_shoot, "rotation", Vector3(deg_to_rad(90), 0, 0), 1)
 		rotated_fast = true
 
 	GlobalManager.dispensor_selector.update_rotation(charge_duration / max_charge_duration)
@@ -258,8 +290,7 @@ func shoot(mouse_position : Vector2) -> void:
 		rotate_object_tween.stop()
 
 	var from = project_ray_origin(mouse_position)
-	var ray_length = 2
-	var direction = project_ray_normal(mouse_position) * ray_length
+	var direction = project_ray_normal(mouse_position) * 2
 	var target_position = from + direction
 
 	object_to_shoot.reparent(get_parent())
@@ -280,6 +311,9 @@ func shoot(mouse_position : Vector2) -> void:
 
 	add_recoil(1.0 + normalized_charge)
 	shoot_shake_timer = shoot_shake_duration
+
+	# 🔥 PARTICLES (WORLD SPACE)
+	play_shoot_particles(normalized_charge)
 
 	object_to_shoot = null
 	charge_duration = 0

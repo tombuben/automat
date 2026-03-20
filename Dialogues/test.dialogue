@@ -16,7 +16,7 @@ do wait(GlobalManager.current_animation_length)
 => END!
 
 ~ capitalist_hit
-if GlobalManager.item_that_hit.hit_speed > 5:
+if GlobalManager.item_that_hit.hit_speed > 50:
 	capitalist: fast hit!
 if GlobalManager.item_that_hit.item_name == "licence"
 	capitalist: EEP
@@ -83,10 +83,12 @@ do wait(GlobalManager.current_animation_length)
 
 ~ duckman
 do GlobalManager.play_animation.emit("duckman_enter")
-do wait(GlobalManager.current_animation_length +1)
+do wait(GlobalManager.current_animation_length)
 do GlobalManager.play_animation.emit("duckman_idle")
 
 duckman: Hi! Im duckman and i want bread!
+do wait(GlobalManager.current_animation_length)
+
 => END!
 #do GlobalManager.recieve_item.emit("egg")
 #do GlobalManager.person_shoot_selection_started.emit()
@@ -97,7 +99,7 @@ if GlobalManager.item_that_hit.item_name == "bread"
 	duckman: thanks for the bread!
 	do GlobalManager.play_animation.emit("duckman_leave")
 	do wait(GlobalManager.current_animation_length)
-	=> grandma
+	=> drowning_person_enter
 elif "metal" in GlobalManager.item_that_hit.item_type:
 	duckman: OUCH you hit me with a metal thing!
 	#do GlobalManager.person_shoot_selection_started.emit()
@@ -106,21 +108,6 @@ else
 	duckman: what is this! give me something else!
 	#do GlobalManager.person_shoot_selection_started.emit()
 	=> END!
-
-~ grandma
-do GlobalManager.play_animation.emit("grandma_enter")
-do wait(GlobalManager.current_animation_length)
-grandma: Hi! I'm grandma and i want to fix stuff here!
-#do GlobalManager.person_shoot_selection_started.emit()
-=> END!
-
-~ grandma_hit
-if GlobalManager.item_that_hit.item_name == "hammer"
-	grandma: oh this is useful, thanks!
-	do GlobalManager.play_animation.emit("grandma_leave")
-	do wait(GlobalManager.current_animation_length)
-	=> drowning_person_enter
-=> END!
 
 ~ drowning_person_enter
 	

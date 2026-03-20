@@ -146,7 +146,7 @@ grow_vertical = 2
 theme = SubResource("Theme_qq3yp")
 
 [node name="Progress2" type="Polygon2D" parent="Balloon" unique_id=429691161]
-position = Vector2(1528, 275)
+position = Vector2(1528, 957)
 scale = Vector2(2.400001, 2)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(0, 0, 9.166687, 14, 10.833313, 14, 20, 0, 9.916357, 0)
@@ -156,9 +156,9 @@ unique_name_in_owner = true
 z_index = 11
 layout_mode = 0
 offset_left = 778.00006
-offset_top = 105.84009
+offset_top = 787.8401
 offset_right = 946.30524
-offset_bottom = 149.84009
+offset_bottom = 831.8401
 rotation = -0.25132743
 mouse_filter = 1
 theme = SubResource("Theme_7qwyv")
@@ -173,9 +173,9 @@ scroll_active = false
 z_index = 5
 layout_mode = 0
 offset_left = 762.0
-offset_top = 104.84007
+offset_top = 786.8401
 offset_right = 942.3052
-offset_bottom = 160.84009
+offset_bottom = 842.8401
 rotation = -0.25132743
 theme_override_styles/panel = SubResource("StyleBoxFlat_m7ytr")
 
@@ -186,9 +186,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 777.0
-offset_top = -1003.0
+offset_top = -321.0
 offset_right = -66.0
-offset_bottom = -746.1599
+offset_bottom = -64.15991
 grow_horizontal = 2
 grow_vertical = 0
 

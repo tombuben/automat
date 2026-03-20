@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dffn0bxh63v31"
-path.s3tc="res://.godot/imported/HandLeft.png-2a1b5d12f87ac1dd1fd896fbc264daba.s3tc.ctex"
+uid="uid://dontgbs1u34e4"
+path.s3tc="res://.godot/imported/info.png-830057bfaf947bea0868995431d9c6fe.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/VendingMachine/Hands/HandLeft.png"
-dest_files=["res://.godot/imported/HandLeft.png-2a1b5d12f87ac1dd1fd896fbc264daba.s3tc.ctex"]
+source_file="res://Assets/VendingMachine/Hands/info.png"
+dest_files=["res://.godot/imported/info.png-830057bfaf947bea0868995431d9c6fe.s3tc.ctex"]
 
 [params]
 

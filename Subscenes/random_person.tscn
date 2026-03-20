@@ -20,10 +20,11 @@ material = ExtResource("4_mu26o")
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.02738154), -2.9253776, 0.0, 0, 0]
 point_count = 2
 
-[node name="RandomPerson" type="Node3D" unique_id=1055277779 node_paths=PackedStringArray("hit_particles")]
+[node name="RandomPerson" type="Node3D" unique_id=1055277779 node_paths=PackedStringArray("hit_particles", "visual")]
 script = ExtResource("1_t8clt")
 hit_particles = NodePath("CPUParticles3D")
 hitstop_duration = 0.014
+visual = NodePath("RigidBody3D/Sprite3D")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=368135441]
 collision_layer = 2
@@ -41,6 +42,7 @@ mesh = SubResource("CapsuleMesh_8gkds")
 
 [node name="Sprite3D" type="Sprite3D" parent="RigidBody3D" unique_id=82952497]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+cast_shadow = 0
 texture = ExtResource("1_sr24p")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D" unique_id=1174005432]

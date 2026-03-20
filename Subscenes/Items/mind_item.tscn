@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dtwmshuf707e6"]
+
+[ext_resource type="Script" uid="uid://clluv3r6m72c2" path="res://Scripts/random_item.gd" id="1_wiea4"]
+[ext_resource type="PackedScene" uid="uid://bldsttlbxv7h5" path="res://Assets/models/KenneyPlaceholders/carton.glb" id="2_wiea4"]
+[ext_resource type="Texture2D" uid="uid://dontgbs1u34e4" path="res://Assets/VendingMachine/Hands/info.png" id="3_umufn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vkqkw"]
+size = Vector3(0.6447754, 0.7774048, 0.5761719)
+
+[node name="frog" type="RigidBody3D" unique_id=1837871512]
+collision_layer = 3
+mass = 0.35
+angular_damp = 10.0
+script = ExtResource("1_wiea4")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=7575584]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.008897759, 0)
+shape = SubResource("BoxShape3D_vkqkw")
+
+[node name="carton2" parent="." unique_id=15714468 instance=ExtResource("2_wiea4")]
+transform = Transform3D(0.427, 0, 0, 0, 0.275, 0, 0, 0, 0.427, 0, -0.072693214, 0)
+visible = false
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=587302266]
+transform = Transform3D(0.116, 0, 0, 0, 0.116, 0, 0, 0, 0.116, 0, 0, 0)
+sorting_offset = 6.0
+texture = ExtResource("3_umufn")
