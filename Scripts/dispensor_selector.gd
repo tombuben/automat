@@ -29,8 +29,8 @@ func set_body(body : RandomItem) -> void:
 	show_ui(body)
 	hold_item(body)
 
-	# Expand screen when item is selected
-	GlobalManager.expand_for_shooting()
+	# ❌ Removed screen expansion
+	# GlobalManager.expand_for_shooting()
 
 func show_ui(item : RandomItem):
 	GlobalManager.hand_selection_ui.show_ui_for_item(item)
@@ -50,7 +50,9 @@ func start_shooting(body : RandomItem):
 func _on_body_exited(body):
 	if body is RandomItem and not body.freeze:
 		remove_from_dispenser()
-		GlobalManager.expand_for_selection()
+
+		# ❌ Removed screen shrink
+		# GlobalManager.expand_for_selection()
 
 func stop_holding():
 	var cursor = GlobalManager.cursor_body
@@ -63,8 +65,8 @@ func stop_holding():
 	
 	hide_ui()
 
-	# Shrink screen when item is removed / put back
-	GlobalManager.expand_for_selection()
+	# ❌ Removed screen shrink
+	# GlobalManager.expand_for_selection()
 
 func remove_from_dispenser():
 	GlobalManager.world_view.delete_object_to_shoot()
@@ -84,4 +86,5 @@ func shoot_from_dispenser():
 	body_in_dispenser.queue_free()
 	body_in_dispenser = null
 
-	GlobalManager.expand_for_selection(0.5)
+	# ❌ Removed screen shrink after shooting
+	# GlobalManager.expand_for_selection(0.5)

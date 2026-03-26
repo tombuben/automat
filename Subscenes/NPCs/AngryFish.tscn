@@ -5,5 +5,5 @@
 
 [node name="AngryFish" unique_id=1055277779 instance=ExtResource("1_he5av")]
 
-[node name="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="2" unique_id=82952497]
+[node name="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="1" unique_id=82952497]
 texture = ExtResource("2_he5av")

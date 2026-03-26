@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://clluv3r6m72c2" path="res://Scripts/random_item.gd" id="1_wiea4"]
 [ext_resource type="PackedScene" uid="uid://bldsttlbxv7h5" path="res://Assets/models/KenneyPlaceholders/carton.glb" id="2_wiea4"]
-[ext_resource type="Texture2D" uid="uid://dontgbs1u34e4" path="res://Assets/VendingMachine/Hands/info.png" id="3_umufn"]
+[ext_resource type="Texture2D" uid="uid://c5qds8arncww0" path="res://Assets/VendingMachine/uiBrain.png" id="3_umufn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vkqkw"]
 size = Vector3(0.6447754, 0.7774048, 0.5761719)
@@ -22,6 +22,6 @@ transform = Transform3D(0.427, 0, 0, 0, 0.275, 0, 0, 0, 0.427, 0, -0.072693214, 
 visible = false
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=587302266]
-transform = Transform3D(0.116, 0, 0, 0, 0.116, 0, 0, 0, 0.116, 0, 0, 0)
+transform = Transform3D(0.217, 0, 0, 0, 0.217, 0, 0, 0, 0.217, 0.0035636723, 0.014553774, 0.0007250905)
 sorting_offset = 6.0
 texture = ExtResource("3_umufn")

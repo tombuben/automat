@@ -60,12 +60,12 @@ shape = SubResource("BoxShape3D_vkqkw")
 debug_color = Color(0, 11.618606, 13.50434, 0.41960785)
 
 [node name="can-open" type="MeshInstance3D" parent="." unique_id=1338537069]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14327417, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.14327417, 0)
 mesh = SubResource("ArrayMesh_6nx2u")
 skeleton = NodePath("")
 
 [node name="can-open2" type="MeshInstance3D" parent="." unique_id=131831531]
-transform = Transform3D(1.146, 0, 0, 0, 1.146, 0, 0, 0, 1.146, 0, -0.1612522, 0)
+transform = Transform3D(0.544, 0, 0, 0, 0.544, 0, 0, 0, 0.544, 0, -0.1612522, 0)
 sorting_offset = 5.198
 material_override = ExtResource("3_lck27")
 mesh = SubResource("ArrayMesh_6nx2u")

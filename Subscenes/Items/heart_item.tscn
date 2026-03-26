@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://clluv3r6m72c2" path="res://Scripts/random_item.gd" id="1_68gd5"]
 [ext_resource type="PackedScene" uid="uid://cbtkc2b5hjolp" path="res://Assets/models/KenneyPlaceholders/strawberry.glb" id="2_68gd5"]
-[ext_resource type="Texture2D" uid="uid://3gi7wjo1cx5m" path="res://Assets/VendingMachine/Hands/heart1.png" id="3_xquem"]
+[ext_resource type="Texture2D" uid="uid://d2ik0h0qqle21" path="res://Assets/VendingMachine/uiHeart.png" id="3_xquem"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vkqkw"]
 size = Vector3(0.6447754, 0.7774048, 0.5761719)
+
+[sub_resource type="SphereMesh" id="SphereMesh_xquem"]
 
 [node name="frog" type="RigidBody3D" unique_id=1837871512]
 collision_layer = 3
@@ -22,6 +24,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012595903, -0.1061963, 0.0
 visible = false
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=616239574]
-transform = Transform3D(0.094, 0, 0, 0, 0.094, 0, 0, 0, 0.094, 0.0004737042, -0.004364513, 0)
+transform = Transform3D(0.217, 0, 0, 0, 0.217, 0, 0, 0, 0.217, 0.010141131, -0.004364513, 0.0015377253)
 sorting_offset = 6.0
 texture = ExtResource("3_xquem")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1604305822]
+transform = Transform3D(0.297, 0, 0, 0, 0.297, 0, 0, 0, 0.297, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_xquem")

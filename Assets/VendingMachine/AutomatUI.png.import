@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4m1th60nswn6"
-path.s3tc="res://.godot/imported/AngryFishFree.png-26b347c85e728ae49f74950c5848471b.s3tc.ctex"
+uid="uid://cxd08cdrtj3o3"
+path.s3tc="res://.godot/imported/AutomatUI.png-5305cf574f3c79116a1e1d9e8b22f472.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/LVL1Assets/Characters/AngryFishFree.png"
-dest_files=["res://.godot/imported/AngryFishFree.png-26b347c85e728ae49f74950c5848471b.s3tc.ctex"]
+source_file="res://Assets/VendingMachine/AutomatUI.png"
+dest_files=["res://.godot/imported/AutomatUI.png-5305cf574f3c79116a1e1d9e8b22f472.s3tc.ctex"]
 
 [params]
 

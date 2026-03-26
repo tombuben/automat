@@ -60,13 +60,13 @@ shape = SubResource("BoxShape3D_vkqkw")
 debug_color = Color(0, 11.618606, 13.50434, 0.41960785)
 
 [node name="donut3" type="MeshInstance3D" parent="." unique_id=2118001722]
-transform = Transform3D(1.225, 0, 0, 0, 0.036341093, -1.2244608, 0, 1.2244608, 0.036341093, 0.0026003048, -0.005116338, -0.036)
+transform = Transform3D(1, 0, 0, 0, 0.029666198, -0.9995599, 0, 0.9995599, 0.029666198, 0.0026003048, -0.005116338, -0.036)
 sorting_offset = 15.0
 mesh = SubResource("ArrayMesh_vkjiv")
 skeleton = NodePath("")
 
 [node name="donut4" type="MeshInstance3D" parent="." unique_id=1557646547]
-transform = Transform3D(1.348, 0, 0, 0, 0.039990038, -1.3474067, 0, 1.3474067, 0.039990038, 0.0026003048, -0.005116338, -0.036)
+transform = Transform3D(1.102, 0, 0, 0, 0.03269215, -1.1015149, 0, 1.1015149, 0.03269215, 0.0026003048, -0.005116338, -0.036)
 sorting_offset = 3.503
 material_override = ExtResource("3_vkjiv")
 mesh = SubResource("ArrayMesh_vkjiv")

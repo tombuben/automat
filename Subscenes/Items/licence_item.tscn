@@ -98,12 +98,12 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.008897759, 0)
 shape = SubResource("BoxShape3D_vkqkw")
 
 [node name="cutting-board3" type="MeshInstance3D" parent="." unique_id=1175163523]
-transform = Transform3D(0.35505602, 0, 0, 0, -1.551999e-08, -0.35505602, 0, 0.35505602, -1.551999e-08, -0.005695872, -0.014627464, -0.0050651655)
+transform = Transform3D(0.3, 0, 0, 0, -1.3113417e-08, -0.3, 0, 0.3, -1.3113417e-08, -0.005695872, -0.014627464, -0.0050651655)
 sorting_offset = 23.085
 mesh = SubResource("ArrayMesh_xqs6s")
 skeleton = NodePath("")
 
 [node name="cutting-board4" type="MeshInstance3D" parent="." unique_id=2077069806]
-transform = Transform3D(0.312, 0, 0, 0, 3.7205627e-09, -0.312, 0, 0.312, 3.7205627e-09, -0.005695872, -0.014627464, -0.0050651655)
+transform = Transform3D(0.256, 0, 0, 0, -1.11901155e-08, -0.256, 0, 0.256, -1.11901155e-08, -0.005695872, -0.014627464, -0.0050651655)
 mesh = SubResource("ArrayMesh_ab24o")
 skeleton = NodePath("")
