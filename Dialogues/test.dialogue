@@ -1,5 +1,57 @@
 ~ day1_start
-=> capitalist_first_enter
+
+
+
+~ drowning_person_enter
+	
+do GlobalManager.play_animation.emit("drowning_person_enter")
+do wait(GlobalManager.current_animation_length)
+do GlobalManager.play_animation.emit("drowning_person_idle")
+Hello, very sorry to bother you
+I just wanted to ask if you could help.
+I am drowning.
+
+I was too shy to ask, but my feet are way too tired now
+I-I have money of course, could you help please?
+=> END!
+
+~ drowning_person_hit
+
+if GlobalManager.item_that_hit.item_name == "safety_donut"
+	drowning person: O-Oh thank you, sorry to bother you again!
+	do GlobalManager.play_animation.emit("drowning_person_leave")
+	do wait(GlobalManager.current_animation_length)
+	=> END!
+
+elif GlobalManager.item_that_hit.item_name == "fish_food"
+	drowning person: Thanks, but it's really not what I am looking for right now
+	=> END!
+
+elif "heart" in GlobalManager.item_that_hit.item_type:
+	do GlobalManager.play_animation.emit("drowning_person", "hit")
+	automat: Uh, yeah, you are not bothering me!
+	drowning person: That's good to know.
+	drowning person: A-anyways please could you help me
+	=> END!
+
+elif GlobalManager.item_that_hit.item_name == "mind"
+	do GlobalManager.play_animation.emit("drowning_person_hit")
+	automat: When did you start drowning?
+	drowning person: Like four hours ago.
+	drowning person: It started out as swimming
+	=> END!
+
+elif GlobalManager.item_that_hit.item_name == "guts"
+	do GlobalManager.play_animation.emit("drowning_person_hit")
+	automat: Are you alright??
+	drowning person: No!
+	drowning person: T-thank you for asking though!
+	=> END!
+else
+	drowning person:: Huh huh
+	=> END!
+		
+=> drowning_person_hit
 
 ~ capitalist_first_enter
 #do GlobalManager.play_animation.emit("screen_expand")
@@ -109,26 +161,7 @@ else
 	#do GlobalManager.person_shoot_selection_started.emit()
 	=> END!
 
-~ drowning_person_enter
-	
-do GlobalManager.play_animation.emit("drowning_person_enter")
-do wait(GlobalManager.current_animation_length)
-do GlobalManager.play_animation.emit("drowning_person_idle")
-Hello, very sorry to bother you
-I just wanted to ask if you could help.
-I am drowning.
 
-I was too shy to ask, but my feet are way too tired now
-I-I have money of course, could you help please?
-=> END!
-
-~ drowning_person_hit
-if GlobalManager.item_that_hit.item_name == "safety_donut"
-	drowing person: O-Oh thank you, sorry to bother you again!
-	do GlobalManager.play_animation.emit("drowning_person_leave")
-	do wait(GlobalManager.current_animation_length)
-	=> capitalist_payment
-=> END!
 
 ~ capitalist_payment
 do GlobalManager.play_animation.emit("capitalist_payment_enter")

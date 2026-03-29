@@ -65,6 +65,7 @@
 [ext_resource type="Texture2D" uid="uid://b24a00qrtc7yv" path="res://Assets/ParticleEffects/circleParticle1.png" id="55_n1krg"]
 [ext_resource type="Material" uid="uid://c3ekxbf7k4sdl" path="res://Assets/Vignette.tres" id="55_tscpr"]
 [ext_resource type="Texture2D" uid="uid://bxm3k28htt8ed" path="res://Assets/ParticleEffects/circleParticle2.png" id="56_8qtx6"]
+[ext_resource type="FontFile" uid="uid://cvd5j8d7y4hxx" path="res://Assets/WinkySans-VariableFont_wght.ttf" id="56_vge76"]
 [ext_resource type="Texture2D" uid="uid://0okmm1ig18gd" path="res://Assets/VendingMachine/InsidesUI.png" id="66_sgm8f"]
 [ext_resource type="Texture2D" uid="uid://cxd08cdrtj3o3" path="res://Assets/VendingMachine/AutomatUI.png" id="67_vge76"]
 [ext_resource type="Texture2D" uid="uid://cwm1uv2t3slbv" path="res://Assets/VendingMachine/linesAutomatUI.png" id="68_ib7vo"]
@@ -596,7 +597,6 @@ hitstop_duration = 0.01
 
 [node name="DrowningPerson" parent="World" unique_id=118794775 instance=ExtResource("5_p35vf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.652418, 0.487, 0.761)
-person_name = "drowning_person"
 hitstop_duration = 0.001
 
 [node name="AngryFish" parent="World" unique_id=1492897213 instance=ExtResource("5_hrp4p")]
@@ -748,23 +748,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528574, 1.0492781, 0.5)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
-item_in_slot = NodePath("frog2")
+item_in_slot = NodePath("mind")
+
+[node name="mind" parent="World/Automat/ItemSlot7" unique_id=199549943 instance=ExtResource("17_hdw03")]
+item_name = "mind"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot7" unique_id=1722521893]
 shape = SubResource("SphereShape3D_huasi")
 debug_color = Color(0, 11.618606, 13.50434, 1)
-
-[node name="frog2" parent="World/Automat/ItemSlot7" unique_id=199549943 instance=ExtResource("17_hdw03")]
 
 [node name="ItemSlot8" type="Area3D" parent="World/Automat" unique_id=1974407530 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5294075, 0.8182824, 0.5)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
-item_in_slot = NodePath("frog2")
+item_in_slot = NodePath("heart")
 
-[node name="frog2" parent="World/Automat/ItemSlot8" unique_id=1892127890 instance=ExtResource("17_h246y")]
+[node name="heart" parent="World/Automat/ItemSlot8" unique_id=1892127890 instance=ExtResource("17_h246y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006055832, -0.00018531084, -0.19800001)
+item_name = "heart"
+item_type = Array[String](["heart"])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot8" unique_id=1695711726]
 shape = SubResource("SphereShape3D_huasi")
@@ -775,10 +778,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5123644, 0.46446618, 0.5)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
-item_in_slot = NodePath("frog2")
+item_in_slot = NodePath("guts")
 
-[node name="frog2" parent="World/Automat/ItemSlot9" unique_id=1501232284 instance=ExtResource("17_yxgvy")]
+[node name="guts" parent="World/Automat/ItemSlot9" unique_id=1501232284 instance=ExtResource("17_yxgvy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0010328293, 0.013791949, -0.24637774)
+item_name = "guts"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot9" unique_id=1240033603]
 shape = SubResource("SphereShape3D_huasi")
@@ -1437,6 +1441,69 @@ position = Vector2(20.643991, 27.060059)
 scale = Vector2(0.17465632, 0.1746563)
 texture = ExtResource("30_kbbok")
 
+[node name="MIND" type="Label" parent="." unique_id=1773723975]
+z_index = 12
+offset_left = 76.0
+offset_top = 660.0
+offset_right = 213.0
+offset_bottom = 729.0
+theme_override_fonts/font = ExtResource("56_vge76")
+theme_override_font_sizes/font_size = 36
+text = "MIND"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="MIND" unique_id=632253125]
+z_index = -7
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 121.0
+offset_bottom = 57.0
+color = Color(0, 0, 0, 0.6745098)
+
+[node name="MIND2" type="Label" parent="." unique_id=759078872]
+z_index = 12
+offset_left = 543.0
+offset_top = 761.0
+offset_right = 680.0
+offset_bottom = 830.0
+theme_override_fonts/font = ExtResource("56_vge76")
+theme_override_font_sizes/font_size = 36
+text = "HEART"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="MIND2" unique_id=1802740473]
+z_index = -7
+layout_mode = 0
+offset_left = 12.0
+offset_top = 14.0
+offset_right = 127.0
+offset_bottom = 60.0
+color = Color(0, 0, 0, 0.6745098)
+
+[node name="MIND3" type="Label" parent="." unique_id=779028299]
+z_index = 12
+offset_left = 82.0
+offset_top = 921.0
+offset_right = 219.0
+offset_bottom = 990.0
+theme_override_fonts/font = ExtResource("56_vge76")
+theme_override_font_sizes/font_size = 36
+text = "GUTS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="MIND3" unique_id=769631083]
+z_index = -7
+layout_mode = 0
+offset_left = 20.0
+offset_top = 15.0
+offset_right = 119.0
+offset_bottom = 59.0
+color = Color(0, 0, 0, 0.6745098)
+
 [node name="UI Control" type="Control" parent="." unique_id=1381454070 node_paths=PackedStringArray("left_subviewport", "right_subviewport", "divider")]
 layout_mode = 3
 anchors_preset = 15
@@ -1514,6 +1581,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="UI Control/Right viewport" unique_id=1231747041]
 handle_input_locally = false
 size = Vector2i(1153, 744)
+size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="Node3D" type="Node3D" parent="UI Control/Right viewport/SubViewport" unique_id=449177842]

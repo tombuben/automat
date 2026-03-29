@@ -1,5 +1,7 @@
 extends Node
 
+var characters: Dictionary = {}
+
 var cursor_body : CursorBody
 
 var dispensor_selector : DispenserSelector
@@ -21,8 +23,7 @@ var item_that_hit : RandomItem
 signal recieve_item(item : String)
 
 
-
-#####
+##### 
 
 func expand_for_shooting(duration = 1.0):
 	var tween = create_tween()

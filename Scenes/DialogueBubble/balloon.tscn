@@ -150,18 +150,16 @@ polygon = PackedVector2Array(0, 0, 9.166687, 14, 10.833313, 14, 20, 0, 9.916357,
 
 [node name="CharacterLabel" type="RichTextLabel" parent="Balloon" unique_id=613805791]
 unique_name_in_owner = true
-visible = false
 z_index = 11
 layout_mode = 0
-offset_left = 778.00006
-offset_top = 787.8401
-offset_right = 946.30524
-offset_bottom = 831.8401
-rotation = -0.25132743
+offset_left = 1630.0
+offset_top = 802.0
+offset_right = 1861.0
+offset_bottom = 1027.0
 mouse_filter = 1
 theme = SubResource("Theme_7qwyv")
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 32
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "Character"
 fit_content = true
@@ -241,10 +239,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 52.0
-offset_top = 387.0
-offset_right = 633.0
-offset_bottom = 457.0
+offset_left = 81.0
+offset_top = -32.0
+offset_right = 662.0
+offset_bottom = 38.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
@@ -263,6 +261,14 @@ text = "Response example"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1502918690]
 unique_name_in_owner = true
 
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=915446475]
+z_index = -6
+offset_left = 758.0
+offset_top = 736.0
+offset_right = 1601.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=861920921]
 offset_left = 1567.5757
 offset_top = 736.0
@@ -271,6 +277,7 @@ offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect" unique_id=1757619546]
+visible = false
 layout_mode = 0
 offset_left = -34.575684
 offset_top = -50.0

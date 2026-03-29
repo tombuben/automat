@@ -14,6 +14,12 @@ extends Node3D
 var can_be_hit: bool = true
 
 func _ready() -> void:
+	# ✅ REGISTER THIS CHARACTER FOR ANIMATION SYSTEM
+	if person_name != "":
+		GlobalManager.characters[person_name] = self
+	else:
+		print("WARNING: person_name is empty!")
+
 	rigidbody.contact_monitor = true
 	rigidbody.max_contacts_reported = 1
 	rigidbody.body_entered.connect(body_entered)
@@ -51,6 +57,8 @@ func body_entered(body: Node) -> void:
 		# Register hit
 		item.hit_speed = item.linear_velocity.length()
 		GlobalManager.item_that_hit = item
+		
+		# Trigger dialogue (unchanged)
 		GlobalManager.scene_dialogue_manager.show_dialogue(person_name + "_hit")
 
 		# Camera hit shake
