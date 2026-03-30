@@ -22,7 +22,6 @@
 default_font = ExtResource("3_cmlgi")
 
 [node name="HandSelectionUI" type="Control" unique_id=637314647 node_paths=PackedStringArray("put_back_button", "launch_button", "object_preview_spawn_point", "item_name_label")]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,7 +38,7 @@ item_name_label = NodePath("ItemName")
 [node name="TextureRect" type="TextureRect" parent="." unique_id=111374632]
 modulate = Color(0.02, 0.0198, 0.0198, 1)
 layout_mode = 0
-offset_top = -182.59952
+offset_top = -877.36707
 offset_right = 1920.0
 offset_bottom = 897.4005
 texture = ExtResource("2_cmlgi")
@@ -50,7 +49,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -18.863586
-offset_bottom = -850.7477
+offset_bottom = -828.5843
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -96,7 +95,7 @@ own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1920, 1080)
-render_target_update_mode = 0
+render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=395911224]
 

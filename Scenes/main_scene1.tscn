@@ -25,7 +25,6 @@
 [ext_resource type="Texture2D" uid="uid://1y7wg77wd30x" path="res://Assets/concepts/cursor.png" id="10_mai8y"]
 [ext_resource type="Texture2D" uid="uid://dwlqtr5m6tb2h" path="res://Assets/VendingMachine/handsOpen.png" id="10_n1krg"]
 [ext_resource type="PackedScene" uid="uid://bll46git7a4ek" path="res://Subscenes/Items/hammer_item.tscn" id="10_y0lwx"]
-[ext_resource type="PackedScene" uid="uid://cximmwwcbirk5" path="res://Subscenes/Items/frog_item.tscn" id="11_igw8g"]
 [ext_resource type="Texture2D" uid="uid://k41vohdmp65j" path="res://Assets/LVL1Assets/foretree1.png" id="12_37jd4"]
 [ext_resource type="Texture2D" uid="uid://c7mkgo08m6rxo" path="res://Assets/LVL1Assets/foretree2.png" id="13_gfj8f"]
 [ext_resource type="Script" uid="uid://c6qs8oiugm1gg" path="res://Scripts/global_animation_player.gd" id="13_ioaeq"]
@@ -47,6 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://caekwxocv5mjy" path="res://Assets/LVL1Assets/TreeVillage2Crown.png" id="19_5w0f0"]
 [ext_resource type="Texture2D" uid="uid://dlbjehj8kvjqv" path="res://Assets/LVL1Assets/BG/BgTree1st.png" id="19_m0uwk"]
 [ext_resource type="Texture2D" uid="uid://c1skulm7nyq6a" path="res://Assets/LVL1Assets/BG/BgTree2nd.png" id="20_mffef"]
+[ext_resource type="PackedScene" uid="uid://dbiny0q0riq71" path="res://Subscenes/Items/bowling_ball_item.tscn" id="20_vge76"]
 [ext_resource type="Texture2D" uid="uid://c0gc6uxfv8w12" path="res://Assets/LVL1Assets/BG/BgTree2nd2.png" id="21_2h5y0"]
 [ext_resource type="Texture2D" uid="uid://bck5dx4xmvk3u" path="res://Assets/LVL1Assets/grass1.png" id="21_so8ax"]
 [ext_resource type="Texture2D" uid="uid://b8lsd7x7o3k1a" path="res://Assets/LVL1Assets/box3.png" id="22_nt2eh"]
@@ -128,9 +128,6 @@ background_mode = 1
 background_color = Color(0.7647059, 0.8666667, 0.7490196, 1)
 ambient_light_color = Color(0.47553658, 0.47553694, 0.47553682, 1)
 fog_sky_affect = 0.783
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2v2b7"]
-size = Vector3(4.1896973, 12.885498, 3.5205078)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tar5f"]
 render_priority = 0
@@ -406,7 +403,7 @@ resource_name = "close_hand"
 
 [sub_resource type="Animation" id="Animation_p35vf"]
 resource_name = "drowning_person_enter"
-length = 2.0
+length = 2.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -414,10 +411,10 @@ tracks/0/path = NodePath("World/DrowningPerson:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.9666667),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(6.161, 0.487, 0.761), Vector3(1.282, 0.487, 0.761)]
+"values": [Vector3(6.56, 0.487, 1.6350412), Vector3(1.282, 0.487, 0.761)]
 }
 
 [sub_resource type="Animation" id="Animation_stxua"]
@@ -449,7 +446,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(1.282, 0.487, 0.761), Vector3(-3.438, 0.487, 0.761)]
+"values": [Vector3(1.282, 0.487, 0.761), Vector3(-7.8922133, 0.487, 0.761)]
 }
 
 [sub_resource type="Animation" id="Animation_gnsmo"]
@@ -497,6 +494,53 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(1.2519999, 1.219, 0.08), Vector3(-13.038, 1.219, 0.08)]
+}
+
+[sub_resource type="Animation" id="Animation_ib7vo"]
+resource_name = "fish_enter"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("World/AngryFish:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(7.358, 1, 1.083), Vector3(1.282, 1, 1.083)]
+}
+
+[sub_resource type="Animation" id="Animation_vge76"]
+resource_name = "fish_idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("World/AngryFish:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.282, 1, 1.083), Vector3(1.282, 1, 1.083)]
+}
+
+[sub_resource type="Animation" id="Animation_2lryw"]
+resource_name = "fish_leave"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("World/AngryFish:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.282, 1, 1.083), Vector3(-7.418, 1, 1.083)]
 }
 
 [sub_resource type="Animation" id="Animation_oyb3p"]
@@ -554,6 +598,9 @@ _data = {
 &"duckman_enter": SubResource("Animation_gnsmo"),
 &"duckman_idle": SubResource("Animation_rlvbq"),
 &"duckman_leave": SubResource("Animation_psl12"),
+&"fish_enter": SubResource("Animation_ib7vo"),
+&"fish_idle": SubResource("Animation_vge76"),
+&"fish_leave": SubResource("Animation_2lryw"),
 &"grandma_enter": SubResource("Animation_oyb3p"),
 &"grandma_leave": SubResource("Animation_jvnna"),
 &"open_hand": SubResource("Animation_tscpr"),
@@ -600,13 +647,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.652418, 0.487, 0.761)
 hitstop_duration = 0.001
 
 [node name="AngryFish" parent="World" unique_id=1492897213 instance=ExtResource("5_hrp4p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37, 5.906, 1.083)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.520313, 1, 1.083)
 
 [node name="UnhingedGirl" parent="World" unique_id=1283264790 instance=ExtResource("6_nmodt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.465, 5.906, 1.1)
 
 [node name="Wanderer" parent="World" unique_id=358623486 instance=ExtResource("7_475lv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.117, 5.906, 1.479)
+person_name = "wanderer"
 
 [node name="Automat" type="Node3D" parent="World" unique_id=1282403330]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.067283, 0, 0)
@@ -647,6 +695,7 @@ texture = ExtResource("30_kbbok")
 
 [node name="ItemSlot" type="Area3D" parent="World/Automat" unique_id=821282033 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, -0.21419334, 1.6299716, 0.489491)
+visible = false
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
@@ -664,6 +713,7 @@ debug_color = Color(0, 11.618606, 13.50434, 1)
 
 [node name="ItemSlot2" type="Area3D" parent="World/Automat" unique_id=1293194248 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(0.877, 0, 0, 0, 0.82252854, 0.30426258, 0, -0.30426258, 0.82252854, 0.015598297, 1.6299716, 0.489491)
+visible = false
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
@@ -686,6 +736,7 @@ item_in_slot = NodePath("SafetyDonutItem")
 
 [node name="SafetyDonutItem" parent="World/Automat/ItemSlot3" unique_id=827200447 instance=ExtResource("7_m0uwk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018854141, 0.004671812, -0.2533508)
+item_name = "safety donut"
 item_type = Array[String](["donut"])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot3" unique_id=1902727124]
@@ -702,6 +753,7 @@ item_in_slot = NodePath("FishFoodItem")
 
 [node name="FishFoodItem" parent="World/Automat/ItemSlot4" unique_id=1967725391 instance=ExtResource("8_mffef")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020458221, 0.013715148, -0.18532318)
+item_name = "fish food"
 item_type = Array[String](["fishFood"])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot4" unique_id=1129424357]
@@ -711,6 +763,7 @@ debug_color = Color(0, 11.618606, 13.50434, 1)
 
 [node name="ItemSlot5" type="Area3D" parent="World/Automat" unique_id=912682092 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, -0.22466278, 1.3391048, 0.489491)
+visible = false
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
@@ -731,12 +784,10 @@ transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, 0.003610611, 1.32
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
-item_in_slot = NodePath("frog")
+item_in_slot = NodePath("bowling_ball")
 
-[node name="frog" parent="World/Automat/ItemSlot6" unique_id=1968186880 instance=ExtResource("11_igw8g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02026558, 0, -0.27467704)
-item_name = "Frog"
-item_type = Array[String](["frog"])
+[node name="bowling_ball" parent="World/Automat/ItemSlot6" unique_id=1103311723 instance=ExtResource("20_vge76")]
+transform = Transform3D(1, 0, 0, 0, -0.3681245, 0.9297765, 0, -0.9297765, -0.3681245, 0.03660202, 0.025208592, -0.22180241)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot6" unique_id=342014291]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017953873, 0.013186574, 0)
@@ -861,13 +912,6 @@ no_depth_test = true
 alpha_cut = 2
 texture = ExtResource("16_psl12")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="World/BgObjects/trees/Tree9" unique_id=630521149]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BgObjects/trees/Tree9/StaticBody3D" unique_id=199948096]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2149353, -1.0889893, 0)
-shape = SubResource("BoxShape3D_2v2b7")
-debug_color = Color(0, 7.4280796, 13.50434, 1)
-
 [node name="TreeCrown" type="Sprite3D" parent="World/BgObjects/trees/Tree9" unique_id=974350354]
 sorting_offset = 1.812
 material_override = ExtResource("17_wrtin")
@@ -880,14 +924,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.943555, 2.3949106, -0
 no_depth_test = true
 alpha_cut = 2
 texture = ExtResource("17_2ebs2")
-
-[node name="RigidBody3D" type="RigidBody3D" parent="World/BgObjects/trees/Tree2" unique_id=208872099]
-collision_layer = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BgObjects/trees/Tree2/RigidBody3D" unique_id=1008468481]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2149353, -1.0889893, 0)
-shape = SubResource("BoxShape3D_2v2b7")
-debug_color = Color(0, 7.4280796, 13.50434, 1)
 
 [node name="TreeCrown" type="Sprite3D" parent="World/BgObjects/trees/Tree2" unique_id=2144627833]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, 0, 0)
@@ -904,13 +940,6 @@ no_depth_test = true
 alpha_cut = 2
 texture = ExtResource("17_2ebs2")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="World/BgObjects/trees/Tree11" unique_id=1180862473]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BgObjects/trees/Tree11/StaticBody3D" unique_id=1781600989]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2149353, -1.0889893, 0)
-shape = SubResource("BoxShape3D_2v2b7")
-debug_color = Color(0, 7.4280796, 13.50434, 1)
-
 [node name="TreeCrown" type="Sprite3D" parent="World/BgObjects/trees/Tree11" unique_id=1496660790]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, 0, 0)
 sorting_offset = 3.465
@@ -926,13 +955,6 @@ no_depth_test = true
 alpha_cut = 2
 texture = ExtResource("17_2ebs2")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="World/BgObjects/trees/Tree7" unique_id=1351917033]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BgObjects/trees/Tree7/StaticBody3D" unique_id=1974743765]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2149353, -1.0889893, 0)
-shape = SubResource("BoxShape3D_2v2b7")
-debug_color = Color(0, 7.4280796, 13.50434, 1)
-
 [node name="TreeCrown" type="Sprite3D" parent="World/BgObjects/trees/Tree7" unique_id=1722674895]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, 0, 0)
 sorting_offset = 3.465
@@ -947,13 +969,6 @@ sorting_offset = 1.102
 no_depth_test = true
 alpha_cut = 2
 texture = ExtResource("17_2ebs2")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="World/BgObjects/trees/Tree13" unique_id=803784528]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BgObjects/trees/Tree13/StaticBody3D" unique_id=1404962933]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2149353, -1.0889893, 0)
-shape = SubResource("BoxShape3D_2v2b7")
-debug_color = Color(0, 7.4280796, 13.50434, 1)
 
 [node name="TreeCrown" type="Sprite3D" parent="World/BgObjects/trees/Tree13" unique_id=1043467819]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, 0, 0)
@@ -1655,7 +1670,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2049604939]
 libraries/ = SubResource("AnimationLibrary_lhp3t")
-autoplay = &"automatIdle"
 script = ExtResource("13_ioaeq")
 
 [node name="DialogueManager" type="Node" parent="." unique_id=1924117671]

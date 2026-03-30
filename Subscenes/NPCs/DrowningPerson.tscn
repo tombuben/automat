@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dsla6i0fn070r" path="res://Assets/LVL1Assets/Characters/DrowningPerson.png" id="2_0ltu3"]
 [ext_resource type="Texture2D" uid="uid://q5xbjji3cpic" path="res://Assets/LVL1Assets/Characters/Drowning person/drowning person hit.png" id="3_2r83d"]
 [ext_resource type="Texture2D" uid="uid://by1vo5mjhwfww" path="res://Assets/LVL1Assets/Characters/Drowning person/drowning person.png" id="4_pj1p8"]
+[ext_resource type="Texture2D" uid="uid://bno3nppturrey" path="res://Assets/LVL1Assets/Characters/Drowning person/drowning person saved.png" id="5_pj1p8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qk7r5"]
 animations = [{
@@ -23,7 +24,10 @@ animations = [{
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pj1p8")
+}],
 "loop": false,
 "name": &"saved",
 "speed": 5.0
@@ -38,6 +42,7 @@ texture = ExtResource("2_0ltu3")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="2" unique_id=27529198]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+sorting_offset = 1.5
 sprite_frames = SubResource("SpriteFrames_qk7r5")
-animation = &"hit"
+animation = &"saved"
 autoplay = "idle"

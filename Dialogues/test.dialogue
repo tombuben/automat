@@ -1,30 +1,40 @@
 ~ day1_start
 
 
-
 ~ drowning_person_enter
 	
 do GlobalManager.play_animation.emit("drowning_person_enter")
 do wait(GlobalManager.current_animation_length)
 do GlobalManager.play_animation.emit("drowning_person_idle")
-Hello, very sorry to bother you
-I just wanted to ask if you could help.
-I am drowning.
+drowning person: H-hello, very sorry to bother you
+drowning person: I am drowning.
+drowning person: I wanted to ask if you could help.
+drowning person: I was too shy to ask, but my feet are way too tired now
 
-I was too shy to ask, but my feet are way too tired now
-I-I have money of course, could you help please?
 => END!
 
 ~ drowning_person_hit
 
-if GlobalManager.item_that_hit.item_name == "safety_donut"
-	drowning person: O-Oh thank you, sorry to bother you again!
+if GlobalManager.item_that_hit.item_name == "safety donut"
+	do GlobalManager.play_animation.emit("drowning_person", "saved")
+	
+	drowning person: T-thank you!
+	drowning person: Wow my feet are sore
+	drowning person: I am gonna float for a while now
+	drowning person: Maybe take a nap
+	drowning person: And dream about standing on solid ground
+	drowning person: Thank youu, byeee
+	
 	do GlobalManager.play_animation.emit("drowning_person_leave")
 	do wait(GlobalManager.current_animation_length)
-	=> END!
+	=> fish_enter
 
-elif GlobalManager.item_that_hit.item_name == "fish_food"
-	drowning person: Thanks, but it's really not what I am looking for right now
+
+elif GlobalManager.item_that_hit.item_name == "fish food"
+	do GlobalManager.play_animation.emit("drowning_person", "hit")
+	drowning person: Haha yes, I am almost like a fish now
+	drowning person: Help!
+
 	=> END!
 
 elif "heart" in GlobalManager.item_that_hit.item_type:
@@ -35,75 +45,105 @@ elif "heart" in GlobalManager.item_that_hit.item_type:
 	=> END!
 
 elif GlobalManager.item_that_hit.item_name == "mind"
-	do GlobalManager.play_animation.emit("drowning_person_hit")
+	do GlobalManager.play_animation.emit("drowning_person", "hit")
 	automat: When did you start drowning?
 	drowning person: Like four hours ago.
 	drowning person: It started out as swimming
 	=> END!
 
 elif GlobalManager.item_that_hit.item_name == "guts"
-	do GlobalManager.play_animation.emit("drowning_person_hit")
+	do GlobalManager.play_animation.emit("drowning_person", "hit")
 	automat: Are you alright??
 	drowning person: No!
 	drowning person: T-thank you for asking though!
 	=> END!
 else
-	drowning person:: Huh huh
+	do GlobalManager.play_animation.emit("drowning_person", "hit")
+	drowning person:: Thanks, but it's really not what I am looking for right now
 	=> END!
 		
 => drowning_person_hit
+______________________________________________________________________
 
-~ capitalist_first_enter
-#do GlobalManager.play_animation.emit("screen_expand")
-
-do GlobalManager.play_animation.emit("capitalist_enter")
+~ fish_enter
+do GlobalManager.play_animation.emit("fish_enter")
 do wait(GlobalManager.current_animation_length)
-
-do GlobalManager.play_animation.emit("capitalist_idle")
-
-capitalist: You are either making money or going to the trash
-capitalist: Okay, now try giving me the licence
-do wait(GlobalManager.current_animation_length)
+do GlobalManager.play_animation.emit("fish_idle")
+Angry fish: ...
+Angry fish: DON'T ask. I don't need any help.
+Angry fish: Give me some food.
 
 => END!
 
-~ capitalist_hit
-if GlobalManager.item_that_hit.hit_speed > 50:
-	capitalist: fast hit!
-if GlobalManager.item_that_hit.item_name == "licence"
-	capitalist: EEP
+~ angry_fish_hit
+	
+if GlobalManager.item_that_hit.item_name == "bowling_ball"
+	do GlobalManager.play_animation.emit("angry_fish", "free")
 
-elif "bread" in GlobalManager.item_that_hit.item_type:
-	capitalist: That's bread. You just gave me bread.
-	capitalist: It's pretty stale now
+	Angry fish: EEP
+	Angry fish: !
+	Angry fish: I-I could have gotten out myself.
+	Angry fish: Thanks I guess.
+	do GlobalManager.play_animation.emit("fish_leave")
+	do wait(GlobalManager.current_animation_length)
+	=> capitalist_first_enter
+
+elif GlobalManager.item_that_hit.item_name == "heart"
+	do GlobalManager.play_animation.emit("angry_fish", "hit")
+
+	automat: Umm, things could be worse than being stuck?
+	Angry fish: The world is a hand and I am its snowglobe.
+	Angry fish: Food now.
 	=> END!
 
-elif "donut" in GlobalManager.item_that_hit.item_type:
-	capitalist: Please for the love of god just give me the licence
+elif GlobalManager.item_that_hit.item_name == "mind"
+	do GlobalManager.play_animation.emit("angry_fish", "hit")
+
+	automat: What happened?
+	Angry fish: A flood. A vision of freedom. A sturdy glass prison.
+	Angry fish: And lots of spite.
+	=> END!
+	
+elif GlobalManager.item_that_hit.item_name == "guts"
+	do GlobalManager.play_animation.emit("angry_fish", "hit")
+
+	automat: Why don't you want help?
+	Angry fish: Why don't you go fly with the bees.
 	=> END!
 
-elif "fishFood" in GlobalManager.item_that_hit.item_type:
-	capitalist: It tastes like salty sand
-	capitalist: GIVE ME THE LICENCE
+elif GlobalManager.item_that_hit.item_name == "safety donut"
+	do GlobalManager.play_animation.emit("angry_fish", "hit")
+	Angry fish: Are you kidding me
 	=> END!
-
-elif "hammer" in GlobalManager.item_that_hit.item_type:
-	capitalist: I cannot die
-	capitalist: I still need to be rich
+	
+elif GlobalManager.item_that_hit.item_name == "fish food"
+	do GlobalManager.play_animation.emit("angry_fish", "hit")
+	Angry fish: Yup okay I see
+	Angry fish: You cant open the lid
+	Angry fish: I am going to perish
 	=> END!
-
-elif "frog" in GlobalManager.item_that_hit.item_type:
-	capitalist: All my businesses have failed
-	capitalist: I think you are about to be the fifth one
-	=> END!
-
 else
-	capitalist: what is this! give me something else!
+	do GlobalManager.play_animation.emit("angry_fish", "hit")
+	Angry fish: No.
 	#do GlobalManager.person_shoot_selection_started.emit()
 	=> END!
 	
 
-capitalist: Okay, now try to make money somehow this way.
+=> angry_fish_hit
+
+
+
+~ capitalist_first_enter
+
+do GlobalManager.play_animation.emit("capitalist_enter")
+do wait(GlobalManager.current_animation_length)
+do GlobalManager.play_animation.emit("capitalist_idle")
+
+capitalist: Tak a konec dema
+capitalist: Škoda
+capitalist: Vypni hru
+
+capitalist: Aaah přemáhá mě pokračování mého scénáře
 
  - How do I make money? =>< know_me_disagree
 	do wait(0)

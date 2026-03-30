@@ -152,10 +152,10 @@ polygon = PackedVector2Array(0, 0, 9.166687, 14, 10.833313, 14, 20, 0, 9.916357,
 unique_name_in_owner = true
 z_index = 11
 layout_mode = 0
-offset_left = 1630.0
-offset_top = 802.0
-offset_right = 1861.0
-offset_bottom = 1027.0
+offset_left = 1601.0
+offset_top = 764.0
+offset_right = 1888.0
+offset_bottom = 1046.0
 mouse_filter = 1
 theme = SubResource("Theme_7qwyv")
 theme_override_colors/default_color = Color(1, 1, 1, 1)
@@ -164,6 +164,8 @@ bbcode_enabled = true
 text = "Character"
 fit_content = true
 scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="Balloon/CharacterLabel" unique_id=1542593386]
 visible = false
