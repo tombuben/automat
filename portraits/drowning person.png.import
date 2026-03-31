@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xpafhbdbikwo"
-path="res://.godot/imported/Illustration.png-fb8692f29e69e5b05a45a4473425a97b.ctex"
+uid="uid://b2lck0afv4ldf"
+path="res://.godot/imported/drowning person.png-135ed0921894d4e3389fc349ea472335.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/LVL1Assets/Characters/Unhinged girl/Illustration.png"
-dest_files=["res://.godot/imported/Illustration.png-fb8692f29e69e5b05a45a4473425a97b.ctex"]
+source_file="res://portraits/drowning person.png"
+dest_files=["res://.godot/imported/drowning person.png-135ed0921894d4e3389fc349ea472335.ctex"]
 
 [params]
 

@@ -1,6 +1,5 @@
 ~ day1_start
 
-
 ~ drowning_person_enter
 	
 do GlobalManager.play_animation.emit("drowning_person_enter")
@@ -84,9 +83,8 @@ if GlobalManager.item_that_hit.item_name == "bowling_ball"
 	Angry fish: !
 	Angry fish: I-I could have gotten out myself.
 	Angry fish: Thanks I guess.
-	do GlobalManager.play_animation.emit("fish_leave")
-	do wait(GlobalManager.current_animation_length)
-	=> capitalist_first_enter
+	
+	=> angry_fish_hit2
 
 elif GlobalManager.item_that_hit.item_name == "heart"
 	do GlobalManager.play_animation.emit("angry_fish", "hit")
@@ -130,6 +128,156 @@ else
 	
 
 => angry_fish_hit
+
+~ angry_fish_hit2
+
+Angry fish: Um
+Angry fish: May I have the food now
+Angry fish: Please
+=> END!
+
+
+if GlobalManager.item_that_hit.item_name == "fish food"
+	do GlobalManager.play_animation.emit("angry_fish", "free")
+
+	Angry fish: Yum
+	Angry fish: Okay, thanks.
+	Angry fish: I will be going now
+	
+
+	do GlobalManager.play_animation.emit("fish_leave")
+	do wait(GlobalManager.current_animation_length)
+	=> unhinged_girl_enter
+
+
+
+elif GlobalManager.item_that_hit.item_name == "heart"
+	do GlobalManager.play_animation.emit("angry_fish", "hit")
+
+	automat: Umm, things could be worse than being stuck?
+	Angry fish: The world is a hand and I am its snowglobe.
+	Angry fish: Food now.
+	=> END!
+
+
+else
+	do GlobalManager.play_animation.emit("angry_fish", "hit")
+	Angry fish: No.
+	#do GlobalManager.person_shoot_selection_started.emit()
+	=> END!
+
+_______________________________________________________
+
+~ unhinged_girl_enter
+
+do GlobalManager.play_animation.emit("boat_enter")
+do wait(GlobalManager.current_animation_length)
+do GlobalManager.play_animation.emit("boat_idle")
+do GlobalManager.play_animation.emit("unhinged_girl_enter")
+do wait(GlobalManager.current_animation_length)
+do GlobalManager.play_animation.emit("unhinged_girl_idle")
+Girl: Oh hey. I heard about you.
+
+Girl: I have a job for you
+Girl: There are some... undesirables making fun of me.
+Girl: And now they are just sailing and falling in love.
+Girl: Here, have this. (Bowling ball appears in the inventory)
+Girl: Smoke these fools
+
+do GlobalManager.play_animation.emit("unhinged_girl_leave")
+do wait(GlobalManager.current_animation_length)
+
+=> END!
+
+~ boat_enter
+
+if GlobalManager.item_that_hit.item_name == "bowling_ball"
+	do GlobalManager.play_animation.emit("boat", "hit")
+
+	People on a boat: !
+	People on a boat: (boat sinks)
+	do GlobalManager.play_animation.emit("boat_leave")
+	do wait(GlobalManager.current_animation_length)
+	=> capitalist_first_enter
+
+elif GlobalManager.item_that_hit.item_name == "heart"
+	do GlobalManager.play_animation.emit("boat", "hit")
+
+	automat: are you evil?
+	People on a boat: Are we evil hun?
+	People on a boat: No, I don't think so.
+	=> END!
+	
+elif GlobalManager.item_that_hit.item_name == "mind"
+	do GlobalManager.play_animation.emit("boat", "hit")
+
+	automat: Why are you bullying her?
+	People on a boat: We are not bullying anybody. 
+	People on a boat: That's my sister who wanted to come along, but we really needed some alone time
+	=> END!
+	
+elif GlobalManager.item_that_hit.item_name == "guts"
+	do GlobalManager.play_animation.emit("boat", "hit")
+
+	automat: Cease your evildoing right now!
+	People on a boat: O-Okay!
+	=> END!
+else
+	do GlobalManager.play_animation.emit("boat", "hit")
+	Sorry I cannot really here you from here
+	=> END!
+(if the player talks to the boat 2 times and does not shoot the bowling ball, the girl appears again)
+
+~ unhinged_girl_enter2
+elif GlobalManager.item_that_hit.item_name == "safety donut"
+	do GlobalManager.play_animation.emit("unhinged_girl", "hit")
+	automat: Here!
+	Girl: I don't see how this is a weapon
+
+	=> END!
+	
+elif GlobalManager.item_that_hit.item_name == "fish food"
+	do GlobalManager.play_animation.emit("unhinged_girl", "hit")
+	automat: Catch!
+	Girl: You cant open the lid
+	Girl: I am going to perish
+	=> END!
+
+elif GlobalManager.item_that_hit.item_name == "bowling ball"
+	do GlobalManager.play_animation.emit("unhinged_girl", "hit")
+	automat: Have it back!
+	Girl: At them partner, not me!
+	=> END!
+	
+elif GlobalManager.item_that_hit.item_name == "heart"
+	do GlobalManager.play_animation.emit("unhinged_girl", "hit")
+
+	automat: I don't know if this is a good idea
+	Girl: What do you mean?
+	Girl: This should sink them well
+	Girl: I don't think finding anything heavier would help
+	=> END!
+	
+elif GlobalManager.item_that_hit.item_name == "mind"
+	do GlobalManager.play_animation.emit("unhinged_girl", "hit")
+
+	automat: Is this really necessary? Why not talk to them?
+	Girl: They don't want to talk to me!
+	=> END!
+	
+elif GlobalManager.item_that_hit.item_name == "guts"
+	do GlobalManager.play_animation.emit("unhinged_girl", "hit")
+	automat: But I don't think we should shoot them
+	Um well...
+	But I want them to spend time with me!
+
+______________________________________
+I get it! I guess we WON'T sink them, happy?
+I will just drown instead, because nobody likes me.
+
+
+______________________________________
+
 
 
 

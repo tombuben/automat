@@ -152,10 +152,10 @@ polygon = PackedVector2Array(0, 0, 9.166687, 14, 10.833313, 14, 20, 0, 9.916357,
 unique_name_in_owner = true
 z_index = 11
 layout_mode = 0
-offset_left = 1601.0
-offset_top = 764.0
-offset_right = 1888.0
-offset_bottom = 1046.0
+offset_left = 1603.0
+offset_top = 893.0
+offset_right = 1890.0
+offset_bottom = 1175.0
 mouse_filter = 1
 theme = SubResource("Theme_7qwyv")
 theme_override_colors/default_color = Color(1, 1, 1, 1)
@@ -260,32 +260,34 @@ theme_type_variation = &"FlatButton"
 theme_override_font_sizes/font_size = 36
 text = "Response example"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1502918690]
+[node name="Portrait" type="TextureRect" parent="Balloon" unique_id=1757619546]
+z_index = 22
+layout_mode = 0
+offset_left = 1535.0
+offset_top = 690.0
+offset_right = 1935.0
+offset_bottom = 1090.0
+texture = ExtResource("5_m7ytr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Balloon" unique_id=1502918690]
 unique_name_in_owner = true
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=915446475]
+[node name="ColorRect2" type="ColorRect" parent="Balloon" unique_id=915446475]
 z_index = -6
-offset_left = 758.0
-offset_top = 736.0
-offset_right = 1601.0
-offset_bottom = 1080.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=861920921]
-offset_left = 1567.5757
-offset_top = 736.0
-offset_right = 1919.0
-offset_bottom = 1080.0
-color = Color(0, 0, 0, 1)
-
-[node name="TextureRect" type="TextureRect" parent="ColorRect" unique_id=1757619546]
-visible = false
 layout_mode = 0
-offset_left = -34.575684
-offset_top = -50.0
-offset_right = 365.42432
-offset_bottom = 350.0
-texture = ExtResource("5_m7ytr")
+offset_left = 758.0
+offset_top = 734.0
+offset_right = 1601.0
+offset_bottom = 1078.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Balloon" unique_id=861920921]
+layout_mode = 0
+offset_left = 1567.5757
+offset_top = 734.0
+offset_right = 1919.0
+offset_bottom = 1078.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="Balloon/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

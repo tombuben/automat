@@ -2,8 +2,55 @@
 
 [ext_resource type="PackedScene" uid="uid://b8l8mhyb5sfwf" path="res://Subscenes/random_person.tscn" id="1_rd34y"]
 [ext_resource type="Texture2D" uid="uid://c6ffp8w6xhpan" path="res://Assets/LVL1Assets/Characters/UnhingedGirl.png" id="2_rd34y"]
+[ext_resource type="Texture2D" uid="uid://h3cfvhuouj10" path="res://Assets/LVL1Assets/Characters/Unhinged girl/girl idle.png" id="3_7vcbc"]
+[ext_resource type="Texture2D" uid="uid://d128q7jibmdvd" path="res://Assets/LVL1Assets/Characters/Unhinged girl/girl crying.png" id="3_d2k61"]
+[ext_resource type="Texture2D" uid="uid://cvnhcq6snc43t" path="res://Assets/LVL1Assets/Characters/Unhinged girl/girl hit.png" id="4_640eg"]
+[ext_resource type="Texture2D" uid="uid://ce4ppwaycimh5" path="res://Assets/LVL1Assets/Characters/Unhinged girl/girl smug.png" id="6_vvpeq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_50pns"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_d2k61")
+}],
+"loop": true,
+"name": &"crying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_640eg")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7vcbc")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_vvpeq")
+}],
+"loop": true,
+"name": &"smug",
+"speed": 5.0
+}]
 
 [node name="UnhingedGirl" unique_id=1055277779 instance=ExtResource("1_rd34y")]
+person_name = "unhinged_girl"
 
-[node name="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="2" unique_id=82952497]
+[node name="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="1" unique_id=82952497]
+visible = false
 texture = ExtResource("2_rd34y")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="2" unique_id=1985831137]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+sprite_frames = SubResource("SpriteFrames_50pns")
+animation = &"hit"
+autoplay = "idle"

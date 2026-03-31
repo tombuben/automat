@@ -4,7 +4,6 @@ class_name ScreenResizer extends Control
 @onready var left_subviewport_container : SubViewportContainer = left_subviewport.get_parent()
 
 @export var right_subviewport : SubViewport
-@onready var right_subviewport_container : SubViewportContainer = right_subviewport.get_parent()
 
 @export var divider : ColorRect
 
@@ -37,8 +36,7 @@ func _process(delta: float) -> void:
 	var left_width = ratio * float(viewport.size.x)
 
 	left_subviewport_container.size.x = left_width
-	right_subviewport_container.size.x = viewport.size.x - left_width
-	right_subviewport_container.position.x = left_width
+
 	
 	divider.position.x = left_width - divider.size.x / 2.0
 
