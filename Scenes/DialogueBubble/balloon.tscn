@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 [ext_resource type="Texture2D" uid="uid://d4m1th60nswn6" path="res://Assets/LVL1Assets/Characters/AngryFishFree.png" id="5_m7ytr"]
+[ext_resource type="Script" uid="uid://jfu177vwwphk" path="res://Scripts/portrait.gd" id="6_mu5lg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -268,6 +269,7 @@ offset_top = 690.0
 offset_right = 1935.0
 offset_bottom = 1090.0
 texture = ExtResource("5_m7ytr")
+script = ExtResource("6_mu5lg")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Balloon" unique_id=1502918690]
 unique_name_in_owner = true

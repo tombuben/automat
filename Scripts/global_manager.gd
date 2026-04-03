@@ -31,10 +31,8 @@ func has_state(character_name: String, key: String) -> bool:
 # PORTRAITS (NEW 🔥)
 # -----------------------------
 var character_portraits: Dictionary = {
-	"drowning person": preload("res://portraits/drowning person.png"),
-	
+	"drowning_person": preload("res://portraits/drowning_person.png"),
 	"automat": preload("res://portraits/automat.png"),
-	
 }
 
 signal update_portrait(texture)

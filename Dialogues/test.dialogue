@@ -7,6 +7,7 @@ do wait(GlobalManager.current_animation_length)
 do GlobalManager.play_animation.emit("drowning_person_idle")
 drowning person: H-hello, very sorry to bother you
 drowning person: I am drowning.
+do GlobalManager.show_portrait("drowning_person")
 drowning person: I wanted to ask if you could help.
 drowning person: I was too shy to ask, but my feet are way too tired now
 => END!
