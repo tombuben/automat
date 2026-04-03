@@ -886,7 +886,6 @@ texture = ExtResource("30_kbbok")
 
 [node name="ItemSlot" type="Area3D" parent="World/Automat" unique_id=821282033 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, -0.21419334, 1.6299716, 0.489491)
-visible = false
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
@@ -904,7 +903,6 @@ debug_color = Color(0, 11.618606, 13.50434, 1)
 
 [node name="ItemSlot2" type="Area3D" parent="World/Automat" unique_id=1293194248 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(0.877, 0, 0, 0, 0.82252854, 0.30426258, 0, -0.30426258, 0.82252854, 0.015598297, 1.6299716, 0.489491)
-visible = false
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")

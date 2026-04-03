@@ -16,7 +16,7 @@ func _ready() -> void:
 	
 	item_backup = item_in_slot.duplicate()
 	
-	old_item_position = item_in_slot.global_position
+	old_item_position = item_in_slot.position
 	old_item_scale = item_in_slot.scale
 	
 	item_in_slot.insert_to_slot(self)
@@ -85,7 +85,7 @@ func reset_highlight():
 	tween = create_tween().set_parallel(true)
 
 	# return to original position
-	tween.tween_property(item_in_slot, "global_position", old_item_position, duration)
+	tween.tween_property(item_in_slot, "position", old_item_position, duration)
 
 	# return to original scale
 	tween.tween_property(item_in_slot, "scale", old_item_scale, duration)
@@ -93,7 +93,7 @@ func reset_highlight():
 func respawn():
 	var new_item = item_backup.duplicate()
 	add_child(new_item)
-	new_item.global_position = old_item_position
+	new_item.position = old_item_position
 	new_item.scale = old_item_scale
 	new_item.insert_to_slot(self)
 	
