@@ -1545,22 +1545,6 @@ light_energy = 0.446
 light_indirect_energy = 0.51
 directional_shadow_mode = 0
 
-[node name="Mouse" type="Node2D" parent="." unique_id=2070419755]
-script = ExtResource("10_76v2p")
-
-[node name="Cursor" type="Sprite2D" parent="Mouse" unique_id=2068333559]
-z_index = 345
-position = Vector2(20.643991, 27.060059)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("10_mai8y")
-
-[node name="Cursor2" type="Sprite2D" parent="Mouse" unique_id=1546842233]
-visible = false
-z_index = 345
-position = Vector2(20.643991, 27.060059)
-scale = Vector2(0.17465632, 0.1746563)
-texture = ExtResource("30_kbbok")
-
 [node name="MIND" type="Label" parent="." unique_id=1773723975]
 z_index = 12
 offset_left = 76.0
@@ -1806,6 +1790,25 @@ offset_bottom = 473.22046
 scale = Vector2(0.964, 0.964)
 mouse_filter = 2
 texture = ExtResource("66_2lryw")
+
+[node name="MouseLayer" type="CanvasLayer" parent="." unique_id=1881637122]
+layer = 10000
+
+[node name="Mouse" type="Node2D" parent="MouseLayer" unique_id=2070419755]
+script = ExtResource("10_76v2p")
+
+[node name="Cursor" type="Sprite2D" parent="MouseLayer/Mouse" unique_id=2068333559]
+z_index = 345
+position = Vector2(20.643991, 27.060059)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("10_mai8y")
+
+[node name="Cursor2" type="Sprite2D" parent="MouseLayer/Mouse" unique_id=1546842233]
+visible = false
+z_index = 345
+position = Vector2(20.643991, 27.060059)
+scale = Vector2(0.17465632, 0.1746563)
+texture = ExtResource("30_kbbok")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2049604939]
 libraries/ = SubResource("AnimationLibrary_lhp3t")
