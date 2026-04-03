@@ -2,6 +2,7 @@ class_name RandomItem extends RigidBody3D
 
 @export var item_name : String
 @export var item_type : Array[String]
+@export var saying : String
 
 var in_slot : ItemSlot
 

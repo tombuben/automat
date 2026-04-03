@@ -66,8 +66,11 @@
 [ext_resource type="Material" uid="uid://c3ekxbf7k4sdl" path="res://Assets/Vignette.tres" id="55_tscpr"]
 [ext_resource type="Texture2D" uid="uid://bxm3k28htt8ed" path="res://Assets/ParticleEffects/circleParticle2.png" id="56_8qtx6"]
 [ext_resource type="FontFile" uid="uid://cvd5j8d7y4hxx" path="res://Assets/WinkySans-VariableFont_wght.ttf" id="56_vge76"]
+[ext_resource type="Script" uid="uid://b6228d12meyik" path="res://Scripts/dialogue_preview.gd" id="65_63b1e"]
 [ext_resource type="Texture2D" uid="uid://c776t1tab8em0" path="res://Assets/VendingMachine/frontviewBG.png" id="66_2lryw"]
+[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="66_mlrbq"]
 [ext_resource type="Texture2D" uid="uid://0okmm1ig18gd" path="res://Assets/VendingMachine/InsidesUI.png" id="66_sgm8f"]
+[ext_resource type="Texture2D" uid="uid://c06cbm4ck0syy" path="res://portraits/automat.png" id="67_mlrbq"]
 [ext_resource type="Texture2D" uid="uid://cxd08cdrtj3o3" path="res://Assets/VendingMachine/AutomatUI.png" id="67_vge76"]
 [ext_resource type="Texture2D" uid="uid://cwm1uv2t3slbv" path="res://Assets/VendingMachine/linesAutomatUI.png" id="68_ib7vo"]
 [ext_resource type="Texture2D" uid="uid://1feiibfio4bs" path="res://Assets/VendingMachine/uiHolderAutomat.png" id="69_2lryw"]
@@ -210,6 +213,88 @@ albedo_texture = ExtResource("56_8qtx6")
 
 [sub_resource type="QuadMesh" id="QuadMesh_4d4va"]
 material = SubResource("StandardMaterial3D_vdma7")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.329412, 0.329412, 0.329412, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ri4m3"]
+bg_color = Color(0.121569, 0.121569, 0.121569, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0njw"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.6, 0.6, 0.6, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkmqt"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_qq3yp"]
+default_font = ExtResource("56_vge76")
+default_font_size = 20
+Button/styles/disabled = SubResource("StyleBoxFlat_spyqn")
+Button/styles/focus = SubResource("StyleBoxFlat_ri4m3")
+Button/styles/hover = SubResource("StyleBoxFlat_e0njw")
+Button/styles/normal = SubResource("StyleBoxFlat_e0njw")
+MarginContainer/constants/margin_bottom = 15
+MarginContainer/constants/margin_left = 30
+MarginContainer/constants/margin_right = 30
+MarginContainer/constants/margin_top = 15
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qwyv"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.13125002, 0.13042971, 0.13042971, 1)
+
+[sub_resource type="Theme" id="Theme_7qwyv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7ytr"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="Animation" id="Animation_nt2eh"]
 length = 0.033333335
@@ -913,19 +998,20 @@ item_name = "mind"
 shape = SubResource("SphereShape3D_huasi")
 debug_color = Color(0, 11.618606, 13.50434, 1)
 
-[node name="ItemSlot8" type="Area3D" parent="World/Automat" unique_id=1974407530 node_paths=PackedStringArray("item_in_slot")]
+[node name="HeartItemSlot" type="Area3D" parent="World/Automat" unique_id=1974407530 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5294075, 0.8182824, 0.5)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
 item_in_slot = NodePath("heart")
 
-[node name="heart" parent="World/Automat/ItemSlot8" unique_id=1892127890 instance=ExtResource("17_h246y")]
+[node name="heart" parent="World/Automat/HeartItemSlot" unique_id=1892127890 instance=ExtResource("17_h246y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006055832, -0.00018531084, -0.19800001)
 item_name = "heart"
 item_type = Array[String](["heart"])
+saying = "gdgdfgdsfgfds"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot8" unique_id=1695711726]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/HeartItemSlot" unique_id=1695711726]
 shape = SubResource("SphereShape3D_huasi")
 debug_color = Color(0, 11.618606, 13.50434, 1)
 
@@ -1791,6 +1877,128 @@ scale = Vector2(0.964, 0.964)
 mouse_filter = 2
 texture = ExtResource("66_2lryw")
 
+[node name="DialoguePreview" type="CanvasLayer" parent="UI Control" unique_id=539448852 node_paths=PackedStringArray("dialogue_rich_text")]
+layer = 100
+script = ExtResource("65_63b1e")
+dialogue_rich_text = NodePath("Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/DialogueLabel")
+
+[node name="Balloon" type="Control" parent="UI Control/DialoguePreview" unique_id=1904455546]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_qq3yp")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI Control/DialoguePreview/Balloon" unique_id=978174234]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 721.0
+offset_top = -361.0
+offset_right = -321.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="UI Control/DialoguePreview/Balloon/MarginContainer" unique_id=588367522]
+clip_children = 2
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7qwyv")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI Control/DialoguePreview/Balloon/MarginContainer/PanelContainer" unique_id=1050329407]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI Control/DialoguePreview/Balloon/MarginContainer/PanelContainer/MarginContainer" unique_id=572355579]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI Control/DialoguePreview/Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=391868967]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="DialogueLabel" parent="UI Control/DialoguePreview/Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1120079061 instance=ExtResource("66_mlrbq")]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 43
+text = "Dialogue..."
+scroll_active = true
+scroll_following = true
+horizontal_alignment = 1
+vertical_alignment = 1
+custom_effects = [null]
+script = null
+
+[node name="Portrait" type="TextureRect" parent="UI Control/DialoguePreview/Balloon" unique_id=1757619546]
+z_index = 22
+layout_mode = 0
+offset_left = 1535.0
+offset_top = 690.0
+offset_right = 1935.0
+offset_bottom = 1090.0
+mouse_filter = 2
+texture = ExtResource("67_mlrbq")
+
+[node name="ColorRect2" type="ColorRect" parent="UI Control/DialoguePreview/Balloon" unique_id=915446475]
+z_index = -6
+layout_mode = 0
+offset_left = 758.0
+offset_top = 734.0
+offset_right = 1601.0
+offset_bottom = 1078.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="UI Control/DialoguePreview/Balloon" unique_id=861920921]
+layout_mode = 0
+offset_left = 1567.5757
+offset_top = 734.0
+offset_right = 1919.0
+offset_bottom = 1078.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CharacterLabel" type="RichTextLabel" parent="UI Control/DialoguePreview/Balloon" unique_id=613805791]
+z_index = 44
+layout_mode = 0
+offset_left = 1603.0
+offset_top = 893.0
+offset_right = 1890.0
+offset_bottom = 1175.0
+mouse_filter = 2
+theme = SubResource("Theme_7qwyv")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "I'll say"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="UI Control/DialoguePreview/Balloon/CharacterLabel" unique_id=1542593386]
+visible = false
+z_index = 5
+layout_mode = 0
+offset_left = -15.248657
+offset_top = -4.947632
+offset_right = 165.05652
+offset_bottom = 51.05237
+rotation = -0.25132743
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m7ytr")
+
 [node name="MouseLayer" type="CanvasLayer" parent="." unique_id=1881637122]
 layer = 10000
 
@@ -1873,6 +2081,8 @@ transform = Transform3D(0.222, 0, 0, 0, 0.222, 0, 0, 0, 0.222, -15.573867, 0.479
 visible = false
 sorting_offset = 5.0
 texture = ExtResource("72_63b1e")
+
+[connection signal="gui_input" from="UI Control/DialoguePreview/Balloon" to="UI Control/DialoguePreview" method="_on_balloon_gui_input"]
 
 [editable path="World/Capitalist"]
 [editable path="World/BgObjects/ExplosionParticles"]

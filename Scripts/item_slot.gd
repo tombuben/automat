@@ -12,6 +12,8 @@ var old_item_scale : Vector3
 @onready var tween : Tween = create_tween().set_parallel(true)
 
 func _ready() -> void:
+	GlobalManager.slots[name] = self
+	
 	item_backup = item_in_slot.duplicate()
 	
 	old_item_position = item_in_slot.global_position
@@ -49,7 +51,9 @@ func stopped_dragging(item : RandomItem):
 func highlight_item():
 	if item_in_slot == null:
 		return
-		
+	
+	GlobalManager.dialogue_preview.show_preview(item_in_slot.saying)
+	
 	highlighted = true
 	item_in_slot.freeze = true
 	
@@ -67,6 +71,10 @@ func highlight_item():
 func reset_highlight():
 	if item_in_slot == null:
 		return
+
+	#this should be probably managed globally, so one item doesn't reset other items preview
+	if GlobalManager.dialogue_preview:
+		GlobalManager.dialogue_preview.hide_preview()
 
 	highlighted = false
 	item_in_slot.freeze = true
@@ -88,3 +96,11 @@ func respawn():
 	new_item.global_position = old_item_position
 	new_item.scale = old_item_scale
 	new_item.insert_to_slot(self)
+	
+func change_item_name(new_item_name : String):
+	item_in_slot.item_name = new_item_name
+	item_backup.item_name = new_item_name
+	
+func change_item_saying(new_item_saying : String):
+	item_in_slot.saying = new_item_saying
+	item_backup.saying = new_item_saying

@@ -9,10 +9,12 @@ drowning person: H-hello, very sorry to bother you
 drowning person: I am drowning.
 drowning person: I wanted to ask if you could help.
 drowning person: I was too shy to ask, but my feet are way too tired now
-
 => END!
 
 ~ drowning_person_hit
+
+do GlobalManager.change_slot_item_name("HeartItemSlot", "cool heart")
+do GlobalManager.change_slot_item_saying("HeartItemSlot", "Here, have a really cool heart")
 
 if GlobalManager.item_that_hit.item_name == "safety donut"
 	do GlobalManager.play_animation.emit("drowning_person", "saved")
