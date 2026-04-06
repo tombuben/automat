@@ -66,7 +66,8 @@
 [ext_resource type="Material" uid="uid://c3ekxbf7k4sdl" path="res://Assets/Vignette.tres" id="55_tscpr"]
 [ext_resource type="Texture2D" uid="uid://bxm3k28htt8ed" path="res://Assets/ParticleEffects/circleParticle2.png" id="56_8qtx6"]
 [ext_resource type="FontFile" uid="uid://cvd5j8d7y4hxx" path="res://Assets/WinkySans-VariableFont_wght.ttf" id="56_vge76"]
-[ext_resource type="Script" uid="uid://b6228d12meyik" path="res://Scripts/dialogue_preview.gd" id="65_63b1e"]
+[ext_resource type="Shader" uid="uid://in6n5v4f5fhw" path="res://Scenes/warpScreen.gdshader" id="61_mlrbq"]
+[ext_resource type="Script" path="res://Scripts/dialogue_preview.gd" id="65_63b1e"]
 [ext_resource type="Texture2D" uid="uid://c776t1tab8em0" path="res://Assets/VendingMachine/frontviewBG.png" id="66_2lryw"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="66_mlrbq"]
 [ext_resource type="Texture2D" uid="uid://0okmm1ig18gd" path="res://Assets/VendingMachine/InsidesUI.png" id="66_sgm8f"]
@@ -189,6 +190,18 @@ radius = 0.01
 [sub_resource type="SphereMesh" id="SphereMesh_6ev3c"]
 radius = 0.05
 height = 0.1
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_j58dg"]
+viewport_path = NodePath("UI Control/Right viewport/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nghl5"]
+resource_local_to_scene = true
+shader = ExtResource("61_mlrbq")
+shader_parameter/screen_tex = SubResource("ViewportTexture_j58dg")
+shader_parameter/strength = 1.0
+shader_parameter/radius = 1.0
+shader_parameter/softness = 0.62500002898898
+shader_parameter/falloff = 2.92800011533
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4d4va"]
 transparency = 1
@@ -1798,12 +1811,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46343565, -0.6999998)
 [node name="SpawnPosition" type="Node3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView/AimRotation" unique_id=1983533065]
 
 [node name="ColorRect" type="ColorRect" parent="UI Control/Right viewport/SubViewport" unique_id=320886693]
+visible = false
 material = ExtResource("55_tscpr")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="UI Control/Right viewport/SubViewport" unique_id=1442156854]
+visible = false
+material = SubResource("ShaderMaterial_nghl5")
+offset_left = -33.77771
+offset_top = -19.0
+offset_right = 1111.1111
+offset_bottom = 632.0
 
 [node name="HandSelectionUI" parent="UI Control/Right viewport" unique_id=637314647 instance=ExtResource("33_nrumr")]
 visible = false

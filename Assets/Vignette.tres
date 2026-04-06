@@ -1,9 +1,22 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://c3ekxbf7k4sdl"]
 
-[ext_resource type="Shader" uid="uid://4wbhfbwgd6ns" path="res://Scenes/Vignette.gdshader" id="1_fcsu4"]
+[sub_resource type="Shader" id="Shader_qsaox"]
+code = "shader_type canvas_item;
+uniform float alpha = 1.0;
+
+
+uniform float inner_radius = 0.0;
+uniform float outer_radius = 1.0;
+
+void fragment() {
+	float x = abs(UV.r-.5)*2.0;
+	float y = abs(UV.g-.5)*2.0;
+	float q = 1.0-(1.0-sqrt(x*x+y*y)/outer_radius)/(1.0-inner_radius);
+	COLOR = vec4(0, 0, 0, q*alpha);
+}"
 
 [resource]
-shader = ExtResource("1_fcsu4")
-shader_parameter/alpha = 0.197
-shader_parameter/inner_radius = 0.69
-shader_parameter/outer_radius = 1.371
+shader = SubResource("Shader_qsaox")
+shader_parameter/alpha = 0.531
+shader_parameter/inner_radius = 0.437
+shader_parameter/outer_radius = 1.139
