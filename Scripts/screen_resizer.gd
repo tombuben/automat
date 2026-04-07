@@ -28,7 +28,6 @@ func _ready() -> void:
 	ratio = left_subviewport.size.x / float(viewport.size.x)
 	original_ration = ratio
 	
-	DialogueManager.show_dialogue_balloon(dialogue_resource, "day1_start")
 
 func _process(delta: float) -> void:
 	var viewport = get_viewport()

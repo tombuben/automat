@@ -9,3 +9,35 @@ Nathan: Here are some choices.
 - End the conversation => END
 Nathan: For more information see the online documentation.
 => END
+
+Disposable_worker: Oh man, we finally have a new vending machine they were talking about.
+
+Disposable_worker: This is why I tolerate my job.
+Disposable_worker: One cappucino. With cream and little sprinkles on top.
+
+# tutorial drag item to the automats hands comes up - UI window
+
+if GlobalManager.item_that_hit.item_name == "coffee"
+	
+	Disposable_worker: T-thank you!
+
+	do GlobalManager.play_animation.emit("disposable_worker_leave")
+	do wait(GlobalManager.current_animation_length)
+
+elif GlobalManager.item_that_hit.item_name == "coffee2"
+	do GlobalManager.play_animation.emit("disposable_worker", "hit")
+	Disposable_worker: T-thank you!
+
+	=> END!
+	
+elif GlobalManager.item_that_hit.item_name == "coffee3"
+	do GlobalManager.play_animation.emit("disposable_worker", "hit")
+	Disposable_worker: T-thank you!
+
+	=> END!
+	
+elif GlobalManager.item_that_hit.item_name == "rubber_duck"
+	do GlobalManager.play_animation.emit("disposable_worker", "hit")
+	Disposable_worker: What the heck is this
+
+	=> END!

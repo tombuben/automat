@@ -1207,6 +1207,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Warp" type="ColorRect" parent="UI Control/Right viewport/SubViewport" unique_id=1369167263]
+visible = false
 texture_filter = 2
 material = SubResource("ShaderMaterial_t7s67")
 offset_left = -2.0

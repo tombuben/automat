@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gelaw328kxae"
-path.s3tc="res://.godot/imported/angry_worker.png-353dcd60498f388640a9fe22f415041a.s3tc.ctex"
+uid="uid://bgm1kg8k0s502"
+path.s3tc="res://.godot/imported/Rubber Duck_House_Props_Diffuse.png-2c86b10699e5aec7133aee9f4e77a387.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "86f397ace68d6e758810bd2471c3c8f3"
+}
 
 [deps]
 
-source_file="res://Assets/office/angry_worker.png"
-dest_files=["res://.godot/imported/angry_worker.png-353dcd60498f388640a9fe22f415041a.s3tc.ctex"]
+source_file="res://Assets/models/Rubber Duck_House_Props_Diffuse.png"
+dest_files=["res://.godot/imported/Rubber Duck_House_Props_Diffuse.png-2c86b10699e5aec7133aee9f4e77a387.s3tc.ctex"]
 
 [params]
 
