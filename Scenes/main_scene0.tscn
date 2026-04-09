@@ -1,38 +1,30 @@
 [gd_scene format=3 uid="uid://ly1vphjhycta"]
 
-[ext_resource type="PackedScene" uid="uid://b8l8mhyb5sfwf" path="res://Subscenes/random_person.tscn" id="1_t7s67"]
-[ext_resource type="Texture2D" uid="uid://c6wjbuc6was2n" path="res://Assets/LVL1Assets/Characters/capitalist.png" id="2_h3hn5"]
-[ext_resource type="PackedScene" uid="uid://dcyfvurn7rjbi" path="res://Subscenes/duckman.tscn" id="3_yd3c3"]
-[ext_resource type="PackedScene" uid="uid://cxappahvrmfki" path="res://Subscenes/NPCs/DrowningPerson.tscn" id="4_r6ydg"]
-[ext_resource type="PackedScene" uid="uid://dsv82q3pbjuyf" path="res://Subscenes/NPCs/AngryFish.tscn" id="5_0a3c2"]
+[ext_resource type="PackedScene" uid="uid://c4lf2a3jbp4la" path="res://Subscenes/NPCs/disposable_worker.tscn" id="2_nfcrg"]
+[ext_resource type="PackedScene" uid="uid://t6mfj7fqtyli" path="res://Subscenes/NPCs/small_worker.tscn" id="2_qo0gs"]
+[ext_resource type="PackedScene" uid="uid://utw2m5k15duk" path="res://Subscenes/NPCs/printer.tscn" id="3_nfcrg"]
+[ext_resource type="PackedScene" uid="uid://3yidyvqaofwt" path="res://Subscenes/NPCs/angry_worker.tscn" id="3_xaya4"]
 [ext_resource type="Texture2D" uid="uid://dbqd8w6ix0drb" path="res://Assets/VendingMachine/VendingMachine.png" id="5_u40t6"]
-[ext_resource type="PackedScene" uid="uid://dsapsx0cqw2o4" path="res://Subscenes/NPCs/UnhingedGirl.tscn" id="6_4x0hr"]
 [ext_resource type="Texture2D" uid="uid://cl3e5pg8gmwjd" path="res://Assets/VendingMachine/automatFace.png" id="6_35gkj"]
-[ext_resource type="PackedScene" uid="uid://cw0lym1ggef1p" path="res://Subscenes/NPCs/boat.tscn" id="7_glivg"]
 [ext_resource type="Script" uid="uid://0fdvigrrpcro" path="res://Scenes/cursorFollow.gd" id="7_xiox5"]
-[ext_resource type="PackedScene" uid="uid://c7hss7u705toj" path="res://Subscenes/NPCs/Wanderer.tscn" id="8_243dh"]
 [ext_resource type="Texture2D" uid="uid://cmq5qxhnvxum" path="res://Assets/VendingMachine/handsClosed.png" id="8_oq737"]
 [ext_resource type="Texture2D" uid="uid://df66jds18h6ap" path="res://Assets/office/officeBG.png" id="9_fcgxk"]
 [ext_resource type="Texture2D" uid="uid://dwlqtr5m6tb2h" path="res://Assets/VendingMachine/handsOpen.png" id="9_kmity"]
-[ext_resource type="Texture2D" uid="uid://cu6wsyt0whtff" path="res://Assets/office/disposable_worker.png" id="9_urueq"]
 [ext_resource type="Script" uid="uid://7mv8rlcaqlga" path="res://Scripts/item_slot.gd" id="10_m5y8p"]
 [ext_resource type="Texture2D" uid="uid://dgxrak7jw1fdy" path="res://Assets/office/wall_office.png" id="10_nfcrg"]
-[ext_resource type="PackedScene" uid="uid://do2eiuugsfc1a" path="res://Subscenes/Items/toast_item.tscn" id="11_l1vum"]
 [ext_resource type="Texture2D" uid="uid://bbyl165b2x2qs" path="res://Assets/office/bg_worker.png" id="11_poada"]
-[ext_resource type="PackedScene" uid="uid://de0v3rev5opou" path="res://Subscenes/Items/licence_item.tscn" id="12_1o7k8"]
 [ext_resource type="Texture2D" uid="uid://dpayg7y6sid23" path="res://Assets/office/bg_worker2.png" id="12_5ls3k"]
 [ext_resource type="Texture2D" uid="uid://cwttqbcmv1aet" path="res://Assets/office/backwall.png" id="13_5ls3k"]
-[ext_resource type="PackedScene" uid="uid://cikppqmxn7xox" path="res://Subscenes/Items/safety_donut_item2.tscn" id="13_ch638"]
-[ext_resource type="PackedScene" uid="uid://cm6u4hvk1v5dr" path="res://Subscenes/Items/fish_food.tscn" id="14_8swbj"]
 [ext_resource type="Texture2D" uid="uid://dgeeujn086l1f" path="res://Assets/office/pc2.png" id="14_tm3gw"]
-[ext_resource type="PackedScene" uid="uid://bll46git7a4ek" path="res://Subscenes/Items/hammer_item.tscn" id="15_vtxsy"]
 [ext_resource type="Texture2D" uid="uid://c1bicyy1k0ge2" path="res://Assets/office/pc3.png" id="16_urueq"]
 [ext_resource type="Script" uid="uid://vysddvus01vk" path="res://Scripts/dispensor_selector.gd" id="17_stn0f"]
 [ext_resource type="Texture2D" uid="uid://1l7ra2oshxu7" path="res://Assets/office/pc4.png" id="17_t7s67"]
-[ext_resource type="PackedScene" uid="uid://dbiny0q0riq71" path="res://Subscenes/Items/bowling_ball_item.tscn" id="21_qpkor"]
 [ext_resource type="PackedScene" uid="uid://dtwmshuf707e6" path="res://Subscenes/Items/mind_item.tscn" id="22_yqe4d"]
 [ext_resource type="PackedScene" uid="uid://bgsjyc1ordm2c" path="res://Subscenes/Items/heart_item.tscn" id="23_m2yrj"]
+[ext_resource type="PackedScene" uid="uid://u3huooeiecrc" path="res://Subscenes/Items/coffeeLarge.tscn" id="23_nkddx"]
 [ext_resource type="PackedScene" uid="uid://b05n3m3lg3hqp" path="res://Subscenes/Items/guts_item.tscn" id="24_mhrbp"]
+[ext_resource type="PackedScene" uid="uid://c4r4310opxu44" path="res://Subscenes/Items/coffeeMedium.tscn" id="24_nkddx"]
+[ext_resource type="PackedScene" uid="uid://bokb66s75j3c1" path="res://Subscenes/Items/rubber_duck.tscn" id="25_nkddx"]
 [ext_resource type="Shader" uid="uid://in6n5v4f5fhw" path="res://Scenes/warpScreen.gdshader" id="41_t7s67"]
 [ext_resource type="Texture2D" uid="uid://c6lqbgep87b41" path="res://Assets/concepts/Circle.png" id="45_0x4kb"]
 [ext_resource type="Script" uid="uid://ci5q4jckgmagi" path="res://Scripts/mouse_cursor.gd" id="48_vuse5"]
@@ -256,417 +248,123 @@ corner_radius_bottom_left = 8
 [sub_resource type="Animation" id="Animation_nt2eh"]
 length = 0.033333335
 
-[sub_resource type="Animation" id="Animation_7y50c"]
-resource_name = "automatIdle"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Automat/AutomatSprite:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0.16, 0.16, 0.16), Vector3(0.16, 0.165, 0.16), Vector3(0.16, 0.16, 0.16)]
-}
-
-[sub_resource type="Animation" id="Animation_j58dg"]
-resource_name = "boat_enter"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/boat:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(10.394, 1.17, 1.08), Vector3(1.418, 1.17, 1.08)]
-}
-
-[sub_resource type="Animation" id="Animation_mlrbq"]
-resource_name = "boat_idle"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/boat:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1.418, 1.17, 1.08), Vector3(1.418, 1.17, 1.08)]
-}
-
-[sub_resource type="Animation" id="Animation_nghl5"]
-resource_name = "boat_leave"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/boat:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1.418, 1.17, 1.08), Vector3(-7.956, 1.17, 1.08)]
-}
-
-[sub_resource type="Animation" id="Animation_7ewk0"]
-resource_name = "capitalist_enter"
-length = 0.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/Capitalist:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.33333334, 0.7),
-"transitions": PackedFloat32Array(1, 1, 31.786623),
-"update": 0,
-"values": [Vector3(9.315379, 1.0466022, 0.56822395), Vector3(2.9512818, 1.8990225, 0.7008014), Vector3(1.294, 1.168, 0.451)]
-}
-
-[sub_resource type="Animation" id="Animation_37jd4"]
-resource_name = "capitalist_idle"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/Capitalist/RigidBody3D/Sprite3D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.4, 0.4, 0.4), Vector3(0.4, 0.39, 0.4)]
-}
-
-[sub_resource type="Animation" id="Animation_lhp3t"]
-resource_name = "capitalist_enter"
-length = 0.6666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/Capitalist:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1.4676656, 1.05, 0.17159954), Vector3(-4.8849993, 1.05, 0.17159954)]
-}
-
-[sub_resource type="Animation" id="Animation_b48ew"]
-resource_name = "capitalist_payment_enter"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/Capitalist:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(2, 2, 2, 2, 2),
-"points": PackedFloat32Array(6.036877, -0.25, 0, 0.25, 0, 5.5282135, -0.041666668, 0.15693319, 0.041666668, -0.15693319, 4.153679, -0.083333336, 0.3907705, 0.083333336, -0.3907705, 2.7127697, -0.041666668, 0.23383729, 0.041666668, -0.23383729, 1.3476315, -0.16666667, 0.781541, 0, 0),
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("World/Characters/Capitalist:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 2, 2, 2, 0),
-"points": PackedFloat32Array(1.05, 0, 0, 0, 1, 1.2874954, 0, -1, 0, 1, 1.5249996, 0, -1, 0, 1, 1.762497, 0, -1, 0, 1, 1.5, 0, -1, 0, 0),
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("World/Characters/Capitalist:position:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(2, 2, 2, 2, 2),
-"points": PackedFloat32Array(0.9232508, -0.25, 0, 0.25, 0, 0.8095504, -0.041666668, 0.035078906, 0.041666668, -0.035078906, 0.50230396, -0.083333336, 0.08734801, 0.083333336, -0.08734801, 0.18022092, -0.041666668, 0.0522691, 0.041666668, -0.0522691, -0.124925256, -0.16666667, 0.17469601, 0, 0),
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
-}
-
 [sub_resource type="Animation" id="Animation_n1krg"]
 resource_name = "close_hand"
 
-[sub_resource type="Animation" id="Animation_p35vf"]
-resource_name = "drowning_person_enter"
-length = 2.2
+[sub_resource type="Animation" id="Animation_poada"]
+resource_name = "disposable_worker_close"
+length = 3.0
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/DrowningPerson:position")
+tracks/0/path = NodePath("World/Characters/Disposable_worker:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(6.56, 0.487, 1.6350412), Vector3(1.282, 0.487, 0.761)]
+"values": [Vector3(-19.551, 1.151, 3.842), Vector3(-19.551, 1.151, 3.842)]
 }
 
-[sub_resource type="Animation" id="Animation_stxua"]
-resource_name = "drowning_person_idle"
+[sub_resource type="Animation" id="Animation_nfcrg"]
+resource_name = "disposable_worker_close_to_idle"
 length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/DrowningPerson:position")
+tracks/0/path = NodePath("World/Characters/Disposable_worker:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(1.282, 0.487, 0.761), Vector3(1.282, 0.487, 0.761)]
+"values": [Vector3(-19.551, 1.151, 3.842), Vector3(-19.739, 0.745, 0.877)]
 }
 
-[sub_resource type="Animation" id="Animation_gfj8f"]
-resource_name = "drowning_person_leave"
+[sub_resource type="Animation" id="Animation_xaya4"]
+resource_name = "disposable_worker_idle"
+length = 2.0
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_nkddx"]
+resource_name = "disposable_worker_leave"
 length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/DrowningPerson:position")
+tracks/0/path = NodePath("World/Characters/Disposable_worker:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(1.282, 0.487, 0.761), Vector3(-7.8922133, 0.487, 0.761)]
+"values": [Vector3(-20, 0.803, 0.91418433), Vector3(-32.601, 0.803, 0.421)]
 }
-
-[sub_resource type="Animation" id="Animation_gnsmo"]
-resource_name = "duckman_enter"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/duckman:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(13.657, 1.219, 0.08), Vector3(1.252, 1.219, 0.08)]
-}
-
-[sub_resource type="Animation" id="Animation_rlvbq"]
-resource_name = "duckman_idle"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/duckman:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1, 1, 1), Vector3(1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_psl12"]
-resource_name = "duckman_enter"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/duckman:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1.2519999, 1.219, 0.08), Vector3(-13.038, 1.219, 0.08)]
-}
-
-[sub_resource type="Animation" id="Animation_ib7vo"]
-resource_name = "fish_enter"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/AngryFish:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(7.358, 1, 1.083), Vector3(1.282, 1, 1.083)]
-}
-
-[sub_resource type="Animation" id="Animation_vge76"]
-resource_name = "fish_idle"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/AngryFish:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1.282, 1, 1.083), Vector3(1.282, 1, 1.083)]
-}
-
-[sub_resource type="Animation" id="Animation_2lryw"]
-resource_name = "fish_leave"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/AngryFish:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1.282, 1, 1.083), Vector3(-7.418, 1, 1.083)]
-}
-
-[sub_resource type="Animation" id="Animation_oyb3p"]
-resource_name = "grandma_enter"
-
-[sub_resource type="Animation" id="Animation_jvnna"]
-resource_name = "grandma_leave"
 
 [sub_resource type="Animation" id="Animation_tscpr"]
 resource_name = "open_hand"
 
-[sub_resource type="Animation" id="Animation_2ebs2"]
-resource_name = "expand_screen"
-length = 0.5
+[sub_resource type="Animation" id="Animation_fcgxk"]
+resource_name = "small_worker_enter"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("UI Control:ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.2, 1.0]
-}
-
-[sub_resource type="Animation" id="Animation_8edxt"]
-resource_name = "shrink_animation"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("UI Control:ratio")
+tracks/0/path = NodePath("World/Characters/small_worker:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.7, 0.2]
+"values": [Vector3(8.156, 0, 0), Vector3(-20.001852, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_ynrl4"]
-resource_name = "unhinged_girl_enter"
-length = 2.0333333
+[sub_resource type="Animation" id="Animation_qo0gs"]
+resource_name = "small_worker_idle"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/UnhingedGirl:position")
+tracks/0/path = NodePath("World/Characters/small_worker:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.0333333),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(13.122966, 1.1017308, 1.1000005), Vector3(1.388, 1.102, 1.1)]
+"values": [Vector3(-19.781586, 0, 0), Vector3(-19.781586, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_5r5hn"]
-resource_name = "unhinged_girl_idle"
-length = 2.0
+[sub_resource type="Animation" id="Animation_5ls3k"]
+resource_name = "small_worker_leave"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/UnhingedGirl:position")
+tracks/0/path = NodePath("World/Characters/small_worker:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(1.388, 1.102, 1.1), Vector3(1.3879995, 1.102, 1.1)]
-}
-
-[sub_resource type="Animation" id="Animation_63b1e"]
-resource_name = "unhinged_girl_leave"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/UnhingedGirl:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1.3879995, 1.102, 1.1), Vector3(-6.391, 1.102, 1.1)]
+"values": [Vector3(-20.141262, 0, 0), Vector3(-33.604, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lhp3t"]
 _data = {
 &"RESET": SubResource("Animation_nt2eh"),
-&"automatIdle": SubResource("Animation_7y50c"),
-&"boat_enter": SubResource("Animation_j58dg"),
-&"boat_idle": SubResource("Animation_mlrbq"),
-&"boat_leave": SubResource("Animation_nghl5"),
-&"capitalist_enter": SubResource("Animation_7ewk0"),
-&"capitalist_idle": SubResource("Animation_37jd4"),
-&"capitalist_leave": SubResource("Animation_lhp3t"),
-&"capitalist_payment_enter": SubResource("Animation_b48ew"),
 &"close_hand": SubResource("Animation_n1krg"),
-&"drowning_person_enter": SubResource("Animation_p35vf"),
-&"drowning_person_idle": SubResource("Animation_stxua"),
-&"drowning_person_leave": SubResource("Animation_gfj8f"),
-&"duckman_enter": SubResource("Animation_gnsmo"),
-&"duckman_idle": SubResource("Animation_rlvbq"),
-&"duckman_leave": SubResource("Animation_psl12"),
-&"fish_enter": SubResource("Animation_ib7vo"),
-&"fish_idle": SubResource("Animation_vge76"),
-&"fish_leave": SubResource("Animation_2lryw"),
-&"grandma_enter": SubResource("Animation_oyb3p"),
-&"grandma_leave": SubResource("Animation_jvnna"),
+&"disposable_worker_close": SubResource("Animation_poada"),
+&"disposable_worker_close_to_idle": SubResource("Animation_nfcrg"),
+&"disposable_worker_idle": SubResource("Animation_xaya4"),
+&"disposable_worker_leave": SubResource("Animation_nkddx"),
 &"open_hand": SubResource("Animation_tscpr"),
-&"screen_expand": SubResource("Animation_2ebs2"),
-&"screen_shrink": SubResource("Animation_8edxt"),
-&"unhinged_girl_enter": SubResource("Animation_ynrl4"),
-&"unhinged_girl_idle": SubResource("Animation_5r5hn"),
-&"unhinged_girl_leave": SubResource("Animation_63b1e")
+&"small_worker_enter": SubResource("Animation_fcgxk"),
+&"small_worker_idle": SubResource("Animation_qo0gs"),
+&"small_worker_leave": SubResource("Animation_5ls3k")
 }
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nt2eh"]
@@ -675,6 +373,9 @@ _data = {
 transparency = 1
 albedo_color = Color(1, 0, 1, 0.36862746)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nkddx"]
+size = Vector3(3.9855347, 3.6832275, 3.7753906)
+
 [node name="MainScene" type="Node3D" unique_id=350775679]
 
 [node name="World" type="Node" parent="." unique_id=1861547874]
@@ -682,38 +383,19 @@ albedo_color = Color(1, 0, 1, 0.36862746)
 [node name="Characters" type="Node3D" parent="World" unique_id=2020211283]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.998743, 0, 0)
 
-[node name="Capitalist" parent="World/Characters" unique_id=1656012555 instance=ExtResource("1_t7s67")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.315379, 1.0466022, 0.56822395)
-person_name = "capitalist"
+[node name="Disposable_worker" parent="World/Characters" unique_id=1055277779 instance=ExtResource("2_nfcrg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0.803, 0.91418433)
+person_name = "disposable_worker"
+hitstop_duration = 0.029
+hitstop_scale = 0.297
 
-[node name="Sprite3D" parent="World/Characters/Capitalist/RigidBody3D" parent_id_path=PackedInt32Array(1656012555, 368135441) index="1" unique_id=82952497]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -0.032, 0)
-texture = ExtResource("2_h3hn5")
+[node name="small_worker" parent="World/Characters" unique_id=1980563931 instance=ExtResource("2_qo0gs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35224724, 0, 0)
 
-[node name="duckman" parent="World/Characters" unique_id=1055277779 instance=ExtResource("3_yd3c3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.483951, 0.9286897, 0.079600334)
-hitstop_duration = 0.01
+[node name="Angry_worker" parent="World/Characters" unique_id=830950824 instance=ExtResource("3_xaya4")]
+person_name = "angry_worker"
 
-[node name="AngryFish" parent="World/Characters" unique_id=1492897213 instance=ExtResource("5_0a3c2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.520313, 1, 1.083)
-
-[node name="UnhingedGirl" parent="World/Characters" unique_id=1283264790 instance=ExtResource("6_4x0hr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.122966, 1.1017308, 1.1000005)
-
-[node name="boat" parent="World/Characters" unique_id=1170986573 instance=ExtResource("7_glivg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.938204, 1.17, 1.08)
-
-[node name="Wanderer" parent="World/Characters" unique_id=358623486 instance=ExtResource("8_243dh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.524183, 0.15527296, -0.7222444)
-person_name = "wanderer"
-
-[node name="DrowningPerson" parent="World/Characters" unique_id=118794775 instance=ExtResource("4_r6ydg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2953205, 0.741, -0.15420026)
-hitstop_duration = 0.001
-
-[node name="Sprite3D" type="Sprite3D" parent="World/Characters" unique_id=249000645]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -19.663, 0.696, 0)
-texture = ExtResource("9_urueq")
+[node name="Printer" parent="World/Characters" unique_id=2018004010 instance=ExtResource("3_nfcrg")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=2137756423]
 environment = SubResource("Environment_lhp3t")
@@ -838,28 +520,28 @@ scale_amount_max = 0.13
 scale_amount_curve = SubResource("Curve_oqhaq")
 color = Color(0.541875, 0.5903125, 0.6, 1)
 
-[node name="Automat2" type="Node3D" parent="." unique_id=1282403330]
+[node name="Automat" type="Node3D" parent="." unique_id=1282403330]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.067283, 0, 0)
 
-[node name="openHands" type="AnimatedSprite3D" parent="Automat2" unique_id=404451573]
+[node name="openHands" type="AnimatedSprite3D" parent="Automat" unique_id=404451573]
 transform = Transform3D(0.146, 0, 0, 0, 0.146, 0, 0, 0, 0.146, 0.01, 0.732, -2.104)
 sorting_offset = 3.886
 sprite_frames = SubResource("SpriteFrames_tscpr")
 animation = &"close_hand"
 frame_progress = 0.42844397
 
-[node name="box" type="CSGBox3D" parent="Automat2" unique_id=738468243]
+[node name="box" type="CSGBox3D" parent="Automat" unique_id=738468243]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011609077, 1.2301935, -0.16988623)
 visible = false
 size = Vector3(1, 1.753, 0.7)
 
-[node name="AutomatSprite" type="Sprite3D" parent="Automat2" unique_id=1087225422]
+[node name="AutomatSprite" type="Sprite3D" parent="Automat" unique_id=1087225422]
 transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0.025719166, 1.171102, 0.19906768)
 visible = false
 sorting_offset = 2.937
 texture = ExtResource("5_u40t6")
 
-[node name="automatFace" type="Sprite3D" parent="Automat2/AutomatSprite" unique_id=1586256850]
+[node name="automatFace" type="Sprite3D" parent="Automat/AutomatSprite" unique_id=1586256850]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7739773, 0)
 visible = false
 sorting_offset = 3.654
@@ -868,227 +550,175 @@ script = ExtResource("7_xiox5")
 follow_strength = 0.035
 follow_speed = 4.5
 
-[node name="Sprite3D" type="Sprite3D" parent="Automat2/AutomatSprite" unique_id=1315836649]
+[node name="Sprite3D" type="Sprite3D" parent="Automat/AutomatSprite" unique_id=1315836649]
 transform = Transform3D(10.041, 0, 0, 0, 10.041, 0, 0, 0, 10.041, -0.12000275, 1.4749999, -9.421406)
 visible = false
 modulate = Color(0.654902, 0.8039216, 0.654902, 1)
 texture = ExtResource("45_0x4kb")
 
-[node name="Sprite3D" type="Sprite3D" parent="Automat2" unique_id=1720306258]
+[node name="Sprite3D" type="Sprite3D" parent="Automat" unique_id=1720306258]
 transform = Transform3D(0.222, 0, 0, 0, 0.222, 0, 0, 0, 0.222, 0.031282425, 1.182, 0)
 
-[node name="InsidesBG" type="Sprite3D" parent="Automat2/Sprite3D" unique_id=275801407]
+[node name="InsidesBG" type="Sprite3D" parent="Automat/Sprite3D" unique_id=275801407]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+sorting_offset = -1.82
 texture = ExtResource("72_h3vs4")
 
-[node name="Automat" type="Sprite3D" parent="Automat2/Sprite3D" unique_id=838759074]
+[node name="Automat" type="Sprite3D" parent="Automat/Sprite3D" unique_id=838759074]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -0.051116943, -0.26561213, 0)
 sorting_offset = 1.0
 texture = ExtResource("73_3d21k")
 
-[node name="Lines" type="Sprite3D" parent="Automat2/Sprite3D" unique_id=994841029]
+[node name="Lines" type="Sprite3D" parent="Automat/Sprite3D" unique_id=994841029]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -0.35629272, -1.8637207, 0)
 sorting_offset = 2.596
 modulate = Color(0.31199998, 0.40440002, 0.48, 1)
 texture = ExtResource("74_rdwxf")
 
-[node name="Slot" type="Sprite3D" parent="Automat2/Sprite3D" unique_id=2133225072]
+[node name="Slot" type="Sprite3D" parent="Automat/Sprite3D" unique_id=2133225072]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -2.5419617, -0.5617056, 0)
 sorting_offset = 3.0
 texture = ExtResource("75_j8xoi")
 
-[node name="Slot2" type="Sprite3D" parent="Automat2/Sprite3D" unique_id=306531291]
+[node name="Slot2" type="Sprite3D" parent="Automat/Sprite3D" unique_id=306531291]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 2.2204895, -1.6182418, 0)
 sorting_offset = 3.0
 texture = ExtResource("75_j8xoi")
 
-[node name="Slot3" type="Sprite3D" parent="Automat2/Sprite3D" unique_id=1004993956]
+[node name="Slot3" type="Sprite3D" parent="Automat/Sprite3D" unique_id=1004993956]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -2.470459, -3.1779895, 0)
 sorting_offset = 3.0
 texture = ExtResource("75_j8xoi")
 
-[node name="ItemSlot" type="Area3D" parent="Automat2" unique_id=821282033 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, -0.21419334, 1.6299716, 0.489491)
+[node name="itemsSlots" type="Node3D" parent="Automat" unique_id=1388334518]
+
+[node name="ItemSlot1" type="Area3D" parent="Automat/itemsSlots" unique_id=821282033 node_paths=PackedStringArray("item_in_slot")]
+transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, -0.1969881, 1.3172566, 0.489491)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("10_m5y8p")
-item_in_slot = NodePath("ToastItem")
+item_in_slot = NodePath("coffee_large")
 
-[node name="ToastItem" parent="Automat2/ItemSlot" unique_id=1837871512 instance=ExtResource("11_l1vum")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0163064, -0.003581643, -0.25413358)
-item_name = "bread"
-item_type = Array[String](["bread"])
+[node name="coffee_large" parent="Automat/itemsSlots/ItemSlot1" unique_id=1837871512 instance=ExtResource("23_nkddx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.218)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat2/ItemSlot" unique_id=141080273]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.016626358, -0.012613177, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/itemsSlots/ItemSlot1" unique_id=141080273]
 shape = SubResource("SphereShape3D_huasi")
 debug_color = Color(0, 11.618606, 13.50434, 1)
 
-[node name="ItemSlot2" type="Area3D" parent="Automat2" unique_id=1293194248 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(0.877, 0, 0, 0, 0.82252854, 0.30426258, 0, -0.30426258, 0.82252854, 0.015598297, 1.6299716, 0.489491)
+[node name="ItemSlot2" type="Area3D" parent="Automat/itemsSlots" unique_id=288529252 node_paths=PackedStringArray("item_in_slot")]
+transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, 0.026036263, 1.3172566, 0.489491)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("10_m5y8p")
-item_in_slot = NodePath("LicenceItem")
+item_in_slot = NodePath("coffee_medium")
 
-[node name="LicenceItem" parent="Automat2/ItemSlot2" unique_id=1914462249 instance=ExtResource("12_1o7k8")]
-transform = Transform3D(1, 0, 0, 0, 0.9335804, -0.35836795, 0, 0.35836795, 0.9335804, 0.008052826, 0.09046233, -0.2176972)
-item_name = "licence"
+[node name="coffee_medium" parent="Automat/itemsSlots/ItemSlot2" unique_id=1763214508 instance=ExtResource("24_nkddx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.21800002)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat2/ItemSlot2" unique_id=577018261]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/itemsSlots/ItemSlot2" unique_id=1730469144]
 shape = SubResource("SphereShape3D_huasi")
 debug_color = Color(0, 11.618606, 13.50434, 1)
 
-[node name="ItemSlot3" type="Area3D" parent="Automat2" unique_id=1098058856 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, 0.25395775, 1.6127553, 0.489491)
+[node name="ItemSlot3" type="Area3D" parent="Automat/itemsSlots" unique_id=448300744 node_paths=PackedStringArray("item_in_slot")]
+transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, 0.25299168, 1.30254, 0.489491)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("10_m5y8p")
-item_in_slot = NodePath("SafetyDonutItem")
+item_in_slot = NodePath("rubber_duck")
 
-[node name="SafetyDonutItem" parent="Automat2/ItemSlot3" unique_id=827200447 instance=ExtResource("13_ch638")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018854141, 0.004671812, -0.2533508)
-item_name = "safety donut"
-item_type = Array[String](["donut"])
+[node name="rubber_duck" parent="Automat/itemsSlots/ItemSlot3" unique_id=2097559556 instance=ExtResource("25_nkddx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.21800002)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat2/ItemSlot3" unique_id=1902727124]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01720047, 0.0028665066, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/itemsSlots/ItemSlot3" unique_id=1185622814]
 shape = SubResource("SphereShape3D_huasi")
 debug_color = Color(0, 11.618606, 13.50434, 1)
 
-[node name="ItemSlot4" type="Area3D" parent="Automat2" unique_id=99053840 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, 0.21998405, 1.3820428, 0.489491)
-collision_layer = 0
-collision_mask = 16
-script = ExtResource("10_m5y8p")
-item_in_slot = NodePath("FishFoodItem")
-
-[node name="FishFoodItem" parent="Automat2/ItemSlot4" unique_id=1967725391 instance=ExtResource("14_8swbj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020458221, 0.013715148, -0.18532318)
-item_name = "fish food"
-item_type = Array[String](["fishFood"])
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat2/ItemSlot4" unique_id=1129424357]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022993088, -0.04749608, 0)
-shape = SubResource("SphereShape3D_huasi")
-debug_color = Color(0, 11.618606, 13.50434, 1)
-
-[node name="ItemSlot5" type="Area3D" parent="Automat2" unique_id=912682092 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, -0.22466278, 1.3391048, 0.489491)
-collision_layer = 0
-collision_mask = 16
-script = ExtResource("10_m5y8p")
-item_in_slot = NodePath("Hammer")
-
-[node name="Hammer" parent="Automat2/ItemSlot5" unique_id=1062784544 instance=ExtResource("15_vtxsy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025997162, 0.002992034, -0.19527638)
-item_name = "hammer"
-item_type = Array[String](["hammer"])
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat2/ItemSlot5" unique_id=1004973013]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021165848, 0.006614208, 0)
-shape = SubResource("SphereShape3D_huasi")
-debug_color = Color(0, 11.618606, 13.50434, 1)
-
-[node name="ItemSlot6" type="Area3D" parent="Automat2" unique_id=1150150503 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, 0.003610611, 1.3292326, 0.5)
-collision_layer = 0
-collision_mask = 16
-script = ExtResource("10_m5y8p")
-item_in_slot = NodePath("bowling_ball")
-
-[node name="bowling_ball" parent="Automat2/ItemSlot6" unique_id=1103311723 instance=ExtResource("21_qpkor")]
-transform = Transform3D(1, 0, 0, 0, -0.3681245, 0.9297765, 0, -0.9297765, -0.3681245, 0.03660202, 0.025208592, -0.22180241)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat2/ItemSlot6" unique_id=342014291]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017953873, 0.013186574, 0)
-shape = SubResource("SphereShape3D_huasi")
-debug_color = Color(0, 11.618606, 13.50434, 1)
-
-[node name="ItemSlot7" type="Area3D" parent="Automat2" unique_id=686102757 node_paths=PackedStringArray("item_in_slot")]
+[node name="MindItemSlot" type="Area3D" parent="Automat/itemsSlots" unique_id=686102757 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.528574, 1.0492781, 0.5)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("10_m5y8p")
 item_in_slot = NodePath("mind")
 
-[node name="mind" parent="Automat2/ItemSlot7" unique_id=199549943 instance=ExtResource("22_yqe4d")]
-item_name = "mind"
+[node name="mind" parent="Automat/itemsSlots/MindItemSlot" unique_id=199549943 instance=ExtResource("22_yqe4d")]
+saying = "mind"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat2/ItemSlot7" unique_id=1722521893]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/itemsSlots/MindItemSlot" unique_id=1722521893]
 shape = SubResource("SphereShape3D_huasi")
 debug_color = Color(0, 11.618606, 13.50434, 1)
 
-[node name="HeartItemSlot" type="Area3D" parent="Automat2" unique_id=1974407530 node_paths=PackedStringArray("item_in_slot")]
+[node name="HeartItemSlot" type="Area3D" parent="Automat/itemsSlots" unique_id=1974407530 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5294075, 0.8182824, 0.5)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("10_m5y8p")
 item_in_slot = NodePath("heart")
 
-[node name="heart" parent="Automat2/HeartItemSlot" unique_id=1892127890 instance=ExtResource("23_m2yrj")]
+[node name="heart" parent="Automat/itemsSlots/HeartItemSlot" unique_id=1892127890 instance=ExtResource("23_m2yrj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006055832, -0.00018531084, -0.19800001)
 item_name = "heart"
 item_type = Array[String](["heart"])
-saying = "gdgdfgdsfgfds"
+saying = "heart"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat2/HeartItemSlot" unique_id=1695711726]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/itemsSlots/HeartItemSlot" unique_id=1695711726]
 shape = SubResource("SphereShape3D_huasi")
 debug_color = Color(0, 11.618606, 13.50434, 1)
 
-[node name="ItemSlot9" type="Area3D" parent="Automat2" unique_id=677967050 node_paths=PackedStringArray("item_in_slot")]
+[node name="GutsItemSlot" type="Area3D" parent="Automat/itemsSlots" unique_id=677967050 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5123644, 0.46446618, 0.5)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("10_m5y8p")
 item_in_slot = NodePath("guts")
 
-[node name="guts" parent="Automat2/ItemSlot9" unique_id=1501232284 instance=ExtResource("24_mhrbp")]
+[node name="guts" parent="Automat/itemsSlots/GutsItemSlot" unique_id=1501232284 instance=ExtResource("24_mhrbp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0010328293, 0.013791949, -0.24637774)
-item_name = "guts"
+item_name = "moral_compass"
+saying = "moral compass"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat2/ItemSlot9" unique_id=1240033603]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/itemsSlots/GutsItemSlot" unique_id=1240033603]
 shape = SubResource("SphereShape3D_huasi")
 debug_color = Color(0, 11.618606, 13.50434, 1)
 
-[node name="Table" type="StaticBody3D" parent="Automat2" unique_id=801750209]
+[node name="Table" type="StaticBody3D" parent="Automat" unique_id=801750209]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1109972, 0.90919584, 0.699867)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat2/Table" unique_id=914909532]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/Table" unique_id=914909532]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09487486, -0.6037723, -0.20202601)
 shape = SubResource("BoxShape3D_iacmt")
 debug_color = Color(0, 6.2170124, 7.230182, 0.41960785)
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="Automat2/Table" unique_id=183556002]
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Automat/Table" unique_id=183556002]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105690956, 0.29489, -0.4676842)
 shape = SubResource("BoxShape3D_drdnd")
 debug_color = Color(0, 3.4226074, 3.984374, 0.41960785)
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Automat2/Table" unique_id=634908314]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Automat/Table" unique_id=634908314]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38028765, -0.27497488, -0.20202601)
 shape = SubResource("BoxShape3D_maf8m")
 debug_color = Color(0, 4.006028, 4.6620398, 0.41960785)
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="Automat2/Table" unique_id=127226867]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Automat/Table" unique_id=127226867]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4814253, 0.3672133, -0.20202601)
 shape = SubResource("BoxShape3D_m1efj")
 debug_color = Color(0, 4.8375783, 5.627917, 0.41960785)
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Automat2/Table" unique_id=720872302]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Automat/Table" unique_id=720872302]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6128359, -0.27775615, -0.20202601)
 shape = SubResource("BoxShape3D_huasi")
 debug_color = Color(0, 4.006028, 4.6620398, 0.41960785)
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Automat2/Table" unique_id=2066267]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Automat/Table" unique_id=2066267]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62335587, 0.51338404, -0.20202601)
 shape = SubResource("BoxShape3D_mai8y")
 debug_color = Color(0, 2.5736918, 2.998326, 0.41960785)
 
-[node name="DispensorSelector" type="Area3D" parent="Automat2" unique_id=340854766]
+[node name="DispensorSelector" type="Area3D" parent="Automat" unique_id=340854766]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020730019, 0.7905777, 0.503324)
 script = ExtResource("17_stn0f")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat2/DispensorSelector" unique_id=625571309]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/DispensorSelector" unique_id=625571309]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005309105, 0.0049310327, 0)
 shape = SubResource("BoxShape3D_76v2p")
 debug_color = Color(0, 18.892157, 4.8239684, 0.41960785)
@@ -1104,7 +734,7 @@ script = ExtResource("50_6w012")
 left_subviewport = NodePath("Left viewport/SubViewport")
 divider = NodePath("DividerLine")
 dialogue_resource = ExtResource("51_rqlcv")
-ratio = 1.0
+ratio = 0.7
 
 [node name="Left viewport" type="SubViewportContainer" parent="UI Control" unique_id=35627735]
 layout_mode = 1
@@ -1137,7 +767,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7001367, 1.597275, 0.13055
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("52_bnwoa")
-open_hands = NodePath("../../../../Automat2/openHands")
+open_hands = NodePath("../../../../Automat/openHands")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="UI Control/Left viewport/SubViewport/CursorBody" unique_id=2035323944]
 shape = SubResource("SphereShape3D_iacmt")
@@ -1183,8 +813,8 @@ fov = 70.0
 script = ExtResource("53_2lywu")
 shoot_particles_root = NodePath("../../../HandSelectionUI/ShootParticles")
 shoot_particles_delay = 0.3
-spawn_scale = 2.203
-shoot_strength = 2.66
+spawn_scale = 3.059
+shoot_strength = 4.0
 throw_arc = 0.0
 charge_fov = 72.0
 fov_speed = 79.0
@@ -1207,7 +837,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Warp" type="ColorRect" parent="UI Control/Right viewport/SubViewport" unique_id=1369167263]
-visible = false
 texture_filter = 2
 material = SubResource("ShaderMaterial_t7s67")
 offset_left = -2.0
@@ -1443,6 +1072,33 @@ mesh = SubResource("PlaneMesh_nt2eh")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_5cm5d")
 
-[connection signal="gui_input" from="UI Control/DialoguePreview/Balloon" to="UI Control/DialoguePreview" method="_on_balloon_gui_input"]
+[node name="worldColliders" type="Node3D" parent="." unique_id=688754971]
 
-[editable path="World/Characters/Capitalist"]
+[node name="StaticBody3D" type="StaticBody3D" parent="worldColliders" unique_id=1972448526]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="worldColliders/StaticBody3D" unique_id=638443381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2838745, 3.730072, -8.613495)
+shape = SubResource("BoxShape3D_nkddx")
+debug_color = Color(0, 0.85000014, 1, 0.41960785)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="worldColliders/StaticBody3D" unique_id=456288646]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.824703, 3.260559, -3.9116964)
+shape = SubResource("BoxShape3D_nkddx")
+debug_color = Color(0, 0.85000014, 1, 0.41960785)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="worldColliders/StaticBody3D" unique_id=428202468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.304968, 3.260559, -3.9116964)
+shape = SubResource("BoxShape3D_nkddx")
+debug_color = Color(0, 0.85000014, 1, 0.41960785)
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="worldColliders/StaticBody3D" unique_id=1150506446]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.379897, -1.812118, -0.73868513)
+shape = SubResource("BoxShape3D_nkddx")
+debug_color = Color(0, 0.85000014, 1, 0.41960785)
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="worldColliders/StaticBody3D" unique_id=1108823391]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.36872, -1.812118, -0.73868513)
+shape = SubResource("BoxShape3D_nkddx")
+debug_color = Color(0, 0.85000014, 1, 0.41960785)
+
+[connection signal="gui_input" from="UI Control/DialoguePreview/Balloon" to="UI Control/DialoguePreview" method="_on_balloon_gui_input"]

@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c751wcjr2ipkx"
-path.s3tc="res://.godot/imported/Printer.png-fa3b6b2d264ac3a713c1e3eede462e76.s3tc.ctex"
+uid="uid://cphxdwl7fk87x"
+path.s3tc="res://.godot/imported/Coffee cup_CHAHIN_COFFEE_CUP_TEXTURE.jpg-7b1e7f3f1e082f0c3d6856ec4fdb67d0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "12ce7c3009e92c4dd89ebb53ddaa74b7"
+}
 
 [deps]
 
-source_file="res://Assets/office/Printer.png"
-dest_files=["res://.godot/imported/Printer.png-fa3b6b2d264ac3a713c1e3eede462e76.s3tc.ctex"]
+source_file="res://Assets/models/Coffee cup_CHAHIN_COFFEE_CUP_TEXTURE.jpg"
+dest_files=["res://.godot/imported/Coffee cup_CHAHIN_COFFEE_CUP_TEXTURE.jpg-7b1e7f3f1e082f0c3d6856ec4fdb67d0.s3tc.ctex"]
 
 [params]
 

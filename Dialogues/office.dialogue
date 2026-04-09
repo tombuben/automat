@@ -1,43 +1,231 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
-=> END
+do GlobalManager.play_animation.emit("disposable_worker_close")
 
-Disposable_worker: Oh man, we finally have a new vending machine they were talking about.
+Disposable_worker: Finally
+Disposable_worker: They gave us of a new robot employee
+Disposable_worker: And a vending machine one at that
 
-Disposable_worker: This is why I tolerate my job.
-Disposable_worker: One cappucino. With cream and little sprinkles on top.
+Disposable_worker: [shake rate=20 level=10]This is why I tolerate my job.[/shake]
 
-# tutorial drag item to the automats hands comes up - UI window
+Disposable_worker: We already threw out one robot for malfunctioning last week
+Disposable_worker: So you better behave
 
-if GlobalManager.item_that_hit.item_name == "coffee"
-	
-	Disposable_worker: T-thank you!
+do GlobalManager.play_animation.emit("disposable_worker_close_to_idle")
+do wait(GlobalManager.current_animation_length)
+do GlobalManager.play_animation.emit("disposable_worker_idle")
 
-	do GlobalManager.play_animation.emit("disposable_worker_leave")
-	do wait(GlobalManager.current_animation_length)
+Disposable_worker: One large coffee. With cream and chocolate sprinkles on top.
+Disposable_worker: Oh and a latte art drawing of a swan.
+=> END!
 
-elif GlobalManager.item_that_hit.item_name == "coffee2"
-	do GlobalManager.play_animation.emit("disposable_worker", "hit")
-	Disposable_worker: T-thank you!
 
+
+# =========================
+# MAIN INTERACTION
+# =========================
+
+~ disposable_worker_hit
+
+# ===== PHASE CHECK =====
+if GlobalManager.get_state("worker", "moral_unlocked", false):
+
+	# =========================
+	# PHASE 2 (AFTER UNLOCK)
+	# =========================
+	if GlobalManager.item_that_hit.item_name == "moral_compass"
+
+		Automat: But i dont have any sprinkles or cream
+		Disposable_worker: Did you just argue with me?
+
+		Automat: N-no?
+
+		Disposable_worker: I am filing a complaint.
+		Disposable_worker: You should be afraid of the next one to two calendar months.
+
+		do GlobalManager.play_animation.emit("disposable_worker_leave")
+		do wait(GlobalManager.current_animation_length)
+		=> Small_coffee
+
+	else:
+		=> worker_wrong_item
+
+
+
+else:
+
+	# =========================
+	# PHASE 1 (BEFORE UNLOCK)
+	# =========================
+	if GlobalManager.item_that_hit.item_name == "coffee_large"
+
+		Disposable_worker: Okay, but this is just black coffee without any of the stuff I said.
+		Disposable_worker: But thats what I get from a "smart" robot I suppose
+
+		# 🔥 UNLOCK
+		do GlobalManager.set_state("worker", "moral_unlocked", true)
+
+		do GlobalManager.change_slot_item_name("ItemSlot1", "coffee1")
+		do GlobalManager.change_slot_item_saying("ItemSlot1", "Coffee1234")
+
+		Automat: W-wait!
+		Disposable_worker: Huh? What is it?
+
+		=> END!
+
+	else:
+		=> worker_wrong_item
+
+
+
+# =========================
+# SHARED WRONG ITEM
+# =========================
+
+~ worker_wrong_item
+do GlobalManager.play_animation.emit("disposable_worker", "hit")
+Disposable_worker: What the heck is this
+=> END!
+
+
+
+# =========================
+# NEXT SCENE
+# =========================
+
+~ Small_coffee
+do GlobalManager.play_animation.emit("small_worker_enter")
+do wait(GlobalManager.current_animation_length)
+do GlobalManager.play_animation.emit("small_worker_idle")
+
+small_coffee_worker: Hello, I will have a small coffee.
+=> END!
+
+
+~ small_worker_hit
+
+if GlobalManager.item_that_hit.item_name == "coffee_large"
+
+	small_coffee_worker: Oh yeah I remember, they stopped making small cups.
+	small_coffee_worker: Not because of ecology or anything.
+	small_coffee_worker: Because people who drink small amounts of coffee won't achieve big things here.
+	small_coffee_worker: Now, we just drink half of the medium cup.
+	small_coffee_worker: Or I can share this large coffee with three people.
+	small_coffee_worker: Yeah, imma do that
+	=> small_worker_end
+
+
+elif GlobalManager.item_that_hit.item_name == "coffee_medium"
+
+	do GlobalManager.play_animation.emit("small_coffee_worker", "hit")
+
+	small_coffee_worker: Because people who drink small amounts of coffee won't achieve big things here.
+	small_coffee_worker: Now, we just drink half of the medium cup.
+	small_coffee_worker: Thank you for that.
+	=> small_worker_end
+
+else:
+	=> small_worker_wrong_item
+
+
+~ small_worker_wrong_item
+do GlobalManager.play_animation.emit("small_coffee_worker", "hit")
+small_coffee_worker: What the heck is this
+=> END!
+
+~ small_worker_end
+small_coffee_worker: Well Thank you anyways...
+small_coffee_worker: Byee
+do GlobalManager.play_animation.emit("small_worker_leave")
+
+=> Dramatic_employee
+
+# =========================
+# DRAMATIC EMPLOYEE (FULL HIT SYSTEM)
+# =========================
+
+~ Dramatic_employee
+
+dramatic_worker: IS LIFE EVEN WORTH LIVING ANYMORE?
+dramatic_worker: GIVE ME A SIGN.
+
+=> END!
+
+
+~ dramatic_employee_hit
+
+if GlobalManager.item_that_hit.item_name == "coffee_large"
+
+	do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+
+	dramatic_worker: This must mean... it is.
+	dramatic_worker: A large choice for a large life.
 	=> END!
-	
-elif GlobalManager.item_that_hit.item_name == "coffee3"
-	do GlobalManager.play_animation.emit("disposable_worker", "hit")
-	Disposable_worker: T-thank you!
 
+
+elif GlobalManager.item_that_hit.item_name == "coffee_medium"
+
+	do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+
+	dramatic_worker: You are right.
+	dramatic_worker: Everything I do is just... medium.
+	dramatic_worker: And maybe that's okay.
 	=> END!
-	
+
+
+elif GlobalManager.item_that_hit.item_name == "coffee_small"
+
+	do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+
+	dramatic_worker: Small...?
+	dramatic_worker: No.
+	dramatic_worker: I refuse this interpretation of existence.
+	=> END!
+
+
 elif GlobalManager.item_that_hit.item_name == "rubber_duck"
-	do GlobalManager.play_animation.emit("disposable_worker", "hit")
-	Disposable_worker: What the heck is this
 
+	do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+
+	dramatic_worker: ...
+	dramatic_worker: I wasn't ready for emotional support from plastic.
 	=> END!
+
+
+elif GlobalManager.item_that_hit.item_name == "moral_compass"
+
+	do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+
+	dramatic_worker: I see.
+	dramatic_worker: So I do have direction.
+	dramatic_worker: That is terrifying.
+	=> END!
+
+
+else:
+
+	do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+
+	dramatic_worker: No.
+	dramatic_worker: This is not the sign.
+	=> END!
+
+
+
+# =========================
+# PRINTER
+# =========================
+
+~ Printer
+printer: *whirring noises*
+=> END!
+
+
+# =========================
+# BOSS
+# =========================
+
+~ Boss
+boss: We need to talk.
+=> END!
+
+

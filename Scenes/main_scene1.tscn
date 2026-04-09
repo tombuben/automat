@@ -845,7 +845,8 @@ hitstop_duration = 0.01
 
 [node name="DrowningPerson" parent="World" unique_id=118794775 instance=ExtResource("5_p35vf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.652418, 0.487, 0.761)
-hitstop_duration = 0.001
+hitstop_duration = 0.5
+hitstop_scale = 1.0
 
 [node name="AngryFish" parent="World" unique_id=1492897213 instance=ExtResource("5_hrp4p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.520313, 1, 1.083)
@@ -1003,7 +1004,6 @@ script = ExtResource("3_maf8m")
 item_in_slot = NodePath("mind")
 
 [node name="mind" parent="World/Automat/ItemSlot7" unique_id=199549943 instance=ExtResource("17_hdw03")]
-item_name = "mind"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/ItemSlot7" unique_id=1722521893]
 shape = SubResource("SphereShape3D_huasi")
