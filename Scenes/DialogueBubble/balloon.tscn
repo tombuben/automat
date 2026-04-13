@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 [ext_resource type="Texture2D" uid="uid://d4m1th60nswn6" path="res://Assets/LVL1Assets/Characters/AngryFishFree.png" id="5_m7ytr"]
-[ext_resource type="Script" uid="uid://jfu177vwwphk" path="res://Scripts/portrait.gd" id="6_mu5lg"]
+[ext_resource type="Script" path="res://Scripts/portrait.gd" id="6_mu5lg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -151,6 +151,7 @@ polygon = PackedVector2Array(0, 0, 9.166687, 14, 10.833313, 14, 20, 0, 9.916357,
 
 [node name="CharacterLabel" type="RichTextLabel" parent="Balloon" unique_id=613805791]
 unique_name_in_owner = true
+visible = false
 z_index = 11
 layout_mode = 0
 offset_left = 1603.0

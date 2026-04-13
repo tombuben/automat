@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b8l8mhyb5sfwf" path="res://Subscenes/random_person.tscn" id="1_qs3cf"]
 [ext_resource type="Texture2D" uid="uid://cu6wsyt0whtff" path="res://Assets/office/disposable_worker.png" id="2_rxfuy"]
-[ext_resource type="Texture2D" uid="uid://bqatnd7msigp3" path="res://Assets/LVL1Assets/Characters/Duck.png" id="3_rxfuy"]
+[ext_resource type="Texture2D" uid="uid://dvj6e3m30s800" path="res://Assets/office/small_worker.png" id="3_rxfuy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qk7r5"]
 animations = [{

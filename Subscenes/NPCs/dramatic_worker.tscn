@@ -1,25 +1,25 @@
-[gd_scene format=3 uid="uid://c4lf2a3jbp4la"]
+[gd_scene format=3 uid="uid://dqwjm0kc3yjg8"]
 
-[ext_resource type="PackedScene" uid="uid://b8l8mhyb5sfwf" path="res://Subscenes/random_person.tscn" id="1_am2x6"]
-[ext_resource type="Texture2D" uid="uid://cu6wsyt0whtff" path="res://Assets/office/disposable_worker.png" id="2_4mpo0"]
+[ext_resource type="PackedScene" uid="uid://b8l8mhyb5sfwf" path="res://Subscenes/random_person.tscn" id="1_j6ya5"]
+[ext_resource type="Texture2D" uid="uid://cu6wsyt0whtff" path="res://Assets/office/disposable_worker.png" id="2_qk88a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qk7r5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_4mpo0")
+"texture": ExtResource("2_qk88a")
 }],
 "loop": false,
 "name": &"idle",
 "speed": 5.0
 }]
 
-[node name="Disposable_worker" unique_id=1055277779 instance=ExtResource("1_am2x6")]
-person_name = "Disposable_worker"
+[node name="dramatic_worker" unique_id=1055277779 instance=ExtResource("1_j6ya5")]
+person_name = "dramatic_worker"
 
 [node name="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="1" unique_id=82952497]
 visible = false
-texture = ExtResource("2_4mpo0")
+texture = ExtResource("2_qk88a")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="2" unique_id=27529198]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, -0.08019769)

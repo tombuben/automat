@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://t6mfj7fqtyli" path="res://Subscenes/NPCs/small_worker.tscn" id="2_qo0gs"]
 [ext_resource type="PackedScene" uid="uid://utw2m5k15duk" path="res://Subscenes/NPCs/printer.tscn" id="3_nfcrg"]
 [ext_resource type="PackedScene" uid="uid://3yidyvqaofwt" path="res://Subscenes/NPCs/angry_worker.tscn" id="3_xaya4"]
+[ext_resource type="PackedScene" uid="uid://dqwjm0kc3yjg8" path="res://Subscenes/NPCs/dramatic_worker.tscn" id="5_fcgxk"]
 [ext_resource type="Texture2D" uid="uid://dbqd8w6ix0drb" path="res://Assets/VendingMachine/VendingMachine.png" id="5_u40t6"]
 [ext_resource type="Texture2D" uid="uid://cl3e5pg8gmwjd" path="res://Assets/VendingMachine/automatFace.png" id="6_35gkj"]
 [ext_resource type="Script" uid="uid://0fdvigrrpcro" path="res://Scenes/cursorFollow.gd" id="7_xiox5"]
@@ -27,6 +28,9 @@
 [ext_resource type="PackedScene" uid="uid://bokb66s75j3c1" path="res://Subscenes/Items/rubber_duck.tscn" id="25_nkddx"]
 [ext_resource type="Shader" uid="uid://in6n5v4f5fhw" path="res://Scenes/warpScreen.gdshader" id="41_t7s67"]
 [ext_resource type="Texture2D" uid="uid://c6lqbgep87b41" path="res://Assets/concepts/Circle.png" id="45_0x4kb"]
+[ext_resource type="Texture2D" uid="uid://bpargjd4vajyf" path="res://Assets/VendingMachine/GutsWheels.png" id="46_nfcrg"]
+[ext_resource type="Texture2D" uid="uid://d0qype2yfb4vw" path="res://Assets/office/dragIcon.png" id="47_poada"]
+[ext_resource type="Texture2D" uid="uid://c5qds8arncww0" path="res://Assets/VendingMachine/uiBrain.png" id="47_xaya4"]
 [ext_resource type="Script" uid="uid://ci5q4jckgmagi" path="res://Scripts/mouse_cursor.gd" id="48_vuse5"]
 [ext_resource type="Texture2D" uid="uid://1y7wg77wd30x" path="res://Assets/concepts/cursor.png" id="49_s0ebu"]
 [ext_resource type="Script" uid="uid://by0rhh6airqjb" path="res://Scripts/screen_resizer.gd" id="50_6w012"]
@@ -305,8 +309,206 @@ tracks/0/keys = {
 "values": [Vector3(-20, 0.803, 0.91418433), Vector3(-32.601, 0.803, 0.421)]
 }
 
+[sub_resource type="Animation" id="Animation_r6ydg"]
+resource_name = "drag_items_tutorial"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI Control/TutorialDragging/DragItemsTutorial:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 4.4333334, 4.9666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.80784315), Color(0, 0, 0, 0.6039216), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI Control/TutorialDragging/DragItemsTutorial/ColorRect2/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 4.4333334, 4.9666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI Control/TutorialDragging/DragItemsTutorial/ColorRect2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 4.4333334, 4.9666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI Control/TutorialDragging/DragItemsTutorial/ColorRect2:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.40000004),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI Control/TutorialDragging/DragItemsTutorial/ColorRect2/TextureRect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.40000004),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("UI Control/TutorialDragging/DragItemsTutorial:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_vyhah"]
+resource_name = "dramatic_worker_enter"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("World/Characters/dramatic_worker:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-19.995, 0.812, 0.887)]
+}
+
+[sub_resource type="Animation" id="Animation_tm3gw"]
+resource_name = "dramatic_worker_exit"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("World/Characters/dramatic_worker:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-19.995, 0.812, 0.887), Vector3(-27.665, 0.812, 0.887)]
+}
+
+[sub_resource type="Animation" id="Animation_oqhaq"]
+resource_name = "dramatic_worker_idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("World/Characters/dramatic_worker:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-19.995, 0.812, 0.887), Vector3(-19.995, 0.812, 0.887)]
+}
+
+[sub_resource type="Animation" id="Animation_yd3c3"]
+resource_name = "moral_compass_unlocked"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI Control/MoralCompassUnlocked:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 2.9666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI Control/MoralCompassUnlocked:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.4, 2.9666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 1200)]
+}
+
 [sub_resource type="Animation" id="Animation_tscpr"]
 resource_name = "open_hand"
+
+[sub_resource type="Animation" id="Animation_urueq"]
+resource_name = "printer_enter"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("World/Characters/Printer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-20.018, 0.802, 0.972)]
+}
+
+[sub_resource type="Animation" id="Animation_t7s67"]
+resource_name = "printer_exit"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("World/Characters/Printer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-20.018, 0.802, 0.972), Vector3(-29.254, 0.802, 0.972)]
+}
+
+[sub_resource type="Animation" id="Animation_h3hn5"]
+resource_name = "printer_idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("World/Characters/Printer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-20.018, 0.802, 0.972), Vector3(-20.018, 0.802, 0.972)]
+}
 
 [sub_resource type="Animation" id="Animation_fcgxk"]
 resource_name = "small_worker_enter"
@@ -361,7 +563,15 @@ _data = {
 &"disposable_worker_close_to_idle": SubResource("Animation_nfcrg"),
 &"disposable_worker_idle": SubResource("Animation_xaya4"),
 &"disposable_worker_leave": SubResource("Animation_nkddx"),
+&"drag_items_tutorial": SubResource("Animation_r6ydg"),
+&"dramatic_worker_enter": SubResource("Animation_vyhah"),
+&"dramatic_worker_exit": SubResource("Animation_tm3gw"),
+&"dramatic_worker_idle": SubResource("Animation_oqhaq"),
+&"moral_compass_unlocked": SubResource("Animation_yd3c3"),
 &"open_hand": SubResource("Animation_tscpr"),
+&"printer_enter": SubResource("Animation_urueq"),
+&"printer_exit": SubResource("Animation_t7s67"),
+&"printer_idle": SubResource("Animation_h3hn5"),
 &"small_worker_enter": SubResource("Animation_fcgxk"),
 &"small_worker_idle": SubResource("Animation_qo0gs"),
 &"small_worker_leave": SubResource("Animation_5ls3k")
@@ -390,12 +600,16 @@ hitstop_duration = 0.029
 hitstop_scale = 0.297
 
 [node name="small_worker" parent="World/Characters" unique_id=1980563931 instance=ExtResource("2_qo0gs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35224724, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.604, 0, 0)
 
 [node name="Angry_worker" parent="World/Characters" unique_id=830950824 instance=ExtResource("3_xaya4")]
 person_name = "angry_worker"
 
 [node name="Printer" parent="World/Characters" unique_id=2018004010 instance=ExtResource("3_nfcrg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.722847, 0.802, 0.972)
+
+[node name="dramatic_worker" parent="World/Characters" unique_id=973186517 instance=ExtResource("5_fcgxk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36691284, 0.812, 0.887)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=2137756423]
 environment = SubResource("Environment_lhp3t")
@@ -592,45 +806,46 @@ texture = ExtResource("75_j8xoi")
 
 [node name="itemsSlots" type="Node3D" parent="Automat" unique_id=1388334518]
 
-[node name="ItemSlot1" type="Area3D" parent="Automat/itemsSlots" unique_id=821282033 node_paths=PackedStringArray("item_in_slot")]
+[node name="ItemSlotCoffeeLarge" type="Area3D" parent="Automat/itemsSlots" unique_id=821282033 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, -0.1969881, 1.3172566, 0.489491)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("10_m5y8p")
 item_in_slot = NodePath("coffee_large")
 
-[node name="coffee_large" parent="Automat/itemsSlots/ItemSlot1" unique_id=1837871512 instance=ExtResource("23_nkddx")]
+[node name="coffee_large" parent="Automat/itemsSlots/ItemSlotCoffeeLarge" unique_id=1837871512 instance=ExtResource("23_nkddx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.218)
+saying = "coffee_large"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/itemsSlots/ItemSlot1" unique_id=141080273]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/itemsSlots/ItemSlotCoffeeLarge" unique_id=141080273]
 shape = SubResource("SphereShape3D_huasi")
 debug_color = Color(0, 11.618606, 13.50434, 1)
 
-[node name="ItemSlot2" type="Area3D" parent="Automat/itemsSlots" unique_id=288529252 node_paths=PackedStringArray("item_in_slot")]
+[node name="ItemSlotCoffeeMedium" type="Area3D" parent="Automat/itemsSlots" unique_id=288529252 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, 0.026036263, 1.3172566, 0.489491)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("10_m5y8p")
 item_in_slot = NodePath("coffee_medium")
 
-[node name="coffee_medium" parent="Automat/itemsSlots/ItemSlot2" unique_id=1763214508 instance=ExtResource("24_nkddx")]
+[node name="coffee_medium" parent="Automat/itemsSlots/ItemSlotCoffeeMedium" unique_id=1763214508 instance=ExtResource("24_nkddx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.21800002)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/itemsSlots/ItemSlot2" unique_id=1730469144]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/itemsSlots/ItemSlotCoffeeMedium" unique_id=1730469144]
 shape = SubResource("SphereShape3D_huasi")
 debug_color = Color(0, 11.618606, 13.50434, 1)
 
-[node name="ItemSlot3" type="Area3D" parent="Automat/itemsSlots" unique_id=448300744 node_paths=PackedStringArray("item_in_slot")]
+[node name="ItemSlotRubberDuck" type="Area3D" parent="Automat/itemsSlots" unique_id=448300744 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, 0.25299168, 1.30254, 0.489491)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("10_m5y8p")
 item_in_slot = NodePath("rubber_duck")
 
-[node name="rubber_duck" parent="Automat/itemsSlots/ItemSlot3" unique_id=2097559556 instance=ExtResource("25_nkddx")]
+[node name="rubber_duck" parent="Automat/itemsSlots/ItemSlotRubberDuck" unique_id=2097559556 instance=ExtResource("25_nkddx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.21800002)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/itemsSlots/ItemSlot3" unique_id=1185622814]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/itemsSlots/ItemSlotRubberDuck" unique_id=1185622814]
 shape = SubResource("SphereShape3D_huasi")
 debug_color = Color(0, 11.618606, 13.50434, 1)
 
@@ -642,7 +857,7 @@ script = ExtResource("10_m5y8p")
 item_in_slot = NodePath("mind")
 
 [node name="mind" parent="Automat/itemsSlots/MindItemSlot" unique_id=199549943 instance=ExtResource("22_yqe4d")]
-saying = "mind"
+saying = ":("
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/itemsSlots/MindItemSlot" unique_id=1722521893]
 shape = SubResource("SphereShape3D_huasi")
@@ -659,7 +874,7 @@ item_in_slot = NodePath("heart")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006055832, -0.00018531084, -0.19800001)
 item_name = "heart"
 item_type = Array[String](["heart"])
-saying = "heart"
+saying = ":("
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/itemsSlots/HeartItemSlot" unique_id=1695711726]
 shape = SubResource("SphereShape3D_huasi")
@@ -675,7 +890,7 @@ item_in_slot = NodePath("guts")
 [node name="guts" parent="Automat/itemsSlots/GutsItemSlot" unique_id=1501232284 instance=ExtResource("24_mhrbp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0010328293, 0.013791949, -0.24637774)
 item_name = "moral_compass"
-saying = "moral compass"
+saying = ":("
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/itemsSlots/GutsItemSlot" unique_id=1240033603]
 shape = SubResource("SphereShape3D_huasi")
@@ -1008,6 +1223,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="CharacterLabel" type="RichTextLabel" parent="UI Control/DialoguePreview/Balloon" unique_id=613805791]
+visible = false
 z_index = 44
 layout_mode = 0
 offset_left = 1603.0
@@ -1036,6 +1252,133 @@ offset_bottom = 51.05237
 rotation = -0.25132743
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_m7ytr")
+
+[node name="MoralCompassUnlocked" type="CanvasLayer" parent="UI Control" unique_id=508310520]
+layer = 101
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="UI Control/MoralCompassUnlocked" unique_id=1214309407]
+top_level = true
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.001
+offset_right = -5.0
+offset_bottom = -0.080078125
+color = Color(0, 0, 0, 0.54509807)
+
+[node name="TextureRect" type="TextureRect" parent="UI Control/MoralCompassUnlocked/ColorRect" unique_id=1906833846]
+z_index = 22
+layout_mode = 0
+offset_left = 267.0
+offset_top = 355.0
+offset_right = 649.0
+offset_bottom = 737.0
+texture = ExtResource("46_nfcrg")
+
+[node name="Label" type="Label" parent="UI Control/MoralCompassUnlocked/ColorRect" unique_id=1948218074]
+z_index = 21
+layout_mode = 0
+offset_left = 561.0
+offset_top = 455.0
+offset_right = 1521.0
+offset_bottom = 636.0
+theme_override_fonts/font = ExtResource("55_u2p72")
+theme_override_font_sizes/font_size = 76
+text = "Moral Compass unlocked"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="UI Control/MoralCompassUnlocked/ColorRect" unique_id=481628669]
+top_level = true
+z_index = 11
+layout_mode = 0
+offset_top = 372.0
+offset_right = 1915.0
+offset_bottom = 713.0
+color = Color(0, 0, 0, 1)
+
+[node name="TutorialDragging" type="CanvasLayer" parent="UI Control" unique_id=1911891087]
+layer = 101
+
+[node name="DragItemsTutorial" type="ColorRect" parent="UI Control/TutorialDragging" unique_id=1209786331]
+top_level = true
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.001
+offset_left = 757.0
+offset_right = -5.0
+offset_bottom = -0.080078125
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="ColorRect2" type="ColorRect" parent="UI Control/TutorialDragging/DragItemsTutorial" unique_id=1111187797]
+modulate = Color(1, 1, 1, 0)
+top_level = true
+z_index = 11
+layout_mode = 0
+offset_left = 95.0
+offset_top = 82.0
+offset_right = 704.0
+offset_bottom = 197.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="UI Control/TutorialDragging/DragItemsTutorial/ColorRect2" unique_id=225634048]
+z_index = 22
+layout_mode = 0
+offset_left = 41.0
+offset_top = -7.0
+offset_right = 170.0
+offset_bottom = 122.0
+mouse_filter = 2
+texture = ExtResource("47_poada")
+
+[node name="Label" type="Label" parent="UI Control/TutorialDragging/DragItemsTutorial/ColorRect2" unique_id=1755930533]
+modulate = Color(1, 1, 1, 0)
+z_index = 21
+layout_mode = 0
+offset_left = 179.0
+offset_top = 15.0
+offset_right = 558.0
+offset_bottom = 101.0
+theme_override_fonts/font = ExtResource("55_u2p72")
+theme_override_font_sizes/font_size = 45
+text = "drag items"
+vertical_alignment = 1
+
+[node name="LOCK1" type="ColorRect" parent="UI Control" unique_id=1395487991]
+layout_mode = 0
+offset_left = 537.0
+offset_top = 628.0
+offset_right = 672.0
+offset_bottom = 763.0
+pivot_offset = Vector2(65, 65)
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="UI Control/LOCK1" unique_id=515355378]
+layout_mode = 0
+offset_left = -30.0
+offset_top = -35.0
+offset_right = 170.0
+offset_bottom = 165.0
+texture = ExtResource("47_xaya4")
+
+[node name="LOCK2" type="ColorRect" parent="UI Control" unique_id=457251621]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 526.0
+offset_right = 199.0
+offset_bottom = 661.0
+pivot_offset = Vector2(65, 65)
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="UI Control/LOCK2" unique_id=1512040057]
+layout_mode = 0
+offset_left = -30.0
+offset_top = -35.0
+offset_right = 170.0
+offset_bottom = 165.0
+texture = ExtResource("47_xaya4")
 
 [node name="MouseLayer" type="CanvasLayer" parent="." unique_id=1881637122]
 layer = 10000
