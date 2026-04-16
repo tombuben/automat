@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c4lf2a3jbp4la" path="res://Subscenes/NPCs/disposable_worker.tscn" id="2_nfcrg"]
 [ext_resource type="PackedScene" uid="uid://t6mfj7fqtyli" path="res://Subscenes/NPCs/small_worker.tscn" id="2_qo0gs"]
 [ext_resource type="PackedScene" uid="uid://utw2m5k15duk" path="res://Subscenes/NPCs/printer.tscn" id="3_nfcrg"]
-[ext_resource type="PackedScene" uid="uid://3yidyvqaofwt" path="res://Subscenes/NPCs/angry_worker.tscn" id="3_xaya4"]
+[ext_resource type="PackedScene" uid="uid://3yidyvqaofwt" path="res://Subscenes/NPCs/boss.tscn" id="3_xaya4"]
 [ext_resource type="PackedScene" uid="uid://dqwjm0kc3yjg8" path="res://Subscenes/NPCs/dramatic_worker.tscn" id="5_fcgxk"]
 [ext_resource type="Texture2D" uid="uid://dbqd8w6ix0drb" path="res://Assets/VendingMachine/VendingMachine.png" id="5_u40t6"]
 [ext_resource type="Texture2D" uid="uid://cl3e5pg8gmwjd" path="res://Assets/VendingMachine/automatFace.png" id="6_35gkj"]

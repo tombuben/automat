@@ -134,8 +134,6 @@ do GlobalManager.play_animation.emit("disposable_worker", "hit")
 Disposable_worker: What the heck is this
 => END!
 
-
-
 # =========================
 # SMALL COFFEE WORKER
 # =========================
@@ -146,6 +144,18 @@ do wait(GlobalManager.current_animation_length)
 do GlobalManager.play_animation.emit("small_worker_idle")
 
 small_coffee_worker: Hello, I will have a small coffee.
+
+do GlobalManager.change_slot_item_name("ItemSlotCoffeeLarge", "coffee_large")
+do GlobalManager.change_slot_item_saying("ItemSlotCoffeeLarge", "small coffee")
+	
+do GlobalManager.change_slot_item_name("ItemSlotCoffeeMedium", "coffee_medium")
+do GlobalManager.change_slot_item_saying("ItemSlotCoffeeMedium", "H-here you go small coffee")
+	
+do GlobalManager.change_slot_item_name("ItemSlotRubberDuck", "rubber_duck")
+do GlobalManager.change_slot_item_saying("ItemSlotRubberDuck", "May I show you my duck insteadsmall coffee?")
+
+do GlobalManager.change_slot_item_name("GutsItemSlot", "moral_compass")
+do GlobalManager.change_slot_item_saying("GutsItemSlot", "May I s?")
 => END!
 
 
@@ -187,77 +197,317 @@ small_coffee_worker: Goodbye
 do GlobalManager.play_animation.emit("small_worker_leave")
 do wait(GlobalManager.current_animation_length)
 
-=> Dramatic_employee
+=> Dramatic_worker_enter
 
 # =========================
 # DRAMATIC EMPLOYEE 
 # =========================
 
-~ Dramatic_employee
+~ Dramatic_worker_enter
+
+do GlobalManager.show_portrait("dramatic_worker")
 do GlobalManager.play_animation.emit("dramatic_worker_enter")
 do wait(GlobalManager.current_animation_length)
 do GlobalManager.play_animation.emit("dramatic_worker_idle")
+
 dramatic_worker: IS LIFE EVEN WORTH LIVING ANYMORE?
 dramatic_worker: P-please help me!
+
+# setup item slots
+do GlobalManager.change_slot_item_name("ItemSlotCoffeeLarge", "coffee_large")
+do GlobalManager.change_slot_item_saying("ItemSlotCoffeeLarge", "H-here you go")
+	
+do GlobalManager.change_slot_item_name("ItemSlotCoffeeMedium", "coffee_medium")
+do GlobalManager.change_slot_item_saying("ItemSlotCoffeeMedium", "H-here you go")
+	
+do GlobalManager.change_slot_item_name("ItemSlotRubberDuck", "rubber_duck")
+do GlobalManager.change_slot_item_saying("ItemSlotRubberDuck", "May I show you my duck instead?")
 
 => END!
 
 
-~ dramatic_employee_hit
+# =========================
+# MAIN INTERACTION
+# =========================
 
-if GlobalManager.item_that_hit.item_name == "moral_compass"
+~ dramatic_worker_hit
 
-	do GlobalManager.play_animation.emit("dramatic_worker", "hit")
-	dramatic_worker: This must mean... It is?
-	dramatic_worker:  Won't having a ton of hope bring me even further into the abyss? 
-	=> END!
+# ===== PHASE CHECK =====
+if GlobalManager.get_state("dramatic_worker", "mind_unlocked", false):
 
-elif GlobalManager.item_that_hit.item_name == "coffee_large"
+	# =========================
+	# PHASE 2 (AFTER UNLOCK)
+	# =========================
 
-	do GlobalManager.play_animation.emit("dramatic_worker", "hit")
-	dramatic_worker: This must mean... It is?
-	dramatic_worker:  Won't having a ton of hope bring me even further into the abyss? 
-	=> END!
+	if GlobalManager.item_that_hit.item_name == "moral_compass2"
 
-elif GlobalManager.item_that_hit.item_name == "coffee_medium"
+		do GlobalManager.show_portrait("dramatic_worker")
 
-	do GlobalManager.play_animation.emit("dramatic_worker", "hit")
-	dramatic_worker: You are right.
-	dramatic_worker: What is my life but a series of "medium" choices.
-	=> END!
+		dramatic_worker: Leave
 
+		do GlobalManager.play_animation.emit("dramatic_worker_leave")
+		do wait(GlobalManager.current_animation_length)
 
-elif GlobalManager.item_that_hit.item_name == "rubber_duck"
+		=> printer_enter
 
-	do GlobalManager.play_animation.emit("dramatic_worker", "hit")
-	dramatic_worker: Is this your friend?
-	dramatic_worker: Duck, what is my purpose
-	=> END!
+	else:
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		dramatic_worker: ...
+		=> END!
+
 
 else:
 
-	do GlobalManager.play_animation.emit("dramatic_worker", "hit")
-	dramatic_worker: No.
-	dramatic_worker: This is not the sign.
-	=> END!
+	# =========================
+	# PHASE 1 (DEFAULT)
+	# =========================
 
+	if GlobalManager.item_that_hit.item_name == "moral_compass"
+	
+		do GlobalManager.show_portrait("dramatic_worker")
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+
+		dramatic_worker: Compass hit
+		dramatic_worker: ...
+
+		# STATE CHANGE
+		do GlobalManager.set_state("dramatic_worker", "mind_unlocked", true)
+		do GlobalManager.play_animation.emit("mind_unlocked")
+
+		#  IMPORTANT: change ONLY WHAT YOU NEED
+		do GlobalManager.change_slot_item_name("GutsItemSlot", "moral_compass2")
+		do GlobalManager.change_slot_item_saying("GutsItemSlot", "I... understand now")
+
+		=> END!
+
+	elif GlobalManager.item_that_hit.item_name == "coffee_large"
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		dramatic_worker: This must mean... It is?
+		dramatic_worker: Won't having a ton of hope bring me even further into the abyss? 
+		=> END!
+
+	elif GlobalManager.item_that_hit.item_name == "coffee_medium"
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		dramatic_worker: You are right.
+		dramatic_worker: What is my life but a series of "medium" choices.
+		=> END!
+
+	elif GlobalManager.item_that_hit.item_name == "rubber_duck"
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		dramatic_worker: Is this your friend?
+		dramatic_worker: Duck, what is my purpose
+		=> END!
+
+	else:
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		dramatic_worker: ...
+		=> END!
 
 
 # =========================
 # PRINTER
 # =========================
 
-~ Printer
-printer: *whirring noises*
+~ printer_enter
+
+do GlobalManager.show_portrait("printer")
+do GlobalManager.play_animation.emit("printer_enter")
+do wait(GlobalManager.current_animation_length)
+do GlobalManager.play_animation.emit("printer_idle")
+
+Printer: IS LIFE EVEN WORTH LIVING ANYMORE?
+
+# setup item slots
+do GlobalManager.change_slot_item_name("ItemSlotCoffeeLarge", "coffee_large")
+do GlobalManager.change_slot_item_saying("ItemSlotCoffeeLarge", "H-here you go")
+	
+do GlobalManager.change_slot_item_name("ItemSlotCoffeeMedium", "coffee_medium")
+do GlobalManager.change_slot_item_saying("ItemSlotCoffeeMedium", "H-here you go")
+	
+do GlobalManager.change_slot_item_name("ItemSlotRubberDuck", "rubber_duck")
+do GlobalManager.change_slot_item_saying("ItemSlotRubberDuck", "May I show you my duck instead?")
+
 => END!
+
+# =========================
+# MAIN INTERACTION
+# =========================
+
+~ printer_hit
+
+# ===== PHASE CHECK =====
+if GlobalManager.get_state("printer", "heart_unlocked", false):
+
+	# =========================
+	# PHASE 2 (AFTER UNLOCK)
+	# =========================
+
+	if GlobalManager.item_that_hit.item_name == "moral_compass2"
+
+		do GlobalManager.show_portrait("printer")
+
+		dramatic_worker: Leave
+
+		do GlobalManager.play_animation.emit("printer_leave")
+		do wait(GlobalManager.current_animation_length)
+
+		=> boss_enter
+
+	else:
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		dramatic_worker: ...
+		=> END!
+
+
+else:
+
+	# =========================
+	# PHASE 1 (DEFAULT)
+	# =========================
+
+	if GlobalManager.item_that_hit.item_name == "moral_compass"
+	
+		do GlobalManager.show_portrait("printer")
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+
+		dramatic_worker: Compass hit
+		dramatic_worker: ...
+
+		# STATE CHANGE
+		do GlobalManager.set_state("printer", "heart_unlocked", true)
+		do GlobalManager.play_animation.emit("heart_unlocked")
+
+		#  IMPORTANT: change ONLY WHAT YOU NEED
+		do GlobalManager.change_slot_item_name("GutsItemSlot", "moral_compass2")
+		do GlobalManager.change_slot_item_saying("GutsItemSlot", "I... understand now")
+
+		=> END!
+
+	elif GlobalManager.item_that_hit.item_name == "coffee_large"
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		dramatic_worker: This must mean... It is?
+		dramatic_worker: Won't having a ton of hope bring me even further into the abyss? 
+		=> END!
+
+	elif GlobalManager.item_that_hit.item_name == "coffee_medium"
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		dramatic_worker: You are right.
+		dramatic_worker: What is my life but a series of "medium" choices.
+		=> END!
+
+	elif GlobalManager.item_that_hit.item_name == "rubber_duck"
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		dramatic_worker: Is this your friend?
+		dramatic_worker: Duck, what is my purpose
+		=> END!
+
+	else:
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		dramatic_worker: ...
+		=> END!
 
 
 # =========================
 # BOSS
 # =========================
 
-~ Boss
-boss: We need to talk.
+~ boss_enter
+
+do GlobalManager.show_portrait("boss")
+do GlobalManager.play_animation.emit("boss_enter")
+do wait(GlobalManager.current_animation_length)
+do GlobalManager.play_animation.emit("boss_idle")
+
+Printer: IS LIFE EVEN WORTH LIVING ANYMORE?
+
+# setup item slots
+do GlobalManager.change_slot_item_name("ItemSlotCoffeeLarge", "coffee_large")
+do GlobalManager.change_slot_item_saying("ItemSlotCoffeeLarge", "H-here you go")
+	
+do GlobalManager.change_slot_item_name("ItemSlotCoffeeMedium", "coffee_medium")
+do GlobalManager.change_slot_item_saying("ItemSlotCoffeeMedium", "H-here you go")
+	
+do GlobalManager.change_slot_item_name("ItemSlotRubberDuck", "rubber_duck")
+do GlobalManager.change_slot_item_saying("ItemSlotRubberDuck", "May I show you my duck instead?")
+
 => END!
+
+# =========================
+# MAIN INTERACTION
+# =========================
+
+~ boss_hit
+
+# ===== PHASE CHECK =====
+if GlobalManager.get_state("printer", "heart_unlocked", false):
+
+	# =========================
+	# PHASE 2 (AFTER UNLOCK)
+	# =========================
+
+	if GlobalManager.item_that_hit.item_name == "moral_compass2"
+
+		do GlobalManager.show_portrait("boss")
+
+		dramatic_worker: Leave
+
+		do GlobalManager.play_animation.emit("boss_leave")
+		do wait(GlobalManager.current_animation_length)
+
+		=> boss_enter
+
+	else:
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		dramatic_worker: ...
+		=> END!
+
+
+else:
+
+	# =========================
+	# PHASE 1 (DEFAULT)
+	# =========================
+
+	if GlobalManager.item_that_hit.item_name == "moral_compass"
+	
+		do GlobalManager.show_portrait("printer")
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+
+		dramatic_worker: Compass hit
+		dramatic_worker: ...
+
+		# STATE CHANGE
+		do GlobalManager.set_state("printer", "heart_unlocked", true)
+		do GlobalManager.play_animation.emit("heart_unlocked")
+
+		#  IMPORTANT: change ONLY WHAT YOU NEED
+		do GlobalManager.change_slot_item_name("GutsItemSlot", "moral_compass2")
+		do GlobalManager.change_slot_item_saying("GutsItemSlot", "I... understand now")
+
+		=> END!
+
+	elif GlobalManager.item_that_hit.item_name == "coffee_large"
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		dramatic_worker: This must mean... It is?
+		dramatic_worker: Won't having a ton of hope bring me even further into the abyss? 
+		=> END!
+
+	elif GlobalManager.item_that_hit.item_name == "coffee_medium"
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		dramatic_worker: You are right.
+		dramatic_worker: What is my life but a series of "medium" choices.
+		=> END!
+
+	elif GlobalManager.item_that_hit.item_name == "rubber_duck"
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		dramatic_worker: Is this your friend?
+		dramatic_worker: Duck, what is my purpose
+		=> END!
+
+	else:
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		dramatic_worker: ...
+		=> END!
+
 
 

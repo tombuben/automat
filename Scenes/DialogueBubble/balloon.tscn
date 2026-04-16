@@ -151,13 +151,12 @@ polygon = PackedVector2Array(0, 0, 9.166687, 14, 10.833313, 14, 20, 0, 9.916357,
 
 [node name="CharacterLabel" type="RichTextLabel" parent="Balloon" unique_id=613805791]
 unique_name_in_owner = true
-visible = false
 z_index = 11
 layout_mode = 0
-offset_left = 1603.0
-offset_top = 893.0
-offset_right = 1890.0
-offset_bottom = 1175.0
+offset_left = 2426.0
+offset_top = 775.0
+offset_right = 2713.0
+offset_bottom = 1057.0
 mouse_filter = 1
 theme = SubResource("Theme_7qwyv")
 theme_override_colors/default_color = Color(1, 1, 1, 1)
@@ -186,10 +185,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 721.0
+offset_left = 728.0
 offset_top = -361.0
-offset_right = -321.0
-offset_bottom = 14.0
+offset_right = -314.0
+offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -265,10 +264,11 @@ text = "Response example"
 [node name="Portrait" type="TextureRect" parent="Balloon" unique_id=1757619546]
 z_index = 22
 layout_mode = 0
-offset_left = 1535.0
-offset_top = 690.0
-offset_right = 1935.0
-offset_bottom = 1090.0
+offset_left = 1582.0
+offset_top = 745.0
+offset_right = 1982.0
+offset_bottom = 1145.0
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("5_m7ytr")
 script = ExtResource("6_mu5lg")
 
@@ -286,10 +286,18 @@ color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="Balloon" unique_id=861920921]
 layout_mode = 0
-offset_left = 1567.5757
-offset_top = 734.0
-offset_right = 1919.0
-offset_bottom = 1078.0
+offset_left = 1568.5973
+offset_top = 735.0
+offset_right = 1917.9785
+offset_bottom = 1077.0
+color = Color(0.12941177, 0.12941177, 0.12941177, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Balloon" unique_id=1516804916]
+layout_mode = 0
+offset_left = 1575.7484
+offset_top = 742.0
+offset_right = 1907.7627
+offset_bottom = 1067.0
 color = Color(0, 0, 0, 1)
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]

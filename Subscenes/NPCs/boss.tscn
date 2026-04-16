@@ -15,8 +15,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Angry_worker" unique_id=1055277779 instance=ExtResource("1_rggj5")]
-person_name = "drowning_person"
+[node name="boss" unique_id=1055277779 instance=ExtResource("1_rggj5")]
+person_name = "boss"
 
 [node name="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="1" unique_id=82952497]
 visible = false
