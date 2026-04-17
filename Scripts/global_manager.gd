@@ -1,5 +1,18 @@
 extends Node
 
+
+# -----------------------------
+# SCENES
+# -----------------------------
+var scenes: Array = [
+	"res://Scenes/main_scene0.tscn",
+	"res://Scenes/main_scene1.tscn",
+]
+
+func load_into_scene(index : int):
+	print("loading into " + scenes[index])
+	get_tree().change_scene_to_file(scenes[index])
+
 # -----------------------------
 # CHARACTERS
 # -----------------------------

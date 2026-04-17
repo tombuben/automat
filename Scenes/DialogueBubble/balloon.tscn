@@ -283,6 +283,7 @@ offset_left = 758.0
 offset_top = 734.0
 offset_right = 1601.0
 offset_bottom = 1078.0
+mouse_filter = 1
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="Balloon" unique_id=861920921]
@@ -291,6 +292,7 @@ offset_left = 1568.5973
 offset_top = 735.0
 offset_right = 1917.9785
 offset_bottom = 1077.0
+mouse_filter = 1
 color = Color(0.12941177, 0.12941177, 0.12941177, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="Balloon" unique_id=1516804916]
@@ -299,6 +301,7 @@ offset_left = 1575.7484
 offset_top = 742.0
 offset_right = 1907.7627
 offset_bottom = 1067.0
+mouse_filter = 1
 color = Color(0, 0, 0, 1)
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
