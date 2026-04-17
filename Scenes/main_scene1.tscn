@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://c6wjbuc6was2n" path="res://Assets/LVL1Assets/Characters/capitalist.png" id="2_5oxhp"]
 [ext_resource type="Texture2D" uid="uid://dbqd8w6ix0drb" path="res://Assets/VendingMachine/VendingMachine.png" id="3_8edxt"]
 [ext_resource type="PackedScene" uid="uid://b8l8mhyb5sfwf" path="res://Subscenes/random_person.tscn" id="3_jv6wh"]
-[ext_resource type="Script" uid="uid://by0rhh6airqjb" path="res://Scripts/screen_resizer.gd" id="3_m1efj"]
 [ext_resource type="Script" uid="uid://7mv8rlcaqlga" path="res://Scripts/item_slot.gd" id="3_maf8m"]
 [ext_resource type="PackedScene" uid="uid://dcyfvurn7rjbi" path="res://Subscenes/duckman.tscn" id="3_tscpr"]
 [ext_resource type="Resource" uid="uid://4f6bltfcmio5" path="res://Dialogues/test.dialogue" id="4_drdnd"]
@@ -1705,18 +1704,13 @@ offset_right = 119.0
 offset_bottom = 59.0
 color = Color(0, 0, 0, 0.6745098)
 
-[node name="UI Control" type="Control" parent="." unique_id=1381454070 node_paths=PackedStringArray("left_subviewport", "divider")]
+[node name="UI Control" type="Control" parent="." unique_id=1381454070]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_m1efj")
-left_subviewport = NodePath("Left viewport/SubViewport")
-divider = NodePath("DividerLine")
-dialogue_resource = ExtResource("4_drdnd")
-ratio = 1.0
 
 [node name="Left viewport" type="SubViewportContainer" parent="UI Control" unique_id=35627735]
 layout_mode = 1

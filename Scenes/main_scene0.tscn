@@ -26,15 +26,13 @@
 [ext_resource type="PackedScene" uid="uid://b05n3m3lg3hqp" path="res://Subscenes/Items/guts_item.tscn" id="24_mhrbp"]
 [ext_resource type="PackedScene" uid="uid://c4r4310opxu44" path="res://Subscenes/Items/coffeeMedium.tscn" id="24_nkddx"]
 [ext_resource type="PackedScene" uid="uid://bokb66s75j3c1" path="res://Subscenes/Items/rubber_duck.tscn" id="25_nkddx"]
-[ext_resource type="Shader" uid="uid://in6n5v4f5fhw" path="res://Scenes/warpScreen.gdshader" id="41_t7s67"]
+[ext_resource type="Script" uid="uid://bgngysncqjt3n" path="res://Scenes/cameraTilt.gd" id="34_5ls3k"]
 [ext_resource type="Texture2D" uid="uid://c6lqbgep87b41" path="res://Assets/concepts/Circle.png" id="45_0x4kb"]
 [ext_resource type="Texture2D" uid="uid://bpargjd4vajyf" path="res://Assets/VendingMachine/GutsWheels.png" id="46_nfcrg"]
 [ext_resource type="Texture2D" uid="uid://d0qype2yfb4vw" path="res://Assets/office/dragIcon.png" id="47_poada"]
 [ext_resource type="Texture2D" uid="uid://c5qds8arncww0" path="res://Assets/VendingMachine/uiBrain.png" id="47_xaya4"]
 [ext_resource type="Script" uid="uid://ci5q4jckgmagi" path="res://Scripts/mouse_cursor.gd" id="48_vuse5"]
 [ext_resource type="Texture2D" uid="uid://1y7wg77wd30x" path="res://Assets/concepts/cursor.png" id="49_s0ebu"]
-[ext_resource type="Script" uid="uid://by0rhh6airqjb" path="res://Scripts/screen_resizer.gd" id="50_6w012"]
-[ext_resource type="Resource" uid="uid://4f6bltfcmio5" path="res://Dialogues/test.dialogue" id="51_rqlcv"]
 [ext_resource type="Script" uid="uid://dsalx1r160eac" path="res://Scripts/cursor_object.gd" id="52_bnwoa"]
 [ext_resource type="Script" uid="uid://c56o0l1eo5f5k" path="res://Scripts/world_view.gd" id="53_2lywu"]
 [ext_resource type="Resource" uid="uid://xf8o45qv2si4" path="res://Dialogues/office.dialogue" id="53_h3hn5"]
@@ -101,7 +99,7 @@ animations = [{
 }]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_huasi"]
-radius = 0.13951492
+radius = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iacmt"]
 size = Vector3(1.498291, 0.49337006, 0.319092)
@@ -125,23 +123,11 @@ size = Vector3(0.218384, 1.46027, 0.319092)
 size = Vector3(0.52319336, 0.3984375, 0.5)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_iacmt"]
-radius = 0.01
+radius = 0.001
 
 [sub_resource type="SphereMesh" id="SphereMesh_6ev3c"]
 radius = 0.05
 height = 0.1
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_t7s67"]
-viewport_path = NodePath("UI Control/Right viewport/SubViewport")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_t7s67"]
-resource_local_to_scene = true
-shader = ExtResource("41_t7s67")
-shader_parameter/screen_tex = SubResource("ViewportTexture_t7s67")
-shader_parameter/strength = 1.0
-shader_parameter/radius = 1.0
-shader_parameter/softness = 0.61200002837148
-shader_parameter/falloff = 2.9570001167075
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4d4va"]
 transparency = 1
@@ -938,18 +924,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005309105, 0.0049310327, 0)
 shape = SubResource("BoxShape3D_76v2p")
 debug_color = Color(0, 18.892157, 4.8239684, 0.41960785)
 
-[node name="UI Control" type="Control" parent="." unique_id=1381454070 node_paths=PackedStringArray("left_subviewport", "divider")]
+[node name="UI Control" type="Control" parent="." unique_id=1381454070]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("50_6w012")
-left_subviewport = NodePath("Left viewport/SubViewport")
-divider = NodePath("DividerLine")
-dialogue_resource = ExtResource("51_rqlcv")
-ratio = 0.7
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Left viewport" type="SubViewportContainer" parent="UI Control" unique_id=35627735]
 layout_mode = 1
@@ -975,6 +958,7 @@ projection = 1
 current = true
 fov = 53.8
 size = 2.428
+script = ExtResource("34_5ls3k")
 
 [node name="CursorBody" type="AnimatableBody3D" parent="UI Control/Left viewport/SubViewport" unique_id=1055788589 node_paths=PackedStringArray("open_hands")]
 unique_name_in_owner = true
@@ -1050,14 +1034,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Warp" type="ColorRect" parent="UI Control/Right viewport/SubViewport" unique_id=1369167263]
-texture_filter = 2
-material = SubResource("ShaderMaterial_t7s67")
-offset_left = -2.0
-offset_top = -11.0
-offset_right = 1051.0
-offset_bottom = 634.0
 
 [node name="HandSelectionUI" parent="UI Control/Right viewport" unique_id=637314647 instance=ExtResource("55_ofv8d")]
 visible = false
@@ -1136,24 +1112,28 @@ dialogue_rich_text = NodePath("Balloon/MarginContainer/PanelContainer/MarginCont
 
 [node name="Balloon" type="Control" parent="UI Control/DialoguePreview" unique_id=1904455546]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 2.0
-offset_bottom = 2.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme = SubResource("Theme_qq3yp")
-metadata/_edit_use_anchors_ = true
-
-[node name="MarginContainer" type="MarginContainer" parent="UI Control/DialoguePreview/Balloon" unique_id=978174234]
-layout_mode = 1
-anchors_preset = 12
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 747.0
+offset_left = -1920.0
+offset_top = -1080.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+mouse_filter = 2
+theme = SubResource("Theme_qq3yp")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI Control/DialoguePreview/Balloon" unique_id=978174234]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1173.0
 offset_top = -361.0
 offset_right = -341.0
 offset_bottom = 3.0
@@ -1195,41 +1175,65 @@ script = null
 
 [node name="Portrait" type="TextureRect" parent="UI Control/DialoguePreview/Balloon" unique_id=1757619546]
 z_index = 22
-layout_mode = 0
-offset_left = 1554.0
-offset_top = 734.0
-offset_right = 1886.0
-offset_bottom = 1066.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -366.0
+offset_top = -346.0
+offset_right = -34.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("67_eekva")
 
 [node name="ColorRect2" type="ColorRect" parent="UI Control/DialoguePreview/Balloon" unique_id=915446475]
 z_index = -6
-layout_mode = 0
-offset_left = 758.0
-offset_top = 734.0
-offset_right = 1601.0
-offset_bottom = 1078.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.998
+anchor_right = 1.0
+anchor_bottom = 0.998
+offset_left = -1162.0
+offset_top = -343.8401
+offset_right = -319.0
+offset_bottom = 0.15991211
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="UI Control/DialoguePreview/Balloon" unique_id=861920921]
-layout_mode = 0
-offset_left = 1567.5757
-offset_top = 734.0
-offset_right = 1919.0
-offset_bottom = 1078.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9990001
+anchor_top = 0.998
+anchor_right = 0.9990001
+anchor_bottom = 0.998
+offset_left = -350.5044
+offset_top = -343.8401
+offset_right = 0.9199219
+offset_bottom = 0.15991211
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="CharacterLabel" type="RichTextLabel" parent="UI Control/DialoguePreview/Balloon" unique_id=613805791]
 visible = false
 z_index = 44
-layout_mode = 0
-offset_left = 1603.0
-offset_top = 893.0
-offset_right = 1890.0
-offset_bottom = 1175.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -317.0
+offset_top = -187.0
+offset_right = -30.0
+offset_bottom = 95.0
+grow_horizontal = 0
+grow_vertical = 0
 mouse_filter = 2
 theme = SubResource("Theme_7qwyv")
 theme_override_colors/default_color = Color(1, 1, 1, 1)
@@ -1299,6 +1303,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="TutorialDragging" type="CanvasLayer" parent="UI Control" unique_id=1911891087]
 layer = 101
+visible = false
 
 [node name="DragItemsTutorial" type="ColorRect" parent="UI Control/TutorialDragging" unique_id=1209786331]
 top_level = true
@@ -1347,6 +1352,7 @@ text = "drag items"
 vertical_alignment = 1
 
 [node name="LOCK1" type="ColorRect" parent="UI Control" unique_id=1395487991]
+visible = false
 layout_mode = 0
 offset_left = 537.0
 offset_top = 628.0
@@ -1364,6 +1370,7 @@ offset_bottom = 165.0
 texture = ExtResource("47_xaya4")
 
 [node name="LOCK2" type="ColorRect" parent="UI Control" unique_id=457251621]
+visible = false
 layout_mode = 0
 offset_left = 64.0
 offset_top = 526.0
