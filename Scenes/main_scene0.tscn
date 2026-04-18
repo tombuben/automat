@@ -14,7 +14,6 @@
 [ext_resource type="Script" uid="uid://7mv8rlcaqlga" path="res://Scripts/item_slot.gd" id="10_m5y8p"]
 [ext_resource type="Texture2D" uid="uid://dgxrak7jw1fdy" path="res://Assets/office/wall_office.png" id="10_nfcrg"]
 [ext_resource type="Texture2D" uid="uid://bbyl165b2x2qs" path="res://Assets/office/bg_worker.png" id="11_poada"]
-[ext_resource type="Texture2D" uid="uid://dpayg7y6sid23" path="res://Assets/office/bg_worker2.png" id="12_5ls3k"]
 [ext_resource type="Texture2D" uid="uid://cwttqbcmv1aet" path="res://Assets/office/backwall.png" id="13_5ls3k"]
 [ext_resource type="Texture2D" uid="uid://dgeeujn086l1f" path="res://Assets/office/pc2.png" id="14_tm3gw"]
 [ext_resource type="Texture2D" uid="uid://c1bicyy1k0ge2" path="res://Assets/office/pc3.png" id="16_urueq"]
@@ -66,6 +65,14 @@ fog_sky_affect = 0.783
 adjustment_enabled = true
 adjustment_contrast = 1.01
 adjustment_saturation = 0.89
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fcgxk"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("11_poada")
+
+[sub_resource type="QuadMesh" id="QuadMesh_nfcrg"]
+material = SubResource("StandardMaterial3D_fcgxk")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oqhaq"]
 transparency = 1
@@ -570,7 +577,13 @@ transparency = 1
 albedo_color = Color(1, 0, 1, 0.36862746)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nkddx"]
-size = Vector3(3.9855347, 3.6832275, 3.7753906)
+size = Vector3(128.99219, 82.885544, 3.7753906)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fcgxk"]
+size = Vector3(3.4240723, 4.498291, 9.817078)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nfcrg"]
+size = Vector3(4.4628906, 10.067139, 3.6013184)
 
 [node name="MainScene" type="Node3D" unique_id=350775679]
 
@@ -612,113 +625,149 @@ directional_shadow_mode = 0
 [node name="Node3D2" type="Node3D" parent="World/OfficeBG" unique_id=1205396388]
 
 [node name="BG" type="Sprite3D" parent="World/OfficeBG" unique_id=1520203208]
-transform = Transform3D(1.653, 0, 0, 0, 1.653, 0, 0, 0, 1.653, 1.544, 0.163, -8.713)
+transform = Transform3D(6.556, 0, 0, 0, 6.556, 0, 0, 0, 6.556, -0.071, 1.773, -51.705753)
+sorting_offset = -39.425
+modulate = Color(0.840625, 0.840625, 0.840625, 1)
 texture = ExtResource("9_fcgxk")
 
-[node name="BGwallRight" type="Sprite3D" parent="World/OfficeBG" unique_id=1907445723]
-transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, 9.651705, 3.236, -4.074)
-sorting_offset = 1.0
-texture = ExtResource("10_nfcrg")
+[node name="WalkingBGWorkers" type="CPUParticles3D" parent="World/OfficeBG" unique_id=398048406]
+transform = Transform3D(1.327, 0, 0, 0, 1.602, 0, 0, 0, 1.167, -6.423, 2.225, -4.756)
+sorting_offset = -2.523
+amount = 12
+lifetime = 12.08
+preprocess = 2.02
+speed_scale = 0.42
+mesh = SubResource("QuadMesh_nfcrg")
+direction = Vector3(4.546, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+linear_accel_max = 1.17
+scale_amount_min = 2.7
+scale_amount_max = 2.7
+color = Color(0.8128125, 0.8551082, 0.95625, 1)
+
+[node name="WalkingBGWorkers2" type="CPUParticles3D" parent="World/OfficeBG" unique_id=902730565]
+transform = Transform3D(1.327, 0, 0, 0, 1.602, 0, 0, 0, 1.167, 7.300448, 2.225, -4.756)
+sorting_offset = -2.827
+amount = 12
+lifetime = 12.08
+preprocess = 2.02
+speed_scale = 0.42
+mesh = SubResource("QuadMesh_nfcrg")
+direction = Vector3(-4, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+linear_accel_max = 1.17
+scale_amount_min = 2.7
+scale_amount_max = 2.7
+color = Color(0.5484863, 0.58334047, 0.734375, 1)
 
 [node name="BGwallRight2" type="Sprite3D" parent="World/OfficeBG" unique_id=1988095636]
-transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, -7.226, 3.236, -4.074)
-sorting_offset = 1.0
+transform = Transform3D(1.396962, -0.15916371, 0, 0.15916371, 1.396962, 0, 0, 0, 1.406, -6.905, 4.954, -4.074)
+sorting_offset = -0.102
 flip_h = true
+modulate = Color(0.59615237, 0.62419647, 0.728125, 1)
+texture = ExtResource("10_nfcrg")
+
+[node name="BGwallRight4" type="Sprite3D" parent="World/OfficeBG" unique_id=1673157691]
+transform = Transform3D(2.799, 0, 0, 0, 2.799, 0, 0, 0, 2.799, -12.739718, 11.5, -19.914)
+sorting_offset = -47.836
+flip_h = true
+modulate = Color(0.40064454, 0.41209272, 0.45625, 1)
+texture = ExtResource("10_nfcrg")
+
+[node name="BGwallRight5" type="Sprite3D" parent="World/OfficeBG" unique_id=700342221]
+transform = Transform3D(2.799, 0, 0, 0, 2.799, 0, 0, 0, 2.799, 13.692, 11.5, -19.914)
+sorting_offset = -47.836
+flip_h = true
+modulate = Color(0.40064454, 0.41209272, 0.45625, 1)
 texture = ExtResource("10_nfcrg")
 
 [node name="wallleft" type="Sprite3D" parent="World/OfficeBG" unique_id=2055846847]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.596, 3.067, -4.756)
+transform = Transform3D(1.327, 0, 0, 0, 1.602, 0, 0, 0, 1.1669999, -4.596, 5.083, -4.756)
 texture = ExtResource("13_5ls3k")
 
-[node name="wallright" type="Sprite3D" parent="World/OfficeBG" unique_id=132944394]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.041, 3.067, -4.756)
-flip_h = true
+[node name="wallleft3" type="Sprite3D" parent="World/OfficeBG" unique_id=1826568221]
+transform = Transform3D(2.654, 0, 0, 0, 3.118, 0, 0, 0, 1.167, -8.821, 10.543, -19.134)
+sorting_offset = -47.741
+modulate = Color(0.484375, 0.484375, 0.484375, 1)
+texture = ExtResource("13_5ls3k")
+
+[node name="wallleft4" type="Sprite3D" parent="World/OfficeBG" unique_id=1532413323]
+transform = Transform3D(2.654, 0, 0, 0, 3.118, 0, 0, 0, 1.167, 7.703, 10.543, -19.134)
+sorting_offset = -47.741
+modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
+texture = ExtResource("13_5ls3k")
+
+[node name="BGwallRight3" type="Sprite3D" parent="World/OfficeBG" unique_id=1262568081]
+transform = Transform3D(1.602, 0, 0, 0, 1.602, 0, 0, 0, 1.602, 9.401, 5.996, -4.074)
+sorting_offset = -0.102
+modulate = Color(0.59615237, 0.62419647, 0.728125, 1)
+texture = ExtResource("10_nfcrg")
+
+[node name="wallleft2" type="Sprite3D" parent="World/OfficeBG" unique_id=1656154086]
+transform = Transform3D(1.327, 0, 0, 0, 1.602, 0, 0, 0, 1.167, 6.409127, 5.083, -4.756)
 texture = ExtResource("13_5ls3k")
 
 [node name="BGpeople" type="Sprite3D" parent="World/OfficeBG" unique_id=473242329]
 
-[node name="bgPerson1" type="Sprite3D" parent="World/OfficeBG/BGpeople" unique_id=907754629]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.213395, 1.696, -5.491462)
-sorting_offset = -2.154
-flip_h = true
-texture = ExtResource("11_poada")
-
-[node name="bgPerson2" type="Sprite3D" parent="World/OfficeBG/BGpeople" unique_id=1863860278]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.98408127, 1.696, -5.491462)
-sorting_offset = -2.154
-flip_h = true
-texture = ExtResource("11_poada")
-
-[node name="bgPerson3" type="Sprite3D" parent="World/OfficeBG/BGpeople" unique_id=373425412]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2964354, 1.696, -5.491462)
-sorting_offset = -2.154
-flip_h = true
-texture = ExtResource("11_poada")
-
-[node name="bgPerson4" type="Sprite3D" parent="World/OfficeBG/BGpeople" unique_id=116740529]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.87313557, 1.696, -5.491462)
-sorting_offset = -2.154
-flip_h = true
-texture = ExtResource("12_5ls3k")
-
-[node name="bgPerson5" type="Sprite3D" parent="World/OfficeBG/BGpeople" unique_id=309749353]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.828162, 1.696, -5.491462)
-sorting_offset = -2.154
-flip_h = true
-texture = ExtResource("12_5ls3k")
-
-[node name="bgPerson6" type="Sprite3D" parent="World/OfficeBG/BGpeople" unique_id=501122679]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3391085, 1.696, -5.491462)
-sorting_offset = -2.154
-flip_h = true
-texture = ExtResource("12_5ls3k")
-
 [node name="pc1" type="Sprite3D" parent="World/OfficeBG" unique_id=2024042985]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.752, -0.775, -2.749)
 sorting_offset = 2.987
+modulate = Color(0.62352943, 0.62352943, 0.62352943, 1)
 texture = ExtResource("14_tm3gw")
 
 [node name="pc2" type="Sprite3D" parent="World/OfficeBG" unique_id=1159984318]
 transform = Transform3D(0.856, 0, 0, 0, 0.856, 0, 0, 0, 0.856, 7.527, 1.208, -4.38)
 sorting_offset = 2.219
 flip_h = true
+modulate = Color(0.62352943, 0.62352943, 0.62352943, 1)
 texture = ExtResource("16_urueq")
 
 [node name="pc5" type="Sprite3D" parent="World/OfficeBG" unique_id=1509369993]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.125999, -1.863, -1.238)
 sorting_offset = 2.668
 flip_h = true
+modulate = Color(0.62352943, 0.62352943, 0.62352943, 1)
 texture = ExtResource("17_t7s67")
 
 [node name="pc4" type="Sprite3D" parent="World/OfficeBG" unique_id=1067267226]
 transform = Transform3D(0.856, 0, 0, 0, 0.856, 0, 0, 0, 0.856, -5.316, 1.208, -4.38)
 sorting_offset = 2.219
+modulate = Color(0.625, 0.625, 0.625, 1)
 texture = ExtResource("16_urueq")
 
 [node name="pc3" type="Sprite3D" parent="World/OfficeBG" unique_id=1973020918]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.316, -0.775, -2.749)
 sorting_offset = 2.987
+modulate = Color(0.62352943, 0.62352943, 0.62352943, 1)
 texture = ExtResource("16_urueq")
 
 [node name="pc6" type="Sprite3D" parent="World/OfficeBG" unique_id=1061884004]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.316, -1.863, -1.238)
 sorting_offset = 2.668
+modulate = Color(0.62352943, 0.62352943, 0.62352943, 1)
 texture = ExtResource("17_t7s67")
 
 [node name="OfficeDustParticles" type="CPUParticles3D" parent="World/OfficeBG" unique_id=1974769446]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2778687, 1.6233015, -4.7654266)
-amount = 23
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2778687, 1.6233015, -1.9434671)
+amount = 15
 lifetime = 1.53
 preprocess = 1.98
 speed_scale = 0.85
 mesh = SubResource("QuadMesh_urueq")
 emission_shape = 3
 emission_box_extents = Vector3(9.012, 4.907, 2.711)
-gravity = Vector3(0, 0, 0)
+direction = Vector3(0, 0.486, 0)
+gravity = Vector3(0, 0.138, 0)
 scale_amount_min = 0.12
 scale_amount_max = 0.13
 scale_amount_curve = SubResource("Curve_oqhaq")
-color = Color(0.541875, 0.5903125, 0.6, 1)
+color = Color(0.40482426, 0.45391995, 0.45937502, 1)
 
 [node name="Automat" type="Node3D" parent="." unique_id=1282403330]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.067283, 0, 0)
@@ -967,6 +1016,9 @@ collision_layer = 16
 collision_mask = 0
 script = ExtResource("52_bnwoa")
 open_hands = NodePath("../../../../Automat/openHands")
+cursor_visual_path = NodePath("../../../../MouseLayer/Mouse/Cursor")
+speed_for_min = 84.314
+click_squash = 0.487
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="UI Control/Left viewport/SubViewport/CursorBody" unique_id=2035323944]
 shape = SubResource("SphereShape3D_iacmt")
@@ -1027,7 +1079,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46343565, -0.6999998)
 
 [node name="SpawnPosition" type="Node3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView/AimRotation" unique_id=1983533065]
 
-[node name="ColorRect" type="ColorRect" parent="UI Control/Right viewport/SubViewport" unique_id=320886693]
+[node name="Vignette" type="ColorRect" parent="UI Control/Right viewport/SubViewport" unique_id=320886693]
 material = ExtResource("54_p3h2o")
 anchors_preset = 15
 anchor_right = 1.0
@@ -1117,8 +1169,8 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1920.0
-offset_top = -1080.0
+offset_left = -1167.0
+offset_top = -371.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 8
@@ -1427,28 +1479,37 @@ surface_material_override/0 = SubResource("StandardMaterial3D_5cm5d")
 [node name="StaticBody3D" type="StaticBody3D" parent="worldColliders" unique_id=1972448526]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="worldColliders/StaticBody3D" unique_id=638443381]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2838745, 3.730072, -8.613495)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2838745, 8.015419, -20.039122)
 shape = SubResource("BoxShape3D_nkddx")
-debug_color = Color(0, 0.85000014, 1, 0.41960785)
+debug_color = Color(0, 1.0353111, 1.2160255, 1)
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="worldColliders/StaticBody3D" unique_id=456288646]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.824703, 3.260559, -3.9116964)
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="worldColliders/StaticBody3D" unique_id=1833774535]
+transform = Transform3D(1, 0, 0, 0, 0.07845908, 0.99691725, 0, -0.99691725, 0.07845908, 1.2838745, -2.711276, -12.386996)
 shape = SubResource("BoxShape3D_nkddx")
-debug_color = Color(0, 0.85000014, 1, 0.41960785)
+debug_color = Color(0, 1.0353111, 1.2160255, 1)
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="worldColliders/StaticBody3D" unique_id=428202468]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.304968, 3.260559, -3.9116964)
-shape = SubResource("BoxShape3D_nkddx")
-debug_color = Color(0, 0.85000014, 1, 0.41960785)
+[node name="StaticBody3D2" type="StaticBody3D" parent="worldColliders" unique_id=1007074493]
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="worldColliders/StaticBody3D" unique_id=1150506446]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.379897, -1.812118, -0.73868513)
-shape = SubResource("BoxShape3D_nkddx")
-debug_color = Color(0, 0.85000014, 1, 0.41960785)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="worldColliders/StaticBody3D2" unique_id=1264995200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6834235, 0, -5.1248474)
+shape = SubResource("BoxShape3D_fcgxk")
+debug_color = Color(0, 0.5950001, 0.7, 1)
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="worldColliders/StaticBody3D" unique_id=1108823391]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.36872, -1.812118, -0.73868513)
-shape = SubResource("BoxShape3D_nkddx")
-debug_color = Color(0, 0.85000014, 1, 0.41960785)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="worldColliders/StaticBody3D2" unique_id=905948211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8176007, 0, -5.1248474)
+shape = SubResource("BoxShape3D_fcgxk")
+debug_color = Color(0, 0.5950001, 0.7, 1)
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="worldColliders" unique_id=1492194190]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="worldColliders/StaticBody3D3" unique_id=2139994445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.086161, 4.5335693, -4.1618767)
+shape = SubResource("BoxShape3D_nfcrg")
+debug_color = Color(0, 0.5950001, 0.7, 1)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="worldColliders/StaticBody3D3" unique_id=1168573128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.471535, 4.5335693, -4.1618767)
+shape = SubResource("BoxShape3D_nfcrg")
+debug_color = Color(0, 0.5950001, 0.7, 1)
 
 [connection signal="gui_input" from="UI Control/DialoguePreview/Balloon" to="UI Control/DialoguePreview" method="_on_balloon_gui_input"]
