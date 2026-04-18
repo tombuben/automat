@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dwlqtr5m6tb2h" path="res://Assets/VendingMachine/handsOpen.png" id="9_kmity"]
 [ext_resource type="Script" uid="uid://7mv8rlcaqlga" path="res://Scripts/item_slot.gd" id="10_m5y8p"]
 [ext_resource type="Texture2D" uid="uid://dgxrak7jw1fdy" path="res://Assets/office/wall_office.png" id="10_nfcrg"]
+[ext_resource type="Texture2D" uid="uid://cknh5ndlhrrxu" path="res://Assets/gradient.png" id="10_poada"]
 [ext_resource type="Texture2D" uid="uid://bbyl165b2x2qs" path="res://Assets/office/bg_worker.png" id="11_poada"]
 [ext_resource type="Texture2D" uid="uid://cwttqbcmv1aet" path="res://Assets/office/backwall.png" id="13_5ls3k"]
 [ext_resource type="Texture2D" uid="uid://dgeeujn086l1f" path="res://Assets/office/pc2.png" id="14_tm3gw"]
@@ -25,6 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://b05n3m3lg3hqp" path="res://Subscenes/Items/guts_item.tscn" id="24_mhrbp"]
 [ext_resource type="PackedScene" uid="uid://c4r4310opxu44" path="res://Subscenes/Items/coffeeMedium.tscn" id="24_nkddx"]
 [ext_resource type="PackedScene" uid="uid://bokb66s75j3c1" path="res://Subscenes/Items/rubber_duck.tscn" id="25_nkddx"]
+[ext_resource type="Texture2D" uid="uid://dffn0bxh63v31" path="res://Assets/VendingMachine/Hands/HandLeft.png" id="31_xaya4"]
+[ext_resource type="Texture2D" uid="uid://dwejvy41bc5ia" path="res://Assets/VendingMachine/Hands/HandRight.png" id="32_poada"]
 [ext_resource type="Script" uid="uid://bgngysncqjt3n" path="res://Scenes/cameraTilt.gd" id="34_5ls3k"]
 [ext_resource type="Texture2D" uid="uid://c6lqbgep87b41" path="res://Assets/concepts/Circle.png" id="45_0x4kb"]
 [ext_resource type="Texture2D" uid="uid://bpargjd4vajyf" path="res://Assets/VendingMachine/GutsWheels.png" id="46_nfcrg"]
@@ -681,7 +684,7 @@ modulate = Color(0.40064454, 0.41209272, 0.45625, 1)
 texture = ExtResource("10_nfcrg")
 
 [node name="BGwallRight5" type="Sprite3D" parent="World/OfficeBG" unique_id=700342221]
-transform = Transform3D(2.799, 0, 0, 0, 2.799, 0, 0, 0, 2.799, 13.692, 11.5, -19.914)
+transform = Transform3D(2.799, 0, 0, 0, 2.799, 0, 0, 0, 2.799, 10.02579, 11.5, -19.914)
 sorting_offset = -47.836
 flip_h = true
 modulate = Color(0.40064454, 0.41209272, 0.45625, 1)
@@ -692,13 +695,39 @@ transform = Transform3D(1.327, 0, 0, 0, 1.602, 0, 0, 0, 1.1669999, -4.596, 5.083
 texture = ExtResource("13_5ls3k")
 
 [node name="wallleft3" type="Sprite3D" parent="World/OfficeBG" unique_id=1826568221]
-transform = Transform3D(2.654, 0, 0, 0, 3.118, 0, 0, 0, 1.167, -8.821, 10.543, -19.134)
+transform = Transform3D(3.35, 0, 0, 0, 3.118, 0, 0, 0, 1.167, -8.821, 10.543, -19.134)
+visible = false
+sorting_offset = -47.741
+modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
+texture = ExtResource("13_5ls3k")
+
+[node name="wallleft5" type="Sprite3D" parent="World/OfficeBG" unique_id=2143071263]
+transform = Transform3D(3.538, 0, 0, 0, 3.937, 0, 0, 0, 1.167, -7.214, 13.197, -20.015)
+sorting_offset = -47.741
+modulate = Color(0.484375, 0.484375, 0.484375, 1)
+texture = ExtResource("13_5ls3k")
+
+[node name="wallleft7" type="Sprite3D" parent="World/OfficeBG" unique_id=1754935929]
+transform = Transform3D(3.538, 0, 0, 0, 3.937, 0, 0, 0, 1.167, -0.345, 20.484, -19.623)
+sorting_offset = -47.741
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("10_poada")
+
+[node name="wallleft8" type="Sprite3D" parent="World/OfficeBG" unique_id=1390772369]
+transform = Transform3D(0.841, 0, 0, 0, -3.3496432, 0.6132256, 0, -2.0687823, -0.99289656, -2.397, 9.218, -36.356)
+sorting_offset = -47.741
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("10_poada")
+
+[node name="wallleft6" type="Sprite3D" parent="World/OfficeBG" unique_id=2119142425]
+transform = Transform3D(3.538, 0, 0, 0, 3.937, 0, 0, 0, 1.167, 6.031, 13.197, -20.047693)
 sorting_offset = -47.741
 modulate = Color(0.484375, 0.484375, 0.484375, 1)
 texture = ExtResource("13_5ls3k")
 
 [node name="wallleft4" type="Sprite3D" parent="World/OfficeBG" unique_id=1532413323]
-transform = Transform3D(2.654, 0, 0, 0, 3.118, 0, 0, 0, 1.167, 7.703, 10.543, -19.134)
+transform = Transform3D(3.379, 0, 0, 0, 3.118, 0, 0, 0, 1.167, 7.703, 10.543, -19.134)
+visible = false
 sorting_offset = -47.741
 modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
 texture = ExtResource("13_5ls3k")
@@ -973,6 +1002,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005309105, 0.0049310327, 0)
 shape = SubResource("BoxShape3D_76v2p")
 debug_color = Color(0, 18.892157, 4.8239684, 0.41960785)
 
+[node name="handLeft" type="Sprite3D" parent="Automat" unique_id=1710198803]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 14.531257, -1.965, 0)
+visible = false
+sorting_offset = 4.858
+texture = ExtResource("31_xaya4")
+
+[node name="handRight" type="Sprite3D" parent="Automat" unique_id=1552335953]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 17.729685, -1.965, 0)
+visible = false
+sorting_offset = 4.858
+texture = ExtResource("32_poada")
+
 [node name="UI Control" type="Control" parent="." unique_id=1381454070]
 layout_mode = 3
 anchors_preset = 15
@@ -1017,7 +1058,8 @@ collision_mask = 0
 script = ExtResource("52_bnwoa")
 open_hands = NodePath("../../../../Automat/openHands")
 cursor_visual_path = NodePath("../../../../MouseLayer/Mouse/Cursor")
-speed_for_min = 84.314
+speed_for_min = 50.0
+scale_smoothing = 5.0
 click_squash = 0.487
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="UI Control/Left viewport/SubViewport/CursorBody" unique_id=2035323944]
@@ -1233,10 +1275,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -366.0
-offset_top = -346.0
-offset_right = -34.0
-offset_bottom = -14.0
+offset_left = -347.0
+offset_top = -325.0
+offset_right = -50.0
+offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -1448,7 +1490,7 @@ script = ExtResource("48_vuse5")
 [node name="Cursor" type="Sprite2D" parent="MouseLayer/Mouse" unique_id=2068333559]
 z_index = 345
 position = Vector2(20.643991, 27.060059)
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("49_s0ebu")
 
 [node name="Cursor2" type="Sprite2D" parent="MouseLayer/Mouse" unique_id=1546842233]
@@ -1484,7 +1526,7 @@ shape = SubResource("BoxShape3D_nkddx")
 debug_color = Color(0, 1.0353111, 1.2160255, 1)
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="worldColliders/StaticBody3D" unique_id=1833774535]
-transform = Transform3D(1, 0, 0, 0, 0.07845908, 0.99691725, 0, -0.99691725, 0.07845908, 1.2838745, -2.711276, -12.386996)
+transform = Transform3D(1, 0, 0, 0, 0.07845908, 0.99691725, 0, -0.99691725, 0.07845908, 1.2838745, -4.2873545, -12.386996)
 shape = SubResource("BoxShape3D_nkddx")
 debug_color = Color(0, 1.0353111, 1.2160255, 1)
 
