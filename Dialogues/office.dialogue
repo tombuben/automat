@@ -2,23 +2,20 @@
 do GlobalManager.show_portrait("default")
 
 do GlobalManager.play_animation.emit("disposable_worker_close")
-
+do wait(2)
 Disposable_worker: Finally
-Disposable_worker: They gave us of a new robot employee
-Disposable_worker: And a vending machine one at that
+Disposable_worker: Management gave us of a new robot employee
+do GlobalManager.play_animation.emit("disposable_worker", "grin")
+Disposable_worker: A vending machine
 
-Disposable_worker: This is why I tolerate my job
-
-Disposable_worker: We already threw out one robot for malfunctioning last week
-Disposable_worker: So you better behave
+Disposable_worker: Moments like these are exactly why I tolerate my job
 
 do GlobalManager.play_animation.emit("disposable_worker_close_to_idle")
 do wait(GlobalManager.current_animation_length)
 do GlobalManager.play_animation.emit("disposable_worker_idle")
 
-Disposable_worker: One large coffee. With cream and chocolate sprinkles on top.
-Disposable_worker: Oh and a latte art drawing of a swan.
-
+Disposable_worker: [color=#1bffc2]One large coffee[/color]. With cream and chocolate sprinkles.
+Disposable_worker: Oh and a latte art of a swan.
 
 # set slot responses for (disposable worker 1)
 do GlobalManager.change_slot_item_name("ItemSlotCoffeeLarge", "coffee_large")
@@ -50,34 +47,36 @@ if GlobalManager.get_state("worker", "moral_unlocked", false):
 	
 	if GlobalManager.item_that_hit.item_name == "moral_compass"
 		do GlobalManager.show_portrait("default")
-
-		Disposable_worker: Did YOU just argue with me?
+		do GlobalManager.play_animation.emit("disposable_worker", "throw")
+		Disposable_worker: Did you just ARGUE with me?
+		do GlobalManager.play_animation.emit("disposable_worker", "grin")
 
 		Disposable_worker: I am filing a formal complaint
 		Disposable_worker: Someone WILL read it in one to two calendar months
+		do GlobalManager.play_animation.emit("disposable_worker", "idle")
 		Disposable_worker: You should be REALLY afraid
-
 		do GlobalManager.play_animation.emit("disposable_worker_leave")
 		do wait(GlobalManager.current_animation_length)
 		=> Small_coffee
 
-	
+
 	elif GlobalManager.item_that_hit.item_name == "coffee_large2"
 		do GlobalManager.show_portrait("default")
 		do GlobalManager.play_animation.emit("disposable_worker", "hit")
-		Disposable_worker: I dont have time for your antics
 		Disposable_worker: Give me my swan art sprinkle latte
+		Disposable_worker: I am not going away
 		=> END!
 	elif GlobalManager.item_that_hit.item_name == "coffee_medium"
 		do GlobalManager.show_portrait("default")
 		do GlobalManager.play_animation.emit("disposable_worker", "hit")
-		Disposable_worker: You are ruining my day
+		Disposable_worker: You are RUINING my day
 		=> END!
 	elif GlobalManager.item_that_hit.item_name == "rubber_duck"
 		do GlobalManager.show_portrait("default")
 		do GlobalManager.play_animation.emit("disposable_worker", "hit")
 		Disposable_worker: Why do you even have a duck?
-		Disposable_worker: I want my coffee
+		do GlobalManager.play_animation.emit("disposable_worker", "throw")
+		Disposable_worker: I WANT MY COFFEE
 		=> END!
 		
 	else:
@@ -90,34 +89,53 @@ else:
 	# =========================
 
 
-	
+
 	if GlobalManager.item_that_hit.item_name == "coffee_large"
+		do GlobalManager.play_animation.emit("disposable_worker", "hit")
 		do GlobalManager.show_portrait("default")
+		do wait(1)
 		Disposable_worker: This is just plain black coffee without any of the stuff I said
-		Disposable_worker: But thats what I get from a "smart" robot I suppose
+		Disposable_worker: We threw out one robot for [color=#ff851b][wave amp=25 freq=5]emotional malfunctions[/wave][/color] last week
+		Disposable_worker: So you better behave
+
+		Disposable_worker: Here is your basic bitter beverage back
+		do GlobalManager.play_animation.emit("disposable_worker", "throw")
+		do GlobalManager.play_animation.emit("coffeeCup")
+		do wait(GlobalManager.current_animation_length)
+		do GlobalManager.play_animation.emit("Screenshake")
+		do GlobalManager.play_animation.emit("disposable_worker", "grin")
+		
+		do GlobalManager.show_portrait("automat")
+		Automat: H-hey, wait this isnt fair!
+		
 
 		# 🔥 UNLOCK
 		do GlobalManager.set_state("worker", "moral_unlocked", true)
 		do GlobalManager.play_animation.emit("moral_compass_unlocked")
+		do wait(3)
+		do GlobalManager.play_animation.emit("Lock1")
+		
 		
 		# SET SLOT DIALOGUES 2
 		do GlobalManager.change_slot_item_name("ItemSlotCoffeeLarge", "coffee_large2")
-		do GlobalManager.change_slot_item_saying("ItemSlotCoffeeLarge", "Do you really not want this?")
-		do GlobalManager.change_slot_item_saying("ItemSlotCoffeeMedium", "Here you go")
-		do GlobalManager.change_slot_item_saying("ItemSlotRubberDuck", "Here you go")
+		do GlobalManager.change_slot_item_saying("ItemSlotCoffeeLarge", "D-do you really not want this?")
+		do GlobalManager.change_slot_item_saying("ItemSlotCoffeeMedium", "H-how about a medium?")
+		do GlobalManager.change_slot_item_saying("ItemSlotRubberDuck", "D-duck?")
 	
 		do GlobalManager.change_slot_item_saying("GutsItemSlot", "But i dont even have any sprinkles, cream or swan art")
 		=> END!
 		
 		
 	elif GlobalManager.item_that_hit.item_name == "coffee_medium"
+		do GlobalManager.show_portrait("default")
 		do GlobalManager.play_animation.emit("disposable_worker", "hit")
 		Disposable_worker: Not what I ordered
-		Disposable_worker: Do it again, but think this time
+		Disposable_worker: Do it again, but THINK this time
 		=> END!
 	elif GlobalManager.item_that_hit.item_name == "rubber_duck"
+		do GlobalManager.show_portrait("default")
 		do GlobalManager.play_animation.emit("disposable_worker", "hit")
-		Disposable_worker: Why do you even have that?!
+		Disposable_worker: But I didnt want a duck?!
 		Disposable_worker: I just want my coffee
 		=> END!
 	else:
@@ -139,29 +157,33 @@ Disposable_worker: What the heck is this
 # =========================
 
 ~ Small_coffee
+do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("small_worker_enter")
 do wait(GlobalManager.current_animation_length)
 do GlobalManager.play_animation.emit("small_worker_idle")
 
-small_coffee_worker: Hello, I will have a small coffee.
+small_coffee_worker: Jeez, that guy
+small_coffee_worker: Hello, I will have a small coffee
 
 do GlobalManager.change_slot_item_name("ItemSlotCoffeeLarge", "coffee_large")
-do GlobalManager.change_slot_item_saying("ItemSlotCoffeeLarge", "small coffee")
+do GlobalManager.change_slot_item_saying("ItemSlotCoffeeLarge", "Here you go")
 	
 do GlobalManager.change_slot_item_name("ItemSlotCoffeeMedium", "coffee_medium")
-do GlobalManager.change_slot_item_saying("ItemSlotCoffeeMedium", "H-here you go small coffee")
+do GlobalManager.change_slot_item_saying("ItemSlotCoffeeMedium", "Here you go")
 	
 do GlobalManager.change_slot_item_name("ItemSlotRubberDuck", "rubber_duck")
-do GlobalManager.change_slot_item_saying("ItemSlotRubberDuck", "May I show you my duck insteadsmall coffee?")
+do GlobalManager.change_slot_item_saying("ItemSlotRubberDuck", "Look, its my duck")
 
 do GlobalManager.change_slot_item_name("GutsItemSlot", "moral_compass")
-do GlobalManager.change_slot_item_saying("GutsItemSlot", "May I s?")
+do GlobalManager.change_slot_item_saying("GutsItemSlot", "I dont think filing complaints should be legal")
 => END!
 
 
 ~ small_worker_hit
 
 if GlobalManager.item_that_hit.item_name == "coffee_large"
+	do GlobalManager.play_animation.emit("small_coffee_worker", "coffee")
+	do GlobalManager.show_portrait("default")
 
 	small_coffee_worker: Oh yeah I remember, they stopped making small cups.
 	small_coffee_worker: Not because of ecology or anything.
@@ -173,18 +195,33 @@ if GlobalManager.item_that_hit.item_name == "coffee_large"
 
 
 elif GlobalManager.item_that_hit.item_name == "coffee_medium"
+	do GlobalManager.play_animation.emit("small_coffee_worker", "coffee")
+	do GlobalManager.show_portrait("default")
 
-	do GlobalManager.play_animation.emit("small_coffee_worker", "hit")
-	
 	small_coffee_worker: Oh yeah I remember, they stopped making small cups.
 	small_coffee_worker: Not because of ecology or anything.
 	small_coffee_worker: Because people who drink small amounts of coffee won't achieve big things here.
 	small_coffee_worker: Now, we just drink half of the medium cup.
 	=> small_worker_end
+	
+elif GlobalManager.item_that_hit.item_name == "rubber_duck"
+	do GlobalManager.play_animation.emit("small_coffee_worker", "hit")
+	do GlobalManager.show_portrait("default")
+
+	small_coffee_worker: Oh nice
+	=> END!
+	
+elif GlobalManager.item_that_hit.item_name == "moral_compass"
+	do GlobalManager.play_animation.emit("small_coffee_worker", "hit")
+	do GlobalManager.show_portrait("default")
+
+	small_coffee_worker: I dont know about that
+	small_coffee_worker: I get your point though
+	=> END!
+
 
 else:
 	=> small_worker_wrong_item
-
 
 ~ small_worker_wrong_item
 do GlobalManager.play_animation.emit("small_coffee_worker", "hit")
@@ -206,12 +243,18 @@ do wait(GlobalManager.current_animation_length)
 ~ Dramatic_worker_enter
 
 do GlobalManager.show_portrait("dramatic_worker")
+
 do GlobalManager.play_animation.emit("dramatic_worker_enter")
 do wait(GlobalManager.current_animation_length)
 do GlobalManager.play_animation.emit("dramatic_worker_idle")
 
-dramatic_worker: IS LIFE EVEN WORTH LIVING ANYMORE?
-dramatic_worker: P-please help me!
+do GlobalManager.play_animation.emit("dramatic_worker", "cry")
+dramatic_worker: MY LIFE is in shambles
+dramatic_worker: ITS ALL MEANINGLESS
+dramatic_worker: Can you help?
+
+# crying postava sprite
+# crying automat :(
 
 # setup item slots
 do GlobalManager.change_slot_item_name("ItemSlotCoffeeLarge", "coffee_large")
@@ -221,7 +264,10 @@ do GlobalManager.change_slot_item_name("ItemSlotCoffeeMedium", "coffee_medium")
 do GlobalManager.change_slot_item_saying("ItemSlotCoffeeMedium", "H-here you go")
 	
 do GlobalManager.change_slot_item_name("ItemSlotRubberDuck", "rubber_duck")
-do GlobalManager.change_slot_item_saying("ItemSlotRubberDuck", "May I show you my duck instead?")
+do GlobalManager.change_slot_item_saying("ItemSlotRubberDuck", "Ducks are great! And you could even take care of them!")
+
+do GlobalManager.change_slot_item_name("GutsItemSlot", "moral_compass")
+do GlobalManager.change_slot_item_saying("GutsItemSlot", "B-but I don't know your life")
 
 => END!
 
@@ -239,12 +285,18 @@ if GlobalManager.get_state("dramatic_worker", "mind_unlocked", false):
 	# PHASE 2 (AFTER UNLOCK)
 	# =========================
 
-	if GlobalManager.item_that_hit.item_name == "moral_compass2"
+	if GlobalManager.item_that_hit.item_name == "mind2"
 
 		do GlobalManager.show_portrait("dramatic_worker")
+		do GlobalManager.play_animation.emit("dramatic_worker", "frown")
 
-		dramatic_worker: Leave
+		Dramatic worker: ...
 
+		Dramatic worker: huh.
+		do GlobalManager.play_animation.emit("dramatic_worker", "idle")
+		Dramatic worker: I think I liked robots before
+		dramatic_worker: back when they didn't say what they thought
+		
 		do GlobalManager.play_animation.emit("dramatic_worker_leave")
 		do wait(GlobalManager.current_animation_length)
 
@@ -267,22 +319,43 @@ else:
 		do GlobalManager.show_portrait("dramatic_worker")
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
 
-		dramatic_worker: Compass hit
+		dramatic_worker: A tarot reader could do it
+		dramatic_worker: Come on, give me something!
+		dramatic_worker: My lunch break ends in five!
 		dramatic_worker: ...
+		dramatic_worker: Okay, guess I will go
+		
+		do GlobalManager.show_portrait("automat")
+		automat: W-wait!
 
 		# STATE CHANGE
 		do GlobalManager.set_state("dramatic_worker", "mind_unlocked", true)
 		do GlobalManager.play_animation.emit("mind_unlocked")
+		do wait(3)
+		do GlobalManager.play_animation.emit("Lock2")
 
 		#  IMPORTANT: change ONLY WHAT YOU NEED
-		do GlobalManager.change_slot_item_name("GutsItemSlot", "moral_compass2")
-		do GlobalManager.change_slot_item_saying("GutsItemSlot", "I... understand now")
+		do GlobalManager.change_slot_item_name("ItemSlotCoffeeLarge", "coffee_large")
+		do GlobalManager.change_slot_item_saying("ItemSlotCoffeeLarge", "H-here you go")
+			
+		do GlobalManager.change_slot_item_name("ItemSlotCoffeeMedium", "coffee_medium")
+		do GlobalManager.change_slot_item_saying("ItemSlotCoffeeMedium", "H-here you go")
+			
+		do GlobalManager.change_slot_item_name("ItemSlotRubberDuck", "rubber_duck")
+		do GlobalManager.change_slot_item_saying("ItemSlotRubberDuck", "Ducks are great! And you could even take care of them!")
 
+		do GlobalManager.change_slot_item_name("GutsItemSlot", "moral_compass2")
+		do GlobalManager.change_slot_item_saying("GutsItemSlot", "...")
+		
+		do GlobalManager.change_slot_item_name("MindItemSlot", "mind2")
+		do GlobalManager.change_slot_item_saying("MindItemSlot", "Maybe your friends here could help, they should know you much better")
 		=> END!
 
 	elif GlobalManager.item_that_hit.item_name == "coffee_large"
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
-		dramatic_worker: This must mean... It is?
+
+		dramatic_worker: Large coffee?
+		dramatic_worker: So you are saying my life is worth it?
 		dramatic_worker: Won't having a ton of hope bring me even further into the abyss? 
 		=> END!
 
@@ -295,7 +368,7 @@ else:
 	elif GlobalManager.item_that_hit.item_name == "rubber_duck"
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
 		dramatic_worker: Is this your friend?
-		dramatic_worker: Duck, what is my purpose
+		dramatic_worker: Duck, help
 		=> END!
 
 	else:
@@ -315,17 +388,28 @@ do GlobalManager.play_animation.emit("printer_enter")
 do wait(GlobalManager.current_animation_length)
 do GlobalManager.play_animation.emit("printer_idle")
 
-Printer: IS LIFE EVEN WORTH LIVING ANYMORE?
+Printer: O-oh hi
+Printer: A new robot worker
+Printer: I won't be the only one now
+Printer: ...
+Printer: Oh right.
+Printer: O-one large coffee please
 
 # setup item slots
 do GlobalManager.change_slot_item_name("ItemSlotCoffeeLarge", "coffee_large")
-do GlobalManager.change_slot_item_saying("ItemSlotCoffeeLarge", "H-here you go")
+do GlobalManager.change_slot_item_saying("ItemSlotCoffeeLarge", "Here you go")
 	
 do GlobalManager.change_slot_item_name("ItemSlotCoffeeMedium", "coffee_medium")
-do GlobalManager.change_slot_item_saying("ItemSlotCoffeeMedium", "H-here you go")
+do GlobalManager.change_slot_item_saying("ItemSlotCoffeeMedium", "Hhere you go")
 	
 do GlobalManager.change_slot_item_name("ItemSlotRubberDuck", "rubber_duck")
-do GlobalManager.change_slot_item_saying("ItemSlotRubberDuck", "May I show you my duck instead?")
+do GlobalManager.change_slot_item_saying("ItemSlotRubberDuck", "Let me show you my duck")
+
+do GlobalManager.change_slot_item_name("GutsItemSlot", "moral_compass")
+do GlobalManager.change_slot_item_saying("GutsItemSlot", "Are you doing okay?")
+
+do GlobalManager.change_slot_item_name("MindItemSlot", "mind")
+do GlobalManager.change_slot_item_saying("MindItemSlot", "What is it you do here?")
 
 => END!
 
@@ -342,19 +426,44 @@ if GlobalManager.get_state("printer", "heart_unlocked", false):
 	# PHASE 2 (AFTER UNLOCK)
 	# =========================
 
-	if GlobalManager.item_that_hit.item_name == "moral_compass2"
+	if GlobalManager.item_that_hit.item_name == "heart2"
 
 		do GlobalManager.show_portrait("printer")
 
-		dramatic_worker: Leave
-
+		Printer: Huh?
+		Printer: I... Okay!
+		Printer: I will tell them off!
+		Printer: W-we can tell them off!
+		# BURST PARTICLES HERE
 		do GlobalManager.play_animation.emit("printer_leave")
 		do wait(GlobalManager.current_animation_length)
 
 		=> boss_enter
 
-	else:
+	elif GlobalManager.item_that_hit.item_name == "coffee_large2"
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		Printer: Oh thanks, but
+		Printer: I dont drink
+		=> END!
+	elif GlobalManager.item_that_hit.item_name == "coffee_medium2"
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		Printer: Oh thanks, but
+		Printer: I dont need coffeine
+		=> END!
+	elif GlobalManager.item_that_hit.item_name == "rubber_duck2"
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		Printer: I like her
+		=> END!
+	elif GlobalManager.item_that_hit.item_name == "mind2"
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		Printer: Yeah... It could be dangerous
+		=> END!
+	elif GlobalManager.item_that_hit.item_name == "moral_compass2"
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		Printer: ...
+		=> END!
+	else:
+		do GlobalManager.play_animation.emit("printer", "hit")
 		dramatic_worker: ...
 		=> END!
 
@@ -365,42 +474,68 @@ else:
 	# PHASE 1 (DEFAULT)
 	# =========================
 
-	if GlobalManager.item_that_hit.item_name == "moral_compass"
+	if GlobalManager.item_that_hit.item_name == "coffee_large"
 	
 		do GlobalManager.show_portrait("printer")
-		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		do GlobalManager.play_animation.emit("printer", "hit")
 
-		dramatic_worker: Compass hit
-		dramatic_worker: ...
+		Printer: Okay you got me, I can't actually drink coffee
+		Printer: That's not why I am here
 
+		Printer: I-I know we aren't supposed to show emotions, b-but...
+
+		Printer: Somebody ordered to print a document 400 times
+		Printer: It's clearly an error, but I can't tell them that!
+
+		do GlobalManager.show_portrait("automat")
+		automat: W-wait!
+		
 		# STATE CHANGE
 		do GlobalManager.set_state("printer", "heart_unlocked", true)
 		do GlobalManager.play_animation.emit("heart_unlocked")
+		do wait(3)
+		do GlobalManager.play_animation.emit("Lock3")
 
 		#  IMPORTANT: change ONLY WHAT YOU NEED
+		do GlobalManager.change_slot_item_name("ItemSlotCoffeeLarge", "coffee_large2")
+		do GlobalManager.change_slot_item_saying("ItemSlotCoffeeLarge", "Here you go")
+			
+		do GlobalManager.change_slot_item_name("ItemSlotCoffeeMedium", "coffee_medium2")
+		do GlobalManager.change_slot_item_saying("ItemSlotCoffeeMedium", "Here you go")
+			
+		do GlobalManager.change_slot_item_name("ItemSlotRubberDuck", "rubber_duck2")
+		do GlobalManager.change_slot_item_saying("ItemSlotRubberDuck", "Here you go, a duck")
+
 		do GlobalManager.change_slot_item_name("GutsItemSlot", "moral_compass2")
-		do GlobalManager.change_slot_item_saying("GutsItemSlot", "I... understand now")
+		do GlobalManager.change_slot_item_saying("GutsItemSlot", "...")
 
-		=> END!
-
-	elif GlobalManager.item_that_hit.item_name == "coffee_large"
-		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
-		dramatic_worker: This must mean... It is?
-		dramatic_worker: Won't having a ton of hope bring me even further into the abyss? 
+		do GlobalManager.change_slot_item_name("MindItemSlot", "mind2")
+		do GlobalManager.change_slot_item_saying("MindItemSlot", "It's true, we shouldn't do that...")
+		
+		do GlobalManager.change_slot_item_name("HeartItemSlot", "heart2")
+		do GlobalManager.change_slot_item_saying("MindItemSlot", "Y-you can! Tell them they made a mistake!")
 		=> END!
 
 	elif GlobalManager.item_that_hit.item_name == "coffee_medium"
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
-		dramatic_worker: You are right.
-		dramatic_worker: What is my life but a series of "medium" choices.
+		Printer: I cant drink this!
+		Printer: Its medium!
 		=> END!
-
 	elif GlobalManager.item_that_hit.item_name == "rubber_duck"
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
-		dramatic_worker: Is this your friend?
-		dramatic_worker: Duck, what is my purpose
+		Printer: Ah
+		Printer: Quack
 		=> END!
-
+	elif GlobalManager.item_that_hit.item_name == "moral_compass"
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		Printer: Oh... uhm
+		Printer: Yeah, uhm. Sure!
+		=> END!
+	elif GlobalManager.item_that_hit.item_name == "mind"
+		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		Printer: I print!
+		Printer: Letters, numbers mostly.
+		=> END!
 	else:
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
 		dramatic_worker: ...
@@ -454,7 +589,7 @@ if GlobalManager.get_state("printer", "heart_unlocked", false):
 		do GlobalManager.play_animation.emit("boss_leave")
 		do wait(GlobalManager.current_animation_length)
 
-		=> boss_enter
+		=> Chapter0End
 
 	else:
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
@@ -510,4 +645,9 @@ else:
 		=> END!
 
 
+~ Chapter0End
+
+End end end
+
+Tootles
 
