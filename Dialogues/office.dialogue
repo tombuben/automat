@@ -348,7 +348,7 @@ else:
 		do GlobalManager.change_slot_item_saying("GutsItemSlot", "...")
 		
 		do GlobalManager.change_slot_item_name("MindItemSlot", "mind2")
-		do GlobalManager.change_slot_item_saying("MindItemSlot", "Maybe your friends here could help, they should know you much better")
+		do GlobalManager.change_slot_item_saying("MindItemSlot", "Maybe your friends could help you, they must know you much better!")
 		=> END!
 
 	elif GlobalManager.item_that_hit.item_name == "coffee_large"
