@@ -41,11 +41,12 @@ func has_state(character_name: String, key: String) -> bool:
 
 
 # -----------------------------
-# PORTRAITS (NEW 🔥)
+# PORTRAITS
 # -----------------------------
 var character_portraits: Dictionary = {
 	"drowning_person": preload("res://portraits/drowning_person.png"),
 	"automat": preload("res://portraits/automat.png"),
+	"automatSad": preload("res://portraits/automatSad.png"),
 	"default": preload("res://portraits/default.png"),
 }
 

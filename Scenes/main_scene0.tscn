@@ -1344,7 +1344,7 @@ texture = ExtResource("15_5ls3k")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.067283, 0, 0)
 
 [node name="openHands" type="AnimatedSprite3D" parent="Automat" unique_id=404451573]
-transform = Transform3D(0.146, 0, 0, 0, 0.146, 0, 0, 0, 0.146, 0.01, 0.732, -2.104)
+transform = Transform3D(0.135, 0, 0, 0, 0.135, 0, 0, 0, 0.135, 0.002, 0.739, -2.104)
 sorting_offset = 3.886
 sprite_frames = SubResource("SpriteFrames_tscpr")
 animation = &"close_hand"

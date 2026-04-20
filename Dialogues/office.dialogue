@@ -429,10 +429,12 @@ if GlobalManager.get_state("printer", "heart_unlocked", false):
 	if GlobalManager.item_that_hit.item_name == "heart2"
 
 		do GlobalManager.show_portrait("printer")
-
+		do GlobalManager.play_animation.emit("printer", "idle")
 		Printer: Huh?
+		do GlobalManager.play_animation.emit("printer", "happy")
 		Printer: I... Okay!
 		Printer: I will tell them off!
+		do GlobalManager.play_animation.emit("printer", "super_happy")
 		Printer: W-we can tell them off!
 		do GlobalManager.play_animation.emit("printer_particles")
 		Printer: PRRRRRRRR
@@ -446,27 +448,39 @@ if GlobalManager.get_state("printer", "heart_unlocked", false):
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
 		Printer: Oh thanks, but
 		Printer: I dont drink
+		do GlobalManager.play_animation.emit("printer", "sad")
+
 		=> END!
 	elif GlobalManager.item_that_hit.item_name == "coffee_medium2"
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
 		Printer: Oh thanks, but
 		Printer: I dont need coffeine
+		do GlobalManager.play_animation.emit("printer", "sad")
+
 		=> END!
 	elif GlobalManager.item_that_hit.item_name == "rubber_duck2"
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
 		Printer: I like her
+		do GlobalManager.play_animation.emit("printer", "sad")
+
 		=> END!
 	elif GlobalManager.item_that_hit.item_name == "mind2"
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
 		Printer: Yeah... It could be dangerous
+		do GlobalManager.play_animation.emit("printer", "sad")
+
 		=> END!
 	elif GlobalManager.item_that_hit.item_name == "moral_compass2"
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
 		Printer: ...
+		do GlobalManager.play_animation.emit("printer", "sad")
+
 		=> END!
 	else:
 		do GlobalManager.play_animation.emit("printer", "hit")
 		dramatic_worker: ...
+		do GlobalManager.play_animation.emit("printer", "sad")
+
 		=> END!
 
 
@@ -487,6 +501,7 @@ else:
 		Printer: I-I know we aren't supposed to show emotions, b-but...
 
 		Printer: Somebody ordered to print a document 400 times
+		do GlobalManager.play_animation.emit("printer", "sad")
 		Printer: It's clearly an error, but I can't tell them that!
 
 		do GlobalManager.show_portrait("automat")
@@ -543,7 +558,6 @@ else:
 		dramatic_worker: ...
 		=> END!
 
-
 # =========================
 # BOSS
 # =========================
@@ -564,7 +578,7 @@ boss: It hammers nails, it fullfills its duty
 boss: You on the other hand
 boss: Are WORTHLESS
 
-do GlobalManager.show_portrait("automat")
+do GlobalManager.show_portrait("automatSad")
 automat: ...
 do GlobalManager.show_portrait("default")
 boss: Do the ONLY thing you are good for and give me a large coffee
@@ -599,9 +613,8 @@ do GlobalManager.change_slot_item_saying("HeartItemSlot", "S-sorry I...")
 if GlobalManager.item_that_hit.item_name == "coffee_large"
 	do GlobalManager.play_animation.emit("boss", "coffee")
 	do GlobalManager.show_portrait("boss")
-
 	boss: ...
-	do GlobalManager.show_portrait("automat")
+	do GlobalManager.show_portrait("automatSad")
 	automat: ...
 	do GlobalManager.show_portrait("boss")
 	boss: You are done
