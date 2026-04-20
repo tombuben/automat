@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dqwjm0kc3yjg8" path="res://Subscenes/NPCs/dramatic_worker.tscn" id="5_fcgxk"]
 [ext_resource type="Texture2D" uid="uid://dbqd8w6ix0drb" path="res://Assets/VendingMachine/VendingMachine.png" id="5_u40t6"]
 [ext_resource type="Texture2D" uid="uid://cl3e5pg8gmwjd" path="res://Assets/VendingMachine/automatFace.png" id="6_35gkj"]
+[ext_resource type="Texture2D" uid="uid://jhhglfdduxhd" path="res://Assets/office/paper.png" id="6_urueq"]
 [ext_resource type="Script" uid="uid://0fdvigrrpcro" path="res://Scenes/cursorFollow.gd" id="7_xiox5"]
 [ext_resource type="Texture2D" uid="uid://cmq5qxhnvxum" path="res://Assets/VendingMachine/handsClosed.png" id="8_oq737"]
 [ext_resource type="Texture2D" uid="uid://df66jds18h6ap" path="res://Assets/office/officeBG.png" id="9_fcgxk"]
@@ -42,6 +43,7 @@
 [ext_resource type="Script" uid="uid://dsalx1r160eac" path="res://Scripts/cursor_object.gd" id="52_bnwoa"]
 [ext_resource type="Script" uid="uid://c56o0l1eo5f5k" path="res://Scripts/world_view.gd" id="53_2lywu"]
 [ext_resource type="Resource" uid="uid://xf8o45qv2si4" path="res://Dialogues/office.dialogue" id="53_h3hn5"]
+[ext_resource type="Texture2D" uid="uid://rwo21uam78fk" path="res://Assets/VendingMachine/godImage.png" id="53_t7s67"]
 [ext_resource type="Material" uid="uid://c3ekxbf7k4sdl" path="res://Assets/Vignette.tres" id="54_p3h2o"]
 [ext_resource type="PackedScene" uid="uid://cci8wr48xkh26" path="res://Subscenes/hand_selection_ui.tscn" id="55_ofv8d"]
 [ext_resource type="FontFile" uid="uid://cvd5j8d7y4hxx" path="res://Assets/WinkySans-VariableFont_wght.ttf" id="55_u2p72"]
@@ -58,7 +60,13 @@
 [ext_resource type="Texture2D" uid="uid://cwm1uv2t3slbv" path="res://Assets/VendingMachine/linesAutomatUI.png" id="74_rdwxf"]
 [ext_resource type="Texture2D" uid="uid://1feiibfio4bs" path="res://Assets/VendingMachine/uiHolderAutomat.png" id="75_j8xoi"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t7s67"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("6_urueq")
+
 [sub_resource type="QuadMesh" id="QuadMesh_oqhaq"]
+material = SubResource("StandardMaterial3D_t7s67")
 
 [sub_resource type="Environment" id="Environment_lhp3t"]
 background_mode = 1
@@ -249,6 +257,94 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+
+[sub_resource type="Animation" id="Animation_conat"]
+resource_name = "Cinematic0"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI Control/CinematicEnd/OFFLINE:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.49726248, 1.0241885),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI Control/CinematicEnd/OFFLINE6:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.0591216, 1.6557714),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UI Control/CinematicEnd/OFFLINE2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.6845567, 2.3044243),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI Control/CinematicEnd/OFFLINE3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.3233793, 3.038426),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI Control/CinematicEnd/OFFLINE4:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.047402, 3.6956139),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("UI Control/CinematicEnd/OFFLINE5:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3.7068272, 4.2418475),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("UI Control/CinematicEnd/OFFLINE7:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 4.105289),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_l1vum"]
 resource_name = "Lock1"
@@ -853,6 +949,22 @@ tracks/0/keys = {
 "values": [Vector3(-20.018, 0.802, 0.972), Vector3(-29.254, 0.802, 0.972)]
 }
 
+[sub_resource type="Animation" id="Animation_stn0f"]
+resource_name = "printer_particles"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("World/Characters/Printer/CPUParticles3D2:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.30864382, 5.0226474),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
 [sub_resource type="Animation" id="Animation_fcgxk"]
 resource_name = "small_worker_enter"
 tracks/0/type = "value"
@@ -901,6 +1013,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lhp3t"]
 _data = {
+&"Cinematic0": SubResource("Animation_conat"),
 &"Lock1": SubResource("Animation_l1vum"),
 &"Lock2": SubResource("Animation_ch638"),
 &"Lock3": SubResource("Animation_vtxsy"),
@@ -927,6 +1040,7 @@ _data = {
 &"printer_enter": SubResource("Animation_urueq"),
 &"printer_idle": SubResource("Animation_h3hn5"),
 &"printer_leave": SubResource("Animation_t7s67"),
+&"printer_particles": SubResource("Animation_stn0f"),
 &"small_worker_enter": SubResource("Animation_fcgxk"),
 &"small_worker_idle": SubResource("Animation_qo0gs"),
 &"small_worker_leave": SubResource("Animation_5ls3k")
@@ -961,8 +1075,8 @@ hitstop_duration = 0.029
 hitstop_scale = 0.297
 
 [node name="CoffeeCup" type="Sprite3D" parent="World/Characters/Disposable_worker" unique_id=126945428]
-transform = Transform3D(0.5601482, 0.21502072, 0, -0.21502072, 0.5601482, 0, 0, 0, 0.6, 0.821, 0.099, 0)
-sorting_offset = 6.315
+transform = Transform3D(0.5601482, 0.2150207, 0, -0.2150207, 0.5601482, 0, 0, 0, 0.6, 0.821, 0.099, 0)
+sorting_offset = 80.0
 modulate = Color(1, 1, 1, 0)
 texture = ExtResource("2_vyhah")
 
@@ -971,13 +1085,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.612469, 16.472914, 0)
 
 [node name="Boss" parent="World/Characters" unique_id=830950824 instance=ExtResource("3_xaya4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.909, 1.22, 0.847)
-person_name = "angry_worker"
 
 [node name="Printer" parent="World/Characters" unique_id=2018004010 instance=ExtResource("3_nfcrg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.254, 0.802, 0.972)
 
 [node name="CPUParticles3D2" type="CPUParticles3D" parent="World/Characters/Printer" unique_id=2125974410]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.074410915)
+sorting_offset = 15.283
+emitting = false
+amount = 51
+lifetime = 10.0
+one_shot = true
+speed_scale = 2.45
 mesh = SubResource("QuadMesh_oqhaq")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(1, 3.241, 0)
+spread = 106.24
+gravity = Vector3(0, 0, 0)
+radial_accel_max = 2.0
 
 [node name="dramatic_worker" parent="World/Characters" unique_id=973186517 instance=ExtResource("5_fcgxk")]
 
@@ -1948,6 +2074,170 @@ theme_override_fonts/font = ExtResource("55_u2p72")
 theme_override_font_sizes/font_size = 45
 text = "drag items"
 vertical_alignment = 1
+
+[node name="CinematicEnd" type="CanvasLayer" parent="UI Control" unique_id=915110122]
+layer = 101
+
+[node name="OFFLINE" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=1869327280]
+visible = false
+top_level = true
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.001
+offset_left = 2.0
+offset_right = -5.0
+offset_bottom = -0.080078125
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="UI Control/CinematicEnd/OFFLINE" unique_id=1283194179]
+z_index = 500
+layout_mode = 0
+offset_left = 622.0
+offset_top = 410.0
+offset_right = 1307.0
+offset_bottom = 657.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("55_u2p72")
+theme_override_font_sizes/font_size = 185
+text = "OFFLINE"
+vertical_alignment = 1
+
+[node name="OFFLINE6" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=1884750070]
+visible = false
+top_level = true
+z_index = 2
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.001
+offset_left = 2.0
+offset_right = -5.0
+offset_bottom = -0.080078125
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="UI Control/CinematicEnd/OFFLINE6" unique_id=1307205039]
+z_index = 499
+layout_mode = 0
+offset_left = 211.0
+offset_top = 410.0
+offset_right = 1732.0
+offset_bottom = 657.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("55_u2p72")
+theme_override_font_sizes/font_size = 185
+text = "TRYING TO CONNECT"
+vertical_alignment = 1
+
+[node name="OFFLINE2" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=387449438]
+visible = false
+top_level = true
+z_index = 3
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.001
+offset_left = 2.0
+offset_right = -5.0
+offset_bottom = -0.080078125
+mouse_filter = 2
+color = Color(0.26755857, 0.83125, 0.4930352, 1)
+
+[node name="Label" type="Label" parent="UI Control/CinematicEnd/OFFLINE2" unique_id=597510913]
+z_index = 500
+layout_mode = 0
+offset_left = 236.0
+offset_top = 327.0
+offset_right = 1736.0
+offset_bottom = 753.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("55_u2p72")
+theme_override_font_sizes/font_size = 254
+text = "SYSTEM DOWN"
+vertical_alignment = 1
+
+[node name="OFFLINE3" type="TextureRect" parent="UI Control/CinematicEnd" unique_id=63943490]
+visible = false
+z_index = 4
+offset_left = 149.73132
+offset_right = 1764.3285
+offset_bottom = 1082.0
+texture = ExtResource("53_t7s67")
+
+[node name="OFFLINE" type="ColorRect" parent="UI Control/CinematicEnd/OFFLINE3" unique_id=1941174025]
+top_level = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.001
+offset_left = 2.0
+offset_right = -5.0
+offset_bottom = -0.080078125
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="OFFLINE4" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=533409040]
+visible = false
+top_level = true
+z_index = 5
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.001
+offset_left = 2.0
+offset_right = -5.0
+offset_bottom = -0.080078125
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="UI Control/CinematicEnd/OFFLINE4" unique_id=567591858]
+z_index = 500
+layout_mode = 0
+offset_left = 823.0
+offset_top = 410.0
+offset_right = 1143.0
+offset_bottom = 657.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("55_u2p72")
+theme_override_font_sizes/font_size = 185
+text = "HEY"
+vertical_alignment = 1
+
+[node name="OFFLINE5" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=1204457280]
+visible = false
+top_level = true
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.001
+offset_left = 2.0
+offset_right = -5.0
+offset_bottom = -0.080078125
+mouse_filter = 2
+color = Color(0.26666668, 0.83137256, 0.49411765, 1)
+
+[node name="Label" type="Label" parent="UI Control/CinematicEnd/OFFLINE5" unique_id=1141402420]
+modulate = Color(0, 0, 0, 1)
+z_index = 500
+layout_mode = 0
+offset_left = 466.0
+offset_top = 353.0
+offset_right = 1471.0
+offset_bottom = 724.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("55_u2p72")
+theme_override_font_sizes/font_size = 278
+text = "WAKE UP"
+vertical_alignment = 1
+
+[node name="OFFLINE7" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=1981590464]
+visible = false
+top_level = true
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.001
+offset_left = 2.0
+offset_right = -5.0
+offset_bottom = -0.080078125
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [node name="LOCK1" type="ColorRect" parent="UI Control" unique_id=1395487991]
 layout_mode = 0
