@@ -8,6 +8,10 @@ extends CharacterBody3D
 @onready var visual := $Visual
 @onready var camera := get_viewport().get_camera_3d()
 
+@onready var camera_controller := $"../CameraController"
+
+func get_camera_controller():
+	return camera_controller
 func _physics_process(delta):
 
 	# Gravity
@@ -16,26 +20,21 @@ func _physics_process(delta):
 	else:
 		velocity.y = 0
 
-	# Input
-	var input_dir = Vector3(
-		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-		0,
-		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-	)
+	# Horizontal input (LEFT / RIGHT only)
+	var input_x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 
-	if input_dir.length() > 0:
-		input_dir = input_dir.normalized()
-
-	var target_velocity = input_dir * speed
+	# Target velocity (Z is always 0)
+	var target_velocity_x = input_x * speed
 
 	# Accelerate toward target
-	velocity.x = move_toward(velocity.x, target_velocity.x, acceleration * delta)
-	velocity.z = move_toward(velocity.z, target_velocity.z, acceleration * delta)
+	velocity.x = move_toward(velocity.x, target_velocity_x, acceleration * delta)
 
 	# Decelerate when no input
-	if input_dir == Vector3.ZERO:
+	if input_x == 0:
 		velocity.x = move_toward(velocity.x, 0, deceleration * delta)
-		velocity.z = move_toward(velocity.z, 0, deceleration * delta)
+
+	# Lock Z axis completely
+	velocity.z = 0
 
 	move_and_slide()
 
@@ -44,6 +43,6 @@ func _physics_process(delta):
 	var look_pos = Vector3(cam_pos.x, visual.global_position.y, cam_pos.z)
 	visual.look_at(look_pos, Vector3.UP)
 
-	# Flip sprite
-	if input_dir.x != 0:
-		visual.scale.x = sign(input_dir.x)
+	# Flip sprite based on movement direction
+	if input_x != 0:
+		visual.scale.x = sign(input_x)

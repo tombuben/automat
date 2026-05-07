@@ -44,7 +44,7 @@ texture = ExtResource("2_rxfuy")
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.94976807, -0.08019769)
 sorting_offset = 1.5
 sprite_frames = SubResource("SpriteFrames_qk7r5")
-animation = &"idle"
+animation = &"coffee"
 autoplay = "idle"
 
 [node name="CollisionShape3D2" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="3" unique_id=1174005432]

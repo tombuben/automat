@@ -182,10 +182,11 @@ do GlobalManager.change_slot_item_saying("GutsItemSlot", "I dont think filing co
 ~ small_worker_hit
 
 if GlobalManager.item_that_hit.item_name == "coffee_large"
-	do GlobalManager.play_animation.emit("small_coffee_worker", "coffee")
+	do GlobalManager.play_animation.emit("small_worker", "coffee")
 	do GlobalManager.show_portrait("default")
 
 	small_coffee_worker: Oh yeah I remember, they stopped making small cups.
+	do GlobalManager.play_animation.emit("small_worker", "idle")
 	small_coffee_worker: Not because of ecology or anything.
 	small_coffee_worker: Because people who drink small amounts of coffee won't achieve big things here.
 	small_coffee_worker: Now, we just drink half of the medium cup.
@@ -195,40 +196,39 @@ if GlobalManager.item_that_hit.item_name == "coffee_large"
 
 
 elif GlobalManager.item_that_hit.item_name == "coffee_medium"
-	do GlobalManager.play_animation.emit("small_coffee_worker", "coffee")
+	do GlobalManager.play_animation.emit("small_worker", "coffee")
 	do GlobalManager.show_portrait("default")
 
 	small_coffee_worker: Oh yeah I remember, they stopped making small cups.
+	do GlobalManager.play_animation.emit("small_worker", "idle")
 	small_coffee_worker: Not because of ecology or anything.
 	small_coffee_worker: Because people who drink small amounts of coffee won't achieve big things here.
 	small_coffee_worker: Now, we just drink half of the medium cup.
 	=> small_worker_end
 	
 elif GlobalManager.item_that_hit.item_name == "rubber_duck"
-	do GlobalManager.play_animation.emit("small_coffee_worker", "hit")
 	do GlobalManager.show_portrait("default")
 
 	small_coffee_worker: Oh nice
 	=> END!
 	
 elif GlobalManager.item_that_hit.item_name == "moral_compass"
-	do GlobalManager.play_animation.emit("small_coffee_worker", "hit")
 	do GlobalManager.show_portrait("default")
 
 	small_coffee_worker: I dont know about that
 	small_coffee_worker: I get your point though
 	=> END!
 
-
 else:
 	=> small_worker_wrong_item
 
 ~ small_worker_wrong_item
-do GlobalManager.play_animation.emit("small_coffee_worker", "hit")
+do GlobalManager.play_animation.emit("small_worker", "hit")
 small_coffee_worker: What the heck is this
 => END!
 
 ~ small_worker_end
+do GlobalManager.play_animation.emit("small_worker", "idle")
 small_coffee_worker: Well Thank you anyways...
 small_coffee_worker: Goodbye
 do GlobalManager.play_animation.emit("small_worker_leave")
