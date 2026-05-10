@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cxw5al7swxe3"]
 
 [ext_resource type="Script" uid="uid://8ctun1j1ppjl" path="res://Scenes/SnailScenes/SnailMovement.gd" id="1_jo7c2"]
-[ext_resource type="Texture2D" uid="uid://ccc366karilrr" path="res://Assets/concepts/frog2.png" id="1_yf4a2"]
+[ext_resource type="Texture2D" uid="uid://bncp7ank8nt8h" path="res://Assets/Snekce1/snailSprite.png" id="2_vncjp"]
 [ext_resource type="Texture2D" uid="uid://b6vfboinyegqy" path="res://Assets/concepts/NPCConcept.png" id="3_hfsvj"]
 [ext_resource type="Script" uid="uid://b5ylpcrve2f5x" path="res://Scenes/SnailScenes/camera_mover.gd" id="3_hr6cm"]
 [ext_resource type="Texture2D" uid="uid://1y7wg77wd30x" path="res://Assets/concepts/cursor.png" id="6_wfnla"]
@@ -10,19 +10,34 @@
 [ext_resource type="Script" uid="uid://duo5sodfe8l6a" path="res://Scripts/cameraZone.gd" id="9_7nroy"]
 [ext_resource type="Texture2D" uid="uid://vwjl017qgxuh" path="res://Assets/LVL1Assets/Flower.png" id="9_lkkxc"]
 [ext_resource type="Script" uid="uid://dyibrbve8wim1" path="res://Scenes/SnailScenes/FadeManager.gd" id="10_lkkxc"]
-[ext_resource type="Script" uid="uid://bgxgqs3tnvhc7" path="res://Scenes/SnailScenes/TransitionZone.gd" id="11_7w0j0"]
-[ext_resource type="Texture2D" uid="uid://0okmm1ig18gd" path="res://Assets/VendingMachine/InsidesUI.png" id="12_8repu"]
-[ext_resource type="Texture2D" uid="uid://df66jds18h6ap" path="res://Assets/office/officeBG.png" id="13_vncjp"]
+[ext_resource type="Texture2D" uid="uid://cnj65pqjupbgf" path="res://Assets/Snekce1/snekce1BG1.png" id="12_la5tr"]
+[ext_resource type="Texture2D" uid="uid://dmipwjaifaeoq" path="res://Assets/Snekce1/snekce1BG2.png" id="12_mybb8"]
+[ext_resource type="Texture2D" uid="uid://cly5pv8b5agsq" path="res://Assets/Snekce1/snekce1BG3.png" id="13_bq7wa"]
+[ext_resource type="Texture2D" uid="uid://0ic14cjd7koi" path="res://Assets/Snekce1/snekce1BG4.png" id="14_uc4lo"]
+[ext_resource type="Texture2D" uid="uid://bd77wmmx80jox" path="res://Assets/Snekce1/snekce1BG5.png" id="15_vcro0"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nhh7a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yf4a2"]
+size = Vector3(6.678467, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jo7c2"]
 size = Vector3(0.56347656, 0.51416016, 0.25)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vcro0"]
+size = Vector3(12.814453, 5.0805664, 4.939453)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_e3ln3"]
-size = Vector3(3.8518066, 2.5888672, 4.939453)
+size = Vector3(25.453949, 5.0805664, 4.939453)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mybb8"]
+size = Vector3(21.892578, 6.1954346, 5.1289063)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bq7wa"]
+size = Vector3(34.17285, 8.750549, 5.1289063)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uc4lo"]
+size = Vector3(90.41992, 8.750549, 5.1289063)
 
 [sub_resource type="BoxMesh" id="BoxMesh_hr6cm"]
 
@@ -39,17 +54,18 @@ transform = Transform3D(31.233, 0, 0, 0, 0.108, 0, 0, 0, 5.789, 0, 0, -1.3380176
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=47493721]
 transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 1, 0.3280071, 0, 0.18712005)
+visible = false
 mesh = SubResource("BoxMesh_nhh7a")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="Ground/MeshInstance3D" unique_id=891283556]
 gravity_scale = 0.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/MeshInstance3D/RigidBody3D" unique_id=698352951]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999923, 0, 0, 0)
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999924, 2.5723872, 0, 0)
 shape = SubResource("BoxShape3D_yf4a2")
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1980153873 groups=["player"]]
-transform = Transform3D(1.515, 0, 0, 0, 1.515, 0, 0, 0, 1.515, 0, 0.34084672, 1.3416026)
+transform = Transform3D(1.515, 0, 0, 0, 1.515, 0, 0, 0, 1.515, 77.436874, 0.34084672, 1.3416026)
 up_direction = Vector3(0, -1, 0)
 script = ExtResource("1_jo7c2")
 speed = 2.0
@@ -57,16 +73,17 @@ speed = 2.0
 [node name="Visual" type="Node3D" parent="Player" unique_id=1316322353]
 
 [node name="Sprite3D" type="Sprite3D" parent="Player/Visual" unique_id=1963431825]
-transform = Transform3D(0.10800001, 0, 0, 0, 0.10800001, 0, 0, 0, 0.10800001, 0.0021465542, 0.044435352, 0)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.0021465542, 0.26173258, -1.0207146)
+flip_h = true
 pixel_size = 0.0095
-texture = ExtResource("1_yf4a2")
+texture = ExtResource("2_vncjp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=836611033]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016845703, 0.11128977, 0)
 shape = SubResource("BoxShape3D_jo7c2")
 
 [node name="CameraController" type="Node3D" parent="." unique_id=1800172707 node_paths=PackedStringArray("target", "camera_rig", "camera")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63830936, 1.5786291)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8872898, 0.9248568)
 script = ExtResource("3_hr6cm")
 target = NodePath("../Player")
 camera_rig = NodePath("CameraRig")
@@ -76,43 +93,87 @@ look_ahead_distance = 0.5
 look_ahead_time = 0.3
 
 [node name="CameraRig" type="Node3D" parent="CameraController" unique_id=721684022]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.7326416)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.343164)
 
 [node name="Camera3D" type="Camera3D" parent="CameraController/CameraRig" unique_id=673342509]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19840348, 8)
 doppler_tracking = 1
-fov = 22.9
+fov = 23.0
 size = 2.523
 
-[node name="CameraZone" type="Area3D" parent="." unique_id=821065485 node_paths=PackedStringArray("camera_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.104, 0, 0)
+[node name="CameraZones" type="Node3D" parent="." unique_id=1089868755]
+
+[node name="CameraZone0" type="Area3D" parent="CameraZones" unique_id=2075623359 node_paths=PackedStringArray("camera_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11502457, 0, 0)
 script = ExtResource("9_7nroy")
-camera_fov = 20.0
+camera_fov = 23.0
+camera_target = NodePath("CameraTarget")
+
+[node name="CollisionShape3D1" type="CollisionShape3D" parent="CameraZones/CameraZone0" unique_id=1255201653]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.106, -0.141)
+shape = SubResource("BoxShape3D_vcro0")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CameraTarget" type="Node3D" parent="CameraZones/CameraZone0" unique_id=258700270]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.082844555, 1.9838138, 10.053679)
+
+[node name="CameraZone1" type="Area3D" parent="CameraZones" unique_id=821065485 node_paths=PackedStringArray("camera_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.07924, 1.4420099, 0)
+script = ExtResource("9_7nroy")
+camera_fov = 23.0
 transition_time = 2.0
 camera_target = NodePath("CameraTarget")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraZone" unique_id=1940553337]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.352, -0.14113998)
+[node name="CollisionShape3D1" type="CollisionShape3D" parent="CameraZones/CameraZone1" unique_id=1940553337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.106, -0.141)
 shape = SubResource("BoxShape3D_e3ln3")
-debug_color = Color(0, 11.618606, 13.50434, 0.41960785)
+debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CameraTarget" type="Node3D" parent="CameraZone" unique_id=73078889]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24.07097)
+[node name="CameraTarget" type="Node3D" parent="CameraZones/CameraZone1" unique_id=73078889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5826707, 23.74707)
 
-[node name="CameraZone2" type="Area3D" parent="." unique_id=1056916025 node_paths=PackedStringArray("camera_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.72473, 0, 0)
+[node name="CameraZone2" type="Area3D" parent="CameraZones" unique_id=1056916025 node_paths=PackedStringArray("camera_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.856842, 0, 0)
 script = ExtResource("9_7nroy")
-camera_fov = 20.0
-transition_time = 2.0
+camera_fov = 23.0
+use_camera_target_y = true
 camera_target = NodePath("CameraTarget")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraZone2" unique_id=2096249658]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.352, -0.14113998)
-shape = SubResource("BoxShape3D_e3ln3")
-debug_color = Color(0, 11.618606, 13.50434, 0.41960785)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraZones/CameraZone2" unique_id=49046928]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.485, -0.371)
+shape = SubResource("BoxShape3D_mybb8")
 
-[node name="CameraTarget" type="Node3D" parent="CameraZone2" unique_id=439975404]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 45.800774)
+[node name="CameraTarget" type="Node3D" parent="CameraZones/CameraZone2" unique_id=439975404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7550097, 16.122131)
+
+[node name="CameraZone3" type="Area3D" parent="CameraZones" unique_id=683454563 node_paths=PackedStringArray("camera_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.19146, 1.5326104, 0)
+script = ExtResource("9_7nroy")
+camera_fov = 23.0
+transition_time = 2.0
+use_camera_target_y = true
+camera_target = NodePath("CameraTarget")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraZones/CameraZone3" unique_id=146775347]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.371)
+shape = SubResource("BoxShape3D_bq7wa")
+
+[node name="CameraTarget" type="Node3D" parent="CameraZones/CameraZone3" unique_id=95411856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.2381644, 41.229908)
+
+[node name="CameraZone4" type="Area3D" parent="CameraZones" unique_id=1202727632 node_paths=PackedStringArray("camera_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.03962, 0, 0)
+script = ExtResource("9_7nroy")
+camera_fov = 23.0
+use_camera_target_y = true
+camera_target = NodePath("CameraTarget")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraZones/CameraZone4" unique_id=1641129241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.671562, 1.7625456, -0.37112427)
+shape = SubResource("BoxShape3D_uc4lo")
+
+[node name="CameraTarget" type="Node3D" parent="CameraZones/CameraZone4" unique_id=1898968558]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.645912, 17.534443, 94.12123)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=852166496]
 transform = Transform3D(-1, 4.2916167e-08, 7.6163936e-08, 0, -0.87121385, 0.49090374, 8.742278e-08, 0.49090374, 0.87121385, 0.20122606, 1.707106, 3.257291)
@@ -151,7 +212,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2569685, 0, 0)
 mesh = SubResource("BoxMesh_hr6cm")
 
 [node name="LetterInteractable" type="Node3D" parent="." unique_id=1204034309 node_paths=PackedStringArray("popup", "bubble", "text")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.400286, 0.6785445, 2.3841858e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.790993, 30.710905, 2.3841858e-07)
 script = ExtResource("6_wgho2")
 popup = NodePath("Popup")
 bubble = NodePath("Popup/Sprite3D")
@@ -200,12 +261,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[node name="TransitionZone" type="Area3D" parent="." unique_id=912202526 node_paths=PackedStringArray("target_spawn", "old_room", "new_room")]
+[node name="TransitionZone" type="Area3D" parent="." unique_id=912202526]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5975733, 0, 0)
-script = ExtResource("11_7w0j0")
-target_spawn = NodePath("NewSpawn")
-old_room = NodePath("../Room1")
-new_room = NodePath("../Room2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TransitionZone" unique_id=972162733]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1834044, 1.6981463, 0)
@@ -218,16 +275,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9689398, 0, 0)
 [node name="Room1" type="Node3D" parent="." unique_id=1562464198]
 
 [node name="Sprite3D" type="Sprite3D" parent="Room1" unique_id=287234236]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5460763, -5.0485115)
-texture = ExtResource("12_8repu")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1655946, -1.2292535)
+texture = ExtResource("12_la5tr")
 
 [node name="Room2" type="Node3D" parent="." unique_id=1984792439]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.840783, 0, 0)
 
 [node name="Sprite3D" type="Sprite3D" parent="Room2" unique_id=327521626]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8808203, 4.5460763, -5.0485115)
-modulate = Color(0.7760547, 1, 0.634375, 1)
-texture = ExtResource("13_vncjp")
+transform = Transform3D(1.819, 0, 0, 0, 1.819, 0, 0, 0, 1.819, 8.096938, 5.0907164, -2.5724876)
+texture = ExtResource("12_mybb8")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Room2" unique_id=615190184]
+transform = Transform3D(1.377, 0, 0, 0, 1.377, 0, 0, 0, 1.377, 30.018154, 3.9847746, -2.5724876)
+texture = ExtResource("13_bq7wa")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Room2" unique_id=1069287310]
+transform = Transform3D(2.457, 0, 0, 0, 2.457, 0, 0, 0, 2.457, 56.463287, 8.874525, -2.5724876)
+texture = ExtResource("14_uc4lo")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Room2" unique_id=2009639518]
+transform = Transform3D(5.879, 0, 0, 0, 5.879, 0, 0, 0, 5.879, 116.92167, 25.992506, -2.5724876)
+texture = ExtResource("15_vcro0")
 
 [connection signal="body_entered" from="LetterInteractable/Area3D" to="LetterInteractable" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="LetterInteractable/Area3D" to="LetterInteractable" method="_on_area_3d_body_exited"]

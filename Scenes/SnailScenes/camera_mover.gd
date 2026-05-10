@@ -9,33 +9,52 @@ extends Node3D
 @export var look_ahead_time := 0.2
 @export var deadzone := 0.2
 
-@export var zone_blend_time := 0.4
+@export var framing_follow_speed := 4.0
+
 var rig_tween: Tween
 var fov_tween: Tween
 
+# =====================================================
+# ZONE SYSTEM
+# =====================================================
+
 var active_zones: Array = []
+var current_zone = null
+
+# =====================================================
+# TRANSITION SETTINGS
+# =====================================================
 
 var current_transition_time := 1.0
 var current_transition_type := Tween.TRANS_SINE
 var current_ease_type := Tween.EASE_IN_OUT
 
+# =====================================================
+# FOLLOW VARIABLES
+# =====================================================
 
 var follow_velocity := 0.0
 var look_ahead := 0.0
 var look_ahead_velocity := 0.0
 var camera_target_x := 0.0
 
-# --- Zoom / Rig movement ---
+# =====================================================
+# CAMERA RIG / ZOOM
+# =====================================================
+
 var default_rig_z := 0.0
 var target_rig_z := 0.0
-var rig_z_velocity := 0.0
 
-# --- FOV ---
+# =====================================================
+# FOV
+# =====================================================
+
 var default_fov := 75.0
 var target_fov := 75.0
-var fov_velocity := 0.0
+
 
 func _ready():
+
 	if target:
 		camera_target_x = target.global_position.x
 
@@ -49,81 +68,133 @@ func _ready():
 
 
 func _process(delta):
+
 	if target == null:
 		return
 
-	# --- Deadzone ---
-	var delta_x = target.global_position.x - camera_target_x
+	# =====================================================
+	# CINEMATIC MODE (LOCKED FRAMING)
+	# =====================================================
 
-	if abs(delta_x) > deadzone:
-		camera_target_x += delta_x - sign(delta_x) * deadzone
+	if current_zone and current_zone.lock_camera_position:
 
-	# --- Look ahead ---
-	var direction := 0
+		var framed_x = current_zone.camera_target.global_position.x
+		var framed_y = current_zone.camera_target.global_position.y
 
-	if target.velocity.x > 0.01:
-		direction = 1
-	elif target.velocity.x < -0.01:
-		direction = -1
+		global_position.x = lerp(
+			global_position.x,
+			framed_x,
+			delta * framing_follow_speed
+		)
 
-	var desired_look := direction * look_ahead_distance
+		global_position.y = lerp(
+			global_position.y,
+			framed_y,
+			delta * framing_follow_speed
+		)
 
-	var look_result = smooth_damp(
-		look_ahead,
-		desired_look,
-		look_ahead_velocity,
-		look_ahead_time,
-		delta
-	)
+	# =====================================================
+	# NORMAL FOLLOW MODE
+	# =====================================================
 
-	look_ahead = look_result[0]
-	look_ahead_velocity = look_result[1]
+	else:
 
-	# --- Horizontal follow ---
-	var follow_result = smooth_damp(
-		global_position.x,
-		camera_target_x + look_ahead,
-		follow_velocity,
-		follow_time,
-		delta
-	)
+		# ---------------------------------------------
+		# DEADZONE (X)
+		# ---------------------------------------------
 
-	global_position.x = follow_result[0]
-	follow_velocity = follow_result[1]
+		var delta_x = target.global_position.x - camera_target_x
+
+		if abs(delta_x) > deadzone:
+			camera_target_x += delta_x - sign(delta_x) * deadzone
+
+		# ---------------------------------------------
+		# LOOK AHEAD
+		# ---------------------------------------------
+
+		var direction := 0
+
+		if target.velocity.x > 0.01:
+			direction = 1
+		elif target.velocity.x < -0.01:
+			direction = -1
+
+		var desired_look := direction * look_ahead_distance
+
+		var look_result = smooth_damp(
+			look_ahead,
+			desired_look,
+			look_ahead_velocity,
+			look_ahead_time,
+			delta
+		)
+
+		look_ahead = look_result[0]
+		look_ahead_velocity = look_result[1]
+
+		# ---------------------------------------------
+		# FOLLOW X
+		# ---------------------------------------------
+
+		var follow_result = smooth_damp(
+			global_position.x,
+			camera_target_x + look_ahead,
+			follow_velocity,
+			follow_time,
+			delta
+		)
+
+		global_position.x = follow_result[0]
+		follow_velocity = follow_result[1]
+
+		# ---------------------------------------------
+		# FOLLOW Y (soft follow from player)
+		# ---------------------------------------------
+
+		global_position.y = lerp(
+			global_position.y,
+			target.global_position.y,
+			delta * 2.0
+		)
 
 
-# --- Zone API ---
+# =====================================================
+# ZONE API
+# =====================================================
+
 func push_camera_zone(zone):
+
 	if active_zones.has(zone):
 		return
 
 	active_zones.append(zone)
-
 	update_camera_zone()
 
 
 func remove_camera_zone(zone):
-	active_zones.erase(zone)
 
+	active_zones.erase(zone)
 	update_camera_zone()
 
 
 func update_camera_zone():
+
 	if active_zones.is_empty():
+		current_zone = null
 		return_to_default()
 		return
 
-	# Highest priority wins
 	active_zones.sort_custom(func(a, b):
 		return a.zone_priority > b.zone_priority
 	)
 
-	var zone = active_zones[0]
-
-	apply_camera_zone(zone)
+	apply_camera_zone(active_zones[0])
 
 
 func apply_camera_zone(zone):
+
+	current_zone = zone
+
 	target_rig_z = zone.camera_target.global_position.z
 	target_fov = zone.camera_fov
 
@@ -137,7 +208,10 @@ func apply_camera_zone(zone):
 	if fov_tween:
 		fov_tween.kill()
 
-	# --- Rig Tween ---
+	# =====================================================
+	# RIG Z
+	# =====================================================
+
 	rig_tween = create_tween()
 
 	rig_tween.tween_property(
@@ -147,7 +221,10 @@ func apply_camera_zone(zone):
 		current_transition_time
 	).set_trans(current_transition_type).set_ease(current_ease_type)
 
-	# --- FOV Tween ---
+	# =====================================================
+	# FOV
+	# =====================================================
+
 	fov_tween = create_tween()
 
 	fov_tween.tween_property(
@@ -159,6 +236,7 @@ func apply_camera_zone(zone):
 
 
 func return_to_default():
+
 	if rig_tween:
 		rig_tween.kill()
 
@@ -184,15 +262,24 @@ func return_to_default():
 	).set_trans(current_transition_type).set_ease(current_ease_type)
 
 
-# --- Smooth Damp ---
+# =====================================================
+# SMOOTH DAMP
+# =====================================================
+
 func smooth_damp(current, goal, velocity, smooth_time, delta):
+
 	var omega = 2.0 / smooth_time
 	var x = omega * delta
-	var exp_factor = 1.0 / (1.0 + x + 0.48 * x * x + 0.235 * x * x * x)
+
+	var exp_factor = 1.0 / (
+		1.0 + x + 0.48 * x * x + 0.235 * x * x * x
+	)
 
 	var change = current - goal
 	var temp = (velocity + omega * change) * delta
+
 	velocity = (velocity - omega * temp) * exp_factor
+
 	var output = goal + (change + temp) * exp_factor
 
 	return [output, velocity]

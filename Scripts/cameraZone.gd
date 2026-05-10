@@ -8,15 +8,24 @@ extends Area3D
 
 @export var zone_priority := 0
 
+# X framing toggle
+@export var lock_camera_position := true
+
+# NEW: Y comes from camera_target transform
+@export var use_camera_target_y := false
+
 @export var camera_target: Node3D
+
 
 func _ready():
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 
+
 func _on_body_entered(body):
 	if body.has_method("get_camera_controller"):
 		body.get_camera_controller().push_camera_zone(self)
+
 
 func _on_body_exited(body):
 	if body.has_method("get_camera_controller"):
