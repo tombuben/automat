@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://ch6p4fbcjygmu"]
+
+[ext_resource type="Texture2D" uid="uid://b24a00qrtc7yv" path="res://ParticleEffects/circleParticle1.png" id="1_gxji8"]
+[ext_resource type="Texture2D" uid="uid://bxm3k28htt8ed" path="res://ParticleEffects/circleParticle2.png" id="2_mdy10"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8qtx6"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_gxji8")
+
+[sub_resource type="QuadMesh" id="QuadMesh_63tu1"]
+material = SubResource("StandardMaterial3D_8qtx6")
+
+[sub_resource type="Curve" id="Curve_cyvsr"]
+_data = [Vector2(0, 0), 0.0, 1.8158603, 0, 0, Vector2(1, 1), -0.018612122, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_825hf"]
+offsets = PackedFloat32Array(0.6618799, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0c7y5"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_mdy10")
+
+[sub_resource type="QuadMesh" id="QuadMesh_o5gd8"]
+material = SubResource("StandardMaterial3D_0c7y5")
+
+[node name="ShootParticles" type="Node3D" unique_id=388739192]
+
+[node name="ShootParticles" type="CPUParticles3D" parent="." unique_id=602600043]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47223, 1.3117574, 3.823878)
+emitting = false
+amount = 1
+lifetime = 0.5
+one_shot = true
+mesh = SubResource("QuadMesh_63tu1")
+gravity = Vector3(0, 0, 0)
+linear_accel_max = 21.76
+scale_amount_curve = SubResource("Curve_cyvsr")
+color_ramp = SubResource("Gradient_825hf")
+
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="ShootParticles" unique_id=416454028]
+visible = false
+emitting = false
+amount = 1
+lifetime = 0.6
+one_shot = true
+mesh = SubResource("QuadMesh_o5gd8")
+gravity = Vector3(0, 0, 0)
+linear_accel_max = 21.76
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_cyvsr")
+color_ramp = SubResource("Gradient_825hf")

@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://cxw5al7swxe3"]
 
 [ext_resource type="Script" uid="uid://8ctun1j1ppjl" path="res://Scenes/SnailScenes/SnailMovement.gd" id="1_jo7c2"]
-[ext_resource type="Texture2D" uid="uid://bncp7ank8nt8h" path="res://Assets/Snekce1/snailSprite.png" id="2_vncjp"]
+[ext_resource type="Texture2D" uid="uid://bncp7ank8nt8h" path="res://Assets/ChapterAssets/Snekce1/snailSprite.png" id="2_vncjp"]
 [ext_resource type="Texture2D" uid="uid://b6vfboinyegqy" path="res://Assets/concepts/NPCConcept.png" id="3_hfsvj"]
 [ext_resource type="Script" uid="uid://b5ylpcrve2f5x" path="res://Scenes/SnailScenes/camera_mover.gd" id="3_hr6cm"]
 [ext_resource type="Texture2D" uid="uid://1y7wg77wd30x" path="res://Assets/concepts/cursor.png" id="6_wfnla"]
 [ext_resource type="Script" uid="uid://dddyuvvp33qia" path="res://Scenes/SnailScenes/letter_interactable.gd" id="6_wgho2"]
-[ext_resource type="Texture2D" uid="uid://c6lqbgep87b41" path="res://Assets/concepts/Circle.png" id="8_e3ln3"]
+[ext_resource type="Texture2D" uid="uid://c6lqbgep87b41" path="res://ParticleEffects/Circle.png" id="8_e3ln3"]
 [ext_resource type="Script" uid="uid://duo5sodfe8l6a" path="res://Scripts/cameraZone.gd" id="9_7nroy"]
-[ext_resource type="Texture2D" uid="uid://vwjl017qgxuh" path="res://Assets/LVL1Assets/Flower.png" id="9_lkkxc"]
+[ext_resource type="Texture2D" uid="uid://vwjl017qgxuh" path="res://Assets/ChapterAssets/VillageAssets/Flower.png" id="9_lkkxc"]
 [ext_resource type="Script" uid="uid://dyibrbve8wim1" path="res://Scenes/SnailScenes/FadeManager.gd" id="10_lkkxc"]
-[ext_resource type="Texture2D" uid="uid://cnj65pqjupbgf" path="res://Assets/Snekce1/snekce1BG1.png" id="12_la5tr"]
-[ext_resource type="Texture2D" uid="uid://dmipwjaifaeoq" path="res://Assets/Snekce1/snekce1BG2.png" id="12_mybb8"]
-[ext_resource type="Texture2D" uid="uid://cly5pv8b5agsq" path="res://Assets/Snekce1/snekce1BG3.png" id="13_bq7wa"]
-[ext_resource type="Texture2D" uid="uid://0ic14cjd7koi" path="res://Assets/Snekce1/snekce1BG4.png" id="14_uc4lo"]
-[ext_resource type="Texture2D" uid="uid://bd77wmmx80jox" path="res://Assets/Snekce1/snekce1BG5.png" id="15_vcro0"]
+[ext_resource type="Texture2D" uid="uid://cnj65pqjupbgf" path="res://Assets/ChapterAssets/Snekce1/snekce1BG1.png" id="12_la5tr"]
+[ext_resource type="Texture2D" uid="uid://dmipwjaifaeoq" path="res://Assets/ChapterAssets/Snekce1/snekce1BG2.png" id="12_mybb8"]
+[ext_resource type="Texture2D" uid="uid://cly5pv8b5agsq" path="res://Assets/ChapterAssets/Snekce1/snekce1BG3.png" id="13_bq7wa"]
+[ext_resource type="Texture2D" uid="uid://0ic14cjd7koi" path="res://Assets/ChapterAssets/Snekce1/snekce1BG4.png" id="14_uc4lo"]
+[ext_resource type="Texture2D" uid="uid://bd77wmmx80jox" path="res://Assets/ChapterAssets/Snekce1/snekce1BG5.png" id="15_vcro0"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nhh7a"]
 
@@ -65,7 +65,7 @@ transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999924, 2.5723872, 0,
 shape = SubResource("BoxShape3D_yf4a2")
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1980153873 groups=["player"]]
-transform = Transform3D(1.515, 0, 0, 0, 1.515, 0, 0, 0, 1.515, 77.436874, 0.34084672, 1.3416026)
+transform = Transform3D(1.515, 0, 0, 0, 1.515, 0, 0, 0, 1.515, -3.6747153, 0.34084672, 1.3416026)
 up_direction = Vector3(0, -1, 0)
 script = ExtResource("1_jo7c2")
 speed = 2.0
@@ -74,6 +74,7 @@ speed = 2.0
 
 [node name="Sprite3D" type="Sprite3D" parent="Player/Visual" unique_id=1963431825]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.0021465542, 0.26173258, -1.0207146)
+sorting_offset = 15.0
 flip_h = true
 pixel_size = 0.0095
 texture = ExtResource("2_vncjp")

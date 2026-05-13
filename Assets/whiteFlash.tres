@@ -1,9 +1,0 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://d04svrmhmr87o"]
-
-[ext_resource type="Shader" uid="uid://sgasrsr3sqfk" path="res://Assets/whiteFlash.gdshader" id="1_imphv"]
-
-[resource]
-render_priority = 0
-shader = ExtResource("1_imphv")
-shader_parameter/active = true
-shader_parameter/flash_color = Vector4(1, 1, 1, 1)

@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://dcyfvurn7rjbi"]
+
+[ext_resource type="Script" uid="uid://os1e3ic4o4wa" path="res://Scripts/random_person.gd" id="1_t1gw6"]
+[ext_resource type="Script" uid="uid://b7ohdqhsdloap" path="res://Scripts/rotation_limiter.gd" id="2_45bsk"]
+[ext_resource type="Texture2D" uid="uid://sy66csq6kpjk" path="res://Assets/ChapterAssets/VillageAssets/Characters/Duckmancer.png" id="3_t1gw6"]
+[ext_resource type="Material" uid="uid://c18tvun8su7y" path="res://Materials/explosionSmoke3d.tres" id="4_r46ae"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_t1gw6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_45bsk"]
+size = Vector3(1.5664063, 2.1499023, 0.4404297)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xdri6"]
+radius = 0.26209363
+
+[sub_resource type="QuadMesh" id="QuadMesh_r46ae"]
+material = ExtResource("4_r46ae")
+
+[sub_resource type="Curve" id="Curve_n62k2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.02738154), -2.9253776, 0.0, 0, 0]
+point_count = 2
+
+[node name="RandomPerson" type="Node3D" unique_id=1055277779 node_paths=PackedStringArray("hit_particles")]
+script = ExtResource("1_t1gw6")
+person_name = "duckman"
+hit_particles = NodePath("CPUParticles3D")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1304933187]
+collision_layer = 2
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+mass = 16.324
+gravity_scale = -10.0
+linear_damp = 4.0
+angular_damp = 4.0
+script = ExtResource("2_45bsk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1326660899]
+visible = false
+mesh = SubResource("CapsuleMesh_t1gw6")
+
+[node name="Sprite3D" type="Sprite3D" parent="RigidBody3D" unique_id=458291894]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+texture = ExtResource("3_t1gw6")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D" unique_id=1928790532]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28735352, -0.06591797)
+shape = SubResource("BoxShape3D_45bsk")
+
+[node name="PinJoint3D" type="PinJoint3D" parent="." unique_id=209332830]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.67424077, 0)
+node_a = NodePath("../RigidBody3D")
+node_b = NodePath("../StaticBody3D")
+params/bias = 0.01
+params/damping = 0.01
+params/impulse_clamp = 1.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=124557853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1843098045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.36072165, 0)
+shape = SubResource("SphereShape3D_xdri6")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=1698473021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020814478, -0.31781024, -0.3538339)
+emitting = false
+amount = 13
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("QuadMesh_r46ae")
+emission_shape = 1
+emission_sphere_radius = 0.35
+direction = Vector3(0.019, 0.129, 0)
+spread = 66.41
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 8.0
+radial_accel_min = 2.97
+radial_accel_max = 2.97
+damping_min = 5.0
+damping_max = 10.0
+angle_max = 105.9
+scale_amount_min = 0.2
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_n62k2")

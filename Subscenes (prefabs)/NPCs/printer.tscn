@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://utw2m5k15duk"]
+
+[ext_resource type="PackedScene" uid="uid://b8l8mhyb5sfwf" path="res://Subscenes (prefabs)/random_person.tscn" id="1_obfnr"]
+[ext_resource type="Texture2D" uid="uid://c751wcjr2ipkx" path="res://Assets/ChapterAssets/office/Printer.png" id="2_tnpn2"]
+[ext_resource type="Texture2D" uid="uid://d10xosdky7t40" path="res://Assets/ChapterAssets/office/printer_happy.png" id="3_avwlx"]
+[ext_resource type="Texture2D" uid="uid://b6odqs8ixvmk4" path="res://Assets/ChapterAssets/office/printer_idle.png" id="3_obfnr"]
+[ext_resource type="Texture2D" uid="uid://dxa6sgapescy4" path="res://Assets/ChapterAssets/office/printer_hit.png" id="4_8txae"]
+[ext_resource type="Texture2D" uid="uid://cmmyvmc65wat1" path="res://Assets/ChapterAssets/office/printer_super_happy.png" id="6_8txae"]
+[ext_resource type="Texture2D" uid="uid://dsmbmv55afwfw" path="res://Assets/ChapterAssets/office/printer_sad.png" id="6_v3g2o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qk7r5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_avwlx")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8txae")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_obfnr")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_v3g2o")
+}],
+"loop": true,
+"name": &"sad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_8txae")
+}],
+"loop": true,
+"name": &"super_happy",
+"speed": 5.0
+}]
+
+[node name="Printer" unique_id=1055277779 instance=ExtResource("1_obfnr")]
+person_name = "printer"
+
+[node name="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="1" unique_id=82952497]
+visible = false
+texture = ExtResource("2_tnpn2")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="2" unique_id=27529198]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+sorting_offset = 1.5
+sprite_frames = SubResource("SpriteFrames_qk7r5")
+animation = &"sad"
+autoplay = "idle"
