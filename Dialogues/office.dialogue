@@ -15,7 +15,7 @@ do wait(GlobalManager.current_animation_length)
 do GlobalManager.play_animation.emit("disposable_worker_idle")
 
 Disposable_worker: [color=#1bffc2]One large coffee[/color]. With cream and chocolate sprinkles.
-Disposable_worker: Oh and a latte art of a swan.
+Disposable_worker: Oh and a smiley face latte art.
 
 # set slot responses for (disposable worker 1)
 do GlobalManager.change_slot_item_name("ItemSlotCoffeeLarge", "coffee_large")
@@ -63,7 +63,7 @@ if GlobalManager.get_state("worker", "moral_unlocked", false):
 	elif GlobalManager.item_that_hit.item_name == "coffee_large2"
 		do GlobalManager.show_portrait("default")
 		do GlobalManager.play_animation.emit("disposable_worker", "hit")
-		Disposable_worker: Give me my swan art sprinkle latte
+		Disposable_worker: Give me my smiley face art sprinkle latte
 		Disposable_worker: I am not going away
 		=> END!
 	elif GlobalManager.item_that_hit.item_name == "coffee_medium"
@@ -107,7 +107,6 @@ else:
 		
 		do GlobalManager.show_portrait("automat")
 		Automat: H-hey, wait this isnt fair!
-		
 
 		# 🔥 UNLOCK
 		do GlobalManager.set_state("worker", "moral_unlocked", true)
@@ -122,7 +121,7 @@ else:
 		do GlobalManager.change_slot_item_saying("ItemSlotCoffeeMedium", "H-how about a medium?")
 		do GlobalManager.change_slot_item_saying("ItemSlotRubberDuck", "D-duck?")
 	
-		do GlobalManager.change_slot_item_saying("GutsItemSlot", "But i dont even have any sprinkles, cream or swan art")
+		do GlobalManager.change_slot_item_saying("GutsItemSlot", "But i dont even have any sprinkles, cream or smiley face art")
 		=> END!
 		
 		
@@ -321,8 +320,6 @@ else:
 
 		dramatic_worker: A tarot reader could do it
 		dramatic_worker: Come on, give me something!
-		dramatic_worker: My lunch break ends in five!
-		dramatic_worker: ...
 		dramatic_worker: Okay, guess I will go
 		
 		do GlobalManager.show_portrait("automat")

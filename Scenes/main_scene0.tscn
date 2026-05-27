@@ -51,6 +51,7 @@
 [ext_resource type="Texture2D" uid="uid://bxm3k28htt8ed" path="res://ParticleEffects/circleParticle2.png" id="57_6i5ax"]
 [ext_resource type="Script" uid="uid://c6qs8oiugm1gg" path="res://Scripts/global_animation_player.gd" id="58_2cj6h"]
 [ext_resource type="Script" uid="uid://cqptasjmaayf6" path="res://Scripts/scene_dialogue_manager.gd" id="59_04lfq"]
+[ext_resource type="Material" uid="uid://bfuew5nfqk7t3" path="res://Materials/ColorAdjustmentMat.material" id="60_h3hn5"]
 [ext_resource type="Texture2D" uid="uid://c776t1tab8em0" path="res://Assets/VendingMachine/frontviewBG.png" id="64_prypl"]
 [ext_resource type="Script" path="res://Scripts/dialogue_preview.gd" id="65_406us"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="66_m2lyo"]
@@ -73,7 +74,6 @@ background_mode = 1
 background_color = Color(0.7647059, 0.8666667, 0.7490196, 1)
 ambient_light_color = Color(0.47553658, 0.47553694, 0.47553682, 1)
 glow_enabled = true
-glow_intensity = 1.62
 glow_bloom = 0.14
 glow_hdr_threshold = 3.38
 glow_hdr_scale = 1.72
@@ -99,8 +99,11 @@ albedo_texture = ExtResource("45_0x4kb")
 material = SubResource("StandardMaterial3D_oqhaq")
 
 [sub_resource type="Curve" id="Curve_oqhaq"]
-_data = [Vector2(0, 0), 0.0, 3.3253117, 0, 0, Vector2(1, 0), -3.0368214, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 0), 0.0, 3.3253117, 0, 0, Vector2(0.3473054, 0.6061753), 0.098554455, 0.098554455, 0, 0, Vector2(0.6467066, 0.5758811), -0.2995539, -0.2995539, 0, 0, Vector2(1, 0), -2.1700947, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="QuadMesh" id="QuadMesh_h3hn5"]
+material = SubResource("StandardMaterial3D_oqhaq")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tscpr"]
 animations = [{
@@ -955,7 +958,7 @@ length = 8.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/Printer/CPUParticles3D2:emitting")
+tracks/0/path = NodePath("World/Characters/Printer/CPUParticles3D3:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1069,7 +1072,7 @@ size = Vector3(4.4628906, 10.067139, 3.6013184)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.998743, 0, 0)
 
 [node name="Disposable_worker" parent="World/Characters" unique_id=1055277779 instance=ExtResource("2_nfcrg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0.803, 0.91418433)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.739, 0.745, 0.877)
 person_name = "disposable_worker"
 hitstop_duration = 0.029
 hitstop_scale = 0.297
@@ -1089,7 +1092,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.909, 1.22, 0.847)
 [node name="Printer" parent="World/Characters" unique_id=2018004010 instance=ExtResource("3_nfcrg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.254, 0.802, 0.972)
 
-[node name="CPUParticles3D2" type="CPUParticles3D" parent="World/Characters/Printer" unique_id=2125974410]
+[node name="CPUParticles3D3" type="CPUParticles3D" parent="World/Characters/Printer" unique_id=2125974410]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.074410915)
 sorting_offset = 15.283
 emitting = false
@@ -1124,7 +1127,7 @@ directional_shadow_mode = 0
 [node name="BG" type="Sprite3D" parent="World/OfficeBG" unique_id=1520203208]
 transform = Transform3D(6.556, 0, 0, 0, 6.556, 0, 0, 0, 6.556, -0.071, 1.773, -51.705753)
 sorting_offset = -39.425
-modulate = Color(0.840625, 0.840625, 0.840625, 1)
+modulate = Color(0.91875, 0.91875, 0.91875, 1)
 texture = ExtResource("9_fcgxk")
 
 [node name="WalkingBGWorkers" type="CPUParticles3D" parent="World/OfficeBG" unique_id=398048406]
@@ -1228,7 +1231,6 @@ texture = ExtResource("13_5ls3k")
 
 [node name="wallleft4" type="Sprite3D" parent="World/OfficeBG" unique_id=1532413323]
 transform = Transform3D(3.379, 0, 0, 0, 3.118, 0, 0, 0, 1.167, 7.703, 10.543, -19.134)
-visible = false
 sorting_offset = -47.741
 modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
 texture = ExtResource("13_5ls3k")
@@ -1285,29 +1287,48 @@ modulate = Color(0.62352943, 0.62352943, 0.62352943, 1)
 texture = ExtResource("17_t7s67")
 
 [node name="OfficeDustParticles" type="CPUParticles3D" parent="World/OfficeBG" unique_id=1974769446]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2778687, 1.6233015, -1.9434671)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0196595, 0.011149406, -0.6557932)
+sorting_offset = -4.096
 amount = 15
 lifetime = 1.53
 preprocess = 1.98
 speed_scale = 0.85
 mesh = SubResource("QuadMesh_urueq")
 emission_shape = 3
-emission_box_extents = Vector3(9.012, 4.907, 2.711)
+emission_box_extents = Vector3(6.873, 1.232, 2.711)
 direction = Vector3(0, 0.486, 0)
-gravity = Vector3(0, 0.138, 0)
-scale_amount_min = 0.12
-scale_amount_max = 0.13
+gravity = Vector3(0, 0.041, 0)
+scale_amount_min = 0.0
+scale_amount_max = 0.15
 scale_amount_curve = SubResource("Curve_oqhaq")
-color = Color(0.40482426, 0.45391995, 0.45937502, 1)
+color = Color(0.20263672, 0.3137207, 0.390625, 1)
+
+[node name="OfficeDustParticles2" type="CPUParticles3D" parent="World/OfficeBG" unique_id=86625066]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0196595, 0.5489843, -6.080844)
+amount = 15
+lifetime = 1.53
+preprocess = 1.98
+speed_scale = 0.85
+mesh = SubResource("QuadMesh_h3hn5")
+emission_shape = 3
+emission_box_extents = Vector3(6.873, 1.334, 2.711)
+direction = Vector3(0, 0.486, 0)
+gravity = Vector3(0, 0.051, 0)
+scale_amount_min = 0.0
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_oqhaq")
+color = Color(0.113281235, 0.15241475, 0.18124998, 1)
 
 [node name="WhiteSquare" type="Sprite3D" parent="World/OfficeBG" unique_id=1404769931]
 transform = Transform3D(1.053, 0, 0, 0, 0.871915, 0.011714269, 0, -0.012175021, 0.8389182, 5.991, 0.885, 0)
+visible = false
 sorting_offset = 29.508
 modulate = Color(0, 0.28, 0.23799998, 1)
 texture = ExtResource("15_5ls3k")
 
 [node name="WhiteSquare5" type="Sprite3D" parent="World/OfficeBG" unique_id=1093999013]
 transform = Transform3D(1.297, 0, 0, 0, 1.0389984, 0.0014643305, 0, -0.0018133961, 0.8389987, -3.051, 0.592, 0)
+visible = false
 sorting_offset = 29.508
 modulate = Color(0, 0.28, 0.23799998, 1)
 texture = ExtResource("15_5ls3k")
@@ -2374,5 +2395,14 @@ debug_color = Color(0, 0.5950001, 0.7, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.471535, 4.5335693, -4.1618767)
 shape = SubResource("BoxShape3D_nfcrg")
 debug_color = Color(0, 0.5950001, 0.7, 1)
+
+[node name="MultiplyShader" type="ColorRect" parent="." unique_id=112813310]
+material = ExtResource("60_h3hn5")
+use_parent_material = true
+offset_left = -33.0
+offset_top = -18.0
+offset_right = 1905.0
+offset_bottom = 1062.0
+mouse_filter = 2
 
 [connection signal="gui_input" from="UI Control/DialoguePreview/Balloon" to="UI Control/DialoguePreview" method="_on_balloon_gui_input"]

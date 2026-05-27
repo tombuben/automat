@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b5dmipyhycsau"]
+
+[ext_resource type="Shader" uid="uid://cle4jn2x2huw0" path="res://Materials/CharacterIdleShader.gdshader" id="1_1n5br"]
+
+[resource]
+shader = ExtResource("1_1n5br")
+shader_parameter/amount = 0.03
+shader_parameter/speed = 2.0

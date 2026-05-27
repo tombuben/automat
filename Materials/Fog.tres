@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dwfpfff6cl548"]
+
+[ext_resource type="Shader" uid="uid://dk76ovphyy20m" path="res://Materials/Fog.gdshader" id="1_340tl"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_340tl")
+shader_parameter/color = Color(0.7394336, 0.77882206, 0.81875, 1)
+shader_parameter/OCTAVES = 4
+shader_parameter/enable_pixelation = false
+shader_parameter/pixelation_amount = 150
+shader_parameter/fog_direction = Vector2(1, 1)
+shader_parameter/scroll_noise_tex = false
+shader_parameter/noise_scroll_direction = Vector2(1, 0)
+shader_parameter/fog_scale = 7.342
