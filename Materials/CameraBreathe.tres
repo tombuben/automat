@@ -1,0 +1,23 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dajr143et87vg"]
+
+[ext_resource type="Shader" uid="uid://m0iawfwexou6" path="res://Materials/CameraBreathe.gdshader" id="1_rulxr"]
+[ext_resource type="Texture2D" uid="uid://c8s47bbrsh3eg" path="res://Materials/noisePack/Noise_8.tga" id="2_ei3s1"]
+[ext_resource type="Texture2D" uid="uid://bisvr8nb26sim" path="res://Materials/noisePack/Noise_19.tga" id="3_1ie60"]
+
+[resource]
+shader = ExtResource("1_rulxr")
+shader_parameter/noise_tex = ExtResource("2_ei3s1")
+shader_parameter/noise_tex2 = ExtResource("3_1ie60")
+shader_parameter/direction1 = Vector2(-0.502, -0.345)
+shader_parameter/direction2 = Vector2(-0.278, -0.376)
+shader_parameter/speed1 = 0.14
+shader_parameter/speed2 = 0.1
+shader_parameter/scale1 = 3.0
+shader_parameter/scale2 = 0.239
+shader_parameter/intensity = 0.25
+shader_parameter/dust_color = Color(1, 1, 1, 1)
+shader_parameter/threshold = -0.06
+shader_parameter/softness = 0.563
+shader_parameter/contrast = 1.6520000000000001
+shader_parameter/layer2_strength = 0.5
+shader_parameter/flicker = 0.0

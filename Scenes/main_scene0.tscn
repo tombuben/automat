@@ -52,6 +52,7 @@
 [ext_resource type="Script" uid="uid://c6qs8oiugm1gg" path="res://Scripts/global_animation_player.gd" id="58_2cj6h"]
 [ext_resource type="Script" uid="uid://cqptasjmaayf6" path="res://Scripts/scene_dialogue_manager.gd" id="59_04lfq"]
 [ext_resource type="Material" uid="uid://bfuew5nfqk7t3" path="res://Materials/ColorAdjustmentMat.material" id="60_h3hn5"]
+[ext_resource type="Material" uid="uid://dajr143et87vg" path="res://Materials/CameraBreathe.tres" id="61_yd3c3"]
 [ext_resource type="Texture2D" uid="uid://c776t1tab8em0" path="res://Assets/VendingMachine/frontviewBG.png" id="64_prypl"]
 [ext_resource type="Script" path="res://Scripts/dialogue_preview.gd" id="65_406us"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="66_m2lyo"]
@@ -2403,6 +2404,15 @@ offset_left = -33.0
 offset_top = -18.0
 offset_right = 1905.0
 offset_bottom = 1062.0
+mouse_filter = 2
+
+[node name="DustShader" type="ColorRect" parent="." unique_id=388465421]
+texture_repeat = 2
+material = ExtResource("61_yd3c3")
+offset_left = 805.0
+offset_top = 61.0
+offset_right = 1858.0
+offset_bottom = 701.0
 mouse_filter = 2
 
 [connection signal="gui_input" from="UI Control/DialoguePreview/Balloon" to="UI Control/DialoguePreview" method="_on_balloon_gui_input"]

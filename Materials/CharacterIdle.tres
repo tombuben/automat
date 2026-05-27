@@ -2,7 +2,11 @@
 
 [ext_resource type="Shader" uid="uid://cle4jn2x2huw0" path="res://Materials/CharacterIdleShader.gdshader" id="1_1n5br"]
 
+[sub_resource type="ImageTexture" id="ImageTexture_1n5br"]
+
 [resource]
+render_priority = 0
 shader = ExtResource("1_1n5br")
-shader_parameter/amount = 0.03
+shader_parameter/sprite_texture = SubResource("ImageTexture_1n5br")
 shader_parameter/speed = 2.0
+shader_parameter/strength = 0.025
