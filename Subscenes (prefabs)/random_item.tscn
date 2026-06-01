@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cq8aarcfl26cu" path="res://Assets/Itemmodels/Plechovka.glb" id="1_1h8wx"]
 [ext_resource type="Script" uid="uid://clluv3r6m72c2" path="res://Scripts/random_item.gd" id="1_vkqkw"]
+[ext_resource type="Script" uid="uid://d3tkxv7tktpmj" path="res://Scripts/ItemSway.gd" id="3_x1we3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vkqkw"]
 size = Vector3(0.6447754, 0.7774048, 0.5761719)
@@ -26,3 +27,5 @@ shape = SubResource("ConvexPolygonShape3D_vkqkw")
 
 [node name="Plechovka" parent="." unique_id=664597137 instance=ExtResource("1_1h8wx")]
 transform = Transform3D(0.021093411, 0, -0.249109, 0, 0.25, 0, 0.249109, 0, 0.021093411, 0, -0.0484524, 0)
+script = ExtResource("3_x1we3")
+sway_amount = 0.876

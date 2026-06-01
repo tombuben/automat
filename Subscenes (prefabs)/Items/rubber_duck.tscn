@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bokb66s75j3c1"]
 
 [ext_resource type="Script" uid="uid://clluv3r6m72c2" path="res://Scripts/random_item.gd" id="1_q6ywt"]
+[ext_resource type="Script" uid="uid://d3tkxv7tktpmj" path="res://Scripts/ItemSway.gd" id="3_ktb4w"]
 [ext_resource type="Material" uid="uid://wnhcr6p104hg" path="res://Materials/OutlineShaderMat.tres" id="3_rpy0k"]
 [ext_resource type="Texture2D" uid="uid://bgm1kg8k0s502" path="res://Assets/Itemmodels/Rubber Duck_House_Props_Diffuse.png" id="3_tohdw"]
 
@@ -118,9 +119,10 @@ gi_mode = 0
 gi_lightmap_texel_scale = 0.01
 mesh = SubResource("ArrayMesh_e6dfw")
 skeleton = NodePath("")
+script = ExtResource("3_ktb4w")
 
-[node name="Rubber_duck_shadow" type="MeshInstance3D" parent="." unique_id=341548905]
-transform = Transform3D(-1.608579e-05, 1.5619304e-05, 368, 0, 357.328, -1.608579e-05, -368, -6.827414e-13, -1.608579e-05, 0.015815645, -0.08976813, 0)
+[node name="Rubber_duck_shadow" type="MeshInstance3D" parent="Rubber_duck2" unique_id=341548905]
+transform = Transform3D(1.1534568, -4.2351647e-22, -3.5527137e-15, 0, 1.153456, 5.3475784e-08, 3.5527137e-15, -5.0419196e-08, 1.1534568, 0, -3.2152922e-05, 3.637979e-12)
 sorting_offset = 3.05
 mesh = SubResource("ArrayMesh_rpy0k")
 skeleton = NodePath("")

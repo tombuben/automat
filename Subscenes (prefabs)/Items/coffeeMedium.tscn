@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://clluv3r6m72c2" path="res://Scripts/random_item.gd" id="1_40ygq"]
 [ext_resource type="Texture2D" uid="uid://cphxdwl7fk87x" path="res://Assets/Itemmodels/Coffee cup_CHAHIN_COFFEE_CUP_TEXTURE.jpg" id="2_kmr8q"]
+[ext_resource type="Script" uid="uid://d3tkxv7tktpmj" path="res://Scripts/ItemSway.gd" id="3_5aee1"]
 [ext_resource type="Material" uid="uid://wnhcr6p104hg" path="res://Materials/OutlineShaderMat.tres" id="3_kmr8q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vkqkw"]
@@ -62,9 +63,10 @@ debug_color = Color(0, 11.618606, 13.50434, 0.41960785)
 transform = Transform3D(0.3, 0, 0, 0, 0.21865751, 0, 0, 0, 0.3, 0, 0.04048183, 0)
 mesh = SubResource("ArrayMesh_ywkyo")
 skeleton = NodePath("")
+script = ExtResource("3_5aee1")
 
-[node name="coffeeCup2" type="MeshInstance3D" parent="." unique_id=2052956380]
-transform = Transform3D(0.355, 0, 0, 0, 0.259, 0, 0, 0, 0.355, 0, 0.040481813, 0)
+[node name="coffeeCup2" type="MeshInstance3D" parent="coffeeCup" unique_id=2052956380]
+transform = Transform3D(1.1833333, 0, 0, 0, 1.1845007, 0, 0, 0, 1.1833333, 0, -5.9604645e-08, 0)
 sorting_offset = 3.503
 mesh = SubResource("ArrayMesh_ywkyo")
 skeleton = NodePath("")

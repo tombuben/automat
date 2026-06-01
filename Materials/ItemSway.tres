@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://df3d4t646upcw"]
+
+[ext_resource type="Shader" uid="uid://cp4dtlur7gb3c" path="res://Materials/ItemSway.gdshader" id="1_ttht5"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ttht5")
+shader_parameter/sway_amount = 0.02
+shader_parameter/random_phase = 0.0
