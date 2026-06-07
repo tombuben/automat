@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://85ympcce5opp"]
+
+[ext_resource type="Shader" uid="uid://dvxk6m8fpwvt4" path="res://Materials/ScrollTexture.gdshader" id="1_nvpnw"]
+[ext_resource type="Texture2D" uid="uid://bhfb7ibhbqmco" path="res://Materials/AutomatBGScrollTexture.png" id="2_l424w"]
+
+[resource]
+shader = ExtResource("1_nvpnw")
+shader_parameter/bg_tex = ExtResource("2_l424w")
+shader_parameter/scroll_speed = Vector2(-0.1, -0.1)
+shader_parameter/texture_scale = Vector2(18, 10)

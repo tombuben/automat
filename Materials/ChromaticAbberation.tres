@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dmcempgvc1imu"]
+
+[ext_resource type="Shader" uid="uid://blonjhrqg0y2l" path="res://Materials/ChromaticAbberation.gdshader" id="1_ohd64"]
+
+[resource]
+shader = ExtResource("1_ohd64")
+shader_parameter/strength = 0.0090000004275
+shader_parameter/edge_falloff = true
+shader_parameter/distortion_amount = 4.7499999933364734e-08

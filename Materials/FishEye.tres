@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b6no8dbg1mrb5"]
+
+[ext_resource type="Shader" uid="uid://bss6bm0ni7mfp" path="res://Materials/FishEye.gdshader" id="1_vc0p6"]
+
+[resource]
+shader = ExtResource("1_vc0p6")
+shader_parameter/effect_amount = -0.3539998980650001

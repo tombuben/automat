@@ -4,6 +4,9 @@ extends Node3D
 @export var camera_rig: Node3D
 @export var camera: Camera3D
 
+# NEW: Fade manager reference (assign in inspector)
+@export var fade_manager: CanvasLayer
+
 @export var follow_time := 0.25
 @export var look_ahead_distance := 1.5
 @export var look_ahead_time := 0.2
@@ -11,8 +14,16 @@ extends Node3D
 
 @export var framing_follow_speed := 4.0
 
+
+# =====================================================
+# STATE
+# =====================================================
+
 var rig_tween: Tween
 var fov_tween: Tween
+
+var is_camera_transitioning := false
+
 
 # =====================================================
 # ZONE SYSTEM
@@ -21,6 +32,7 @@ var fov_tween: Tween
 var active_zones: Array = []
 var current_zone = null
 
+
 # =====================================================
 # TRANSITION SETTINGS
 # =====================================================
@@ -28,6 +40,7 @@ var current_zone = null
 var current_transition_time := 1.0
 var current_transition_type := Tween.TRANS_SINE
 var current_ease_type := Tween.EASE_IN_OUT
+
 
 # =====================================================
 # FOLLOW VARIABLES
@@ -38,19 +51,17 @@ var look_ahead := 0.0
 var look_ahead_velocity := 0.0
 var camera_target_x := 0.0
 
+
 # =====================================================
-# CAMERA RIG / ZOOM
+# CAMERA RIG / FOV
 # =====================================================
 
 var default_rig_z := 0.0
 var target_rig_z := 0.0
 
-# =====================================================
-# FOV
-# =====================================================
-
 var default_fov := 75.0
 var target_fov := 75.0
+
 
 
 func _ready():
@@ -67,10 +78,12 @@ func _ready():
 		target_rig_z = default_rig_z
 
 
+
 func _process(delta):
 
 	if target == null:
 		return
+
 
 	# =====================================================
 	# CINEMATIC MODE (LOCKED FRAMING)
@@ -81,17 +94,9 @@ func _process(delta):
 		var framed_x = current_zone.camera_target.global_position.x
 		var framed_y = current_zone.camera_target.global_position.y
 
-		global_position.x = lerp(
-			global_position.x,
-			framed_x,
-			delta * framing_follow_speed
-		)
+		global_position.x = lerp(global_position.x, framed_x, delta * framing_follow_speed)
+		global_position.y = lerp(global_position.y, framed_y, delta * framing_follow_speed)
 
-		global_position.y = lerp(
-			global_position.y,
-			framed_y,
-			delta * framing_follow_speed
-		)
 
 	# =====================================================
 	# NORMAL FOLLOW MODE
@@ -99,18 +104,11 @@ func _process(delta):
 
 	else:
 
-		# ---------------------------------------------
-		# DEADZONE (X)
-		# ---------------------------------------------
-
 		var delta_x = target.global_position.x - camera_target_x
 
 		if abs(delta_x) > deadzone:
 			camera_target_x += delta_x - sign(delta_x) * deadzone
 
-		# ---------------------------------------------
-		# LOOK AHEAD
-		# ---------------------------------------------
 
 		var direction := 0
 
@@ -118,6 +116,7 @@ func _process(delta):
 			direction = 1
 		elif target.velocity.x < -0.01:
 			direction = -1
+
 
 		var desired_look := direction * look_ahead_distance
 
@@ -132,9 +131,6 @@ func _process(delta):
 		look_ahead = look_result[0]
 		look_ahead_velocity = look_result[1]
 
-		# ---------------------------------------------
-		# FOLLOW X
-		# ---------------------------------------------
 
 		var follow_result = smooth_damp(
 			global_position.x,
@@ -147,15 +143,13 @@ func _process(delta):
 		global_position.x = follow_result[0]
 		follow_velocity = follow_result[1]
 
-		# ---------------------------------------------
-		# FOLLOW Y (soft follow from player)
-		# ---------------------------------------------
 
 		global_position.y = lerp(
 			global_position.y,
 			target.global_position.y,
 			delta * 2.0
 		)
+
 
 
 # =====================================================
@@ -177,7 +171,11 @@ func remove_camera_zone(zone):
 	update_camera_zone()
 
 
+
 func update_camera_zone():
+
+	if is_camera_transitioning:
+		return
 
 	if active_zones.is_empty():
 		current_zone = null
@@ -188,8 +186,45 @@ func update_camera_zone():
 		return a.zone_priority > b.zone_priority
 	)
 
-	apply_camera_zone(active_zones[0])
+	var new_zone = active_zones[0]
 
+	if new_zone == current_zone:
+		return
+
+	transition_to_zone(new_zone)
+
+
+
+# =====================================================
+# TRANSITION PIPELINE (FADE INTEGRATED)
+# =====================================================
+
+func transition_to_zone(zone):
+
+	if is_camera_transitioning:
+		return
+
+	if fade_manager == null:
+		push_error("FadeManager not assigned in inspector!")
+		return
+
+	is_camera_transitioning = true
+
+	get_tree().paused = false
+
+	await fade_manager.fade_out(0.35)
+
+	apply_camera_zone(zone)
+
+	await fade_manager.fade_in(0.35)
+
+	is_camera_transitioning = false
+
+
+
+# =====================================================
+# APPLY ZONE (NO FADE HERE)
+# =====================================================
 
 func apply_camera_zone(zone):
 
@@ -208,12 +243,8 @@ func apply_camera_zone(zone):
 	if fov_tween:
 		fov_tween.kill()
 
-	# =====================================================
-	# RIG Z
-	# =====================================================
 
 	rig_tween = create_tween()
-
 	rig_tween.tween_property(
 		camera_rig,
 		"position:z",
@@ -221,12 +252,8 @@ func apply_camera_zone(zone):
 		current_transition_time
 	).set_trans(current_transition_type).set_ease(current_ease_type)
 
-	# =====================================================
-	# FOV
-	# =====================================================
 
 	fov_tween = create_tween()
-
 	fov_tween.tween_property(
 		camera,
 		"fov",
@@ -234,6 +261,11 @@ func apply_camera_zone(zone):
 		current_transition_time
 	).set_trans(current_transition_type).set_ease(current_ease_type)
 
+
+
+# =====================================================
+# DEFAULT RESET
+# =====================================================
 
 func return_to_default():
 
@@ -244,7 +276,6 @@ func return_to_default():
 		fov_tween.kill()
 
 	rig_tween = create_tween()
-
 	rig_tween.tween_property(
 		camera_rig,
 		"position:z",
@@ -253,13 +284,13 @@ func return_to_default():
 	).set_trans(current_transition_type).set_ease(current_ease_type)
 
 	fov_tween = create_tween()
-
 	fov_tween.tween_property(
 		camera,
 		"fov",
 		default_fov,
 		current_transition_time
 	).set_trans(current_transition_type).set_ease(current_ease_type)
+
 
 
 # =====================================================

@@ -3,8 +3,11 @@ extends CanvasLayer
 @onready var rect := $ColorRect
 
 var tween: Tween
+var busy := false
+
 
 func fade_out(duration := 1.0):
+
 	if tween:
 		tween.kill()
 
@@ -21,6 +24,7 @@ func fade_out(duration := 1.0):
 
 
 func fade_in(duration := 1.0):
+
 	if tween:
 		tween.kill()
 
@@ -34,3 +38,7 @@ func fade_in(duration := 1.0):
 	)
 
 	await tween.finished
+
+
+func is_busy() -> bool:
+	return busy

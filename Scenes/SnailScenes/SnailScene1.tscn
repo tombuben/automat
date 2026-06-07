@@ -28,7 +28,7 @@ size = Vector3(0.56347656, 0.51416016, 0.25)
 size = Vector3(12.814453, 5.0805664, 4.939453)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e3ln3"]
-size = Vector3(25.453949, 5.0805664, 4.939453)
+size = Vector3(27.592209, 5.0805664, 4.939453)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mybb8"]
 size = Vector3(21.892578, 6.1954346, 5.1289063)
@@ -83,12 +83,24 @@ texture = ExtResource("2_vncjp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016845703, 0.11128977, 0)
 shape = SubResource("BoxShape3D_jo7c2")
 
-[node name="CameraController" type="Node3D" parent="." unique_id=1800172707 node_paths=PackedStringArray("target", "camera_rig", "camera")]
+[node name="fade_manager" type="CanvasLayer" parent="." unique_id=164451199]
+script = ExtResource("10_lkkxc")
+
+[node name="ColorRect" type="ColorRect" parent="fade_manager" unique_id=536896213]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="CameraController" type="Node3D" parent="." unique_id=1800172707 node_paths=PackedStringArray("target", "camera_rig", "camera", "fade_manager")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8872898, 0.9248568)
 script = ExtResource("3_hr6cm")
 target = NodePath("../Player")
 camera_rig = NodePath("CameraRig")
 camera = NodePath("CameraRig/Camera3D")
+fade_manager = NodePath("../fade_manager")
 follow_time = 0.7
 look_ahead_distance = 0.5
 look_ahead_time = 0.3
@@ -126,7 +138,7 @@ transition_time = 2.0
 camera_target = NodePath("CameraTarget")
 
 [node name="CollisionShape3D1" type="CollisionShape3D" parent="CameraZones/CameraZone1" unique_id=1940553337]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.106, -0.141)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06913, 0.10599995, -0.141)
 shape = SubResource("BoxShape3D_e3ln3")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
@@ -250,17 +262,6 @@ autowrap_mode = 2
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=332933317]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 10.543106, 0.09519458, 6.9178)
 texture = ExtResource("9_lkkxc")
-
-[node name="fade_manager" type="CanvasLayer" parent="." unique_id=164451199]
-script = ExtResource("10_lkkxc")
-
-[node name="ColorRect" type="ColorRect" parent="fade_manager" unique_id=536896213]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0)
 
 [node name="TransitionZone" type="Area3D" parent="." unique_id=912202526]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5975733, 0, 0)
