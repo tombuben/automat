@@ -38,6 +38,8 @@ var _mouse_speed: float = 0.0
 var _base_scale_3d: Vector3 = Vector3.ONE
 var _base_scale_2d: Vector2 = Vector2.ONE
 
+@onready var original_collision_layer = collision_layer
+
 func _ready() -> void:
 	GlobalManager.cursor_body = self
 	_last_mouse_pos = get_viewport().get_mouse_position()
@@ -49,6 +51,10 @@ func _ready() -> void:
 			_base_scale_3d = cursor_visual.scale
 		elif cursor_visual is Node2D:
 			_base_scale_2d = cursor_visual.scale
+			
+	
+	DialogueManager.dialogue_started.connect(on_dialogue_started)
+	DialogueManager.dialogue_ended.connect(on_dialogue_closed)
 
 
 func move_cursor():
@@ -158,3 +164,10 @@ func stop_drag():
 
 	open_hands.stop()
 	open_hands.play("close_hand")
+
+
+func on_dialogue_started(resource: Resource) -> void:
+	collision_layer = 0
+
+func on_dialogue_closed(resource: Resource) -> void:
+	collision_layer = original_collision_layer
