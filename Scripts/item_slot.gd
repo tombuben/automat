@@ -44,9 +44,8 @@ func stopped_dragging(item : RandomItem):
 
 	if not slot_occupied:
 		item.return_to_slot()
-		
-	if item == item_in_slot:
-		highlight_item()
+	elif item == item_in_slot:
+		reset_highlight()
 
 func highlight_item():
 	if item_in_slot == null:
@@ -63,7 +62,7 @@ func highlight_item():
 	tween = create_tween().set_parallel(true)
 
 	# keep position tween (needed for drag logic)
-	tween.tween_property(item_in_slot, "global_position", global_position, duration)
+	tween.tween_property(item_in_slot, "position", Vector3.ZERO, duration)
 
 	# scale up slightly
 	tween.tween_property(item_in_slot, "scale", old_item_scale * 1.1, duration)
