@@ -58,6 +58,29 @@ func show_portrait(speaker_name: String):
 
 
 # -----------------------------
+# DIALOGUE AUDIO BEEPS
+# -----------------------------
+
+var blblblblbend = preload("res://Assets/Audio/blblblblbend.wav")
+var blblblblbstart = preload("res://Assets/Audio/blblblblbstart.wav")
+var hugahugahguga = preload("res://Assets/Audio/hugahugahguga.wav")
+
+var character_beeps: Dictionary[String, Array] = {
+	"drowning_person": [blblblblbend, blblblblbstart],
+	"automat": [blblblblbend, blblblblbstart],
+	"automatSad": [blblblblbend, blblblblbstart],
+	"hugahugaman": [hugahugahguga],
+	"default": [blblblblbend, blblblblbstart],
+}
+
+signal update_audio_beeps(beep_array: Array[AudioStream])
+
+func set_audio_beeps(speaker_name: String):
+	var beeps : Array[AudioStream] = []
+	beeps.assign(character_beeps.get(speaker_name, null))
+	update_audio_beeps.emit(beeps)
+
+# -----------------------------
 # EXISTING SYSTEMS
 # -----------------------------
 var cursor_body : CursorBody
