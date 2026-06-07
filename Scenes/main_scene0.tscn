@@ -33,10 +33,13 @@
 [ext_resource type="Texture2D" uid="uid://dwejvy41bc5ia" path="res://Assets/VendingMachine/Hands/HandRight.png" id="32_poada"]
 [ext_resource type="Script" uid="uid://bgngysncqjt3n" path="res://Scripts/cameraTilt.gd" id="34_5ls3k"]
 [ext_resource type="Texture2D" uid="uid://c6lqbgep87b41" path="res://ParticleEffects/Circle.png" id="45_0x4kb"]
+[ext_resource type="AudioStream" uid="uid://b5gqb0c7kxnn8" path="res://Assets/Audio/blblblblbend.wav" id="46_8swbj"]
 [ext_resource type="Texture2D" uid="uid://bpargjd4vajyf" path="res://Assets/VendingMachine/GutsWheels.png" id="46_nfcrg"]
 [ext_resource type="Texture2D" uid="uid://d0qype2yfb4vw" path="res://Assets/ChapterAssets/office/dragIcon.png" id="47_poada"]
+[ext_resource type="AudioStream" uid="uid://bckay861g05ap" path="res://Assets/Audio/hugahugahguga.wav" id="47_vtxsy"]
 [ext_resource type="Texture2D" uid="uid://c5qds8arncww0" path="res://Assets/VendingMachine/uiBrain.png" id="47_xaya4"]
 [ext_resource type="Script" uid="uid://ci5q4jckgmagi" path="res://Scripts/mouse_cursor.gd" id="48_vuse5"]
+[ext_resource type="AudioStream" uid="uid://bx6q6oiijmqqw" path="res://Assets/Audio/blbblblb.wav" id="49_1o7k8"]
 [ext_resource type="Texture2D" uid="uid://1y7wg77wd30x" path="res://Assets/concepts/cursor.png" id="49_s0ebu"]
 [ext_resource type="Texture2D" uid="uid://d2ik0h0qqle21" path="res://Assets/VendingMachine/uiHeart.png" id="50_oqhaq"]
 [ext_resource type="Texture2D" uid="uid://clc1dxuyyo7hs" path="res://Assets/ChapterAssets/office/lock.png" id="50_tm3gw"]
@@ -57,7 +60,7 @@
 [ext_resource type="Texture2D" uid="uid://d2t43ycvg8w8v" path="res://Assets/VendingMachine/ShootingOverlay/automatHands.png" id="63_u40t6"]
 [ext_resource type="Texture2D" uid="uid://nn4fkabqoeg7" path="res://Assets/VendingMachine/ShootingOverlay/ScannerGradient.png" id="64_35gkj"]
 [ext_resource type="Texture2D" uid="uid://c776t1tab8em0" path="res://Assets/VendingMachine/frontviewBG.png" id="64_prypl"]
-[ext_resource type="Script" path="res://Scripts/dialogue_preview.gd" id="65_406us"]
+[ext_resource type="Script" uid="uid://b6228d12meyik" path="res://Scripts/dialogue_preview.gd" id="65_406us"]
 [ext_resource type="Texture2D" uid="uid://cr8s3x3g870vd" path="res://Assets/VendingMachine/ShootingOverlay/scannerOverlay.png" id="65_xiox5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="66_m2lyo"]
 [ext_resource type="Texture2D" uid="uid://jtlxtta6q7o5" path="res://Assets/VendingMachine/ShootingOverlay/scannerOverlay2.png" id="66_oq737"]
@@ -514,8 +517,20 @@ tracks/3/keys = {
 "values": [Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_m5y8p"]
+[sub_resource type="Animation" id="Animation_0a3c2"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("World/Characters/Printer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.30207, 0.09223, 0.11178)]
+}
 
 [sub_resource type="Animation" id="Animation_kmity"]
 resource_name = "Screenshake"
@@ -855,6 +870,21 @@ tracks/1/keys = {
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 1200)]
 }
 
+[sub_resource type="Animation" id="Animation_6l1j1"]
+resource_name = "loop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Automat/itemsSlots/ItemSlotCoffeeLarge:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.0001, 1),
+"update": 0,
+"values": [Vector3(-1000, 1.317, 0.489), Vector3(0.042071342, 1.5588746, 0.489491)]
+}
+
 [sub_resource type="Animation" id="Animation_8swbj"]
 resource_name = "mind_unlocked"
 length = 3.0
@@ -924,10 +954,10 @@ tracks/0/path = NodePath("World/Characters/Printer:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.16666667, 2),
+"transitions": PackedFloat32Array(1e-05, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-20.018, 0.802, 0.972)]
+"values": [Vector3(-1000, -1000, -1000), Vector3(-2.30207, 0.09223, 0.11178), Vector3(-20.018, 0.802, 0.972)]
 }
 
 [sub_resource type="Animation" id="Animation_h3hn5"]
@@ -1029,7 +1059,7 @@ _data = {
 &"Lock1": SubResource("Animation_l1vum"),
 &"Lock2": SubResource("Animation_ch638"),
 &"Lock3": SubResource("Animation_vtxsy"),
-&"RESET": SubResource("Animation_m5y8p"),
+&"RESET": SubResource("Animation_0a3c2"),
 &"Screenshake": SubResource("Animation_kmity"),
 &"boss_enter": SubResource("Animation_35gkj"),
 &"boss_idle": SubResource("Animation_u40t6"),
@@ -1046,6 +1076,7 @@ _data = {
 &"dramatic_worker_idle": SubResource("Animation_oqhaq"),
 &"dramatic_worker_leave": SubResource("Animation_tm3gw"),
 &"heart_unlocked": SubResource("Animation_xai13"),
+&"loop": SubResource("Animation_6l1j1"),
 &"mind_unlocked": SubResource("Animation_8swbj"),
 &"moral_compass_unlocked": SubResource("Animation_yd3c3"),
 &"open_hand": SubResource("Animation_tscpr"),
@@ -1099,7 +1130,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.612469, 16.472914, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.909, 1.22, 0.847)
 
 [node name="Printer" parent="World/Characters" unique_id=2018004010 instance=ExtResource("3_nfcrg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.254, 0.802, 0.972)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.30207, 0.09223, 0.11178)
 
 [node name="CPUParticles3D3" type="CPUParticles3D" parent="World/Characters/Printer" unique_id=2125974410]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.074410915)
@@ -1443,7 +1474,7 @@ texture = ExtResource("75_j8xoi")
 [node name="itemsSlots" type="Node3D" parent="Automat" unique_id=1388334518]
 
 [node name="ItemSlotCoffeeLarge" type="Area3D" parent="Automat/itemsSlots" unique_id=821282033 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, -0.1969881, 1.3172566, 0.489491)
+transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, 0.042053223, 1.5588746, 0.489491)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("10_m5y8p")
@@ -1756,10 +1787,12 @@ scale = Vector2(0.964, 0.964)
 mouse_filter = 2
 texture = ExtResource("64_prypl")
 
-[node name="DialoguePreview" type="CanvasLayer" parent="UI Control" unique_id=539448852 node_paths=PackedStringArray("dialogue_rich_text")]
+[node name="DialoguePreview" type="CanvasLayer" parent="UI Control" unique_id=539448852 node_paths=PackedStringArray("dialogue_rich_text", "preview_audio_player")]
 layer = 100
 script = ExtResource("65_406us")
 dialogue_rich_text = NodePath("Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/DialogueLabel")
+preview_audio_player = NodePath("PreviewAudioStreamPlayer")
+audio_samples = Array[AudioStream]([ExtResource("46_8swbj"), ExtResource("47_vtxsy")])
 
 [node name="Balloon" type="Control" parent="UI Control/DialoguePreview" unique_id=1904455546]
 layout_mode = 3
@@ -1907,6 +1940,9 @@ offset_bottom = 51.05237
 rotation = -0.25132743
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_m7ytr")
+
+[node name="PreviewAudioStreamPlayer" type="AudioStreamPlayer" parent="UI Control/DialoguePreview" unique_id=1906561119]
+stream = ExtResource("49_1o7k8")
 
 [node name="MoralCompassUnlocked" type="CanvasLayer" parent="UI Control" unique_id=508310520]
 layer = 101
@@ -2433,6 +2469,7 @@ texture = ExtResource("63_u40t6")
 [node name="ShootingUI" type="TextureRect" parent="." unique_id=1751701702]
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="ShootingUIGradient" type="TextureRect" parent="ShootingUI" unique_id=1721352303]
 layout_mode = 0
@@ -2441,6 +2478,7 @@ offset_top = 64.00001
 offset_right = 2100.499
 offset_bottom = 847.176
 scale = Vector2(0.812, 0.812)
+mouse_filter = 2
 texture = ExtResource("64_35gkj")
 
 [node name="Overlay" type="TextureRect" parent="ShootingUI" unique_id=1749787036]
@@ -2451,6 +2489,7 @@ offset_right = 1947.0
 offset_bottom = 772.0
 scale = Vector2(0.929, 0.929)
 pivot_offset = Vector2(582.81, 388.991)
+mouse_filter = 2
 texture = ExtResource("65_xiox5")
 
 [node name="Overlay2" type="TextureRect" parent="ShootingUI" unique_id=272704618]
@@ -2462,6 +2501,7 @@ offset_right = 2049.4448
 offset_bottom = 785.135
 scale = Vector2(0.725, 0.725)
 pivot_offset = Vector2(582.81, 388.991)
+mouse_filter = 2
 texture = ExtResource("66_oq737")
 
 [node name="ItemSquare" type="TextureRect" parent="ShootingUI" unique_id=571890620]
@@ -2472,6 +2512,7 @@ offset_right = 1840.0
 offset_bottom = 294.0
 scale = Vector2(0.8, 0.8)
 pivot_offset = Vector2(110, 110)
+mouse_filter = 2
 texture = ExtResource("67_l1vum")
 
 [node name="ChargePowerBar" type="TextureRect" parent="ShootingUI" unique_id=1667999170]
@@ -2481,6 +2522,7 @@ offset_top = 253.0
 offset_right = 1518.0
 offset_bottom = 513.0
 pivot_offset = Vector2(34.027, 131.793)
+mouse_filter = 2
 texture = ExtResource("68_m5y8p")
 
 [node name="ChargePowerBar2" type="TextureRect" parent="ShootingUI/ChargePowerBar" unique_id=1701946879]

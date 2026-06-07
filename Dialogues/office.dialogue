@@ -8,6 +8,7 @@ Disposable_worker: Management gave us of a new robot employee
 do GlobalManager.play_animation.emit("disposable_worker", "grin")
 Disposable_worker: A vending machine
 
+do GlobalManager.set_audio_beeps("hugahugaman")
 Disposable_worker: Moments like these are exactly why I tolerate my job
 
 do GlobalManager.play_animation.emit("disposable_worker_close_to_idle")

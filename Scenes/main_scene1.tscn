@@ -66,7 +66,7 @@
 [ext_resource type="Texture2D" uid="uid://bxm3k28htt8ed" path="res://ParticleEffects/circleParticle2.png" id="56_8qtx6"]
 [ext_resource type="FontFile" uid="uid://cvd5j8d7y4hxx" path="res://Assets/Fonts/WinkySans-VariableFont_wght.ttf" id="56_vge76"]
 [ext_resource type="Shader" uid="uid://in6n5v4f5fhw" path="res://Scenes/warpScreen.gdshader" id="61_mlrbq"]
-[ext_resource type="Script" path="res://Scripts/dialogue_preview.gd" id="65_63b1e"]
+[ext_resource type="Script" uid="uid://b6228d12meyik" path="res://Scripts/dialogue_preview.gd" id="65_63b1e"]
 [ext_resource type="Texture2D" uid="uid://c776t1tab8em0" path="res://Assets/VendingMachine/frontviewBG.png" id="66_2lryw"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="66_mlrbq"]
 [ext_resource type="Texture2D" uid="uid://0okmm1ig18gd" path="res://Assets/VendingMachine/InsidesUI.png" id="66_sgm8f"]
