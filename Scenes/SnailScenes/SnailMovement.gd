@@ -5,11 +5,11 @@ extends CharacterBody3D
 @export var deceleration := 8.0
 @export var gravity := 20.0
 @export var auto_stop_distance := 0.1
+@export var camera_controller := Node3D
+
 
 @onready var visual := $Visual
 @onready var camera := get_viewport().get_camera_3d()
-@onready var camera_controller := $"../CameraController"
-
 var auto_move_x: float = NAN
 var is_auto_walking := false
 var can_move := true
