@@ -1,44 +1,17 @@
 extends CanvasLayer
 
-@onready var rect := $ColorRect
-
-var tween: Tween
-var busy := false
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
-func fade_out(duration := 1.0):
+func fade_out():
 
-	if tween:
-		tween.kill()
+	animation_player.play("fade_out")
 
-	tween = create_tween()
-
-	tween.tween_property(
-		rect,
-		"modulate:a",
-		1.0,
-		duration
-	)
-
-	await tween.finished
+	await animation_player.animation_finished
 
 
-func fade_in(duration := 1.0):
+func fade_in():
 
-	if tween:
-		tween.kill()
+	animation_player.play("fade_in")
 
-	tween = create_tween()
-
-	tween.tween_property(
-		rect,
-		"modulate:a",
-		0.0,
-		duration
-	)
-
-	await tween.finished
-
-
-func is_busy() -> bool:
-	return busy
+	await animation_player.animation_finished
