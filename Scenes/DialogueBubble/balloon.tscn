@@ -5,11 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 [ext_resource type="Texture2D" uid="uid://cnbn4wmojrc6i" path="res://portraits/default.png" id="5_mu5lg"]
-[ext_resource type="Script" uid="uid://jfu177vwwphk" path="res://Scripts/portrait.gd" id="6_mu5lg"]
-[ext_resource type="Script" uid="uid://dcl5ld443vhtn" path="res://Scripts/dialogue_audio_beeps.gd" id="7_vhv0x"]
+[ext_resource type="Script" path="res://Scripts/portrait.gd" id="6_mu5lg"]
+[ext_resource type="Script" path="res://Scripts/dialogue_audio_beeps.gd" id="7_vhv0x"]
 [ext_resource type="AudioStream" uid="uid://bx6q6oiijmqqw" path="res://Assets/Audio/blbblblb.wav" id="7_y87q8"]
-[ext_resource type="AudioStream" uid="uid://c4vvjcgcauu11" path="res://Assets/Audio/blblblblbstart.wav" id="9_862fn"]
-[ext_resource type="AudioStream" uid="uid://b5gqb0c7kxnn8" path="res://Assets/Audio/blblblblbend.wav" id="10_3on4c"]
+[ext_resource type="AudioStream" uid="uid://kim46bit60jn" path="res://Assets/Audio/DisposableWorkerDialogue001.wav" id="9_862fn"]
+[ext_resource type="AudioStream" uid="uid://c6yxcghxkyh42" path="res://Assets/Audio/DisposableWorkerDialogue002.wav" id="10_3on4c"]
+[ext_resource type="AudioStream" uid="uid://bn00ge1ndurw4" path="res://Assets/Audio/DisposableWorkerDialogue003.wav" id="11_vcael"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -311,7 +312,7 @@ color = Color(0, 0, 0, 1)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1245157105]
 stream = ExtResource("7_y87q8")
 script = ExtResource("7_vhv0x")
-audio_samples = Array[AudioStream]([ExtResource("9_862fn"), ExtResource("10_3on4c")])
+audio_samples = Array[AudioStream]([ExtResource("9_862fn"), ExtResource("10_3on4c"), ExtResource("11_vcael")])
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="Balloon/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

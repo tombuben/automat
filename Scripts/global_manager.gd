@@ -61,16 +61,16 @@ func show_portrait(speaker_name: String):
 # DIALOGUE AUDIO BEEPS
 # -----------------------------
 
-var blblblblbend = preload("res://Assets/Audio/blblblblbend.wav")
-var blblblblbstart = preload("res://Assets/Audio/blblblblbstart.wav")
-var hugahugahguga = preload("res://Assets/Audio/hugahugahguga.wav")
+var DisposableWorkerDialogue001 = preload("res://Assets/Audio/DisposableWorkerDialogue001.wav")
+var DisposableWorkerDialogue002 = preload("res://Assets/Audio/DisposableWorkerDialogue002.wav")
+var hugahugahguga = preload("res://Assets/Audio/DisposableWorkerDialogue003.wav")
 
 var character_beeps: Dictionary[String, Array] = {
-	"drowning_person": [blblblblbend, blblblblbstart],
-	"automat": [blblblblbend, blblblblbstart],
-	"automatSad": [blblblblbend, blblblblbstart],
-	"hugahugaman": [hugahugahguga],
-	"default": [blblblblbend, blblblblbstart],
+	"drowning_person": [DisposableWorkerDialogue001, DisposableWorkerDialogue002],
+	"automat": [DisposableWorkerDialogue001, DisposableWorkerDialogue002],
+	"automatSad": [DisposableWorkerDialogue001, DisposableWorkerDialogue002],
+	"hugahugaman": [DisposableWorkerDialogue001, DisposableWorkerDialogue002],
+	"default": [DisposableWorkerDialogue001, DisposableWorkerDialogue002],
 }
 
 signal update_audio_beeps(beep_array: Array[AudioStream])
