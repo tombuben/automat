@@ -15,6 +15,12 @@
 [ext_resource type="Texture2D" uid="uid://0ic14cjd7koi" path="res://Assets/ChapterAssets/Snekce1/snekce1BG4.png" id="14_uc4lo"]
 [ext_resource type="Texture2D" uid="uid://bd77wmmx80jox" path="res://Assets/ChapterAssets/Snekce1/snekce1BG5.png" id="15_vcro0"]
 [ext_resource type="Script" uid="uid://cu45afdhvavd7" path="res://Scripts/TeleportTrigger.gd" id="16_bq7wa"]
+[ext_resource type="Script" uid="uid://bwod8tay0rfot" path="res://Scenes/SnailScenes/SnailDialogue.gd" id="16_uc4lo"]
+[ext_resource type="Texture2D" uid="uid://b3owfy4qywpmq" path="res://Assets/Snail/TextboxSnail.png" id="17_uc4lo"]
+[ext_resource type="Texture2D" uid="uid://c41iexs2e1d16" path="res://portraits/default1.png" id="18_8wkqm"]
+[ext_resource type="FontFile" uid="uid://cvd5j8d7y4hxx" path="res://Assets/Fonts/WinkySans-VariableFont_wght.ttf" id="18_vcro0"]
+[ext_resource type="Texture2D" uid="uid://cnbn4wmojrc6i" path="res://portraits/default.png" id="19_ixu5i"]
+[ext_resource type="Script" uid="uid://bnqkxavwdia6k" path="res://Scenes/SnailScenes/SnailDialogueTrigger.gd" id="21_3xfwl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jo7c2"]
 size = Vector3(0.56347656, 0.51416016, 0.25)
@@ -90,6 +96,9 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wfnla"]
 size = Vector3(2.7109375, 1, 3.136963)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3xfwl"]
+size = Vector3(1, 3.3498535, 4.7402344)
 
 [node name="SnailScene1" type="Node3D" unique_id=46586574]
 
@@ -238,7 +247,7 @@ transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999924, 2.5723872, 0,
 shape = SubResource("BoxShape3D_yf4a2")
 
 [node name="BlockingWall1" type="MeshInstance3D" parent="Ground and walls" unique_id=502764868]
-transform = Transform3D(0.032017417, 0, 0, 0, 89.083336, 0, 0, 0, 1.1020902, -0.2145584, 15.655361, 0.23113105)
+transform = Transform3D(0.032017417, 0, 0, 0, 89.083336, 0, 0, 0, 1.1020904, -0.21455838, 15.655362, 0.14579597)
 mesh = SubResource("BoxMesh_bq7wa")
 skeleton = NodePath("../..")
 
@@ -337,6 +346,75 @@ outline_modulate = Color(0, 0, 0, 0)
 text = "What is a a circles favourite food? Steak"
 font_size = 39
 autowrap_mode = 2
+
+[node name="TextBox" type="CanvasLayer" parent="." unique_id=1278473177 node_paths=PackedStringArray("text_label", "left_portrait", "right_portrait")]
+script = ExtResource("16_uc4lo")
+text_label = NodePath("RichTextLabel")
+left_portrait = NodePath("Panel/TextureRect/portrait1")
+right_portrait = NodePath("Panel/TextureRect/portrait2")
+
+[node name="Panel" type="Panel" parent="TextBox" unique_id=252808106]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="TextBox/Panel" unique_id=1413041745]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 355.0
+offset_top = 697.0
+offset_right = 1935.0
+offset_bottom = 1167.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("17_uc4lo")
+
+[node name="portrait1" type="TextureRect" parent="TextBox/Panel/TextureRect" unique_id=1338766853]
+modulate = Color(0.42812502, 0.42812502, 0.42812502, 1)
+layout_mode = 0
+offset_left = 1147.1428
+offset_top = 52.85712
+offset_right = 1437.1428
+offset_bottom = 342.85712
+scale = Vector2(1.239, 1.239)
+texture = ExtResource("18_8wkqm")
+
+[node name="portrait2" type="TextureRect" parent="TextBox/Panel/TextureRect" unique_id=1073818087]
+modulate = Color(0.42812502, 0.42812502, 0.42812502, 1)
+layout_mode = 0
+offset_left = 1147.1428
+offset_top = 52.85712
+offset_right = 1437.1428
+offset_bottom = 342.85712
+scale = Vector2(1.239, 1.239)
+texture = ExtResource("19_ixu5i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextBox" unique_id=1185643325]
+offset_left = 447.0
+offset_top = 801.0
+offset_right = 1130.0
+offset_bottom = 1011.0
+theme_override_fonts/normal_font = ExtResource("18_vcro0")
+theme_override_font_sizes/normal_font_size = 45
+text = "Why so serious!"
+tab_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area3D" type="Area3D" parent="." unique_id=577110177 node_paths=PackedStringArray("player", "dialogue_ui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9049177, 0, 0)
+script = ExtResource("21_3xfwl")
+player = NodePath("../Player")
+dialogue_ui = NodePath("../TextBox")
+dialogue_lines = Array[String](["Hello hi hello", "yo yo yo", "Bye"])
+speaker_portraits = Array[Texture2D]([ExtResource("19_ixu5i")])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=624746928]
+shape = SubResource("BoxShape3D_3xfwl")
 
 [connection signal="body_entered" from="LetterInteractable/Area3D" to="LetterInteractable" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="LetterInteractable/Area3D" to="LetterInteractable" method="_on_area_3d_body_exited"]

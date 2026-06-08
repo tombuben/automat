@@ -7,7 +7,6 @@ extends Area3D
 
 var busy := false
 
-
 func _ready():
 	body_entered.connect(_on_body_entered)
 
