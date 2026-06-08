@@ -4,7 +4,6 @@ extends CharacterBody3D
 @export var acceleration := 6.0
 @export var deceleration := 8.0
 @export var gravity := 20.0
-
 @export var auto_stop_distance := 0.1
 
 @onready var visual := $Visual
@@ -13,6 +12,7 @@ extends CharacterBody3D
 
 var auto_move_x: float = NAN
 var is_auto_walking := false
+var can_move := true
 
 
 func get_camera_controller():
@@ -22,18 +22,28 @@ func get_camera_controller():
 func _physics_process(delta):
 
 	# =====================================================
+	# HARD FREEZE (used during fades / transitions)
+	# =====================================================
+	if not can_move:
+		velocity = Vector3.ZERO
+		is_auto_walking = false
+		auto_move_x = NAN
+		move_and_slide()
+		return
+
+
+	# =====================================================
 	# GRAVITY
 	# =====================================================
-
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	else:
 		velocity.y = 0
 
+
 	# =====================================================
 	# INPUT
 	# =====================================================
-
 	var input_x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 
 	# If player gives manual input → cancel auto walk
@@ -41,10 +51,10 @@ func _physics_process(delta):
 		is_auto_walking = false
 		auto_move_x = NAN
 
+
 	# =====================================================
 	# AUTO WALK LOGIC
 	# =====================================================
-
 	if is_auto_walking:
 
 		var distance = auto_move_x - global_position.x
@@ -56,10 +66,10 @@ func _physics_process(delta):
 		else:
 			input_x = sign(distance)
 
+
 	# =====================================================
 	# MOVE X ONLY
 	# =====================================================
-
 	var target_velocity_x = input_x * speed
 
 	velocity.x = move_toward(
@@ -79,10 +89,10 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+
 	# =====================================================
 	# FACE CAMERA
 	# =====================================================
-
 	var cam_pos = camera.global_position
 	var look_pos = Vector3(cam_pos.x, visual.global_position.y, cam_pos.z)
 	visual.look_at(look_pos, Vector3.UP)
@@ -94,8 +104,11 @@ func _physics_process(delta):
 # =========================================================
 # CLICK TO WALK
 # =========================================================
-
 func _unhandled_input(event):
+
+	# OPTIONAL: block input during transitions too
+	if not can_move:
+		return
 
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -107,7 +120,6 @@ func _unhandled_input(event):
 			var from = cam.project_ray_origin(event.position)
 			var dir = cam.project_ray_normal(event.position)
 
-			# Raycast into world
 			var space = get_world_3d().direct_space_state
 
 			var query = PhysicsRayQueryParameters3D.create(
@@ -122,7 +134,6 @@ func _unhandled_input(event):
 			if result:
 				target_x = result.position.x
 			else:
-				# fallback: project far plane
 				target_x = from.x + dir.x * 10.0
 
 			auto_move_x = target_x

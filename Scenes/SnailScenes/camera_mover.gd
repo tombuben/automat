@@ -150,7 +150,43 @@ func _process(delta):
 			delta * 2.0
 		)
 
+func snap_to_player():
 
+	if target == null:
+		return
+
+	# -------------------------------------------------
+	# 1. HARD SNAP CAMERA ROOT (instant reposition)
+	# -------------------------------------------------
+	global_position.x = target.global_position.x
+	global_position.y = target.global_position.y
+
+
+	# -------------------------------------------------
+	# 2. RESET FOLLOW STATE (prevents slide after teleport)
+	# -------------------------------------------------
+	camera_target_x = target.global_position.x
+
+	follow_velocity = 0.0
+	look_ahead = 0.0
+	look_ahead_velocity = 0.0
+
+
+	# -------------------------------------------------
+	# 3. OPTIONAL: SNAP RIG (prevents Z drift after teleport)
+	# -------------------------------------------------
+	if camera_rig:
+		camera_rig.position.z = target_rig_z
+
+
+	# -------------------------------------------------
+	# 4. OPTIONAL: RESET TWEEN (prevents delayed motion)
+	# -------------------------------------------------
+	if rig_tween:
+		rig_tween.kill()
+
+	if fov_tween:
+		fov_tween.kill()
 
 # =====================================================
 # ZONE API
@@ -212,11 +248,11 @@ func transition_to_zone(zone):
 
 	get_tree().paused = false
 
-	await fade_manager.fade_out(0.35)
+	#await fade_manager.fade_out(0.35)
 
 	apply_camera_zone(zone)
 
-	await fade_manager.fade_in(0.35)
+	#await fade_manager.fade_in(0.35)
 
 	is_camera_transitioning = false
 

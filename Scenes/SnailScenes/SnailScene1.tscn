@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cly5pv8b5agsq" path="res://Assets/ChapterAssets/Snekce1/snekce1BG3.png" id="13_bq7wa"]
 [ext_resource type="Texture2D" uid="uid://0ic14cjd7koi" path="res://Assets/ChapterAssets/Snekce1/snekce1BG4.png" id="14_uc4lo"]
 [ext_resource type="Texture2D" uid="uid://bd77wmmx80jox" path="res://Assets/ChapterAssets/Snekce1/snekce1BG5.png" id="15_vcro0"]
+[ext_resource type="Script" uid="uid://cu45afdhvavd7" path="res://Scripts/TeleportTrigger.gd" id="16_bq7wa"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nhh7a"]
 
@@ -23,6 +24,48 @@ size = Vector3(6.678467, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jo7c2"]
 size = Vector3(0.56347656, 0.51416016, 0.25)
+
+[sub_resource type="Animation" id="Animation_bq7wa"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_uc4lo"]
+resource_name = "fade_in"
+length = 2.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade_manager/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mybb8"]
+resource_name = "fade_out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade_manager/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uc4lo"]
+_data = {
+&"RESET": SubResource("Animation_bq7wa"),
+&"fade_in": SubResource("Animation_uc4lo"),
+&"fade_out": SubResource("Animation_mybb8")
+}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vcro0"]
 size = Vector3(12.814453, 5.0805664, 4.939453)
@@ -46,6 +89,9 @@ size = Vector3(2.7109375, 1, 3.136963)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lkkxc"]
 size = Vector3(0.9238281, 3.3428955, 4.3222656)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8wkqm"]
+size = Vector3(11.8654785, 8.786377, 7.0236816)
 
 [node name="SnailScene1" type="Node3D" unique_id=46586574]
 
@@ -87,12 +133,17 @@ shape = SubResource("BoxShape3D_jo7c2")
 script = ExtResource("10_lkkxc")
 
 [node name="ColorRect" type="ColorRect" parent="fade_manager" unique_id=536896213]
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0)
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="fade_manager" unique_id=503433442]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_uc4lo")
 
 [node name="CameraController" type="Node3D" parent="." unique_id=1800172707 node_paths=PackedStringArray("target", "camera_rig", "camera", "fade_manager")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8872898, 0.9248568)
@@ -298,6 +349,20 @@ texture = ExtResource("14_uc4lo")
 [node name="Sprite3D4" type="Sprite3D" parent="Room2" unique_id=2009639518]
 transform = Transform3D(5.879, 0, 0, 0, 5.879, 0, 0, 0, 5.879, 116.92167, 25.992506, -2.5724876)
 texture = ExtResource("15_vcro0")
+
+[node name="TeleportArea" type="Area3D" parent="." unique_id=37767665 node_paths=PackedStringArray("target_position", "fade_manager", "player", "camera")]
+script = ExtResource("16_bq7wa")
+target_position = NodePath("Node3D")
+fade_manager = NodePath("../fade_manager")
+player = NodePath("../Player")
+camera = NodePath("../CameraController")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TeleportArea" unique_id=1637993822]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8090053, 2.2010498, 0)
+shape = SubResource("BoxShape3D_8wkqm")
+
+[node name="Node3D" type="Node3D" parent="TeleportArea" unique_id=1476594236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69, 0, 0)
 
 [connection signal="body_entered" from="LetterInteractable/Area3D" to="LetterInteractable" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="LetterInteractable/Area3D" to="LetterInteractable" method="_on_area_3d_body_exited"]
