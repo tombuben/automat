@@ -121,3 +121,8 @@ func change_slot_item_saying(slot_node_name : String, new_saying : String):
 		slots[slot_node_name].change_item_saying(new_saying)
 	else:
 		print("Unknown slot " + slot_node_name + " can't change saying to " + new_saying)
+
+# GLOBAL INPUT
+func _input(event):
+	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+		get_tree().quit()

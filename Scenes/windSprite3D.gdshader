@@ -1,30 +1,43 @@
 shader_type spatial;
 
-render_mode unshaded, cull_disabled, blend_mix, depth_draw_opaque;
+render_mode unshaded, cull_disabled, blend_mix;
 
 uniform sampler2D albedo_texture : source_color;
 
-uniform float wind_strength : hint_range(0.0, 1.0) = 0.15;
-uniform float wind_speed : hint_range(0.0, 5.0) = 1.2;
-uniform float wind_scale : hint_range(0.0, 10.0) = 2.0;
+uniform float sway_strength = 0.05;
+uniform float sway_speed = 2.0;
+uniform float sway_frequency = 4.0;
+
+uniform float random_enabled = 0.0;
+instance uniform float random_phase = 0.0;
+instance uniform float random_strength = 1.0;
 
 void vertex() {
-	float height_mask = UV.y;
 
-	vec3 world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	float h = clamp(VERTEX.y + 0.5, 0.0, 1.0);
 
-	float wind =
-		sin(world_pos.x * wind_scale + TIME * wind_speed) +
-		cos(world_pos.z * wind_scale + TIME * wind_speed);
+	// IMPORTANT: avoid top edge entirely
+	float height_mask = pow(smoothstep(0.0, 0.85, h), 2.5);
 
-	wind *= 0.5;
+	float t = TIME * sway_speed;
 
-	VERTEX.x += wind * height_mask * wind_strength;
-	VERTEX.z += wind * height_mask * wind_strength * 0.3;
+	float wave = sin(t + h * sway_frequency);
+	float rand_wave = sin(t * 0.7 + random_phase) * 0.5;
+
+	wave = mix(wave, wave + rand_wave, random_enabled);
+
+	float offset = wave * sway_strength * height_mask;
+
+	VERTEX.x += offset;
 }
 
 void fragment() {
-	vec4 tex = texture(albedo_texture, UV);
+
+	// UV safety clamp (prevents edge sampling artifacts)
+	vec2 uv = clamp(UV, vec2(0.001), vec2(0.999));
+
+	vec4 tex = texture(albedo_texture, uv);
+
 	ALBEDO = tex.rgb;
 	ALPHA = tex.a;
 }
