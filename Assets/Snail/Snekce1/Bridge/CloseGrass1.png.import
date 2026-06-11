@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo4eu7hsuto2q"
-path.s3tc="res://.godot/imported/boxesPile2.png-a1d40bc6e3a8c925380cc8b460ca073f.s3tc.ctex"
+uid="uid://ctejov2rixfi5"
+path.s3tc="res://.godot/imported/CloseGrass1.png-a556816831f687e0d0672728a6ec0a14.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Snail/Snekce1/Office/boxesPile2.png"
-dest_files=["res://.godot/imported/boxesPile2.png-a1d40bc6e3a8c925380cc8b460ca073f.s3tc.ctex"]
+source_file="res://Assets/Snail/Snekce1/Bridge/CloseGrass1.png"
+dest_files=["res://.godot/imported/CloseGrass1.png-a556816831f687e0d0672728a6ec0a14.s3tc.ctex"]
 
 [params]
 

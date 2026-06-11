@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo4eu7hsuto2q"
-path.s3tc="res://.godot/imported/boxesPile2.png-a1d40bc6e3a8c925380cc8b460ca073f.s3tc.ctex"
+uid="uid://cxjclk7y3hhg3"
+path.s3tc="res://.godot/imported/FrontBridge.png-3f2e065bec0a4b642f67060b97631bfa.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Snail/Snekce1/Office/boxesPile2.png"
-dest_files=["res://.godot/imported/boxesPile2.png-a1d40bc6e3a8c925380cc8b460ca073f.s3tc.ctex"]
+source_file="res://Assets/Snail/Snekce1/Bridge/FrontBridge.png"
+dest_files=["res://.godot/imported/FrontBridge.png-3f2e065bec0a4b642f67060b97631bfa.s3tc.ctex"]
 
 [params]
 
