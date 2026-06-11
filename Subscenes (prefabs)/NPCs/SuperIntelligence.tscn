@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://ceitxim1blnch"]
+
+[ext_resource type="PackedScene" uid="uid://b8l8mhyb5sfwf" path="res://Subscenes (prefabs)/random_person.tscn" id="1_j7o4s"]
+[ext_resource type="Texture2D" uid="uid://0p620cp8nfyu" path="res://Assets/ChapterAssets/junkyard/SuperIntelligence/body3.png" id="2_j7o4s"]
+[ext_resource type="Texture2D" uid="uid://dtnp4ui71demd" path="res://Assets/ChapterAssets/junkyard/SuperIntelligence/body4.png" id="3_3r4ob"]
+[ext_resource type="Texture2D" uid="uid://bhefnplvuyq5e" path="res://Assets/ChapterAssets/office/disposable_worker_grin.png" id="3_8c6la"]
+[ext_resource type="Texture2D" uid="uid://dj3oiffnq2b1q" path="res://Assets/ChapterAssets/junkyard/SuperIntelligence/SIbody2.png" id="3_8qp5h"]
+[ext_resource type="Texture2D" uid="uid://c2l84t47jiw2q" path="res://Assets/ChapterAssets/junkyard/SuperIntelligence/SIbody1.png" id="3_qjix4"]
+[ext_resource type="Texture2D" uid="uid://cn0uku0mp5cs" path="res://Assets/ChapterAssets/junkyard/SuperIntelligence/body5.png" id="4_8c6la"]
+[ext_resource type="Texture2D" uid="uid://bpapwfuiwn34" path="res://Assets/ChapterAssets/office/disposable_worker_hit.png" id="4_qjix4"]
+[ext_resource type="Texture2D" uid="uid://cavcv1hfw1rn0" path="res://Assets/ChapterAssets/office/disposable_worker_idle.png" id="5_8qp5h"]
+[ext_resource type="Script" uid="uid://b2hc7dycf2l1x" path="res://Subscenes (prefabs)/NPCs/rotateSprite.gd" id="5_pwhyc"]
+[ext_resource type="Texture2D" uid="uid://c203vp3erhu4k" path="res://Assets/ChapterAssets/office/disposable_worker_throw.png" id="6_lklsr"]
+[ext_resource type="Texture2D" uid="uid://db4j834x2i2t1" path="res://Assets/ChapterAssets/junkyard/SuperIntelligence/SIHand.png" id="7_lklsr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qk7r5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8c6la")
+}],
+"loop": true,
+"name": &"grin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_qjix4")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_8qp5h")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_lklsr")
+}],
+"loop": true,
+"name": &"throw",
+"speed": 5.0
+}]
+
+[node name="SuperIntelligence" unique_id=1055277779 instance=ExtResource("1_j7o4s")]
+person_name = "super_intelligence"
+
+[node name="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="1" unique_id=82952497]
+texture = ExtResource("2_j7o4s")
+
+[node name="Sprite3D5" type="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="2" unique_id=752495809]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, -0.11328888)
+sorting_offset = -2.0
+cast_shadow = 0
+texture = ExtResource("3_8qp5h")
+script = ExtResource("5_pwhyc")
+rotation_speed = -25.0
+
+[node name="Sprite3D4" type="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="3" unique_id=285250263]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, -0.11328888)
+sorting_offset = -1.0
+cast_shadow = 0
+texture = ExtResource("3_qjix4")
+script = ExtResource("5_pwhyc")
+
+[node name="Sprite3D2" type="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="4" unique_id=915155979]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+sorting_offset = 1.0
+cast_shadow = 0
+texture = ExtResource("3_3r4ob")
+
+[node name="Sprite3D3" type="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="5" unique_id=88601759]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+sorting_offset = 3.0
+cast_shadow = 0
+texture = ExtResource("4_8c6la")
+
+[node name="Sprite3D6" type="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="6" unique_id=1201644581]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.38444138, 1.4830017, 0)
+sorting_offset = 3.0
+cast_shadow = 0
+texture = ExtResource("7_lklsr")
+
+[node name="Sprite3D7" type="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="7" unique_id=437173079]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 1.300787, -0.95654297, 0)
+sorting_offset = 3.0
+cast_shadow = 0
+texture = ExtResource("7_lklsr")
+
+[node name="Sprite3D8" type="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="8" unique_id=1417268400]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.3223801, -0.95654297, 0)
+sorting_offset = 3.0
+cast_shadow = 0
+flip_h = true
+texture = ExtResource("7_lklsr")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="9" unique_id=27529198]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.015281349, -0.073034704, -0.061731696)
+visible = false
+sorting_offset = 1.5
+sprite_frames = SubResource("SpriteFrames_qk7r5")
+animation = &"grin"
+autoplay = "idle"
+
+[node name="CollisionShape3D2" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="10" unique_id=1174005432]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.046936035, -0.06591797)
+
+[node name="PinJoint3D" parent="." index="1" unique_id=318766112]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04750955, -0.7462084, -0.1003198)
+
+[node name="StaticBody3D" parent="." index="2" unique_id=1792104469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9269209, 0)

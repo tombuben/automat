@@ -97,12 +97,13 @@
 [ext_resource type="Texture2D" uid="uid://65sqt0toa1bu" path="res://Assets/Snail/Snekce1/Bridge/WandererSitting.png" id="83_whykw"]
 [ext_resource type="Texture2D" uid="uid://cpv5rwexwvo2d" path="res://Assets/Snail/Snekce1/Bridge/CloseGrass5.png" id="84_qai4r"]
 [ext_resource type="Script" uid="uid://cqpeaxqy0a3oj" path="res://Scenes/SnailScenes/TrimeshCollision.gd" id="95_crlph"]
+[ext_resource type="Script" uid="uid://c1eaiskguh6ym" path="res://Scenes/SnailScenes/load_next_scene_area.gd" id="98_qetl3"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_636k1"]
 radius = 0.6999445
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vcro0"]
-size = Vector3(12.814453, 5.0805664, 4.939453)
+size = Vector3(22.139648, 5.7003174, 4.939453)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e3ln3"]
 size = Vector3(27.592209, 5.0805664, 4.939453)
@@ -126,6 +127,16 @@ size = Vector3(1, 1.312, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qai4r"]
 size = Vector3(3.089569, 1, 7.4453125)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ruwvp"]
+radius = 45.0
+height = 30.8
+is_hemisphere = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_crlph"]
+radius = 3.465
+height = 3.17
+is_hemisphere = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6f0co"]
 render_priority = 0
@@ -253,6 +264,11 @@ disable_receive_shadows = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_1f6dt"]
 material = SubResource("StandardMaterial3D_qt80e")
+
+[sub_resource type="SphereMesh" id="SphereMesh_smn8j"]
+radius = 1.052
+height = 0.785
+is_hemisphere = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_636k1"]
 transparency = 1
@@ -399,23 +415,16 @@ size = Vector3(1, 3.3498535, 4.7402344)
 [sub_resource type="BoxShape3D" id="BoxShape3D_8wkqm"]
 size = Vector3(1.8786621, 8.786377, 7.0236816)
 
-[sub_resource type="SphereMesh" id="SphereMesh_ruwvp"]
-radius = 45.0
-height = 30.8
-is_hemisphere = true
-
-[sub_resource type="SphereMesh" id="SphereMesh_crlph"]
-radius = 3.465
-height = 3.17
-is_hemisphere = true
+[sub_resource type="BoxShape3D" id="BoxShape3D_smn8j"]
+size = Vector3(2.0471191, 24.717773, 1)
 
 [node name="SnailScene1" type="Node3D" unique_id=46586574]
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1980153873 node_paths=PackedStringArray("camera_controller", "sprite") groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.294834, 0.7626977, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5331907, 1.7390368, 0)
 up_direction = Vector3(0, -1, 0)
 script = ExtResource("1_jo7c2")
-speed = 2.5
+speed = 2.85
 acceleration = 5.0
 gravity = 66.0
 camera_controller = NodePath("../Camera/CameraController")
@@ -470,7 +479,7 @@ camera_fov = 23.0
 camera_target = NodePath("CameraTarget")
 
 [node name="CollisionShape3D1" type="CollisionShape3D" parent="Camera/CameraZones/CameraZone0" unique_id=1255201653]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.106, -0.141)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9716797, 0.4158755, -0.141)
 shape = SubResource("BoxShape3D_vcro0")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
@@ -507,7 +516,7 @@ shape = SubResource("BoxShape3D_mybb8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.1505404, 29.895792)
 
 [node name="CameraZone3" type="Area3D" parent="Camera/CameraZones" unique_id=683454563 node_paths=PackedStringArray("camera_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.18067, 4.1742487, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.41792, 4.1742487, 0)
 script = ExtResource("9_7nroy")
 camera_fov = 23.0
 transition_time = 2.0
@@ -525,6 +534,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.064316, 56.05644)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.65334, -4.590603, 0)
 script = ExtResource("9_7nroy")
 camera_fov = 23.0
+transition_time = 3.0
 use_camera_target_y = true
 camera_target = NodePath("CameraTarget")
 
@@ -575,6 +585,17 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground and walls/BlockingWall3/StaticBody3D" unique_id=1024918526]
 shape = SubResource("BoxShape3D_ixu5i")
 
+[node name="BlockingWall4" type="MeshInstance3D" parent="Ground and walls" unique_id=440126672]
+transform = Transform3D(0.032017417, 0, 0, 0, 89.083336, 0, 0, 0, 1.1020904, 2.930501, -11.984706, 0.23113105)
+visible = false
+mesh = SubResource("BoxMesh_bq7wa")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground and walls/BlockingWall4" unique_id=411289145]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground and walls/BlockingWall4/StaticBody3D" unique_id=1764041246]
+shape = SubResource("BoxShape3D_ixu5i")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Ground and walls" unique_id=207832382]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.294876, -4.24661, 0)
 
@@ -588,12 +609,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1867595, -47.385075, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground and walls/StaticBody3D2" unique_id=1560978164]
 shape = SubResource("BoxShape3D_qai4r")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground and walls" unique_id=1863561602]
+transform = Transform3D(0.032017417, 0, 0, 0, 9.259259, 0, 0, 0, 0.17274141, 5.325639, -218.10394, 0.23113105)
+visible = false
+mesh = SubResource("SphereMesh_ruwvp")
+skeleton = NodePath("")
+script = ExtResource("95_crlph")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Ground and walls" unique_id=89469467]
+transform = Transform3D(0.032017417, 0, 0, 0, 9.259259, 0, 0, 0, 0.17274141, 1.6283628, -0.80314386, 0.23113105)
+visible = false
+mesh = SubResource("SphereMesh_crlph")
+skeleton = NodePath("")
+script = ExtResource("95_crlph")
+
 [node name="Scene1" type="Node3D" parent="." unique_id=1562464198]
 
 [node name="BG2" type="Sprite3D" parent="Scene1" unique_id=2107032695]
 transform = Transform3D(37.414, 0, 0, 0, 19.441, 0, 0, 0, 19.441, 0, 2.7782679, -1.2165818)
 sorting_offset = -6.0
 modulate = Color(0.94, 0.9149334, 0.75200003, 1)
+texture = ExtResource("7_s81e8")
+
+[node name="BG3" type="Sprite3D" parent="Scene1" unique_id=504563694]
+transform = Transform3D(127.089, 0, 0, 0, 19.441, 0, 0, 0, 19.441, 26.755836, -8.481367, -1.2165818)
+sorting_offset = 33.0
+modulate = Color(0, 0, 0, 1)
 texture = ExtResource("7_s81e8")
 
 [node name="BG" type="Sprite3D" parent="Scene1" unique_id=287234236]
@@ -771,6 +812,20 @@ flip_v = true
 modulate = Color(0.3160547, 0.3625, 0.31634498, 1)
 texture = ExtResource("10_u3q6u")
 
+[node name="ForeGroundPipe4" type="Sprite3D" parent="Scene1" unique_id=617118673]
+transform = Transform3D(1.21037536e-08, -1.015, 0, 1.015, 1.21037536e-08, 0, 0, 0, 1.015, -11.999865, -2.9710386, 0)
+sorting_offset = 35.0
+modulate = Color(0.3160547, 0.3625, 0.31634498, 1)
+texture = ExtResource("10_u3q6u")
+
+[node name="plant15" type="Sprite3D" parent="Scene1/ForeGroundPipe4" unique_id=1048362474]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.050857, 0.3947878, 0)
+sorting_offset = 35.0
+flip_h = true
+flip_v = true
+modulate = Color(0.3160547, 0.3625, 0.31634498, 1)
+texture = ExtResource("10_u3q6u")
+
 [node name="ForeGroundPipe2" type="Sprite3D" parent="Scene1" unique_id=794030909]
 transform = Transform3D(-6.119594e-08, -1.015, 0, 1.4, -4.436706e-08, 0, 0, 0, 1.015, 35.735054, -1.5995295, 0)
 sorting_offset = 35.0
@@ -817,6 +872,19 @@ initial_velocity_max = 1.3
 scale_amount_min = 0.2
 scale_amount_max = 0.4
 color = Color(0.90625, 0.8655901, 0.71650386, 1)
+
+[node name="Sprite3D" type="Sprite3D" parent="Scene1" unique_id=984406268]
+transform = Transform3D(1.08, 0, 0, 0, 1.08, 0, 0, 0, 1.08, -0.49964666, 0.9591613, 0)
+sorting_offset = 6.008
+modulate = Color(0.50625, 0.50625, 0.50625, 1)
+texture = ExtResource("27_xvmsi")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Scene1/Sprite3D" unique_id=781913147]
+transform = Transform3D(0.9259259, 0, 0, 0, 0.9259259, 0, 0, 0, 0.9259259, -0.033364058, -0.5699683, 0)
+visible = false
+mesh = SubResource("SphereMesh_smn8j")
+skeleton = NodePath("")
+script = ExtResource("95_crlph")
 
 [node name="Scene2" type="Node3D" parent="." unique_id=742420198]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.195107, 2.9512825, 0)
@@ -1209,12 +1277,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.73704, 5.888631, 0)
 
 [node name="scene4Parent" type="Node3D" parent="Scene4" unique_id=649441716]
 
-[node name="Sprite3D" type="Sprite3D" parent="Scene4/scene4Parent" unique_id=1113949658]
-transform = Transform3D(89.378, 0, 0, 0, 56.67, 0, 0, 0, 1.489, 17.919472, 4.268257, 0)
-sorting_offset = -4.0
-modulate = Color(0.9411765, 0.9098039, 0.7529412, 1)
-texture = ExtResource("7_s81e8")
-
 [node name="Sprite3D2" type="Sprite3D" parent="Scene4/scene4Parent" unique_id=756203956]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 17.327484, -8.972324, 0)
 sorting_offset = 5.0
@@ -1236,8 +1298,8 @@ sorting_offset = 3.0
 texture = ExtResource("63_l84nq")
 
 [node name="Sprite3D4" type="Sprite3D" parent="Scene4/scene4Parent" unique_id=675415503]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.7285995, -2.965576, 0)
-sorting_offset = 6.0
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.4208527, -2.965576, 0)
+sorting_offset = 7.0
 modulate = Color(0.45625, 0.45625, 0.45625, 1)
 texture = ExtResource("62_xcoxj")
 
@@ -1307,14 +1369,14 @@ flip_h = true
 texture = ExtResource("62_mkn7e")
 
 [node name="Sprite3D8" type="Sprite3D" parent="Scene4/Scene5" unique_id=1342240465]
-transform = Transform3D(6.4, 0, 0, 0, 6.4, 0, 0, 0, 6.4, 5.982483, 23.136272, 0)
-sorting_offset = -1.0
+transform = Transform3D(6.4, 0, 0, 0, 6.4, 0, 0, 0, 6.4, 5.982483, 20.205494, 0)
+sorting_offset = -1.79
 modulate = Color(0.99375, 0.99375, 0.99375, 1)
 texture = ExtResource("77_7trq8")
 
 [node name="gradient" type="Sprite3D" parent="Scene4/Scene5" unique_id=338036232]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 11.632004, -8.932991, 0)
-sorting_offset = 1.0
+sorting_offset = -0.79
 texture = ExtResource("71_japqh")
 
 [node name="farGrass1" type="Sprite3D" parent="Scene4/Scene5" unique_id=1212332724]
@@ -1362,17 +1424,17 @@ sorting_offset = 25.0
 texture = ExtResource("80_ub5m5")
 
 [node name="frontBridge" type="Sprite3D" parent="Scene4/Scene5" unique_id=778344912]
-transform = Transform3D(6.4, 0, 0, 0, 6.4, 0, 0, 0, 6.4, 43.94316, -41.908634, 29.204832)
+transform = Transform3D(6.1, 0, 0, 0, 6.1, 0, 0, 0, 6.1, 31.159058, -37.53095, 29.204832)
 sorting_offset = 26.0
 texture = ExtResource("82_rsn71")
 
-[node name="Wanderer" type="Sprite3D" parent="Scene4/Scene5" unique_id=674079897]
-transform = Transform3D(6.4, 0, 0, 0, 6.4, 0, 0, 0, 6.4, 43.94316, -26.371506, 29.204832)
+[node name="Wanderer" type="Sprite3D" parent="Scene4/Scene5/frontBridge" unique_id=674079897]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4276762, 0)
 sorting_offset = 27.0
 texture = ExtResource("83_whykw")
 
-[node name="frontmostgrass" type="Sprite3D" parent="Scene4/Scene5" unique_id=476594908]
-transform = Transform3D(6.4, 0, 0, 0, 6.4, 0, 0, 0, 6.4, 77.30678, -48.233997, 32.925804)
+[node name="frontmostgrass" type="Sprite3D" parent="Scene4/Scene5/frontBridge" unique_id=476594908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2130623, -0.988338, 0.5814023)
 sorting_offset = 38.263
 texture = ExtResource("84_qai4r")
 
@@ -1488,11 +1550,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextboxTriggerArea" type="Area3D" parent="." unique_id=577110177 node_paths=PackedStringArray("player", "dialogue_ui")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.668125, 2.973071, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.134212, 2.973071, 0)
 script = ExtResource("21_3xfwl")
 player = NodePath("../Player")
 dialogue_ui = NodePath("../TextBox")
-dialogue_lines = Array[String](["Hello hi hello", "yo yo yo", "Bye"])
+dialogue_lines = Array[String](["Oh hello", "It's you again", "Huh, you want to deliver another letter?", "O-okay, I might have something here for you", "(crumpled letter received)", "Sure, it has been here for a year, but it doesn't hurt to deliver it again!", "Off you go, good luck!"])
 speaker_portraits = Array[Texture2D]([ExtResource("19_ixu5i")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TextboxTriggerArea" unique_id=624746928]
@@ -1510,21 +1572,18 @@ camera = NodePath("../Camera/CameraController")
 shape = SubResource("BoxShape3D_8wkqm")
 
 [node name="Node3D" type="Node3D" parent="TeleportArea1" unique_id=1476594236]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.923, -1.906, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.991074, -1.906, 1)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1863561602]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 161.71603, -23.555225, 0)
-visible = false
-mesh = SubResource("SphereMesh_ruwvp")
-skeleton = NodePath("")
-script = ExtResource("95_crlph")
+[node name="LoadNextSceneArea" type="Area3D" parent="." unique_id=1519282153 node_paths=PackedStringArray("fade_manager", "player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 228.56667, 0, 0)
+script = ExtResource("98_qetl3")
+target_scene = "uid://ly1vphjhycta"
+fade_manager = NodePath("../fade_manager")
+player = NodePath("../Player")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=89469467]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.858654, -0.08673954, 0)
-visible = false
-mesh = SubResource("SphereMesh_crlph")
-skeleton = NodePath("")
-script = ExtResource("95_crlph")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LoadNextSceneArea" unique_id=1933279457]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5553894, 0)
+shape = SubResource("BoxShape3D_smn8j")
 
 [connection signal="body_entered" from="LetterInteractable/Area3D" to="LetterInteractable" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="LetterInteractable/Area3D" to="LetterInteractable" method="_on_area_3d_body_exited"]
