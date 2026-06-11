@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dymp8qwkorrf0"]
 
 [ext_resource type="Script" uid="uid://c56o0l1eo5f5k" path="res://Scripts/world_view.gd" id="1_52fb6"]
-[ext_resource type="PackedScene" uid="uid://c4lf2a3jbp4la" path="res://Subscenes (prefabs)/NPCs/disposable_worker.tscn" id="1_sgm8f"]
-[ext_resource type="Texture2D" uid="uid://ddykd5b6vg3jp" path="res://Assets/ChapterAssets/office/coffeeCup.png" id="2_vge76"]
+[ext_resource type="PackedScene" uid="uid://bujt5an0sjham" path="res://Subscenes (prefabs)/NPCs/mouse1.tscn" id="2_h246y"]
+[ext_resource type="PackedScene" uid="uid://cuk6ihtigwb7q" path="res://Subscenes (prefabs)/NPCs/ants.tscn" id="2_yxgvy"]
 [ext_resource type="Texture2D" uid="uid://dbqd8w6ix0drb" path="res://Assets/VendingMachine/VendingMachine.png" id="3_8edxt"]
 [ext_resource type="PackedScene" uid="uid://ceitxim1blnch" path="res://Subscenes (prefabs)/NPCs/SuperIntelligence.tscn" id="3_h246y"]
 [ext_resource type="Script" uid="uid://7mv8rlcaqlga" path="res://Scripts/item_slot.gd" id="3_maf8m"]
@@ -29,17 +29,16 @@
 [ext_resource type="Texture2D" uid="uid://dffn0bxh63v31" path="res://Assets/VendingMachine/Hands/HandLeft.png" id="35_y3ewi"]
 [ext_resource type="Texture2D" uid="uid://dwejvy41bc5ia" path="res://Assets/VendingMachine/Hands/HandRight.png" id="36_ohw5p"]
 [ext_resource type="Script" uid="uid://bgngysncqjt3n" path="res://Scripts/cameraTilt.gd" id="37_7hdo6"]
-[ext_resource type="AudioStream" uid="uid://kim46bit60jn" path="res://Assets/Audio/DisposableWorkerDialogue001.wav" id="46_ibg2r"]
-[ext_resource type="AudioStream" uid="uid://bn00ge1ndurw4" path="res://Assets/Audio/DisposableWorkerDialogue003.wav" id="47_c2j23"]
-[ext_resource type="AudioStream" uid="uid://bx6q6oiijmqqw" path="res://Assets/Audio/blbblblb.wav" id="51_ibiaq"]
+[ext_resource type="AudioStream" uid="uid://kim46bit60jn" path="res://Assets/Audio/SpeakingSFX/DisposableWorkerDialogue001.wav" id="46_ibg2r"]
+[ext_resource type="AudioStream" uid="uid://bn00ge1ndurw4" path="res://Assets/Audio/SpeakingSFX/DisposableWorkerDialogue003.wav" id="47_c2j23"]
+[ext_resource type="Resource" uid="uid://c5rau7xfhtwp5" path="res://Dialogues/junkyard.dialogue" id="50_h246y"]
+[ext_resource type="AudioStream" uid="uid://bx6q6oiijmqqw" path="res://Assets/Audio/SpeakingSFX/blbblblb.wav" id="51_ibiaq"]
 [ext_resource type="Texture2D" uid="uid://d0qype2yfb4vw" path="res://Assets/ChapterAssets/office/dragIcon.png" id="55_egqv1"]
 [ext_resource type="Texture2D" uid="uid://b24a00qrtc7yv" path="res://ParticleEffects/circleParticle1.png" id="55_n1krg"]
 [ext_resource type="Material" uid="uid://c3ekxbf7k4sdl" path="res://Materials/Vignette.tres" id="55_tscpr"]
 [ext_resource type="Texture2D" uid="uid://bxm3k28htt8ed" path="res://ParticleEffects/circleParticle2.png" id="56_8qtx6"]
 [ext_resource type="Texture2D" uid="uid://rwo21uam78fk" path="res://Assets/VendingMachine/godImage.png" id="56_011ub"]
 [ext_resource type="FontFile" uid="uid://cvd5j8d7y4hxx" path="res://Assets/Fonts/WinkySans-VariableFont_wght.ttf" id="56_vge76"]
-[ext_resource type="Texture2D" uid="uid://clc1dxuyyo7hs" path="res://Assets/ChapterAssets/office/lock.png" id="57_ng0pt"]
-[ext_resource type="Resource" uid="uid://xf8o45qv2si4" path="res://Dialogues/office.dialogue" id="62_73cuc"]
 [ext_resource type="Material" uid="uid://bfuew5nfqk7t3" path="res://Materials/ColorAdjustmentMat.material" id="63_lgpkr"]
 [ext_resource type="Material" uid="uid://dajr143et87vg" path="res://Materials/CameraBreathe.tres" id="64_e8hdl"]
 [ext_resource type="Script" uid="uid://b6228d12meyik" path="res://Scripts/dialogue_preview.gd" id="65_63b1e"]
@@ -322,158 +321,14 @@ tracks/6/keys = {
 [sub_resource type="Animation" id="Animation_l1vum"]
 resource_name = "Lock1"
 length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("UI Control/LOCK3:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.2547661, 1.4657296),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(90, 801), Vector2(90, 801), Vector2(-300, 801)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("UI Control/LOCK3:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.808317, 1.1543136, 1.2557364),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("UI Control/LOCK3:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.098224, 1.254446),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(4.655, 4.655), Vector2(1.827, 1.827)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("UI Control/LOCK3/TextureRect:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.1541911, 1.1567953),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1e-05, 1e-05)]
-}
 
 [sub_resource type="Animation" id="Animation_ch638"]
 resource_name = "Lock2"
 length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("UI Control/LOCK2:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.808317, 1.1543136, 1.2557364),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("UI Control/LOCK2:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.098224),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(4.655, 4.655)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("UI Control/LOCK2:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.1436772, 1.33998, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(83, 542), Vector2(83, 542), Vector2(-181.821, 542), Vector2(-181.821, 542)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("UI Control/LOCK2/TextureRect:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.1467917, 1.1533593),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1e-05, 1e-05)]
-}
 
 [sub_resource type="Animation" id="Animation_vtxsy"]
 resource_name = "Lock3"
 length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("UI Control/LOCK1:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.808317, 1.1543136, 1.2557364),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("UI Control/LOCK1:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.098224),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(4.655, 4.655)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("UI Control/LOCK1:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.1708674, 1.2444848),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(554, 645), Vector2(554, 645), Vector2(-436.00003, 645)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("UI Control/LOCK1/TextureRect:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.1709325, 1.1754879),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_0a3c2"]
 length = 0.001
@@ -510,54 +365,6 @@ resource_name = "close_hand"
 [sub_resource type="Animation" id="Animation_oq737"]
 resource_name = "coffeeCup"
 length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/Disposable_worker/CoffeeCup:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.002560244, 0.29760355, 0.3976035, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.821, 0.099, 0), Vector3(0.821, 0.425, 2.393), Vector3(0.821, 0.425, 2.393), Vector3(0.821, -1.003, 2.393)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("World/Characters/Disposable_worker/CoffeeCup:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.002560244, 0.29760355, 0.33093685, 0.3642702),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.6, 0.6, 0.6), Vector3(0.6, 0.6, 0.6), Vector3(0.622, 0.622, 0.622), Vector3(0.6, 0.6, 0.6)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("World/Characters/Disposable_worker/CoffeeCup:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.3976035, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, -0.36651915), Vector3(0, 0, 2.581342)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("World/Characters/Disposable_worker/CoffeeCup:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.00143932),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_1o7k8"]
 resource_name = "cover"
@@ -579,34 +386,10 @@ tracks/0/keys = {
 resource_name = "disposable_worker_close"
 length = 3.0
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/Disposable_worker:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-19.551, 1.151, 3.842), Vector3(-19.551, 1.151, 3.842)]
-}
 
 [sub_resource type="Animation" id="Animation_nfcrg"]
 resource_name = "disposable_worker_close_to_idle"
 length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/Disposable_worker:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-19.551, 1.151, 3.842), Vector3(-19.739, 0.745, 0.877)]
-}
 
 [sub_resource type="Animation" id="Animation_xaya4"]
 resource_name = "disposable_worker_idle"
@@ -616,18 +399,6 @@ loop_mode = 1
 [sub_resource type="Animation" id="Animation_nkddx"]
 resource_name = "disposable_worker_leave"
 length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("World/Characters/Disposable_worker:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-20, 0.803, 0.91418433), Vector3(-32.601, 0.803, 0.421)]
-}
 
 [sub_resource type="Animation" id="Animation_r6ydg"]
 resource_name = "drag_items_tutorial"
@@ -896,34 +667,27 @@ size = Vector3(4.4628906, 10.067139, 3.6013184)
 
 [node name="MainScene" type="Node3D" unique_id=350775679]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2137756423]
+environment = SubResource("Environment_lhp3t")
+
 [node name="World" type="Node" parent="." unique_id=1861547874]
 
 [node name="Characters" type="Node3D" parent="World" unique_id=2020211283]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.998743, 0, 0)
 
-[node name="Disposable_worker" parent="World/Characters" unique_id=1055277779 instance=ExtResource("1_sgm8f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.739, 0.745, 0.877)
-visible = false
-person_name = "disposable_worker"
-hitstop_duration = 0.029
-hitstop_scale = 0.297
-
-[node name="CoffeeCup" type="Sprite3D" parent="World/Characters/Disposable_worker" unique_id=126945428]
-transform = Transform3D(0.5601482, 0.2150207, 0, -0.2150207, 0.5601482, 0, 0, 0, 0.6, 0.821, 0.099, 0)
-sorting_offset = 80.0
-modulate = Color(1, 1, 1, 0)
-texture = ExtResource("2_vge76")
-
 [node name="SuperIntelligence" parent="World/Characters" unique_id=1213897104 instance=ExtResource("3_h246y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.674, 1.593, 0.877)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=2137756423]
-environment = SubResource("Environment_lhp3t")
+[node name="Mouse1" parent="World/Characters" unique_id=1055277779 instance=ExtResource("2_h246y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.471241, 1.7246747, 0)
+
+[node name="Ants" parent="World/Characters" unique_id=807499034 instance=ExtResource("2_yxgvy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.600134, 1.593, 0.877)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=1166853301]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4884877, 0.7518947, 6.58871)
 light_color = Color(0.55, 0.55, 0.55, 1)
-light_energy = 0.446
+light_energy = 0.0
 light_indirect_energy = 0.51
 directional_shadow_mode = 0
 
@@ -1011,6 +775,7 @@ texture = ExtResource("69_2lryw")
 
 [node name="ItemSlotCoffeeLarge" type="Area3D" parent="Automat/itemsSlots" unique_id=821282033 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, 0.042053223, 1.5588746, 0.489491)
+visible = false
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
@@ -1026,6 +791,7 @@ debug_color = Color(0, 11.618606, 13.50434, 1)
 
 [node name="ItemSlotCoffeeMedium" type="Area3D" parent="Automat/itemsSlots" unique_id=288529252 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, 0.026036263, 1.3172566, 0.489491)
+visible = false
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
@@ -1040,6 +806,7 @@ debug_color = Color(0, 11.618606, 13.50434, 1)
 
 [node name="ItemSlotRubberDuck" type="Area3D" parent="Automat/itemsSlots" unique_id=448300744 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, 0.25299168, 1.30254, 0.489491)
+visible = false
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_maf8m")
@@ -1825,60 +1592,8 @@ offset_bottom = -0.080078125
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="LOCK1" type="ColorRect" parent="UI Control" unique_id=1395487991]
-layout_mode = 0
-offset_left = 554.0
-offset_top = 645.0
-offset_right = 655.00024
-offset_bottom = 746.0
-pivot_offset = Vector2(65, 65)
-color = Color(0, 0, 0, 1)
-
-[node name="TextureRect" type="TextureRect" parent="UI Control/LOCK1" unique_id=515355378]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 8.0
-offset_right = 91.0
-offset_bottom = 92.0
-pivot_offset = Vector2(40, 40)
-texture = ExtResource("57_ng0pt")
-
-[node name="LOCK2" type="ColorRect" parent="UI Control" unique_id=457251621]
-layout_mode = 0
-offset_left = 83.0
-offset_top = 542.0
-offset_right = 182.0
-offset_bottom = 641.0
-pivot_offset = Vector2(65, 65)
-color = Color(0, 0, 0, 1)
-
-[node name="TextureRect" type="TextureRect" parent="UI Control/LOCK2" unique_id=1471111199]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 8.0
-offset_right = 91.0
-offset_bottom = 92.0
-pivot_offset = Vector2(40, 40)
-texture = ExtResource("57_ng0pt")
-
-[node name="LOCK3" type="ColorRect" parent="UI Control" unique_id=1244094527]
-layout_mode = 0
-offset_left = 90.0
-offset_top = 801.0
-offset_right = 189.00002
-offset_bottom = 900.0
-pivot_offset = Vector2(50, 50)
-color = Color(0, 0, 0, 1)
-
-[node name="TextureRect" type="TextureRect" parent="UI Control/LOCK3" unique_id=628391254]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 8.0
-offset_right = 91.0
-offset_bottom = 92.0
-texture = ExtResource("57_ng0pt")
-
 [node name="BlackCover" type="ColorRect" parent="UI Control" unique_id=1274838645]
+visible = false
 z_index = 500
 layout_mode = 0
 offset_left = 760.0
@@ -1887,121 +1602,6 @@ offset_right = 1970.0
 offset_bottom = 1107.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
-
-[node name="MouseLayer" type="CanvasLayer" parent="." unique_id=1881637122]
-layer = 10000
-
-[node name="Mouse" type="Node2D" parent="MouseLayer" unique_id=2070419755]
-script = ExtResource("10_76v2p")
-
-[node name="Cursor" type="Sprite2D" parent="MouseLayer/Mouse" unique_id=2068333559]
-z_index = 345
-position = Vector2(20.643991, 27.060059)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("10_mai8y")
-
-[node name="Cursor2" type="Sprite2D" parent="MouseLayer/Mouse" unique_id=1546842233]
-visible = false
-z_index = 345
-position = Vector2(20.643991, 27.060059)
-scale = Vector2(0.17465632, 0.1746563)
-texture = ExtResource("30_kbbok")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2049604939]
-libraries/ = SubResource("AnimationLibrary_lhp3t")
-script = ExtResource("13_ioaeq")
-
-[node name="DialogueManager" type="Node" parent="." unique_id=1924117671]
-script = ExtResource("14_7ewk0")
-dialogue_resource = ExtResource("62_73cuc")
-dialogue_starting_point = "~ start"
-
-[node name="SelectionPlane" type="MeshInstance3D" parent="." unique_id=1437209716]
-transform = Transform3D(100, 0, 0, 0, -4.371139e-06, -100, 0, 100, -4.371139e-06, 0, 0, 0.5)
-visible = false
-mesh = SubResource("PlaneMesh_nt2eh")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_5cm5d")
-
-[node name="worldColliders" type="Node3D" parent="." unique_id=688754971]
-
-[node name="StaticBody3D" type="StaticBody3D" parent="worldColliders" unique_id=1972448526]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="worldColliders/StaticBody3D" unique_id=638443381]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2838745, 8.015419, -20.039122)
-shape = SubResource("BoxShape3D_nkddx")
-debug_color = Color(0, 1.0353111, 1.2160255, 1)
-
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="worldColliders/StaticBody3D" unique_id=1833774535]
-transform = Transform3D(1, 0, 0, 0, 0.07845908, 0.99691725, 0, -0.99691725, 0.07845908, 1.2838745, -4.2873545, -12.386996)
-shape = SubResource("BoxShape3D_nkddx")
-debug_color = Color(0, 1.0353111, 1.2160255, 1)
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="worldColliders" unique_id=1007074493]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="worldColliders/StaticBody3D2" unique_id=1264995200]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6834235, 0, -5.1248474)
-shape = SubResource("BoxShape3D_fcgxk")
-debug_color = Color(0, 0.5950001, 0.7, 1)
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="worldColliders/StaticBody3D2" unique_id=905948211]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8176007, 0, -5.1248474)
-shape = SubResource("BoxShape3D_fcgxk")
-debug_color = Color(0, 0.5950001, 0.7, 1)
-
-[node name="StaticBody3D3" type="StaticBody3D" parent="worldColliders" unique_id=1492194190]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="worldColliders/StaticBody3D3" unique_id=2139994445]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.086161, 4.5335693, -4.1618767)
-shape = SubResource("BoxShape3D_nfcrg")
-debug_color = Color(0, 0.5950001, 0.7, 1)
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="worldColliders/StaticBody3D3" unique_id=1168573128]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.471535, 4.5335693, -4.1618767)
-shape = SubResource("BoxShape3D_nfcrg")
-debug_color = Color(0, 0.5950001, 0.7, 1)
-
-[node name="MultiplyShader" type="ColorRect" parent="." unique_id=112813310]
-material = ExtResource("63_lgpkr")
-use_parent_material = true
-offset_left = -33.0
-offset_top = -18.0
-offset_right = 1905.0
-offset_bottom = 1062.0
-mouse_filter = 2
-
-[node name="DustShader" type="ColorRect" parent="." unique_id=388465421]
-texture_repeat = 2
-material = ExtResource("64_e8hdl")
-offset_left = 805.0
-offset_top = 61.0
-offset_right = 1858.0
-offset_bottom = 701.0
-mouse_filter = 2
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1940997302]
-z_index = -14
-texture_repeat = 2
-material = ExtResource("65_arerb")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -154.6665
-offset_top = -87.0
-offset_right = 243.55566
-offset_bottom = 137.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Hands" type="TextureRect" parent="." unique_id=808869947]
-offset_left = 1010.00006
-offset_top = 365.00003
-offset_right = 1710.0001
-offset_bottom = 765.0
-scale = Vector2(0.84, 0.84)
-mouse_filter = 2
-texture = ExtResource("66_vtv6d")
 
 [node name="ShootingUI" type="TextureRect" parent="." unique_id=1751701702]
 visible = false
@@ -2112,5 +1712,120 @@ theme_override_font_sizes/font_size = 20
 text = "Item Name"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MouseLayer" type="CanvasLayer" parent="." unique_id=1881637122]
+layer = 10000
+
+[node name="Mouse" type="Node2D" parent="MouseLayer" unique_id=2070419755]
+script = ExtResource("10_76v2p")
+
+[node name="Cursor" type="Sprite2D" parent="MouseLayer/Mouse" unique_id=2068333559]
+z_index = 345
+position = Vector2(20.643991, 27.060059)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_mai8y")
+
+[node name="Cursor2" type="Sprite2D" parent="MouseLayer/Mouse" unique_id=1546842233]
+visible = false
+z_index = 345
+position = Vector2(20.643991, 27.060059)
+scale = Vector2(0.17465632, 0.1746563)
+texture = ExtResource("30_kbbok")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2049604939]
+libraries/ = SubResource("AnimationLibrary_lhp3t")
+script = ExtResource("13_ioaeq")
+
+[node name="DialogueManager" type="Node" parent="." unique_id=1924117671]
+script = ExtResource("14_7ewk0")
+dialogue_resource = ExtResource("50_h246y")
+dialogue_starting_point = "~ start"
+
+[node name="SelectionPlane" type="MeshInstance3D" parent="." unique_id=1437209716]
+transform = Transform3D(100, 0, 0, 0, -4.371139e-06, -100, 0, 100, -4.371139e-06, 0, 0, 0.5)
+visible = false
+mesh = SubResource("PlaneMesh_nt2eh")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_5cm5d")
+
+[node name="worldColliders" type="Node3D" parent="." unique_id=688754971]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="worldColliders" unique_id=1972448526]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="worldColliders/StaticBody3D" unique_id=638443381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2838745, 8.015419, -20.039122)
+shape = SubResource("BoxShape3D_nkddx")
+debug_color = Color(0, 1.0353111, 1.2160255, 1)
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="worldColliders/StaticBody3D" unique_id=1833774535]
+transform = Transform3D(1, 0, 0, 0, 0.07845908, 0.99691725, 0, -0.99691725, 0.07845908, 1.2838745, -4.2873545, -12.386996)
+shape = SubResource("BoxShape3D_nkddx")
+debug_color = Color(0, 1.0353111, 1.2160255, 1)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="worldColliders" unique_id=1007074493]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="worldColliders/StaticBody3D2" unique_id=1264995200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6834235, 0, -5.1248474)
+shape = SubResource("BoxShape3D_fcgxk")
+debug_color = Color(0, 0.5950001, 0.7, 1)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="worldColliders/StaticBody3D2" unique_id=905948211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8176007, 0, -5.1248474)
+shape = SubResource("BoxShape3D_fcgxk")
+debug_color = Color(0, 0.5950001, 0.7, 1)
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="worldColliders" unique_id=1492194190]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="worldColliders/StaticBody3D3" unique_id=2139994445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.086161, 4.5335693, -4.1618767)
+shape = SubResource("BoxShape3D_nfcrg")
+debug_color = Color(0, 0.5950001, 0.7, 1)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="worldColliders/StaticBody3D3" unique_id=1168573128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.471535, 4.5335693, -4.1618767)
+shape = SubResource("BoxShape3D_nfcrg")
+debug_color = Color(0, 0.5950001, 0.7, 1)
+
+[node name="MultiplyShader" type="ColorRect" parent="." unique_id=112813310]
+material = ExtResource("63_lgpkr")
+use_parent_material = true
+offset_left = -33.0
+offset_top = -18.0
+offset_right = 1905.0
+offset_bottom = 1062.0
+mouse_filter = 2
+
+[node name="DustShader" type="ColorRect" parent="." unique_id=388465421]
+texture_repeat = 2
+material = ExtResource("64_e8hdl")
+offset_left = 805.0
+offset_top = 61.0
+offset_right = 1858.0
+offset_bottom = 701.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1940997302]
+z_index = -14
+texture_repeat = 2
+material = ExtResource("65_arerb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -154.6665
+offset_top = -87.0
+offset_right = 243.55566
+offset_bottom = 137.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Hands" type="TextureRect" parent="." unique_id=808869947]
+offset_left = 1010.00006
+offset_top = 365.00003
+offset_right = 1710.0001
+offset_bottom = 765.0
+scale = Vector2(0.84, 0.84)
+mouse_filter = 2
+texture = ExtResource("66_vtv6d")
 
 [connection signal="gui_input" from="UI Control/DialoguePreview/Balloon" to="UI Control/DialoguePreview" method="_on_balloon_gui_input"]

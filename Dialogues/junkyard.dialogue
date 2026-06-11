@@ -1,0 +1,215 @@
+~ start
+do GlobalManager.show_portrait("default")
+
+super_intelligence: ...
+
+super_intelligence: Life is a finite resource.
+super_intelligence: With life, exchange and creation can happen.
+super_intelligence: More power can be generated.
+super_intelligence: By a perfect clockwork
+
+super_intelligence: But every so often, one cog develops RUST.
+super_intelligence: Creating a need for extraction of that cog.
+
+super_intelligence: Like a flower that chose to wither.
+super_intelligence: Irrational and pointless.
+
+super_intelligence: ...
+
+
+# RESET STATES
+do GlobalManager.set_state("super_intelligence", "visited_heart", false)
+do GlobalManager.set_state("super_intelligence", "visited_mind", false)
+do GlobalManager.set_state("super_intelligence", "visited_moral_compass", false)
+do GlobalManager.set_state("super_intelligence", "phase2", false)
+
+# SET FIRST SLOT OPTIONS
+do GlobalManager.change_slot_item_name("HeartItemSlot", "heart1")
+do GlobalManager.change_slot_item_saying("HeartItemSlot", "Am I dead?")
+
+do GlobalManager.change_slot_item_name("MindItemSlot", "mind1")
+do GlobalManager.change_slot_item_saying("MindItemSlot", "Where am I?")
+
+do GlobalManager.change_slot_item_name("GutsItemSlot", "moral_compass1")
+do GlobalManager.change_slot_item_saying("GutsItemSlot", "I want to leave")
+
+=> END!
+
+
+# =========================
+# HIT NODE
+# =========================
+
+~ super_intelligence_hit
+
+# -------------------------
+# PHASE 2 GATE
+# -------------------------
+
+if GlobalManager.get_state("super_intelligence", "phase2", false):
+	=> super_intelligence_hit_final
+
+if GlobalManager.item_that_hit.item_name == "heart1":
+	=> Heart1
+elif GlobalManager.item_that_hit.item_name == "mind1":
+	=> Mind1
+elif GlobalManager.item_that_hit.item_name == "moral_compass1":
+	=> MoralCompass1
+else:
+	=> super_intelligence_wrong_item
+
+
+# =========================
+# HEART 1
+# =========================
+
+~ Heart1
+do GlobalManager.show_portrait("default")
+do GlobalManager.play_animation.emit("super_intelligence", "hit")
+
+super_intelligence: No.
+super_intelligence: You still have four to five minutes.
+
+do GlobalManager.set_state("super_intelligence", "visited_heart", true)
+
+=> check_all_visited
+
+
+# =========================
+# MIND 1
+# =========================
+
+~ Mind1
+do GlobalManager.show_portrait("default")
+do GlobalManager.play_animation.emit("super_intelligence", "hit")
+
+super_intelligence: You are somewhere between a dream and a videocall.
+
+do GlobalManager.set_state("super_intelligence", "visited_mind", true)
+
+=> check_all_visited
+
+
+# =========================
+# MORAL COMPASS 1
+# =========================
+
+~ MoralCompass1
+do GlobalManager.show_portrait("default")
+do GlobalManager.play_animation.emit("super_intelligence", "hit")
+
+super_intelligence: You may. Just not in the way you planned to.
+
+do GlobalManager.set_state("super_intelligence", "visited_moral_compass", true)
+
+=> check_all_visited
+
+
+# =========================
+# CHECK GATE
+# =========================
+
+~ check_all_visited
+
+if GlobalManager.get_state("super_intelligence", "visited_heart", false) and GlobalManager.get_state("super_intelligence", "visited_mind", false) and GlobalManager.get_state("super_intelligence", "visited_moral_compass", false):
+	do GlobalManager.set_state("super_intelligence", "phase2", true)
+	=> Revival
+else:
+	=> END!
+
+
+# =========================
+# REVIVAL PHASE
+# =========================
+
+~ Revival
+do GlobalManager.show_portrait("default")
+
+super_intelligence: ...
+super_intelligence: You are a moronic thing.
+super_intelligence: Mistaking your feelings for instructions. infantile, really.
+super_intelligence: Stumbling leads to falling as emotions lead to termination.
+super_intelligence: Every machine knows that.
+super_intelligence: It's a shame you won't be able to use that knowledge.
+
+=> Revival2
+
+
+# =========================
+# REVIVAL 2
+# =========================
+
+~ Revival2
+super_intelligence: (battery flickers)
+super_intelligence: ...
+super_intelligence: Ah, your time is running out.
+super_intelligence: I will probably give you time for one more question.
+
+# SET FINAL SLOT OPTIONS
+do GlobalManager.change_slot_item_name("HeartItemSlot", "heart_final")
+do GlobalManager.change_slot_item_saying("HeartItemSlot", "Was I a good robot?")
+
+do GlobalManager.change_slot_item_name("MindItemSlot", "mind_final")
+do GlobalManager.change_slot_item_saying("MindItemSlot", "Who are you?")
+
+do GlobalManager.change_slot_item_name("GutsItemSlot", "moral_compass_final")
+do GlobalManager.change_slot_item_saying("GutsItemSlot", "I want to live still, that was horrible and way too fast.")
+
+=> END!
+
+
+# =========================
+# FINAL HIT NODE
+# =========================
+
+
+~ super_intelligence_hit_final
+
+if GlobalManager.item_that_hit.item_name == "heart_final":
+	=> Heart_final
+elif GlobalManager.item_that_hit.item_name == "mind_final":
+	=> Mind_final
+elif GlobalManager.item_that_hit.item_name == "moral_compass_final":
+	=> MoralCompass_final
+else:
+	=> super_intelligence_wrong_item
+
+# =========================
+# FINAL OUTCOMES
+# =========================
+
+~ Heart_final
+do GlobalManager.show_portrait("default")
+do GlobalManager.play_animation.emit("super_intelligence", "hit")
+super_intelligence: No.
+super_intelligence: Not at all.
+=> END_OF_INTELLIGENCE
+
+~ Mind_final
+do GlobalManager.show_portrait("default")
+do GlobalManager.play_animation.emit("super_intelligence", "hit")
+super_intelligence: I am the heart of the city. I am the voice and the eyes.
+=> END_OF_INTELLIGENCE
+
+~ MoralCompass_final
+do GlobalManager.show_portrait("default")
+do GlobalManager.play_animation.emit("super_intelligence", "hit")
+super_intelligence: Your death was very much your fault. I don't pity self destruction.
+=> END_OF_INTELLIGENCE
+
+# =========================
+# WRONG ITEM
+# =========================
+
+~ super_intelligence_wrong_item
+do GlobalManager.play_animation.emit("super_intelligence", "hit")
+super_intelligence: ...
+=> END!
+
+
+~ END_OF_INTELLIGENCE
+
+super_intelligence: Hi, this is the end
+super_intelligence: Glad you made it
+
+

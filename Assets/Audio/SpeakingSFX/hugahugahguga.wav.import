@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bckay861g05ap"
-path="res://.godot/imported/hugahugahguga.wav-1a5d056adad44f5c251f3d7124c25147.sample"
+path="res://.godot/imported/hugahugahguga.wav-81e0d0d05118dcb3cd5f85cfd78573da.sample"
 
 [deps]
 
-source_file="res://Assets/Audio/hugahugahguga.wav"
-dest_files=["res://.godot/imported/hugahugahguga.wav-1a5d056adad44f5c251f3d7124c25147.sample"]
+source_file="res://Assets/Audio/SpeakingSFX/hugahugahguga.wav"
+dest_files=["res://.godot/imported/hugahugahguga.wav-81e0d0d05118dcb3cd5f85cfd78573da.sample"]
 
 [params]
 

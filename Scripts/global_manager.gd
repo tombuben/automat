@@ -61,9 +61,9 @@ func show_portrait(speaker_name: String):
 # DIALOGUE AUDIO BEEPS
 # -----------------------------
 
-var DisposableWorkerDialogue001 = preload("res://Assets/Audio/DisposableWorkerDialogue001.wav")
-var DisposableWorkerDialogue002 = preload("res://Assets/Audio/DisposableWorkerDialogue002.wav")
-var hugahugahguga = preload("res://Assets/Audio/DisposableWorkerDialogue003.wav")
+var DisposableWorkerDialogue001 = preload("res://Assets/Audio/SpeakingSFX/DisposableWorkerDialogue001.wav")
+var DisposableWorkerDialogue002 = preload("res://Assets/Audio/SpeakingSFX/DisposableWorkerDialogue002.wav")
+var hugahugahguga = preload("res://Assets/Audio/SpeakingSFX/DisposableWorkerDialogue003.wav")
 
 var character_beeps: Dictionary[String, Array] = {
 	"drowning_person": [DisposableWorkerDialogue001, DisposableWorkerDialogue002],

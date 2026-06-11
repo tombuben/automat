@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q8pjme2n2kni"
-path.s3tc="res://.godot/imported/Frog.png-40d07de805ae58c0b8553d2a2592b438.s3tc.ctex"
+uid="uid://dqxtafvhcksli"
+path.s3tc="res://.godot/imported/ants.png-6bff6b7965804d436006fcf6116bcec1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/ChapterAssets/VillageAssets/Characters/Frog.png"
-dest_files=["res://.godot/imported/Frog.png-40d07de805ae58c0b8553d2a2592b438.s3tc.ctex"]
+source_file="res://Assets/ChapterAssets/junkyard/ants.png"
+dest_files=["res://.godot/imported/ants.png-6bff6b7965804d436006fcf6116bcec1.s3tc.ctex"]
 
 [params]
 

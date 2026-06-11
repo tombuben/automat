@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b5gqb0c7kxnn8"
-path="res://.godot/imported/blblblblbend.wav-f6114052eca7684afd0e0ccb1bde1827.sample"
+path="res://.godot/imported/blblblblbend.wav-64f2bdc1a1a41ebc1d2d62e8cd086c35.sample"
 
 [deps]
 
-source_file="res://Assets/Audio/blblblblbend.wav"
-dest_files=["res://.godot/imported/blblblblbend.wav-f6114052eca7684afd0e0ccb1bde1827.sample"]
+source_file="res://Assets/Audio/SpeakingSFX/blblblblbend.wav"
+dest_files=["res://.godot/imported/blblblblbend.wav-64f2bdc1a1a41ebc1d2d62e8cd086c35.sample"]
 
 [params]
 

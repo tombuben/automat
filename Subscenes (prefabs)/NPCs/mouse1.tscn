@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bujt5an0sjham"]
+
+[ext_resource type="PackedScene" uid="uid://b8l8mhyb5sfwf" path="res://Subscenes (prefabs)/random_person.tscn" id="1_jqsy7"]
+[ext_resource type="Texture2D" uid="uid://q8pjme2n2kni" path="res://Assets/ChapterAssets/VillageAssets/Characters/Frog.png" id="2_jqsy7"]
+[ext_resource type="Texture2D" uid="uid://bhefnplvuyq5e" path="res://Assets/ChapterAssets/office/disposable_worker_grin.png" id="3_3eri3"]
+[ext_resource type="Texture2D" uid="uid://bpapwfuiwn34" path="res://Assets/ChapterAssets/office/disposable_worker_hit.png" id="4_1ls2k"]
+[ext_resource type="Texture2D" uid="uid://cavcv1hfw1rn0" path="res://Assets/ChapterAssets/office/disposable_worker_idle.png" id="5_n42hg"]
+[ext_resource type="Texture2D" uid="uid://c203vp3erhu4k" path="res://Assets/ChapterAssets/office/disposable_worker_throw.png" id="6_6f614"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qk7r5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3eri3")
+}],
+"loop": true,
+"name": &"grin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1ls2k")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_n42hg")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_6f614")
+}],
+"loop": true,
+"name": &"throw",
+"speed": 5.0
+}]
+
+[node name="Mouse1" unique_id=1055277779 instance=ExtResource("1_jqsy7")]
+person_name = "mouse1"
+
+[node name="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="1" unique_id=82952497]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -0.48260498, 0)
+texture = ExtResource("2_jqsy7")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="2" unique_id=27529198]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.015281349, -0.073034704, -0.061731696)
+visible = false
+sorting_offset = 1.5
+sprite_frames = SubResource("SpriteFrames_qk7r5")
+animation = &"grin"
+autoplay = "idle"
+
+[node name="CollisionShape3D2" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="3" unique_id=1174005432]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6455631, -0.06591797)
+
+[node name="PinJoint3D" parent="." index="1" unique_id=318766112]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04750955, -0.7462084, -0.1003198)
+
+[node name="StaticBody3D" parent="." index="2" unique_id=1792104469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9269209, 0)
