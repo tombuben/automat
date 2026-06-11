@@ -6,12 +6,27 @@ extends Node
 # -----------------------------
 var scenes: Array = [
 	"res://Scenes/main_scene0.tscn",
+	"res://Scenes/SnailScenes/SnailScene1.tscn",
 	"res://Scenes/main_scene1.tscn",
+	"res://Scenes/main_scene2.tscn",
+	
 ]
 
-func load_into_scene(index : int):
-	print("loading into " + scenes[index])
-	get_tree().change_scene_to_file(scenes[index])
+func load_into_scene(index: int):
+	if index < 0 or index >= scenes.size():
+		push_error("Invalid scene index: " + str(index))
+		return
+
+	load_scene(scenes[index])
+
+
+func load_scene(scene_path: String):
+	if not ResourceLoader.exists(scene_path):
+		push_error("Scene does not exist: " + scene_path)
+		return
+
+	print("loading into " + scene_path)
+	get_tree().change_scene_to_file(scene_path)
 
 # -----------------------------
 # CHARACTERS
@@ -61,16 +76,14 @@ func show_portrait(speaker_name: String):
 # DIALOGUE AUDIO BEEPS
 # -----------------------------
 
-var DisposableWorkerDialogue001 = preload("res://Assets/Audio/SpeakingSFX/DisposableWorkerDialogue001.wav")
-var DisposableWorkerDialogue002 = preload("res://Assets/Audio/SpeakingSFX/DisposableWorkerDialogue002.wav")
-var hugahugahguga = preload("res://Assets/Audio/SpeakingSFX/DisposableWorkerDialogue003.wav")
+var GenericCharacterSounds001 = preload("res://Assets/Audio/SpeakingSFX/GenericCharacterSounds001.wav")
+var GenericCharacterSounds002 = preload("res://Assets/Audio/SpeakingSFX/GenericCharacterSounds002.wav")
+var GenericCharacterSounds003 = preload("res://Assets/Audio/SpeakingSFX/GenericCharacterSounds003.wav")
 
 var character_beeps: Dictionary[String, Array] = {
-	"drowning_person": [DisposableWorkerDialogue001, DisposableWorkerDialogue002],
-	"automat": [DisposableWorkerDialogue001, DisposableWorkerDialogue002],
-	"automatSad": [DisposableWorkerDialogue001, DisposableWorkerDialogue002],
-	"hugahugaman": [DisposableWorkerDialogue001, DisposableWorkerDialogue002],
-	"default": [DisposableWorkerDialogue001, DisposableWorkerDialogue002],
+	"drowning_person": [GenericCharacterSounds001, GenericCharacterSounds002],
+	"hugahugaman": [GenericCharacterSounds001, GenericCharacterSounds002],
+	"default": [GenericCharacterSounds001, GenericCharacterSounds002, GenericCharacterSounds003],
 }
 
 signal update_audio_beeps(beep_array: Array[AudioStream])

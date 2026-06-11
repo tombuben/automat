@@ -1,7 +1,9 @@
 ~ start
+do GlobalManager.play_animation.emit("disposable_worker_close")
+do GlobalManager.play_animation.emit("ACT1")
+do wait(6)
 do GlobalManager.show_portrait("default")
 
-do GlobalManager.play_animation.emit("disposable_worker_close")
 do wait(2)
 Disposable_worker: Finally
 Disposable_worker: Management gave us of a new robot employee
@@ -649,4 +651,4 @@ elif GlobalManager.item_that_hit.item_name == "heart"
 do wait(2)
 do GlobalManager.play_animation.emit("Cinematic0")
 do wait(10)
-do GlobalManager.load_into_scene(0)
+do GlobalManager.load_into_scene(1)

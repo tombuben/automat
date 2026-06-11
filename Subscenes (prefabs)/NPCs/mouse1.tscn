@@ -46,7 +46,7 @@ animations = [{
 person_name = "mouse1"
 
 [node name="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="1" unique_id=82952497]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -0.48260498, 0)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.107788086, 0)
 texture = ExtResource("2_jqsy7")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="2" unique_id=27529198]
@@ -58,7 +58,7 @@ animation = &"grin"
 autoplay = "idle"
 
 [node name="CollisionShape3D2" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="3" unique_id=1174005432]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6455631, -0.06591797)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.046936035, -0.06591797)
 
 [node name="PinJoint3D" parent="." index="1" unique_id=318766112]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04750955, -0.7462084, -0.1003198)

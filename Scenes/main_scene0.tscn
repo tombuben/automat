@@ -273,6 +273,46 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="Animation" id="Animation_4x0hr"]
+resource_name = "ACT1"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ACT I:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("The Office:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("The Office:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_conat"]
 resource_name = "Cinematic0"
 length = 10.0
@@ -530,6 +570,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-2.30207, 0.09223, 0.11178)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ACT I:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("The Office:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_kmity"]
@@ -1055,6 +1119,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lhp3t"]
 _data = {
+&"ACT1": SubResource("Animation_4x0hr"),
 &"Cinematic0": SubResource("Animation_conat"),
 &"Lock1": SubResource("Animation_l1vum"),
 &"Lock2": SubResource("Animation_ch638"),
@@ -2373,6 +2438,7 @@ texture = ExtResource("45_0x4kb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2049604939]
 libraries/ = SubResource("AnimationLibrary_lhp3t")
+autoplay = &"ACT1"
 script = ExtResource("58_2cj6h")
 
 [node name="DialogueManager" type="Node" parent="." unique_id=1924117671]
@@ -2468,6 +2534,7 @@ mouse_filter = 2
 texture = ExtResource("63_u40t6")
 
 [node name="ShootingUI" type="TextureRect" parent="." unique_id=1751701702]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
@@ -2573,6 +2640,64 @@ offset_bottom = 294.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 20
 text = "Item Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="The Office" type="Control" parent="." unique_id=1954408302]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="The Office" type="ColorRect" parent="The Office" unique_id=905711225]
+z_index = 255
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="The Office/The Office" unique_id=1701720826]
+layout_mode = 0
+offset_right = 1918.0
+offset_bottom = 1082.0
+theme_override_font_sizes/font_size = 160
+text = "The Office"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ACT I" type="Control" parent="." unique_id=1210952754]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ACT I" type="ColorRect" parent="ACT I" unique_id=2049653100]
+z_index = 255
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ACT I/ACT I" unique_id=122794312]
+layout_mode = 0
+offset_right = 1918.0
+offset_bottom = 1082.0
+theme_override_font_sizes/font_size = 160
+text = "ACT I"
 horizontal_alignment = 1
 vertical_alignment = 1
 

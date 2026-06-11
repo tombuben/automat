@@ -1,4 +1,8 @@
 ~ start
+
+do GlobalManager.play_animation.emit("ACT2")
+do wait(7)
+
 do GlobalManager.show_portrait("default")
 
 super_intelligence: ...
@@ -212,4 +216,4 @@ super_intelligence: ...
 super_intelligence: Hi, this is the end
 super_intelligence: Glad you made it
 
-
+do GlobalManager.load_into_scene(3)

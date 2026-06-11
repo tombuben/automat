@@ -230,6 +230,46 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="Animation" id="Animation_yxgvy"]
+resource_name = "ACT2"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/ACT II:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/THE ANSWER:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/THE ANSWER:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_conat"]
 resource_name = "Cinematic0"
 length = 10.0
@@ -616,6 +656,7 @@ length = 1.2
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lhp3t"]
 _data = {
+&"ACT2": SubResource("Animation_yxgvy"),
 &"Cinematic0": SubResource("Animation_conat"),
 &"Lock1": SubResource("Animation_l1vum"),
 &"Lock2": SubResource("Animation_ch638"),
@@ -1734,6 +1775,7 @@ texture = ExtResource("30_kbbok")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2049604939]
 libraries/ = SubResource("AnimationLibrary_lhp3t")
+autoplay = &"ACT2"
 script = ExtResource("13_ioaeq")
 
 [node name="DialogueManager" type="Node" parent="." unique_id=1924117671]
@@ -1827,5 +1869,74 @@ offset_bottom = 765.0
 scale = Vector2(0.84, 0.84)
 mouse_filter = 2
 texture = ExtResource("66_vtv6d")
+
+[node name="Control" type="Control" parent="." unique_id=1769754529]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="THE ANSWER" type="Control" parent="Control" unique_id=371530757]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="rect" type="ColorRect" parent="Control/THE ANSWER" unique_id=557083307]
+z_index = 255
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Control/THE ANSWER/rect" unique_id=511070759]
+layout_mode = 0
+offset_right = 1918.0
+offset_bottom = 1082.0
+theme_override_font_sizes/font_size = 160
+text = "THE ANSWER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ACT II" type="Control" parent="Control" unique_id=382187443]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="rect" type="ColorRect" parent="Control/ACT II" unique_id=957865559]
+z_index = 255
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Control/ACT II/rect" unique_id=1416741366]
+layout_mode = 0
+offset_right = 1918.0
+offset_bottom = 1082.0
+theme_override_font_sizes/font_size = 160
+text = "ACT II"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="gui_input" from="UI Control/DialoguePreview/Balloon" to="UI Control/DialoguePreview" method="_on_balloon_gui_input"]

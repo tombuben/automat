@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bu8kqvlur24rr"
+path="res://.godot/imported/junkyard2.dialogue-5c10c1601209bf1176bfd7ac990e8eeb.tres"
+
+[deps]
+
+source_file="res://Dialogues/junkyard2.dialogue"
+dest_files=["res://.godot/imported/junkyard2.dialogue-5c10c1601209bf1176bfd7ac990e8eeb.tres"]
+
+[params]
+
+defaults=true
