@@ -81,6 +81,13 @@ albedo_texture = ExtResource("6_urueq")
 [sub_resource type="QuadMesh" id="QuadMesh_oqhaq"]
 material = SubResource("StandardMaterial3D_t7s67")
 
+[sub_resource type="Gradient" id="Gradient_8swbj"]
+offsets = PackedFloat32Array(0, 0.02631579, 0.9717349, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.024366472, 0.024366472, 0.024366472, 1, 0.96547306, 0.96547306, 0.96547306, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vtxsy"]
+gradient = SubResource("Gradient_8swbj")
+
 [sub_resource type="Environment" id="Environment_lhp3t"]
 background_mode = 1
 background_color = Color(0.7647059, 0.8666667, 0.7490196, 1)
@@ -93,6 +100,7 @@ glow_hdr_luminance_cap = 153.38
 fog_sky_affect = 0.783
 adjustment_enabled = true
 adjustment_contrast = 1.07
+adjustment_color_correction = SubResource("GradientTexture2D_vtxsy")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fcgxk"]
 transparency = 1
