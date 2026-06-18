@@ -105,11 +105,14 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_636k1"]
 radius = 0.6999445
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vcgka"]
+size = Vector3(24.008911, 5.7003174, 4.939453)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_vcro0"]
-size = Vector3(22.139648, 5.7003174, 4.939453)
+size = Vector3(22.87799, 5.7003174, 4.939453)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e3ln3"]
-size = Vector3(27.592209, 5.0805664, 4.939453)
+size = Vector3(30.812256, 5.0805664, 4.939453)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mybb8"]
 size = Vector3(30.799805, 13.913849, 5.1289063)
@@ -121,7 +124,7 @@ size = Vector3(47.54834, 23.384766, 39.29297)
 size = Vector3(115.08496, 48.69751, 42.885742)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yf4a2"]
-size = Vector3(2.7017822, 1, 1)
+size = Vector3(3.8255005, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_bq7wa"]
 size = Vector3(1, 1.312, 1)
@@ -501,7 +504,7 @@ size = Vector3(17.088642, 15.132568, 45.673584)
 [node name="SnailScene1" type="Node3D" unique_id=46586574]
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1980153873 node_paths=PackedStringArray("camera_controller", "sprite") groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5469208, 1.739, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.987236, 1.739, 0)
 up_direction = Vector3(0, -1, 0)
 script = ExtResource("1_jo7c2")
 speed = 2.85
@@ -556,25 +559,42 @@ size = 2.523
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11502457, 0, 0)
 script = ExtResource("9_7nroy")
 camera_fov = 23.0
+camera_x_speed = 1.0
 camera_target = NodePath("CameraTarget")
 
 [node name="CollisionShape3D1" type="CollisionShape3D" parent="Camera/CameraZones/CameraZone0" unique_id=1255201653]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9716797, 0.4158755, -0.141)
-shape = SubResource("BoxShape3D_vcro0")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40621948, 0.4158755, -0.141)
+shape = SubResource("BoxShape3D_vcgka")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
 [node name="CameraTarget" type="Node3D" parent="Camera/CameraZones/CameraZone0" unique_id=258700270]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.082844555, 2.4253793, 15.323523)
+
+[node name="CameraZone5" type="Area3D" parent="Camera/CameraZones" unique_id=173082151 node_paths=PackedStringArray("camera_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.026176, 0, 0)
+script = ExtResource("9_7nroy")
+camera_fov = 23.0
+camera_x_speed = 0.8
+camera_target = NodePath("CameraTarget")
+
+[node name="CollisionShape3D1" type="CollisionShape3D" parent="Camera/CameraZones/CameraZone5" unique_id=277942088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9125671, 0.4158755, -0.141)
+shape = SubResource("BoxShape3D_vcro0")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CameraTarget" type="Node3D" parent="Camera/CameraZones/CameraZone5" unique_id=801667639]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.082844555, 2.4253793, 15.323523)
 
 [node name="CameraZone1" type="Area3D" parent="Camera/CameraZones" unique_id=821065485 node_paths=PackedStringArray("camera_target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.07924, 1.4420099, 0)
 script = ExtResource("9_7nroy")
 camera_fov = 23.0
-transition_time = 2.0
+transition_time = 2.5
+camera_x_speed = 3.0
 camera_target = NodePath("CameraTarget")
 
 [node name="CollisionShape3D1" type="CollisionShape3D" parent="Camera/CameraZones/CameraZone1" unique_id=1940553337]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.269083, 0.10599995, -0.141)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6590595, 0.10599995, -0.141)
 shape = SubResource("BoxShape3D_e3ln3")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
@@ -585,6 +605,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.604496, 3.5826707, 25.58024
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.712162, 0.95017815, 0)
 script = ExtResource("9_7nroy")
 camera_fov = 23.0
+camera_x_speed = 1.0
 use_camera_target_y = true
 camera_target = NodePath("CameraTarget")
 
@@ -615,6 +636,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.65334, -4.590603, 0)
 script = ExtResource("9_7nroy")
 camera_fov = 23.0
 transition_time = 3.0
+camera_x_speed = 0.8
 use_camera_target_y = true
 camera_target = NodePath("CameraTarget")
 
@@ -632,7 +654,7 @@ transform = Transform3D(31.233, 0, 0, 0, 0.108, 0, 0, 0, 5.789, 0, 0, -1.3380176
 transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 1, 0.32799986, 1.912826, 0.187)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground and walls/ground" unique_id=698352951]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999924, 0.5840449, 0, 0)
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999924, 0.022185832, 0, 0)
 shape = SubResource("BoxShape3D_yf4a2")
 
 [node name="BlockingWall1" type="MeshInstance3D" parent="Ground and walls" unique_id=502764868]
@@ -719,8 +741,14 @@ modulate = Color(0, 0, 0, 1)
 texture = ExtResource("7_s81e8")
 
 [node name="BG" type="Sprite3D" parent="Scene5" unique_id=660072701]
-transform = Transform3D(0.758, 0, 0, 0, 0.758, 0, 0, 0, 0.758, -0.7025964, 1.9218638, 0)
+transform = Transform3D(0.787, 0, 0, 0, 0.758, 0, 0, 0, 0.758, -6.3490353, -2.2824974, 0)
 sorting_offset = -5.0
+texture = ExtResource("6_x6ry3")
+
+[node name="BG4" type="Sprite3D" parent="Scene5" unique_id=982843178]
+transform = Transform3D(0.787, 0, 0, 0, 0.758, 0, 0, 0, 0.758, 12.821634, -2.2824974, 0)
+sorting_offset = -5.0
+flip_h = true
 texture = ExtResource("6_x6ry3")
 
 [node name="ground" type="Sprite3D" parent="Scene5" unique_id=1541389283]
@@ -1087,7 +1115,7 @@ sorting_offset = 6.189
 texture = ExtResource("30_xvmsi")
 
 [node name="ForeGroundPipe" type="Sprite3D" parent="Scene1" unique_id=809502737]
-transform = Transform3D(1.21037536e-08, -1.015, 0, 1.015, 1.21037536e-08, 0, 0, 0, 1.015, 10.6508045, -1.5995295, 0)
+transform = Transform3D(-4.436706e-08, -0.819, 0, 1.015, -3.5799626e-08, 0, 0, 0, 1.015, 10.838514, -1.5995295, 0)
 sorting_offset = 35.0
 modulate = Color(0.3160547, 0.3625, 0.31634498, 1)
 texture = ExtResource("10_u3q6u")
@@ -1102,6 +1130,7 @@ texture = ExtResource("10_u3q6u")
 
 [node name="ForeGroundPipe4" type="Sprite3D" parent="Scene1" unique_id=617118673]
 transform = Transform3D(1.21037536e-08, -1.015, 0, 1.015, 1.21037536e-08, 0, 0, 0, 1.015, -11.999865, -2.9710386, 0)
+visible = false
 sorting_offset = 35.0
 modulate = Color(0.3160547, 0.3625, 0.31634498, 1)
 texture = ExtResource("10_u3q6u")

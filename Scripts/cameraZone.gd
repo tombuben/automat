@@ -11,7 +11,12 @@ extends Area3D
 # X framing toggle
 @export var lock_camera_position := true
 
-# NEW: Y comes from camera_target transform
+# Camera movement speed when framing this zone
+# Lower = slower camera movement
+# Higher = faster camera movement
+@export var camera_x_speed := 2.0
+
+# Y comes from camera_target transform
 @export var use_camera_target_y := false
 
 @export var camera_target: Node3D

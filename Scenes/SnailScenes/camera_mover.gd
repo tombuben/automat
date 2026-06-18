@@ -4,7 +4,7 @@ extends Node3D
 @export var camera_rig: Node3D
 @export var camera: Camera3D
 
-# NEW: Fade manager reference (assign in inspector)
+# Fade manager reference
 @export var fade_manager: CanvasLayer
 
 @export var follow_time := 0.25
@@ -13,6 +13,9 @@ extends Node3D
 @export var deadzone := 0.2
 
 @export var framing_follow_speed := 4.0
+
+# Normal gameplay X follow speed
+@export var x_follow_speed := 5.0
 
 
 # =====================================================
@@ -94,8 +97,23 @@ func _process(delta):
 		var framed_x = current_zone.camera_target.global_position.x
 		var framed_y = current_zone.camera_target.global_position.y
 
-		global_position.x = lerp(global_position.x, framed_x, delta * framing_follow_speed)
-		global_position.y = lerp(global_position.y, framed_y, delta * framing_follow_speed)
+		# Zone-specific X speed (fallback safe)
+		var x_speed := framing_follow_speed
+
+		if current_zone != null:
+			x_speed = current_zone.camera_x_speed
+
+		global_position.x = lerp(
+			global_position.x,
+			framed_x,
+			delta * x_speed
+		)
+
+		global_position.y = lerp(
+			global_position.y,
+			framed_y,
+			delta * framing_follow_speed
+		)
 
 
 	# =====================================================
@@ -132,16 +150,11 @@ func _process(delta):
 		look_ahead_velocity = look_result[1]
 
 
-		var follow_result = smooth_damp(
+		global_position.x = lerp(
 			global_position.x,
 			camera_target_x + look_ahead,
-			follow_velocity,
-			follow_time,
-			delta
+			delta * x_follow_speed
 		)
-
-		global_position.x = follow_result[0]
-		follow_velocity = follow_result[1]
 
 
 		global_position.y = lerp(
@@ -150,43 +163,32 @@ func _process(delta):
 			delta * 2.0
 		)
 
+
+
 func snap_to_player():
 
 	if target == null:
 		return
 
-	# -------------------------------------------------
-	# 1. HARD SNAP CAMERA ROOT (instant reposition)
-	# -------------------------------------------------
 	global_position.x = target.global_position.x
 	global_position.y = target.global_position.y
 
-
-	# -------------------------------------------------
-	# 2. RESET FOLLOW STATE (prevents slide after teleport)
-	# -------------------------------------------------
 	camera_target_x = target.global_position.x
 
 	follow_velocity = 0.0
 	look_ahead = 0.0
 	look_ahead_velocity = 0.0
 
-
-	# -------------------------------------------------
-	# 3. OPTIONAL: SNAP RIG (prevents Z drift after teleport)
-	# -------------------------------------------------
 	if camera_rig:
 		camera_rig.position.z = target_rig_z
 
-
-	# -------------------------------------------------
-	# 4. OPTIONAL: RESET TWEEN (prevents delayed motion)
-	# -------------------------------------------------
 	if rig_tween:
 		rig_tween.kill()
 
 	if fov_tween:
 		fov_tween.kill()
+
+
 
 # =====================================================
 # ZONE API
@@ -232,7 +234,7 @@ func update_camera_zone():
 
 
 # =====================================================
-# TRANSITION PIPELINE (FADE INTEGRATED)
+# TRANSITION PIPELINE
 # =====================================================
 
 func transition_to_zone(zone):
@@ -248,18 +250,14 @@ func transition_to_zone(zone):
 
 	get_tree().paused = false
 
-	#await fade_manager.fade_out(0.35)
-
 	apply_camera_zone(zone)
-
-	#await fade_manager.fade_in(0.35)
 
 	is_camera_transitioning = false
 
 
 
 # =====================================================
-# APPLY ZONE (NO FADE HERE)
+# APPLY ZONE
 # =====================================================
 
 func apply_camera_zone(zone):
