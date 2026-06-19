@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://ov2vajd47wc5"]
 
 [ext_resource type="Shader" uid="uid://c42r6waoujhrg" path="res://Scenes/windSprite3D.gdshader" id="1_0tmtc"]
-[ext_resource type="Texture2D" uid="uid://bl4wrlquvwwcg" path="res://Assets/Snail/Snekce1/PipeBG/plant7.png" id="2_0tmtc"]
+[ext_resource type="Texture2D" uid="uid://ctejov2rixfi5" path="res://Assets/Snail/Snekce1/Bridge/CloseGrass1.png" id="2_0tmtc"]
 
 [resource]
 render_priority = 0
