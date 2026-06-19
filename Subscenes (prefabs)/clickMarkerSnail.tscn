@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dfxn20ld4gp8n"]
+
+[ext_resource type="Script" uid="uid://dfbq2pw14o353" path="res://Scripts/clickMarker.gd" id="1_ndwdm"]
+[ext_resource type="Texture2D" uid="uid://c6lqbgep87b41" path="res://ParticleEffects/Circle.png" id="2_6sv5g"]
+
+[node name="Node3D" type="Node3D" unique_id=2076129890 node_paths=PackedStringArray("visual")]
+script = ExtResource("1_ndwdm")
+visual = NodePath("Sprite3D")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1020738083]
+sorting_offset = 20.0
+texture = ExtResource("2_6sv5g")

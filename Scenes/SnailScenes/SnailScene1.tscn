@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cxw5al7swxe3"]
 
 [ext_resource type="Script" uid="uid://8ctun1j1ppjl" path="res://Scenes/SnailScenes/SnailMovement.gd" id="1_jo7c2"]
+[ext_resource type="PackedScene" uid="uid://dfxn20ld4gp8n" path="res://Subscenes (prefabs)/clickMarkerSnail.tscn" id="2_hcvwp"]
 [ext_resource type="Texture2D" uid="uid://bncp7ank8nt8h" path="res://Assets/ChapterAssets/Snekce1/snailSprite.png" id="2_vncjp"]
 [ext_resource type="Script" uid="uid://b5ylpcrve2f5x" path="res://Scenes/SnailScenes/camera_mover.gd" id="3_hr6cm"]
+[ext_resource type="Texture2D" uid="uid://bkqhclygxjt42" path="res://Assets/concepts/cursorSmaller.png" id="3_icy5s"]
 [ext_resource type="Texture2D" uid="uid://1y7wg77wd30x" path="res://Assets/concepts/cursor.png" id="6_wfnla"]
 [ext_resource type="Script" uid="uid://dddyuvvp33qia" path="res://Scenes/SnailScenes/letter_interactable.gd" id="6_wgho2"]
 [ext_resource type="Texture2D" uid="uid://c5775nbs48ef8" path="res://Assets/Snail/Snekce1/PipeBG/bgSnekce1.png" id="6_x6ry3"]
@@ -44,6 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://b8tnx5d3nxk2a" path="res://Assets/Snail/Snekce1/PostOfficeBack/boxes3.png" id="34_1f6dt"]
 [ext_resource type="Texture2D" uid="uid://bm35h8pmmu0k2" path="res://Assets/Snail/Snekce1/PostOfficeBack/boxes2.png" id="35_exnfy"]
 [ext_resource type="Texture2D" uid="uid://dfojigkwukiqb" path="res://Assets/Snail/Snekce1/PostOfficeBack/boxes1.png" id="36_atwsc"]
+[ext_resource type="Texture2D" uid="uid://cq7riey30wtxn" path="res://Assets/Snail/Snekce1/PipeBG/pipeDarkness.png" id="36_mtyxg"]
 [ext_resource type="Texture2D" uid="uid://dwct0dgdr6c4e" path="res://Assets/Snail/Snekce1/PostOfficeBack/groundPost.png" id="37_2kss6"]
 [ext_resource type="Texture2D" uid="uid://cslc0ictme1x0" path="res://Assets/Snail/Snekce1/PostOfficeBack/boxesFront1.png" id="37_3iyww"]
 [ext_resource type="Texture2D" uid="uid://chyhbjydx1beo" path="res://Assets/Snail/Snekce1/PostOfficeBack/roof.png" id="38_3iyww"]
@@ -59,6 +62,7 @@
 [ext_resource type="Texture2D" uid="uid://cktq2iueo7gyw" path="res://Assets/Snail/Snekce1/PostOfficeBack/box1.png" id="46_j1dal"]
 [ext_resource type="Texture2D" uid="uid://cx4h1rqqvelbp" path="res://Assets/Snail/Snekce1/PostOfficeBack/box2.png" id="47_ruwvp"]
 [ext_resource type="Texture2D" uid="uid://dr0n3chqnfxth" path="res://Assets/Snail/Snekce1/Office/FrontBoxes.png" id="50_f5xwj"]
+[ext_resource type="Texture2D" uid="uid://cxc5lqksvr7om" path="res://Assets/ChapterAssets/VillageAssets/box1.png" id="50_jftt8"]
 [ext_resource type="Texture2D" uid="uid://bo4eu7hsuto2q" path="res://Assets/Snail/Snekce1/Office/boxesPile2.png" id="50_t0wr4"]
 [ext_resource type="Texture2D" uid="uid://d033um7efpbw8" path="res://Assets/Snail/Snekce1/Office/boxesPile.png" id="51_mmbjx"]
 [ext_resource type="Texture2D" uid="uid://b5gdffw3devfs" path="res://Assets/Snail/Snekce1/Office/PostTable.png" id="51_t6w52"]
@@ -70,6 +74,8 @@
 [ext_resource type="Texture2D" uid="uid://bxmda7y64gjpg" path="res://Assets/Snail/Snekce1/Office/PlantPottedAirBG.png" id="55_6iq8j"]
 [ext_resource type="Texture2D" uid="uid://d2vsmesxtsy31" path="res://Assets/Snail/Snekce1/Office/Clock.png" id="55_yefg2"]
 [ext_resource type="Texture2D" uid="uid://cullxop373fr7" path="res://Assets/Snail/Snekce1/Office/plantRope.png" id="56_smn8j"]
+[ext_resource type="Texture2D" uid="uid://4ukki6whe435" path="res://Assets/Snail/Snekce1/Office/droneBox.png" id="57_7yl0i"]
+[ext_resource type="Script" uid="uid://cmi1gp2cpe80g" path="res://Scenes/SnailScenes/PivotRotate.gd" id="59_dgbbk"]
 [ext_resource type="Texture2D" uid="uid://dy8ru7gqnww0i" path="res://Assets/Snail/Snekce1/Post/groundRoad.png" id="60_ppto4"]
 [ext_resource type="Texture2D" uid="uid://sqcq2krai1a5" path="res://Assets/Snail/Snekce1/Post/PostOfficeHouse.png" id="61_b2j5u"]
 [ext_resource type="Texture2D" uid="uid://4v2mk215ve7r" path="res://Assets/Snail/Snekce1/Post/BgGrassPost.png" id="62_mkn7e"]
@@ -106,33 +112,40 @@
 radius = 0.6999445
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vcgka"]
-size = Vector3(24.008911, 5.7003174, 4.939453)
+size = Vector3(21.601791, 5.7003174, 4.939453)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vcro0"]
-size = Vector3(22.87799, 5.7003174, 4.939453)
+size = Vector3(14.711931, 5.7003174, 4.939453)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dgbbk"]
+size = Vector3(21.528587, 5.7003174, 4.939453)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e3ln3"]
-size = Vector3(24.555664, 14.870483, 4.939453)
+size = Vector3(25.727554, 15.43512, 4.939453)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hcvwp"]
-size = Vector3(23.08252, 13.913849, 5.1289063)
+size = Vector3(26.071648, 13.913849, 5.1289063)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_61a84"]
+size = Vector3(32.04825, 13.913849, 5.1289063)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mybb8"]
-size = Vector3(22.004395, 13.913849, 5.1289063)
+size = Vector3(34.5548, 13.913849, 5.890503)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bq7wa"]
-size = Vector3(45.798706, 23.384766, 39.29297)
+size = Vector3(45.92581, 23.384766, 39.29297)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uc4lo"]
 size = Vector3(135.13416, 48.69751, 42.885742)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yf4a2"]
-size = Vector3(6.6529846, 1, 1)
+size = Vector3(5.7337503, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_bq7wa"]
 size = Vector3(1, 1.312, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ixu5i"]
+size = Vector3(4.534424, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qai4r"]
 size = Vector3(3.089569, 1, 7.4453125)
@@ -283,6 +296,10 @@ disable_receive_shadows = true
 [sub_resource type="QuadMesh" id="QuadMesh_1f6dt"]
 material = SubResource("StandardMaterial3D_qt80e")
 
+[sub_resource type="Gradient" id="Gradient_mtyxg"]
+offsets = PackedFloat32Array(0, 0.045706373, 0.90720224, 0.98753464)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
 [sub_resource type="SphereMesh" id="SphereMesh_smn8j"]
 radius = 1.052
 height = 0.785
@@ -297,6 +314,10 @@ shader_parameter/sway_speed = 0.5
 shader_parameter/sway_frequency = 0.8
 shader_parameter/random_enabled = 0.0
 
+[sub_resource type="Gradient" id="Gradient_icy5s"]
+offsets = PackedFloat32Array(0, 0.06786703, 0.9127424, 0.98753464)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4vly2"]
 render_priority = 0
 shader = ExtResource("24_qt80e")
@@ -305,6 +326,10 @@ shader_parameter/sway_strength = 0.5
 shader_parameter/sway_speed = 0.5
 shader_parameter/sway_frequency = 0.8
 shader_parameter/random_enabled = 0.0
+
+[sub_resource type="Gradient" id="Gradient_jftt8"]
+offsets = PackedFloat32Array(0, 0.056786705, 0.96260387, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7yl0i"]
 size = Vector3(3.7077484, 2.8356323, 1)
@@ -315,6 +340,57 @@ size = Vector3(3.9804688, 2.9666748, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_icy5s"]
 size = Vector3(4.8896484, 2.9979248, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f5xwj"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("46_j1dal")
+disable_receive_shadows = true
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_3fbr8"]
+material = SubResource("StandardMaterial3D_f5xwj")
+
+[sub_resource type="Curve" id="Curve_dgbbk"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 356.98358), 0.0, 0.0, 0, 0, Vector2(1, -360), -1560.0637, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_jftt8"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 360), 0.0, 0.0, 0, 0, Vector2(1, -336.79666), -1540.6891, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dgbbk"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("47_ruwvp")
+disable_receive_shadows = true
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_61a84"]
+material = SubResource("StandardMaterial3D_dgbbk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jftt8"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("45_r34qq")
+disable_receive_shadows = true
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_dgbbk"]
+material = SubResource("StandardMaterial3D_jftt8")
+
+[sub_resource type="SphereMesh" id="SphereMesh_jftt8"]
+radius = 1.27
+height = 0.989
+is_hemisphere = true
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_636k1"]
 transparency = 1
 shading_mode = 0
@@ -324,16 +400,6 @@ disable_receive_shadows = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_j1dal"]
 material = SubResource("StandardMaterial3D_636k1")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f5xwj"]
-transparency = 1
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("46_j1dal")
-disable_receive_shadows = true
-
-[sub_resource type="QuadMesh" id="QuadMesh_3fbr8"]
-material = SubResource("StandardMaterial3D_f5xwj")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3fbr8"]
 transparency = 1
@@ -585,43 +651,13 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_crlph"]
-resource_name = "postackaIdle"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Scene3/Postacka:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 3),
-"transitions": PackedFloat32Array(1, 0.37892917, 1),
-"update": 0,
-"values": [Vector3(0, 3.3587646, 0), Vector3(0, 3.3058019, 0), Vector3(0, 3.3587646, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Scene3/Postacka:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(1, 1, 1), Vector3(1, 0.98, 1), Vector3(1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uc4lo"]
 _data = {
 &"Interlude1": SubResource("Animation_vcgka"),
 &"RESET": SubResource("Animation_bq7wa"),
 &"WandererIdle": SubResource("Animation_74oad"),
 &"fade_in": SubResource("Animation_uc4lo"),
-&"fade_out": SubResource("Animation_mybb8"),
-&"postackaIdle": SubResource("Animation_crlph")
+&"fade_out": SubResource("Animation_mybb8")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3xfwl"]
@@ -637,7 +673,7 @@ size = Vector3(2.0471191, 24.717773, 1)
 size = Vector3(116.930214, 38.52002, 45.673584)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_74oad"]
-size = Vector3(17.088642, 15.132568, 45.673584)
+size = Vector3(30.249924, 15.132568, 4.54126)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jftt8"]
 size = Vector3(121.6543, 36.831604, 1)
@@ -645,14 +681,16 @@ size = Vector3(121.6543, 36.831604, 1)
 [node name="SnailScene1" type="Node3D" unique_id=46586574]
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1980153873 node_paths=PackedStringArray("camera_controller", "sprite") groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.19643, 1.739, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.69537, 1.739, 0)
 up_direction = Vector3(0, -1, 0)
 script = ExtResource("1_jo7c2")
 speed = 2.85
 acceleration = 5.0
-gravity = 66.0
+gravity = 5.0
 camera_controller = NodePath("../Camera/CameraController")
 sprite = NodePath("Sprite3D")
+click_marker_scene = ExtResource("2_hcvwp")
+custom_cursor = ExtResource("3_icy5s")
 
 [node name="Visual" type="Node3D" parent="Player" unique_id=1316322353]
 
@@ -675,7 +713,7 @@ shape = SubResource("SphereShape3D_636k1")
 [node name="Camera" type="Node3D" parent="." unique_id=425454372]
 
 [node name="CameraController" type="Node3D" parent="Camera" unique_id=1800172707 node_paths=PackedStringArray("target", "camera_rig", "camera", "fade_manager")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8872898, 0.9248568)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.10066, 1.8872898, 0.9248568)
 script = ExtResource("3_hr6cm")
 target = NodePath("../../Player")
 camera_rig = NodePath("CameraRig")
@@ -686,7 +724,7 @@ look_ahead_distance = 0.5
 look_ahead_time = 0.3
 
 [node name="CameraRig" type="Node3D" parent="Camera/CameraController" unique_id=721684022]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.343164)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.343)
 
 [node name="Camera3D" type="Camera3D" parent="Camera/CameraController/CameraRig" unique_id=673342509]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19840348, 8)
@@ -704,7 +742,7 @@ camera_x_speed = 1.0
 camera_target = NodePath("CameraTarget")
 
 [node name="CollisionShape3D1" type="CollisionShape3D" parent="Camera/CameraZones/CameraZone0" unique_id=1255201653]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40621948, 0.4158755, -0.141)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.323288, 0.4158755, -0.141)
 shape = SubResource("BoxShape3D_vcgka")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
@@ -719,7 +757,7 @@ camera_x_speed = 0.8
 camera_target = NodePath("CameraTarget")
 
 [node name="CollisionShape3D1" type="CollisionShape3D" parent="Camera/CameraZones/CameraZone5" unique_id=277942088]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9125671, 0.4158755, -0.141)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0336685, 0.4158755, -0.141)
 shape = SubResource("BoxShape3D_vcro0")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
@@ -734,8 +772,8 @@ camera_x_speed = 0.8
 camera_target = NodePath("CameraTarget")
 
 [node name="CollisionShape3D1" type="CollisionShape3D" parent="Camera/CameraZones/CameraZone8" unique_id=128794635]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9125671, 0.4158755, -0.141)
-shape = SubResource("BoxShape3D_vcro0")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.113388, 0.4158755, -0.141)
+shape = SubResource("BoxShape3D_dgbbk")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
 [node name="CameraTarget" type="Node3D" parent="Camera/CameraZones/CameraZone8" unique_id=1510406328]
@@ -750,7 +788,7 @@ camera_x_speed = 3.0
 camera_target = NodePath("CameraTarget")
 
 [node name="CollisionShape3D1" type="CollisionShape3D" parent="Camera/CameraZones/CameraZone1" unique_id=1940553337]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5307617, 5.0009584, -0.141)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.693062, 3.3185706, -0.141)
 shape = SubResource("BoxShape3D_e3ln3")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
@@ -766,7 +804,7 @@ use_camera_target_y = true
 camera_target = NodePath("CameraTarget")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/CameraZones/CameraZone2" unique_id=49046928]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29169464, -1.1905665, -0.371)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.873728, -1.1905665, -0.371)
 shape = SubResource("BoxShape3D_hcvwp")
 
 [node name="CameraTarget" type="Node3D" parent="Camera/CameraZones/CameraZone2" unique_id=439975404]
@@ -781,11 +819,11 @@ use_camera_target_y = true
 camera_target = NodePath("CameraTarget")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/CameraZones/CameraZone6" unique_id=1094576921]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22856903, 3.5283504, -0.371)
-shape = SubResource("BoxShape3D_mybb8")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0050888, 3.5283504, -0.371)
+shape = SubResource("BoxShape3D_61a84")
 
 [node name="CameraTarget" type="Node3D" parent="Camera/CameraZones/CameraZone6" unique_id=1255656857]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03995514, 4.1505404, 29.895792)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35178757, 4.1505404, 36.930206)
 
 [node name="CameraZone7" type="Area3D" parent="Camera/CameraZones" unique_id=1788530143 node_paths=PackedStringArray("camera_target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.906935, 0.95017815, 0)
@@ -796,7 +834,7 @@ use_camera_target_y = true
 camera_target = NodePath("CameraTarget")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/CameraZones/CameraZone7" unique_id=504405587]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10370636, 3.5283504, -0.371)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0818806, 3.5283504, 0.009798348)
 shape = SubResource("BoxShape3D_mybb8")
 
 [node name="CameraTarget" type="Node3D" parent="Camera/CameraZones/CameraZone7" unique_id=681546367]
@@ -811,11 +849,11 @@ use_camera_target_y = true
 camera_target = NodePath("CameraTarget")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/CameraZones/CameraZone3" unique_id=146775347]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.99713135, 0.5418749, -0.371)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.348587, 0.5418749, -0.371)
 shape = SubResource("BoxShape3D_bq7wa")
 
 [node name="CameraTarget" type="Node3D" parent="Camera/CameraZones/CameraZone3" unique_id=95411856]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.064316, 56.05644)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9741287, 4.064316, 56.05644)
 
 [node name="CameraZone4" type="Area3D" parent="Camera/CameraZones" unique_id=1202727632 node_paths=PackedStringArray("camera_target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.65334, -4.590603, 0)
@@ -840,7 +878,7 @@ transform = Transform3D(31.233, 0, 0, 0, 0.108, 0, 0, 0, 5.789, 0, 0, -1.3380176
 transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 1, 0.32799986, 1.912826, 0.187)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground and walls/ground" unique_id=698352951]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999924, -1.3915559, 0, 0)
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999924, -1.815619, 0.6390387, 0)
 shape = SubResource("BoxShape3D_yf4a2")
 
 [node name="BlockingWall1" type="MeshInstance3D" parent="Ground and walls" unique_id=502764868]
@@ -851,6 +889,7 @@ skeleton = NodePath("../..")
 [node name="StaticBody3D" type="StaticBody3D" parent="Ground and walls/BlockingWall1" unique_id=10337417]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground and walls/BlockingWall1/StaticBody3D" unique_id=308073136]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7672119, 0, 0)
 shape = SubResource("BoxShape3D_ixu5i")
 
 [node name="BlockingWall2" type="MeshInstance3D" parent="Ground and walls" unique_id=364263951]
@@ -915,8 +954,8 @@ script = ExtResource("95_crlph")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.51943, 0, 0)
 
 [node name="BG2" type="Sprite3D" parent="Scene5" unique_id=1658229505]
-transform = Transform3D(106.79, 0, 0, 0, 29.693, 0, 0, 0, 19.441, 0.099594116, 7.468005, -1.217)
-sorting_offset = -6.0
+transform = Transform3D(106.79, 0, 0, 0, 29.693, 0, 0, 0, 19.441, 0.099594116, 7.468005, -5.310336)
+sorting_offset = -25.0
 modulate = Color(0.94, 0.9149334, 0.75200003, 1)
 texture = ExtResource("7_s81e8")
 
@@ -927,13 +966,13 @@ modulate = Color(0, 0, 0, 1)
 texture = ExtResource("7_s81e8")
 
 [node name="BG" type="Sprite3D" parent="Scene5" unique_id=660072701]
-transform = Transform3D(0.787, 0, 0, 0, 0.758, 0, 0, 0, 0.758, -6.3477783, -2.270907, -0.004942894)
+transform = Transform3D(0.787, 0, 0, 0, 0.758, 0, 0, 0, 0.758, -1.9063034, -2.271, -1)
 sorting_offset = -5.0
 texture = ExtResource("6_x6ry3")
 
 [node name="BG4" type="Sprite3D" parent="Scene5" unique_id=982843178]
-transform = Transform3D(0.787, 0, 0, 0, 0.758, 0, 0, 0, 0.758, 12.821634, -2.2824974, 0)
-sorting_offset = -5.0
+transform = Transform3D(0.787, 0, 0, 0, 0.758, 0, 0, 0, 0.758, 7.390213, -2.282, -1)
+sorting_offset = -7.0
 flip_h = true
 texture = ExtResource("6_x6ry3")
 
@@ -943,7 +982,7 @@ sorting_offset = 7.0
 texture = ExtResource("7_k1qlf")
 
 [node name="ground7" type="Sprite3D" parent="Scene5/ground" unique_id=741969109]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.471314, -0.035244107, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.471313, 0.022706747, 0)
 sorting_offset = 6.0
 texture = ExtResource("7_k1qlf")
 
@@ -954,19 +993,19 @@ material_override = SubResource("ShaderMaterial_6f0co")
 texture = ExtResource("8_crqpe")
 
 [node name="ground3" type="Sprite3D" parent="Scene5/ground2" unique_id=1427761995]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7548637, -0.43997145, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7548523, -0.14713717, 0)
 sorting_offset = -2.807
 material_override = SubResource("ShaderMaterial_eqvne")
 texture = ExtResource("9_u3q6u")
 
 [node name="ground4" type="Sprite3D" parent="Scene5" unique_id=2145569243]
-transform = Transform3D(0.671, 0, 0, 0, 0.671, 0, 0, 0, 0.671, -4.9993224, 1.2055824, 0)
+transform = Transform3D(0.671, 0, 0, 0, 0.671, 0, 0, 0, 0.671, -7.725456, 1.7016631, 0)
 sorting_offset = -2.807
 material_override = SubResource("ShaderMaterial_eqvne")
 texture = ExtResource("9_u3q6u")
 
 [node name="ground3" type="Sprite3D" parent="Scene5" unique_id=880613530]
-transform = Transform3D(0.671, 0, 0, 0, 0.671, 0, 0, 0, 0.671, -6.6535325, 1.2355077, 0)
+transform = Transform3D(0.671, 0, 0, 0, 0.671, 0, 0, 0, 0.671, -7.0614243, 1.5662283, 0)
 sorting_offset = -3.0
 material_override = SubResource("ShaderMaterial_6f0co")
 texture = ExtResource("8_crqpe")
@@ -978,13 +1017,13 @@ texture = ExtResource("10_u3q6u")
 
 [node name="ground7" type="Sprite3D" parent="Scene5" unique_id=700358060]
 transform = Transform3D(0.8, 0, 0, 0, 0.679, 0, 0, 0, 0.679, 3.215065, 0.6060529, 0)
-sorting_offset = 2.0
+sorting_offset = 1.0
 flip_h = true
 texture = ExtResource("10_u3q6u")
 
 [node name="pipe" type="Sprite3D" parent="Scene5" unique_id=695942431]
 transform = Transform3D(0.671, 0, 0, 0, 0.671, 0, 0, 0, 0.671, -3.6289406, -0.8140464, 0)
-sorting_offset = 5.0
+sorting_offset = 4.0
 texture = ExtResource("8_k1qlf")
 
 [node name="ForegroundPlants" type="Sprite3D" parent="Scene5" unique_id=717324601]
@@ -999,63 +1038,63 @@ sorting_offset = 15.0
 texture = ExtResource("9_5amrc")
 
 [node name="plant1" type="Sprite3D" parent="Scene5" unique_id=1720493979]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 4.8944445, 1.5306432, 0)
-sorting_offset = 6.0
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 4.8944473, 1.3520446, 0)
+sorting_offset = 5.0
 material_override = SubResource("ShaderMaterial_3s0x3")
 texture = ExtResource("16_phc63")
 
 [node name="plant2" type="Sprite3D" parent="Scene5/plant1" unique_id=578474067]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1028633, 0, 0)
-sorting_offset = 6.0
+sorting_offset = 5.0
 material_override = SubResource("ShaderMaterial_0vdtn")
 texture = ExtResource("17_pmqyr")
 
 [node name="plant3" type="Sprite3D" parent="Scene5/plant1" unique_id=897087291]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.817046, 0, 0)
-sorting_offset = 6.0
+sorting_offset = 5.0
 material_override = SubResource("ShaderMaterial_84jfq")
 texture = ExtResource("18_x8e2k")
 
 [node name="plant4" type="Sprite3D" parent="Scene5/plant1" unique_id=2042551937]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.119308, 0, 0)
-sorting_offset = 6.0
+sorting_offset = 5.0
 material_override = SubResource("ShaderMaterial_mxc2x")
 texture = ExtResource("19_d52xi")
 
 [node name="plant2" type="Sprite3D" parent="Scene5" unique_id=873593474]
 transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, -7.069252, 2.1975548, 0)
-sorting_offset = 6.0
+sorting_offset = 4.0
 material_override = SubResource("ShaderMaterial_exnfy")
 texture = ExtResource("20_onaq8")
 
 [node name="plant3" type="Sprite3D" parent="Scene5" unique_id=1523710410]
 transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 7.489579, 0.77639484, 0)
-sorting_offset = 6.0
+sorting_offset = 5.0
 material_override = SubResource("ShaderMaterial_qt80e")
 texture = ExtResource("21_1lf5p")
 
 [node name="plant4" type="Sprite3D" parent="Scene5" unique_id=208177439]
 transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 0.9991989, 2.6625385, 0)
-sorting_offset = 5.659
+sorting_offset = 4.0
 material_override = SubResource("ShaderMaterial_74oad")
 texture_filter = 2
 texture = ExtResource("22_al4ku")
 
 [node name="plant5" type="Sprite3D" parent="Scene5" unique_id=1170533820]
 transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 3.013012, 2.566525, 0)
-sorting_offset = 6.0
+sorting_offset = 4.0
 material_override = SubResource("ShaderMaterial_1f6dt")
 texture = ExtResource("23_3c7cj")
 
 [node name="plant6" type="Sprite3D" parent="Scene5" unique_id=550532350]
 transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 4.494568, 2.5543003, 0)
-sorting_offset = 6.0
+sorting_offset = 4.0
 material_override = SubResource("ShaderMaterial_atwsc")
 texture = ExtResource("24_al4ku")
 
 [node name="plant7" type="Sprite3D" parent="Scene5" unique_id=1987469885]
 transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 9.057388, 1.0271382, 0)
-sorting_offset = 7.0
+sorting_offset = 4.0
 material_override = SubResource("ShaderMaterial_cqkr0")
 texture = ExtResource("25_3c7cj")
 
@@ -1109,6 +1148,7 @@ initial_velocity_max = 1.3
 scale_amount_min = 0.2
 scale_amount_max = 0.4
 color = Color(0.90625, 0.8655901, 0.71650386, 1)
+color_ramp = SubResource("Gradient_mtyxg")
 
 [node name="Sprite3D" type="Sprite3D" parent="Scene5" unique_id=2022411035]
 transform = Transform3D(1.08, 0, 0, 0, 1.08, 0, 0, 0, 1.08, -0.49964666, 0.9591613, 0)
@@ -1313,6 +1353,7 @@ initial_velocity_max = 1.3
 scale_amount_min = 0.2
 scale_amount_max = 0.4
 color = Color(0.90625, 0.8655901, 0.71650386, 1)
+color_ramp = SubResource("Gradient_icy5s")
 
 [node name="Sprite3D" type="Sprite3D" parent="Scene8" unique_id=1129908258]
 transform = Transform3D(1.08, 0, 0, 0, 1.08, 0, 0, 0, 1.08, -0.49964666, 0.9591613, 0)
@@ -1331,19 +1372,19 @@ script = ExtResource("95_crlph")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.81652, 0, 0)
 
 [node name="BG3" type="Sprite3D" parent="Scene1" unique_id=504563694]
-transform = Transform3D(127.089, 0, 0, 0, 19.441, 0, 0, 0, 19.441, 26.755836, -8.481367, -1.2165818)
+transform = Transform3D(127.089, 0, 0, 0, 19.441, 0, 0, 0, 19.441, 84.69762, -8.481367, -1.2165818)
 sorting_offset = 33.0
 modulate = Color(0, 0, 0, 1)
 texture = ExtResource("7_s81e8")
 
 [node name="BG" type="Sprite3D" parent="Scene1" unique_id=287234236]
-transform = Transform3D(0.758, 0, 0, 0, 0.758, 0, 0, 0, 0.758, -0.7025964, 1.9218638, 0)
+transform = Transform3D(0.758, 0, 0, 0, 0.758, 0, 0, 0, 0.758, 3.6547928, 1.9218638, 0)
 sorting_offset = -5.0
 texture = ExtResource("6_x6ry3")
 
 [node name="ground" type="Sprite3D" parent="Scene1" unique_id=795631755]
-transform = Transform3D(0.671, 0, 0, 0, 0.671, 0, 0, 0, 0.671, -3.8292122, -1.0959573, 0)
-sorting_offset = 7.0
+transform = Transform3D(0.671, 0, 0, 0, 0.671, 0, 0, 0, 0.671, -4.4242554, -1.1196022, 0)
+sorting_offset = 12.0
 texture = ExtResource("7_k1qlf")
 
 [node name="ground7" type="Sprite3D" parent="Scene1/ground" unique_id=1468066688]
@@ -1365,13 +1406,13 @@ texture = ExtResource("9_u3q6u")
 
 [node name="ground4" type="Sprite3D" parent="Scene1" unique_id=998468233]
 transform = Transform3D(0.671, 0, 0, 0, 0.671, 0, 0, 0, 0.671, -4.9993224, 1.2055824, 0)
-sorting_offset = -2.807
+sorting_offset = -3.0
 material_override = SubResource("ShaderMaterial_eqvne")
 texture = ExtResource("9_u3q6u")
 
 [node name="ground3" type="Sprite3D" parent="Scene1" unique_id=587474979]
 transform = Transform3D(0.671, 0, 0, 0, 0.671, 0, 0, 0, 0.671, -6.6535325, 1.2355077, 0)
-sorting_offset = -3.0
+sorting_offset = -4.0
 material_override = SubResource("ShaderMaterial_6f0co")
 texture = ExtResource("8_crqpe")
 
@@ -1381,7 +1422,7 @@ sorting_offset = 2.0
 texture = ExtResource("10_u3q6u")
 
 [node name="pipe" type="Sprite3D" parent="Scene1" unique_id=1136369185]
-transform = Transform3D(0.671, 0, 0, 0, 0.671, 0, 0, 0, 0.671, 1.4653397, 2.4804602, 0)
+transform = Transform3D(0.671, 0, 0, 0, 0.671, 0, 0, 0, 0.671, 1.4253616, 2.4804602, 0)
 sorting_offset = 5.0
 texture = ExtResource("8_k1qlf")
 
@@ -1389,15 +1430,22 @@ texture = ExtResource("8_k1qlf")
 sorting_offset = 32.0
 texture = ExtResource("9_21in6")
 
+[node name="pipe3" type="Sprite3D" parent="Scene1/pipe" unique_id=1149859609]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04534769, 0)
+visible = false
+sorting_offset = 32.0
+modulate = Color(0.091796875, 0.38152298, 0.5875, 0.61960787)
+texture = ExtResource("36_mtyxg")
+
 [node name="ForegroundPlants" type="Sprite3D" parent="Scene1" unique_id=1592995672]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.6308298, -0.5594257, 0)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.6738739, -0.5594257, 0)
 sorting_offset = 30.0
 material_override = SubResource("ShaderMaterial_3iyww")
 texture = ExtResource("9_5amrc")
 
 [node name="ForegroundPlants2" type="Sprite3D" parent="Scene1/ForegroundPlants" unique_id=16008909]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.618881, 0.021186054, 0)
-sorting_offset = 15.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.618874, 0.021186054, 0)
+sorting_offset = 34.0
 texture = ExtResource("9_5amrc")
 
 [node name="Sprite3D2" type="Sprite3D" parent="Scene1" unique_id=332933317]
@@ -1405,96 +1453,96 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 10.543106, 0.09519458, 
 texture = ExtResource("9_lkkxc")
 
 [node name="plant1" type="Sprite3D" parent="Scene1" unique_id=1376548316]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 4.8944445, 1.5306432, 0)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 4.5033417, 1.5306432, 0)
 sorting_offset = 6.0
 material_override = SubResource("ShaderMaterial_3s0x3")
 texture = ExtResource("16_phc63")
 
-[node name="plant2" type="Sprite3D" parent="Scene1/plant1" unique_id=58277510]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1028633, 0, 0)
+[node name="plant14" type="Sprite3D" parent="Scene1" unique_id=58277510]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 2.0224457, 1.40967, 0)
 sorting_offset = 6.0
 material_override = SubResource("ShaderMaterial_0vdtn")
 texture = ExtResource("17_pmqyr")
 
-[node name="plant3" type="Sprite3D" parent="Scene1/plant1" unique_id=120989585]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.817046, 0, 0)
+[node name="plant15" type="Sprite3D" parent="Scene1" unique_id=120989585]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -1.2774887, 1.4208962, 0)
 sorting_offset = 6.0
 material_override = SubResource("ShaderMaterial_84jfq")
 texture = ExtResource("18_x8e2k")
 
-[node name="plant4" type="Sprite3D" parent="Scene1/plant1" unique_id=2015668328]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.119308, 0, 0)
+[node name="plant16" type="Sprite3D" parent="Scene1" unique_id=2015668328]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -4.28907, 1.3637837, 0)
 sorting_offset = 6.0
 material_override = SubResource("ShaderMaterial_mxc2x")
 texture = ExtResource("19_d52xi")
 
 [node name="plant2" type="Sprite3D" parent="Scene1" unique_id=2056001507]
-transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 7.3481007, 5.6192727, 0)
-sorting_offset = 6.0
+transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 7.3480988, 5.576772, 0)
+sorting_offset = 4.0
 material_override = SubResource("ShaderMaterial_exnfy")
 texture = ExtResource("20_onaq8")
 
 [node name="plant3" type="Sprite3D" parent="Scene1" unique_id=324996362]
-transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 5.3188944, 4.9347, 0)
-sorting_offset = 6.0
+transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 5.5266724, 4.83081, 0)
+sorting_offset = 4.0
 material_override = SubResource("ShaderMaterial_qt80e")
 texture = ExtResource("21_1lf5p")
 
 [node name="plant4" type="Sprite3D" parent="Scene1" unique_id=1913445599]
-transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 2.519, 5.373, 0)
-sorting_offset = 6.0
+transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 2.6559448, 5.3493886, 0)
+sorting_offset = 4.0
 material_override = SubResource("ShaderMaterial_4vly2")
 texture_filter = 2
 texture = ExtResource("22_al4ku")
 
 [node name="plant5" type="Sprite3D" parent="Scene1" unique_id=1793944006]
-transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, -2.0811157, 5.2769866, 0)
-sorting_offset = 6.0
+transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, -2.0811157, 5.206153, 0)
+sorting_offset = 4.0
 material_override = SubResource("ShaderMaterial_1f6dt")
 texture = ExtResource("23_3c7cj")
 
 [node name="plant6" type="Sprite3D" parent="Scene1" unique_id=830098685]
-transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 0.6301451, 5.264762, 0)
-sorting_offset = 6.0
+transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 0.6301422, 5.2519126, 0)
+sorting_offset = 4.0
 material_override = SubResource("ShaderMaterial_atwsc")
 texture = ExtResource("24_al4ku")
 
 [node name="plant7" type="Sprite3D" parent="Scene1" unique_id=940422794]
 transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 4.4719234, 5.093618, 0)
-sorting_offset = 7.0
+sorting_offset = 4.0
 material_override = SubResource("ShaderMaterial_cqkr0")
 texture = ExtResource("25_3c7cj")
 
 [node name="plant13" type="Sprite3D" parent="Scene1" unique_id=359021699]
-transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, -4.969767, 5.093618, 0)
-sorting_offset = 7.0
+transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, -5.275612, 5.093618, 0)
+sorting_offset = 4.0
 material_override = SubResource("ShaderMaterial_2kss6")
 flip_h = true
 texture = ExtResource("25_3c7cj")
 
 [node name="plant8" type="Sprite3D" parent="Scene1" unique_id=1118310956]
-transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, -0.9918113, 4.880596, 0)
-sorting_offset = 6.0
+transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, -0.74209595, 4.880596, 0)
+sorting_offset = 4.0
 texture = ExtResource("26_fy4v7")
 
 [node name="plant9" type="Sprite3D" parent="Scene1" unique_id=683917964]
-transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, -7.4202733, 0.9499569, 0)
+transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, -7.420273, 0.89397895, 0)
 sorting_offset = 6.0
 texture = ExtResource("27_xvmsi")
 
 [node name="plant10" type="Sprite3D" parent="Scene1" unique_id=1642632048]
-transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, -3.8027773, 4.956926, 0)
-sorting_offset = 6.0
+transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, -3.767105, 4.956926, 0)
+sorting_offset = 4.0
 texture = ExtResource("28_iucih")
 
 [node name="plant11" type="Sprite3D" parent="Scene1" unique_id=1963557518]
-transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, -2.9535668, 0.97958827, 0)
-sorting_offset = 7.066
+transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, -2.9535675, 0.919088, 0)
+sorting_offset = 7.0
 texture = ExtResource("29_qt80e")
 
 [node name="plant12" type="Sprite3D" parent="Scene1" unique_id=999857859]
-transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 1.2032318, 0.9808793, 0)
-sorting_offset = 6.189
+transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 1.3813324, 0.86998737, 0)
+sorting_offset = 7.0
 texture = ExtResource("30_xvmsi")
 
 [node name="ForeGroundPipe" type="Sprite3D" parent="Scene1" unique_id=809502737]
@@ -1515,14 +1563,6 @@ texture = ExtResource("10_u3q6u")
 transform = Transform3D(1.21037536e-08, -1.015, 0, 1.015, 1.21037536e-08, 0, 0, 0, 1.015, -11.999865, -2.9710386, 0)
 visible = false
 sorting_offset = 35.0
-modulate = Color(0.3160547, 0.3625, 0.31634498, 1)
-texture = ExtResource("10_u3q6u")
-
-[node name="plant15" type="Sprite3D" parent="Scene1/ForeGroundPipe4" unique_id=1048362474]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.050857, 0.3947878, 0)
-sorting_offset = 35.0
-flip_h = true
-flip_v = true
 modulate = Color(0.3160547, 0.3625, 0.31634498, 1)
 texture = ExtResource("10_u3q6u")
 
@@ -1586,14 +1626,15 @@ initial_velocity_max = 1.3
 scale_amount_min = 0.2
 scale_amount_max = 0.4
 color = Color(0.90625, 0.8655901, 0.71650386, 1)
+color_ramp = SubResource("Gradient_jftt8")
 
-[node name="Sprite3D" type="Sprite3D" parent="Scene1" unique_id=984406268]
+[node name="stone" type="Sprite3D" parent="Scene1" unique_id=984406268]
 transform = Transform3D(1.08, 0, 0, 0, 1.08, 0, 0, 0, 1.08, -0.49964666, 0.9591613, 0)
-sorting_offset = 6.008
+sorting_offset = 7.0
 modulate = Color(0.50625, 0.50625, 0.50625, 1)
 texture = ExtResource("27_xvmsi")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Scene1/Sprite3D" unique_id=781913147]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Scene1/stone" unique_id=781913147]
 transform = Transform3D(0.9259259, 0, 0, 0, 0.9259259, 0, 0, 0, 0.9259259, -0.033364058, -0.5699683, 0)
 visible = false
 mesh = SubResource("SphereMesh_smn8j")
@@ -1604,7 +1645,7 @@ script = ExtResource("95_crlph")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.86357, 2.9512825, 0)
 
 [node name="BG" type="Sprite3D" parent="Scene2" unique_id=296034334]
-transform = Transform3D(49.416, 0, 0, 0, 26.643, 0, 0, 0, 25.099, 4.0397415, 4.2824755, 0)
+transform = Transform3D(49.416, 0, 0, 0, 26.643, 0, 0, 0, 25.099, 4.04, 4.282, -5.31)
 sorting_offset = -5.0
 modulate = Color(0.80784315, 0.7058824, 0.58431375, 1)
 texture = ExtResource("7_s81e8")
@@ -1662,8 +1703,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.093688965, 0)
 shape = SubResource("BoxShape3D_icy5s")
 
 [node name="Ground" type="Sprite3D" parent="Scene2" unique_id=2068468713]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.0869553, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.0694325, 0)
 sorting_offset = 5.0
+modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
 texture = ExtResource("37_2kss6")
 
 [node name="Ground3" type="Sprite3D" parent="Scene2" unique_id=588920762]
@@ -1685,8 +1727,9 @@ modulate = Color(0.903125, 0.6337786, 0.23424803, 1)
 texture = ExtResource("40_ruwvp")
 
 [node name="roof" type="Sprite3D" parent="Scene2" unique_id=1210323861]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.245869, 0)
+transform = Transform3D(1.232, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.394875, 0)
 sorting_offset = 5.0
+modulate = Color(0.484375, 0.484375, 0.484375, 1)
 texture = ExtResource("38_3iyww")
 
 [node name="roof2" type="Sprite3D" parent="Scene2" unique_id=1995160591]
@@ -1699,68 +1742,306 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.100691, 0)
 sorting_offset = 4.0
 texture = ExtResource("42_r34qq")
 
-[node name="ForeGroundBoxes" type="Sprite3D" parent="Scene2" unique_id=1261935039]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08306122, -3.701603, 0)
-sorting_offset = 33.0
-texture = ExtResource("40_3s0x3")
+[node name="ForeGroundBoxes2" type="Sprite3D" parent="Scene2" unique_id=1310965126]
+transform = Transform3D(0.0021624248, 1.238998, 0, -1.238998, 0.0021624248, 0, 0, 0, 1.239, -5.1706543, -5.227904, 0)
+sorting_offset = 30.0
+modulate = Color(0.4875, 0.4875, 0.4875, 1)
+texture = ExtResource("50_jftt8")
+
+[node name="ForeGroundBoxes3" type="Sprite3D" parent="Scene2" unique_id=577222110]
+transform = Transform3D(0.0021624248, 1.238998, 0, -1.238998, 0.0021624248, 0, 0, 0, 1.239, 4.8239746, -5.227904, 0)
+sorting_offset = 30.0
+modulate = Color(0.4875, 0.4875, 0.4875, 1)
+texture = ExtResource("50_jftt8")
 
 [node name="ForegroundPipes" type="Sprite3D" parent="Scene2" unique_id=866655480]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.357996, 2.5048084, 0)
-visible = false
 sorting_offset = 34.0
 texture = ExtResource("41_0vdtn")
 
 [node name="ForegroundPipes2" type="Sprite3D" parent="Scene2/ForegroundPipes" unique_id=612666821]
 transform = Transform3D(5.133, 0, 0, 0, 19.524, 0, 0, 0, 1, -0.59033585, -0.13866115, 0)
 sorting_offset = 30.0
-modulate = Color(0.087499976, 0.087499976, 0.087499976, 0.3372549)
+modulate = Color(0, 0, 0, 0.3372549)
 texture = ExtResource("7_s81e8")
 
 [node name="ForegroundPipes3" type="Sprite3D" parent="Scene2/ForegroundPipes" unique_id=1551964335]
 transform = Transform3D(3.937, 0, 0, 0, 19.524, 0, 0, 0, 1, -10.418842, -0.13866115, 0)
 sorting_offset = 30.0
-modulate = Color(0.087499976, 0.087499976, 0.087499976, 0.3372549)
+modulate = Color(0, 0, 0, 0.3372549)
 texture = ExtResource("7_s81e8")
 
 [node name="ForegroundPipes4" type="Sprite3D" parent="Scene2/ForegroundPipes" unique_id=1062917687]
 transform = Transform3D(4.039, 0, 0, 0, 19.524, 0, 0, 0, 1, 9.266415, -0.13866115, 0)
 sorting_offset = 30.0
-modulate = Color(0.087499976, 0.087499976, 0.087499976, 0.3372549)
+modulate = Color(0, 0, 0, 0.3372549)
 texture = ExtResource("7_s81e8")
 
-[node name="LetterParticles" type="CPUParticles3D" parent="Scene2/ForegroundPipes" unique_id=1691597121]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.61753845, -8.5689945, 0)
-sorting_offset = 32.0
-amount = 2
-lifetime = 7.82
-mesh = SubResource("QuadMesh_j1dal")
-gravity = Vector3(0, 3.5, 0)
-scale_amount_min = 2.0
-scale_amount_max = 2.0
+[node name="particles" type="Node3D" parent="Scene2" unique_id=1041563196]
+transform = Transform3D(4.039, 0, 0, 0, 19.524, 0, 0, 0, 1, 9.624409, 2.366147, 0)
 
-[node name="LetterParticles2" type="CPUParticles3D" parent="Scene2/ForegroundPipes" unique_id=193805000]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.61753845, -10.276107, 0)
+[node name="LetterParticles2" type="CPUParticles3D" parent="Scene2/particles" unique_id=193805000]
+transform = Transform3D(0.24758603, 0, 0, 0, 0.051219005, 0, 0, 0, 0.9999999, -2.4471283, 0.47542143, 0)
 sorting_offset = 32.0
-amount = 2
-lifetime = 7.82
+amount = 1
+lifetime = 4.0
+draw_order = 1
 mesh = SubResource("QuadMesh_3fbr8")
-gravity = Vector3(0, 3.5, 0)
+emission_shape = 3
+emission_box_extents = Vector3(0.536, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+angular_velocity_min = -78.34
+angular_velocity_max = 63.52
+angular_velocity_curve = SubResource("Curve_dgbbk")
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+angle_min = -253.7
+angle_max = 75.6
+angle_curve = SubResource("Curve_jftt8")
 scale_amount_min = 2.0
 scale_amount_max = 2.0
+color = Color(0.6375, 0.6375, 0.6375, 1)
 
-[node name="LetterParticles3" type="CPUParticles3D" parent="Scene2/ForegroundPipes" unique_id=23968342]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.61753845, -6.9618216, 0)
-sorting_offset = 32.0
-amount = 2
-lifetime = 7.82
-mesh = SubResource("QuadMesh_t6w52")
-gravity = Vector3(0, 3.5, 0)
+[node name="LetterParticles4" type="CPUParticles3D" parent="Scene2/particles" unique_id=1145221136]
+transform = Transform3D(0.24758603, 0, 0, 0, 0.051219005, 0, 0, 0, 0.9999999, -2.4471283, 0.6484163, 0)
+sorting_offset = 31.0
+amount = 1
+lifetime = 4.0
+draw_order = 1
+mesh = SubResource("QuadMesh_61a84")
+emission_shape = 3
+emission_box_extents = Vector3(0.536, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+angular_velocity_min = -78.34
+angular_velocity_max = 63.52
+angular_velocity_curve = SubResource("Curve_dgbbk")
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+angle_min = -253.7
+angle_max = 75.6
+angle_curve = SubResource("Curve_jftt8")
 scale_amount_min = 2.0
 scale_amount_max = 2.0
+color = Color(0.6375, 0.6375, 0.6375, 1)
+
+[node name="LetterParticles3" type="CPUParticles3D" parent="Scene2/particles" unique_id=788049136]
+transform = Transform3D(0.24758603, 0, 0, 0, 0.051219005, 0, 0, 0, 0.9999999, -2.4471283, 0.5565709, 0)
+sorting_offset = 30.0
+amount = 1
+lifetime = 4.0
+draw_order = 1
+mesh = SubResource("QuadMesh_dgbbk")
+emission_shape = 3
+emission_box_extents = Vector3(0.536, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+angular_velocity_min = -78.34
+angular_velocity_max = 63.52
+angular_velocity_curve = SubResource("Curve_dgbbk")
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+angle_min = -253.7
+angle_max = 75.6
+angle_curve = SubResource("Curve_jftt8")
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.6375, 0.6375, 0.6375, 1)
+
+[node name="particles2" type="Node3D" parent="Scene2" unique_id=725198187]
+transform = Transform3D(4.039, 0, 0, 0, 19.524, 0, 0, 0, 1, 19.580475, 2.366147, 0)
+
+[node name="LetterParticles2" type="CPUParticles3D" parent="Scene2/particles2" unique_id=1546849753]
+transform = Transform3D(0.24758603, 0, 0, 0, 0.051219005, 0, 0, 0, 0.9999999, -2.4471283, 0.47542143, 0)
+sorting_offset = 32.0
+amount = 1
+lifetime = 4.0
+draw_order = 1
+mesh = SubResource("QuadMesh_3fbr8")
+emission_shape = 3
+emission_box_extents = Vector3(0.536, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+angular_velocity_min = -78.34
+angular_velocity_max = 63.52
+angular_velocity_curve = SubResource("Curve_dgbbk")
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+angle_min = -253.7
+angle_max = 75.6
+angle_curve = SubResource("Curve_jftt8")
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.6375, 0.6375, 0.6375, 1)
+
+[node name="LetterParticles4" type="CPUParticles3D" parent="Scene2/particles2" unique_id=301422530]
+transform = Transform3D(0.24758603, 0, 0, 0, 0.051219005, 0, 0, 0, 0.9999999, -2.4471283, 0.6484163, 0)
+sorting_offset = 31.0
+amount = 1
+lifetime = 4.0
+draw_order = 1
+mesh = SubResource("QuadMesh_61a84")
+emission_shape = 3
+emission_box_extents = Vector3(0.536, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+angular_velocity_min = -78.34
+angular_velocity_max = 63.52
+angular_velocity_curve = SubResource("Curve_dgbbk")
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+angle_min = -253.7
+angle_max = 75.6
+angle_curve = SubResource("Curve_jftt8")
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.6375, 0.6375, 0.6375, 1)
+
+[node name="LetterParticles3" type="CPUParticles3D" parent="Scene2/particles2" unique_id=762378719]
+transform = Transform3D(0.24758603, 0, 0, 0, 0.051219005, 0, 0, 0, 0.9999999, -2.4471283, 0.5565709, 0)
+sorting_offset = 30.0
+amount = 1
+lifetime = 4.0
+draw_order = 1
+mesh = SubResource("QuadMesh_dgbbk")
+emission_shape = 3
+emission_box_extents = Vector3(0.536, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+angular_velocity_min = -78.34
+angular_velocity_max = 63.52
+angular_velocity_curve = SubResource("Curve_dgbbk")
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+angle_min = -253.7
+angle_max = 75.6
+angle_curve = SubResource("Curve_jftt8")
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.6375, 0.6375, 0.6375, 1)
+
+[node name="particles3" type="Node3D" parent="Scene2" unique_id=1811948977]
+transform = Transform3D(4.039, 0, 0, 0, 19.524, 0, 0, 0, 1, -0.17398453, 2.366147, 0)
+
+[node name="LetterParticles2" type="CPUParticles3D" parent="Scene2/particles3" unique_id=1551392222]
+transform = Transform3D(0.24758603, 0, 0, 0, 0.051219005, 0, 0, 0, 0.9999999, -2.4471283, 0.47542143, 0)
+sorting_offset = 32.0
+amount = 1
+lifetime = 4.0
+draw_order = 1
+mesh = SubResource("QuadMesh_3fbr8")
+emission_shape = 3
+emission_box_extents = Vector3(0.536, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+angular_velocity_min = -78.34
+angular_velocity_max = 63.52
+angular_velocity_curve = SubResource("Curve_dgbbk")
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+angle_min = -253.7
+angle_max = 75.6
+angle_curve = SubResource("Curve_jftt8")
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.6375, 0.6375, 0.6375, 1)
+
+[node name="LetterParticles4" type="CPUParticles3D" parent="Scene2/particles3" unique_id=1176794941]
+transform = Transform3D(0.24758603, 0, 0, 0, 0.051219005, 0, 0, 0, 0.9999999, -2.4471283, 0.6484163, 0)
+sorting_offset = 31.0
+amount = 1
+lifetime = 4.0
+draw_order = 1
+mesh = SubResource("QuadMesh_61a84")
+emission_shape = 3
+emission_box_extents = Vector3(0.536, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+angular_velocity_min = -78.34
+angular_velocity_max = 63.52
+angular_velocity_curve = SubResource("Curve_dgbbk")
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+angle_min = -253.7
+angle_max = 75.6
+angle_curve = SubResource("Curve_jftt8")
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.6375, 0.6375, 0.6375, 1)
+
+[node name="LetterParticles3" type="CPUParticles3D" parent="Scene2/particles3" unique_id=800457504]
+transform = Transform3D(0.24758603, 0, 0, 0, 0.051219005, 0, 0, 0, 0.9999999, -2.4471283, 0.5565709, 0)
+sorting_offset = 30.0
+amount = 1
+lifetime = 4.0
+draw_order = 1
+mesh = SubResource("QuadMesh_dgbbk")
+emission_shape = 3
+emission_box_extents = Vector3(0.536, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+angular_velocity_min = -78.34
+angular_velocity_max = 63.52
+angular_velocity_curve = SubResource("Curve_dgbbk")
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+angle_min = -253.7
+angle_max = 75.6
+angle_curve = SubResource("Curve_jftt8")
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.6375, 0.6375, 0.6375, 1)
 
 [node name="Pipes" type="Sprite3D" parent="Scene2" unique_id=1238153108]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.2555447, 0)
 sorting_offset = 33.0
+modulate = Color(0.54509807, 0.54509807, 0.54509807, 1)
 texture = ExtResource("42_mxc2x")
 
 [node name="Pipes2" type="Sprite3D" parent="Scene2/Pipes" unique_id=1570086638]
@@ -1771,6 +2052,7 @@ texture = ExtResource("43_eqvne")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.501946, 0)
 sorting_offset = 33.0
 flip_v = true
+modulate = Color(0.546875, 0.546875, 0.546875, 1)
 texture = ExtResource("42_mxc2x")
 
 [node name="Pipes2" type="Sprite3D" parent="Scene2/Pipes2" unique_id=519624600]
@@ -1781,7 +2063,7 @@ texture = ExtResource("43_eqvne")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.24759, 2.8870988, 0)
 
 [node name="BG" type="Sprite3D" parent="Scene6" unique_id=171418035]
-transform = Transform3D(49.416, 0, 0, 0, 26.643, 0, 0, 0, 25.099, 0, 4.3940372, 0)
+transform = Transform3D(49.416, 0, 0, 0, 26.643, 0, 0, 0, 25.099, 0, 4.394, -5.31)
 sorting_offset = -5.0
 modulate = Color(0.80784315, 0.7058824, 0.58431375, 1)
 texture = ExtResource("7_s81e8")
@@ -1802,6 +2084,7 @@ texture = ExtResource("36_atwsc")
 
 [node name="boxesBG4" type="Sprite3D" parent="Scene6" unique_id=2071178928]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6772537, 0)
+visible = false
 sorting_offset = 8.0
 texture = ExtResource("37_3iyww")
 
@@ -1811,14 +2094,16 @@ sorting_offset = 9.0
 texture = ExtResource("45_r34qq")
 
 [node name="Ground" type="Sprite3D" parent="Scene6" unique_id=1138604090]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.0869553, 0)
+transform = Transform3D(1.152, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.0869553, 0)
 sorting_offset = 5.0
+modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
 texture = ExtResource("37_2kss6")
 
 [node name="Ground3" type="Sprite3D" parent="Scene6" unique_id=369816392]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.906807, 0)
-sorting_offset = 5.0
+transform = Transform3D(1.29, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.906807, 0)
+sorting_offset = 6.0
 flip_v = true
+modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
 texture = ExtResource("37_2kss6")
 
 [node name="Ground2" type="Sprite3D" parent="Scene6" unique_id=2065479090]
@@ -1834,24 +2119,110 @@ modulate = Color(0.903125, 0.6337786, 0.23424803, 1)
 texture = ExtResource("40_ruwvp")
 
 [node name="roof" type="Sprite3D" parent="Scene6" unique_id=1642302584]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.119085, 0)
+transform = Transform3D(1.146, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.119085, 0)
 sorting_offset = 5.0
+modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
 texture = ExtResource("38_3iyww")
 
 [node name="roof2" type="Sprite3D" parent="Scene6" unique_id=719105557]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.4718432, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.257973, 0)
 sorting_offset = 3.0
 texture = ExtResource("41_54n5v")
 
 [node name="roof3" type="Sprite3D" parent="Scene6" unique_id=1059289577]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.100691, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.419981, 0)
 sorting_offset = 4.0
 texture = ExtResource("42_r34qq")
 
-[node name="ForeGroundBoxes" type="Sprite3D" parent="Scene6" unique_id=2103414499]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08306122, -3.701603, 0)
-sorting_offset = 33.0
-texture = ExtResource("40_3s0x3")
+[node name="pot" type="Sprite3D" parent="Scene6" unique_id=1442417289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.057251, 0.22565651, 0)
+sorting_offset = 12.0
+texture = ExtResource("52_mmbjx")
+
+[node name="pot" type="Sprite3D" parent="Scene6/pot" unique_id=747919888]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2013702, -1.184412, 0)
+sorting_offset = 12.0
+texture = ExtResource("54_6iq8j")
+
+[node name="stone2" type="Sprite3D" parent="Scene6/pot" unique_id=1189814180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.134308, -1.7567744, 0)
+sorting_offset = 12.0
+texture = ExtResource("28_iucih")
+
+[node name="stone3" type="Sprite3D" parent="Scene6/pot" unique_id=999201537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7979832, -1.8853583, 0)
+sorting_offset = 12.0
+texture = ExtResource("26_fy4v7")
+
+[node name="stone4" type="Sprite3D" parent="Scene6/pot" unique_id=280851386]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.775213, -1.8853583, 0)
+sorting_offset = 12.0
+texture = ExtResource("26_fy4v7")
+
+[node name="stone" type="Sprite3D" parent="Scene6/pot" unique_id=960968818]
+transform = Transform3D(1.32, 0, 0, 0, 1.32, 0, 0, 0, 1.32, 20.04131, -2.2042136, 0)
+sorting_offset = 12.0
+flip_h = true
+texture = ExtResource("28_iucih")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Scene6/pot/stone" unique_id=1907676255]
+transform = Transform3D(0.9259259, 0, 0, 0, 0.9259259, 0, 0, 0, 0.9259259, 0.06956124, -0.62988687, 0)
+visible = false
+mesh = SubResource("SphereMesh_jftt8")
+skeleton = NodePath("")
+script = ExtResource("95_crlph")
+
+[node name="stone5" type="Sprite3D" parent="Scene6/pot" unique_id=437462293]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.282778, 2.020979, 0)
+sorting_offset = 12.0
+texture = ExtResource("28_iucih")
+
+[node name="stone6" type="Sprite3D" parent="Scene6/pot" unique_id=152102229]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.289114, -1.6845183, 0)
+visible = false
+sorting_offset = 12.0
+texture = ExtResource("29_qt80e")
+
+[node name="boxesPile" type="Sprite3D" parent="Scene6/pot" unique_id=1977009836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5008278, 0.5771582, 0)
+sorting_offset = 10.0
+texture = ExtResource("51_mmbjx")
+
+[node name="plant14" type="Sprite3D" parent="Scene6/pot" unique_id=1182583692]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -8.002947, 2.891789, 0)
+sorting_offset = 9.0
+texture = ExtResource("57_7yl0i")
+
+[node name="plant15" type="Sprite3D" parent="Scene6/pot/plant14" unique_id=715520876]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 2.8160973, -2.9019518, 0)
+sorting_offset = 9.0
+texture = ExtResource("57_7yl0i")
+
+[node name="plant13" type="Sprite3D" parent="Scene6/pot/plant14" unique_id=1699763552]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, -2.8854399, 0)
+sorting_offset = 9.0
+texture = ExtResource("57_7yl0i")
+
+[node name="SwingingPlant1" type="Node3D" parent="Scene6/pot" unique_id=1236271947]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1.5039864, 9.740101, 0)
+script = ExtResource("59_dgbbk")
+swing_angle = 4.0
+swing_speed = 0.5
+
+[node name="SwingingPlant" type="Sprite3D" parent="Scene6/pot/SwingingPlant1" unique_id=1428347457]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.069459915, -3.5077295, 0)
+sorting_offset = 12.0
+texture = ExtResource("53_kclni")
+
+[node name="plant7" type="Sprite3D" parent="Scene6/pot/SwingingPlant1/SwingingPlant" unique_id=2055473005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0038719177, 1.2161684, 0)
+sorting_offset = 11.0
+texture = ExtResource("56_smn8j")
+
+[node name="plant7" type="Sprite3D" parent="Scene6/pot" unique_id=1593753046]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.981081, 7.5324492, 0)
+sorting_offset = 2.0
+texture = ExtResource("55_6iq8j")
 
 [node name="ForegroundPipes" type="Sprite3D" parent="Scene6" unique_id=1600489962]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.357996, 2.5048084, 0)
@@ -1909,6 +2280,7 @@ scale_amount_max = 2.0
 
 [node name="Pipes" type="Sprite3D" parent="Scene6" unique_id=146984035]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.2555447, 0)
+visible = false
 sorting_offset = 33.0
 texture = ExtResource("42_mxc2x")
 
@@ -1918,6 +2290,7 @@ texture = ExtResource("43_eqvne")
 
 [node name="Pipes2" type="Sprite3D" parent="Scene6" unique_id=461632090]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.501946, 0)
+visible = false
 sorting_offset = 33.0
 flip_v = true
 texture = ExtResource("42_mxc2x")
@@ -1930,7 +2303,7 @@ texture = ExtResource("43_eqvne")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.02312, 2.8870988, 0)
 
 [node name="BG" type="Sprite3D" parent="Scene7" unique_id=765061326]
-transform = Transform3D(49.416, 0, 0, 0, 26.643, 0, 0, 0, 25.099, 0, 4.3717794, 0)
+transform = Transform3D(49.416, 0, 0, 0, 29.173, 0, 0, 0, 25.099, 0, 3.301062, -5.31)
 sorting_offset = -5.0
 modulate = Color(0.80784315, 0.7058824, 0.58431375, 1)
 texture = ExtResource("7_s81e8")
@@ -1955,7 +2328,7 @@ sorting_offset = 8.0
 texture = ExtResource("37_3iyww")
 
 [node name="Ground" type="Sprite3D" parent="Scene7" unique_id=1618003851]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.0869553, 0)
+transform = Transform3D(1.261, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.0869553, 0)
 sorting_offset = 5.0
 texture = ExtResource("37_2kss6")
 
@@ -1978,7 +2351,7 @@ modulate = Color(0.903125, 0.6337786, 0.23424803, 1)
 texture = ExtResource("40_ruwvp")
 
 [node name="roof" type="Sprite3D" parent="Scene7" unique_id=1336977861]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.245869, 0)
+transform = Transform3D(1.203, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.245869, 0)
 sorting_offset = 5.0
 texture = ExtResource("38_3iyww")
 
@@ -2020,36 +2393,6 @@ sorting_offset = 30.0
 modulate = Color(0.087499976, 0.087499976, 0.087499976, 0.3372549)
 texture = ExtResource("7_s81e8")
 
-[node name="LetterParticles" type="CPUParticles3D" parent="Scene7/ForegroundPipes" unique_id=1928360153]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.61753845, -8.5689945, 0)
-sorting_offset = 32.0
-amount = 2
-lifetime = 7.82
-mesh = SubResource("QuadMesh_j1dal")
-gravity = Vector3(0, 3.5, 0)
-scale_amount_min = 2.0
-scale_amount_max = 2.0
-
-[node name="LetterParticles2" type="CPUParticles3D" parent="Scene7/ForegroundPipes" unique_id=886098829]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.61753845, -10.276107, 0)
-sorting_offset = 32.0
-amount = 2
-lifetime = 7.82
-mesh = SubResource("QuadMesh_3fbr8")
-gravity = Vector3(0, 3.5, 0)
-scale_amount_min = 2.0
-scale_amount_max = 2.0
-
-[node name="LetterParticles3" type="CPUParticles3D" parent="Scene7/ForegroundPipes" unique_id=368193004]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.61753845, -6.9618216, 0)
-sorting_offset = 32.0
-amount = 2
-lifetime = 7.82
-mesh = SubResource("QuadMesh_t6w52")
-gravity = Vector3(0, 3.5, 0)
-scale_amount_min = 2.0
-scale_amount_max = 2.0
-
 [node name="Pipes" type="Sprite3D" parent="Scene7" unique_id=664369079]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.2555447, 0)
 sorting_offset = 33.0
@@ -2073,7 +2416,7 @@ texture = ExtResource("43_eqvne")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9429545, 2.65408, 0)
 
 [node name="BG" type="Sprite3D" parent="Scene3" unique_id=1131682465]
-transform = Transform3D(49.416, 0, 0, 0, 30.79, 0, 0, 0, 25.099, 0, 3.1035032, 0)
+transform = Transform3D(49.416, 0, 0, 0, 30.79, 0, 0, 0, 25.099, 0, 3.104, -5.31)
 sorting_offset = -5.0
 modulate = Color(0.80784315, 0.7058824, 0.58431375, 1)
 texture = ExtResource("7_s81e8")
@@ -2113,9 +2456,9 @@ sorting_offset = 9.0
 texture = ExtResource("51_mmbjx")
 
 [node name="Plant" type="Sprite3D" parent="Scene3" unique_id=623397539]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.6914215, 0.40069914, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.6914215, -0.59165907, 0)
 sorting_offset = 11.0
-texture = ExtResource("52_mmbjx")
+texture = ExtResource("54_6iq8j")
 
 [node name="Plant2" type="Sprite3D" parent="Scene3" unique_id=22746162]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.009125, 0.40069914, 0)
@@ -2123,7 +2466,7 @@ sorting_offset = 11.0
 texture = ExtResource("52_mmbjx")
 
 [node name="Plant3" type="Sprite3D" parent="Scene3" unique_id=843181610]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.816536, 6.105716, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8165364, 6.777924, 0)
 sorting_offset = 7.0
 texture = ExtResource("53_kclni")
 
@@ -2133,7 +2476,7 @@ sorting_offset = 5.0
 texture = ExtResource("56_smn8j")
 
 [node name="Plant4" type="Sprite3D" parent="Scene3" unique_id=1951217253]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0196724, 7.613957, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0196724, 8.272446, 0)
 sorting_offset = 7.0
 texture = ExtResource("54_6iq8j")
 
@@ -2143,7 +2486,7 @@ sorting_offset = 5.0
 texture = ExtResource("56_smn8j")
 
 [node name="Plant5" type="Sprite3D" parent="Scene3" unique_id=1661407754]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.286522, 5.713346, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.337307, 7.9732356, 0)
 sorting_offset = 7.0
 texture = ExtResource("54_6iq8j")
 
@@ -2153,7 +2496,7 @@ sorting_offset = 5.0
 texture = ExtResource("56_smn8j")
 
 [node name="Plant8" type="Sprite3D" parent="Scene3" unique_id=774538258]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.09153, 6.578998, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.634371, 7.036158, 0)
 sorting_offset = 7.0
 texture = ExtResource("55_yefg2")
 
@@ -2163,30 +2506,32 @@ sorting_offset = 5.0
 texture = ExtResource("56_smn8j")
 
 [node name="Plant6" type="Sprite3D" parent="Scene3" unique_id=443601127]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6709137, 7.9750504, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0289373, 9.247782, 0)
 sorting_offset = 3.0
 texture = ExtResource("55_6iq8j")
 
-[node name="Plant9" type="Sprite3D" parent="Scene3" unique_id=825880339]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3304596, 3.8448977, 0)
-sorting_offset = 6.937
+[node name="light" type="Sprite3D" parent="Scene3" unique_id=825880339]
+transform = Transform3D(1, 0, 0, 0, 1.131, 0, 0, 0, 1, -0.3304596, 4.692966, 0)
+sorting_offset = 7.002
 modulate = Color(1, 0.7935, 0.41000003, 0.7254902)
 texture = ExtResource("40_ruwvp")
 
 [node name="Plant7" type="Sprite3D" parent="Scene3" unique_id=412562910]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.845947, 8.254757, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.698326, 8.968262, 0)
 sorting_offset = 2.0
 texture = ExtResource("55_6iq8j")
 
 [node name="Ground" type="Sprite3D" parent="Scene3" unique_id=1033751243]
 transform = Transform3D(1.4, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.8602703, 0)
 sorting_offset = 6.0
+modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
 texture = ExtResource("37_2kss6")
 
 [node name="Ground3" type="Sprite3D" parent="Scene3" unique_id=598476258]
 transform = Transform3D(1.4, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.8412714, 0)
 sorting_offset = 5.0
 flip_v = true
+modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
 texture = ExtResource("37_2kss6")
 
 [node name="Ground5" type="Sprite3D" parent="Scene3/Ground3" unique_id=279322462]
@@ -2208,17 +2553,18 @@ modulate = Color(0.903125, 0.6337786, 0.23424803, 1)
 texture = ExtResource("40_ruwvp")
 
 [node name="roof" type="Sprite3D" parent="Scene3" unique_id=307845363]
-transform = Transform3D(1.4, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.332049, 0)
+transform = Transform3D(1.4, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.677828, 0)
 sorting_offset = 8.0
+modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
 texture = ExtResource("38_3iyww")
 
 [node name="pipesRoof" type="Sprite3D" parent="Scene3" unique_id=984431617]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.655571, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.794207, 0)
 sorting_offset = 4.0
 texture = ExtResource("41_54n5v")
 
 [node name="pipesRoof2" type="Sprite3D" parent="Scene3" unique_id=607340627]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.717529, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.116817, 0)
 sorting_offset = 4.0
 texture = ExtResource("42_r34qq")
 
@@ -2243,7 +2589,7 @@ sorting_offset = 24.0
 texture = ExtResource("53_6f0xv")
 
 [node name="PileOfBoxesCollider" type="Node3D" parent="Scene3" unique_id=1133207442]
-transform = Transform3D(1.834, 0, 0, 0, 1.834, 0, 0, 0, 1.834, 0.82463074, -1.2846524, 0)
+transform = Transform3D(1.834, 0, 0, 0, 1.834, 0, 0, 0, 1.834, -2.4611454, 21.26564, 0)
 
 [node name="Sprite3D" type="Sprite3D" parent="Scene3/PileOfBoxesCollider" unique_id=234633196]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
@@ -2584,12 +2930,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="fade_manager" unique_id=503433442]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_uc4lo")
-autoplay = &"Interlude1"
 
 [node name="TextBox" type="CanvasLayer" parent="." unique_id=1278473177 node_paths=PackedStringArray("text_label", "left_portrait", "right_portrait")]
 script = ExtResource("16_uc4lo")
@@ -2600,6 +2946,7 @@ right_portrait = NodePath("Panel/TextureRect/portrait2")
 [node name="Panel" type="Panel" parent="TextBox" unique_id=252808106]
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="TextBox/Panel" unique_id=1413041745]
 layout_mode = 1
@@ -2615,6 +2962,7 @@ offset_bottom = 1167.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.7, 0.7)
+mouse_filter = 2
 texture = ExtResource("17_uc4lo")
 
 [node name="portrait1" type="TextureRect" parent="TextBox/Panel/TextureRect" unique_id=1338766853]
@@ -2644,7 +2992,7 @@ offset_right = 1130.0
 offset_bottom = 1011.0
 theme_override_fonts/normal_font = ExtResource("18_vcro0")
 theme_override_font_sizes/normal_font_size = 45
-text = "Why so serious!"
+text = "Snakes can't blush"
 tab_size = 24
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -2669,7 +3017,7 @@ player = NodePath("../Player")
 camera = NodePath("../Camera/CameraController")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TeleportArea1" unique_id=1637993822]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09853, 0, 0)
 shape = SubResource("BoxShape3D_8wkqm")
 
 [node name="Node3D" type="Node3D" parent="TeleportArea1" unique_id=1476594236]
@@ -2707,15 +3055,16 @@ player = NodePath("../Player")
 music = NodePath("AudioStreamPlayer3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AudioZone(Song)2" unique_id=178280514]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.096443, 2.9003906, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.153801, 2.9003906, 0)
 shape = SubResource("BoxShape3D_74oad")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="AudioZone(Song)2" unique_id=1771909196]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.017227, 2.9003906, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.78331, 2.9003906, 0)
 stream = ExtResource("101_vcgka")
 volume_db = 15.0
 
 [node name="Control" type="Control" parent="." unique_id=262135660]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -2755,7 +3104,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Interlude I" type="Control" parent="Control" unique_id=40430082]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
