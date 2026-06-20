@@ -1,7 +1,7 @@
 extends Node3D
 
-@export var swing_angle := 8.0
-@export var swing_speed := 1.0
+@export var swing_angle := 4.0
+@export var swing_speed := 0.5
 
 var t := randf() * TAU
 
