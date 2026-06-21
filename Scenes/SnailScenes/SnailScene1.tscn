@@ -145,7 +145,7 @@ size = Vector3(5.7337503, 1, 1)
 size = Vector3(1, 1.312, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ixu5i"]
-size = Vector3(4.534424, 1, 1)
+size = Vector3(24.55133, 1.3808594, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qai4r"]
 size = Vector3(3.089569, 1, 7.4453125)
@@ -857,7 +857,7 @@ skeleton = NodePath("../..")
 [node name="StaticBody3D" type="StaticBody3D" parent="Ground and walls/BlockingWall1" unique_id=10337417]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground and walls/BlockingWall1/StaticBody3D" unique_id=308073136]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7672119, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.775665, -0.19042969, 0)
 shape = SubResource("BoxShape3D_ixu5i")
 
 [node name="BlockingWall2" type="MeshInstance3D" parent="Ground and walls" unique_id=364263951]
@@ -2161,9 +2161,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5564232, 0.8028147, 0)
 sorting_offset = 10.0
 texture = ExtResource("51_mmbjx")
 
+[node name="boxesPile3" type="Sprite3D" parent="Scene6" unique_id=1106132136]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0158005, 0.8028147, 0)
+sorting_offset = 9.0
+texture = ExtResource("51_mmbjx")
+
 [node name="boxesPile2" type="Sprite3D" parent="Scene6" unique_id=1977050555]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9437866, -1.0602095, 0)
-sorting_offset = 4.874
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.259579, 0.8576319, 0)
+sorting_offset = 6.0
 texture = ExtResource("50_t0wr4")
 
 [node name="plant14" type="Sprite3D" parent="Scene6" unique_id=1182583692]
@@ -2930,6 +2935,7 @@ color = Color(0, 0, 0, 1)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="fade_manager" unique_id=503433442]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_uc4lo")
+autoplay = &"Interlude1"
 
 [node name="TextBox" type="CanvasLayer" parent="." unique_id=1278473177 node_paths=PackedStringArray("text_label", "left_portrait", "right_portrait")]
 script = ExtResource("16_uc4lo")
@@ -3059,7 +3065,6 @@ stream = ExtResource("101_vcgka")
 volume_db = 15.0
 
 [node name="Control" type="Control" parent="." unique_id=262135660]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

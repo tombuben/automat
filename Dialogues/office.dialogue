@@ -38,11 +38,6 @@ Disposable_worker: With extra cream and cinnamon on the side.
 Disposable_worker: Coffee is a sacred ritual for me
 Disposable_worker: Be exact, my mental health depends on this
 
-Automat: (creating the perfect coffee, to the best of current ability screen)
-Automat: (create items button comes out, which needs to be pressed, only then dialogue is advanced)
-Automat: (Items come out)
-
-
 # set slot responses for (disposable worker 1)
 do GlobalManager.change_slot_item_name("ItemSlotCoffeeLarge", "coffee_large")
 do GlobalManager.change_slot_item_saying("ItemSlotCoffeeLarge","[color=#1bffc2]H-here you go?[/color]")
@@ -215,16 +210,8 @@ do wait(GlobalManager.current_animation_length)
 do GlobalManager.play_animation.emit("small_worker_idle")
 
 small_coffee_worker: Jeez, that guy
-small_coffee_worker: Hello, I will have a small coffee
-
-small_coffee_worker: The balloons? Oh yea, it's my birthday
-small_coffee_worker: (moral compass - oh, but I dont have small coffee, sorry...)
-
-small_coffee_worker: (next interaction) Oh, then just give me some other coffee then
-(automat shoots some other item and the balloons fly away)
-
-
-
+small_coffee_worker: Hello
+small_coffee_worker: I will have a small coffee
 
 do GlobalManager.change_slot_item_name("ItemSlotCoffeeLarge", "coffee_large")
 do GlobalManager.change_slot_item_saying("ItemSlotCoffeeLarge", "[color=#1bffc2]Here you go[/color]")
