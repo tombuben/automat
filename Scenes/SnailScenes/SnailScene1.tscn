@@ -145,7 +145,10 @@ size = Vector3(5.7337503, 1, 1)
 size = Vector3(1, 1.312, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ixu5i"]
-size = Vector3(24.55133, 1.3808594, 1)
+size = Vector3(1.4101563, 1.3808594, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dgbbk"]
+size = Vector3(1, 1.312, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qai4r"]
 size = Vector3(3.089569, 1, 7.4453125)
@@ -862,7 +865,7 @@ shape = SubResource("BoxShape3D_ixu5i")
 
 [node name="BlockingWall2" type="MeshInstance3D" parent="Ground and walls" unique_id=364263951]
 transform = Transform3D(0.032017417, 0, 0, 0, 89.083336, 0, 0, 0, 1.1020904, 1.2707022, 58.159798, 0.23113105)
-mesh = SubResource("BoxMesh_bq7wa")
+mesh = SubResource("BoxMesh_dgbbk")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Ground and walls/BlockingWall2" unique_id=682581416]

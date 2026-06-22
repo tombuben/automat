@@ -17,6 +17,6 @@ void fragment() {
 
 [resource]
 shader = SubResource("Shader_qsaox")
-shader_parameter/alpha = 0.525
+shader_parameter/alpha = 0.656
 shader_parameter/inner_radius = 0.444
 shader_parameter/outer_radius = 1.067
