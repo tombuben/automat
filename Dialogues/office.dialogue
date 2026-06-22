@@ -17,24 +17,24 @@ do GlobalManager.play_animation.emit("disposable_worker_close_to_idle")
 do wait(GlobalManager.current_animation_length)
 do GlobalManager.play_animation.emit("disposable_worker_idle")
 
-Disposable_worker: I will have a...
+Disposable_worker: I will have...
 Disposable_worker: [color=#1bffc2]One large coffee[/color]. 
 
 Disposable_worker: Inside, there will be five shots of espresso
 
-Disposable_worker: low acidity, caramel drizzle
+Disposable_worker: Low acidity, caramel drizzle
 
-Disposable_worker: extra foam.
+Disposable_worker: Extra foam
 
-Disposable_worker: four melted ice cubes.
+Disposable_worker: Four melted ice cubes
 
-Disposable_worker: Blessed by a sacred animal.
+Disposable_worker: Blessed by a sacred animal
 
-Disposable_worker: Sugar free caramel.
+Disposable_worker: Sugar free caramel
 
-Disposable_worker: Quadruple blended.
+Disposable_worker: Quadruple blended
 
-Disposable_worker: With extra cream and cinnamon on the side.
+Disposable_worker: With extra cream and cinnamon on the side
 Disposable_worker: Coffee is a sacred ritual for me
 Disposable_worker: Be exact, my mental health depends on this
 
@@ -141,8 +141,7 @@ else:
 
 		Disposable_worker: They threw out one robot for [color=#ff851b][wave amp=25 freq=5]emotional malfunctions[/wave][/color] last week
 		
-		Disposable_worker: You can have this, it tastes like disappointment
-		Disposable_worker: Here is your basic bitter beverage back
+		Disposable_worker: You can have this back, it tastes like disappointment
 		do GlobalManager.play_animation.emit("disposable_worker", "throw")
 		do GlobalManager.play_animation.emit("coffeeCup")
 		do wait(GlobalManager.current_animation_length)
@@ -152,7 +151,7 @@ else:
 		do GlobalManager.show_portrait("automat")
 		Automat: [color=#1bffc2]H-hey, wait this isnt fair![/color]
 
-		# 🔥 UNLOCK
+		# UNLOCK
 		do GlobalManager.set_state("worker", "moral_unlocked", true)
 		do GlobalManager.play_animation.emit("moral_compass_unlocked")
 		do wait(3)

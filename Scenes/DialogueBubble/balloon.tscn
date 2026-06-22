@@ -180,10 +180,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_m7ytr")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Balloon" unique_id=391868967]
 layout_mode = 0
-offset_left = 796.0
+offset_left = 816.0
 offset_top = 757.0
-offset_right = 1514.0
-offset_bottom = 1055.0
+offset_right = 1402.0
+offset_bottom = 975.0
 size_flags_horizontal = 3
 
 [node name="DialogueLabel" parent="Balloon/VBoxContainer" unique_id=1120079061 instance=ExtResource("2_a8ve6")]
@@ -210,6 +210,7 @@ size_flags_vertical = 8
 
 [node name="Progress" type="Polygon2D" parent="Balloon/Control" unique_id=1723488043]
 unique_name_in_owner = true
+position = Vector2(-133, 0)
 polygon = PackedVector2Array(0, 0, 10, 10, 20, 0, 9.916357, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Balloon/Control" unique_id=708842800]
@@ -273,10 +274,10 @@ text = "Response example"
 [node name="Portrait" type="TextureRect" parent="Balloon" unique_id=1757619546]
 z_index = 22
 layout_mode = 0
-offset_left = 1604.9999
+offset_left = 1487.0
 offset_top = 763.0
-offset_right = 2004.9999
-offset_bottom = 1163.0
+offset_right = 1785.6975
+offset_bottom = 1061.6975
 scale = Vector2(0.691, 0.691)
 texture = ExtResource("5_mu5lg")
 script = ExtResource("6_mu5lg")
@@ -306,6 +307,7 @@ mouse_filter = 1
 color = Color(0.12941177, 0.12941177, 0.12941177, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="Balloon" unique_id=1516804916]
+visible = false
 layout_mode = 0
 offset_left = 1575.7484
 offset_top = 742.0

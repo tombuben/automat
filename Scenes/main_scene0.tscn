@@ -6,10 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://utw2m5k15duk" path="res://Subscenes (prefabs)/NPCs/printer.tscn" id="3_nfcrg"]
 [ext_resource type="PackedScene" uid="uid://3yidyvqaofwt" path="res://Subscenes (prefabs)/NPCs/boss.tscn" id="3_xaya4"]
 [ext_resource type="PackedScene" uid="uid://dqwjm0kc3yjg8" path="res://Subscenes (prefabs)/NPCs/dramatic_worker.tscn" id="5_fcgxk"]
-[ext_resource type="Texture2D" uid="uid://dbqd8w6ix0drb" path="res://Assets/VendingMachine/VendingMachine.png" id="5_u40t6"]
-[ext_resource type="Texture2D" uid="uid://cl3e5pg8gmwjd" path="res://Assets/VendingMachine/automatFace.png" id="6_35gkj"]
 [ext_resource type="Texture2D" uid="uid://jhhglfdduxhd" path="res://Assets/ChapterAssets/office/paper.png" id="6_urueq"]
-[ext_resource type="Script" uid="uid://0fdvigrrpcro" path="res://Scripts/cursorFollow.gd" id="7_xiox5"]
 [ext_resource type="Texture2D" uid="uid://cmq5qxhnvxum" path="res://Assets/VendingMachine/handsClosed.png" id="8_oq737"]
 [ext_resource type="Texture2D" uid="uid://df66jds18h6ap" path="res://Assets/ChapterAssets/office/officeBG.png" id="9_fcgxk"]
 [ext_resource type="Texture2D" uid="uid://dwlqtr5m6tb2h" path="res://Assets/VendingMachine/handsOpen.png" id="9_kmity"]
@@ -31,6 +28,9 @@
 [ext_resource type="PackedScene" uid="uid://c4r4310opxu44" path="res://Subscenes (prefabs)/Items/coffeeMedium.tscn" id="24_nkddx"]
 [ext_resource type="Texture2D" uid="uid://campjvxsdl01s" path="res://Assets/concepts/WiresBg2.png" id="24_xai13"]
 [ext_resource type="PackedScene" uid="uid://bokb66s75j3c1" path="res://Subscenes (prefabs)/Items/rubber_duck.tscn" id="25_nkddx"]
+[ext_resource type="Texture2D" uid="uid://bau5rsgy31fnl" path="res://Assets/concepts/automatBody.png" id="25_phynr"]
+[ext_resource type="Texture2D" uid="uid://bvqrsng0xkm87" path="res://Assets/concepts/automatFace.png" id="26_h2ujk"]
+[ext_resource type="Texture2D" uid="uid://t6iupujevpba" path="res://Assets/concepts/automatSpace.png" id="27_3wfe4"]
 [ext_resource type="Texture2D" uid="uid://dffn0bxh63v31" path="res://Assets/VendingMachine/Hands/HandLeft.png" id="31_xaya4"]
 [ext_resource type="Texture2D" uid="uid://dwejvy41bc5ia" path="res://Assets/VendingMachine/Hands/HandRight.png" id="32_poada"]
 [ext_resource type="Script" uid="uid://bgngysncqjt3n" path="res://Scripts/cameraTilt.gd" id="34_5ls3k"]
@@ -58,9 +58,11 @@
 [ext_resource type="Script" uid="uid://cqptasjmaayf6" path="res://Scripts/scene_dialogue_manager.gd" id="59_04lfq"]
 [ext_resource type="Material" uid="uid://dajr143et87vg" path="res://Materials/CameraBreathe.tres" id="61_yd3c3"]
 [ext_resource type="Texture2D" uid="uid://c6iickcdokgih" path="res://Assets/concepts/cogWheel1.png" id="62_6l1j1"]
+[ext_resource type="Shader" uid="uid://dvxk6m8fpwvt4" path="res://Materials/ScrollTexture.gdshader" id="62_c1qkb"]
 [ext_resource type="Material" uid="uid://85ympcce5opp" path="res://Materials/ScrollingTextureMat.tres" id="62_r6ydg"]
 [ext_resource type="Texture2D" uid="uid://dw0q2co8osbl" path="res://Assets/concepts/AutomatFrame.png" id="62_stn0f"]
 [ext_resource type="Texture2D" uid="uid://c67ylkonhqft0" path="res://Assets/concepts/cogWheel2.png" id="63_0a3c2"]
+[ext_resource type="Texture2D" uid="uid://rgndj2mirlll" path="res://Assets/concepts/textboxTex.png" id="63_c1qkb"]
 [ext_resource type="Texture2D" uid="uid://d2t43ycvg8w8v" path="res://Assets/VendingMachine/ShootingOverlay/automatHands.png" id="63_u40t6"]
 [ext_resource type="Texture2D" uid="uid://b157jvk7vnkux" path="res://Assets/concepts/tubes1.png" id="64_0a3c2"]
 [ext_resource type="Material" uid="uid://bfuew5nfqk7t3" path="res://Materials/ColorAdjustmentMat.material" id="64_8swbj"]
@@ -83,7 +85,6 @@
 [ext_resource type="Texture2D" uid="uid://c2n1e48qlwqnt" path="res://Assets/concepts/flowerbed1.png" id="69_m2yrj"]
 [ext_resource type="Texture2D" uid="uid://cxgfactpr3ald" path="res://Assets/concepts/battery.png" id="70_m2yrj"]
 [ext_resource type="Texture2D" uid="uid://bn5djhmr1lyyl" path="res://Assets/concepts/coloredWires.png" id="71_mhrbp"]
-[ext_resource type="Texture2D" uid="uid://cxd08cdrtj3o3" path="res://Assets/VendingMachine/AutomatUI.png" id="73_3d21k"]
 [ext_resource type="Texture2D" uid="uid://1feiibfio4bs" path="res://Assets/VendingMachine/uiHolderAutomat.png" id="75_j8xoi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t7s67"]
@@ -95,6 +96,9 @@ albedo_texture = ExtResource("6_urueq")
 material = SubResource("StandardMaterial3D_t7s67")
 
 [sub_resource type="Environment" id="Environment_8swbj"]
+background_mode = 1
+background_color = Color(0.40671876, 0.47500002, 0.40968752, 1)
+background_energy_multiplier = 2.8
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fcgxk"]
 transparency = 1
@@ -160,7 +164,7 @@ size = Vector3(0.489746, 0.692017, 0.319092)
 size = Vector3(0.218384, 1.46027, 0.319092)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_76v2p"]
-size = Vector3(0.52319336, 0.3984375, 0.5)
+size = Vector3(0.5703125, 0.39501953, 0.5)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_iacmt"]
 radius = 0.001
@@ -274,6 +278,12 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2ujk"]
+shader = ExtResource("62_c1qkb")
+shader_parameter/bg_tex = ExtResource("63_c1qkb")
+shader_parameter/scroll_speed = Vector2(-0.05, -0.05)
+shader_parameter/texture_scale = Vector2(2.4, 0.8)
 
 [sub_resource type="Animation" id="Animation_4x0hr"]
 resource_name = "ACT1"
@@ -1472,7 +1482,7 @@ texture = ExtResource("15_5ls3k")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.31358, 0, 0)
 
 [node name="openHands" type="AnimatedSprite3D" parent="Automat" unique_id=404451573]
-transform = Transform3D(0.135, 0, 0, 0, 0.135, 0, 0, 0, 0.135, 0.002, 0.739, -2.104)
+transform = Transform3D(0.157, 0, 0, 0, 0.157, 0, 0, 0, 0.157, -0.027000427, 0.703, 0.07606912)
 sorting_offset = 3.886
 sprite_frames = SubResource("SpriteFrames_tscpr")
 animation = &"close_hand"
@@ -1483,77 +1493,92 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011609077, 1.2301935, -0.16
 visible = false
 size = Vector3(1, 1.753, 0.7)
 
-[node name="AutomatSprite" type="Sprite3D" parent="Automat" unique_id=1087225422]
-transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0.025719166, 1.171102, 0.19906768)
-visible = false
-sorting_offset = 2.937
-texture = ExtResource("5_u40t6")
-
-[node name="automatFace" type="Sprite3D" parent="Automat/AutomatSprite" unique_id=1586256850]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7739773, 0)
-visible = false
-sorting_offset = 3.654
-texture = ExtResource("6_35gkj")
-script = ExtResource("7_xiox5")
-follow_strength = 0.035
-follow_speed = 4.5
-
-[node name="Sprite3D" type="Sprite3D" parent="Automat/AutomatSprite" unique_id=1315836649]
-transform = Transform3D(10.041, 0, 0, 0, 10.041, 0, 0, 0, 10.041, -0.12000275, 1.4749999, -9.421406)
-visible = false
-modulate = Color(0.654902, 0.8039216, 0.654902, 1)
-texture = ExtResource("45_0x4kb")
-
 [node name="Sprite3D" type="Sprite3D" parent="Automat" unique_id=1720306258]
 transform = Transform3D(0.222, 0, 0, 0, 0.222, 0, 0, 0, 0.222, 0.031282425, 1.182, 0)
 
 [node name="InsidesBG3" type="Sprite3D" parent="Automat/Sprite3D" unique_id=1970285769]
-transform = Transform3D(18.864, 0, 0, 0, 18.864, 0, 0, 0, 18.864, 0, 0, -0.91238993)
+transform = Transform3D(18.863995, 0, 0, 0, 18.863995, 0, 0, 0, 18.863995, 0, 0, -23.96323)
 sorting_offset = -2.24
 modulate = Color(0, 0, 0, 1)
 texture = ExtResource("15_5ls3k")
 
 [node name="InsidesBG2" type="Sprite3D" parent="Automat/Sprite3D" unique_id=981141101]
-transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, -0.362, 0, 0)
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, -0.3619995, 0, -8.281208)
 sorting_offset = -1.82
 texture = ExtResource("23_vtxsy")
 
 [node name="InsidesBG" type="Sprite3D" parent="Automat/Sprite3D" unique_id=275801407]
-transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, -0.29, -0.036, -0.555)
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, -0.28997803, -0.03600025, -15.79481)
 sorting_offset = -1.82
 texture = ExtResource("24_xai13")
 
 [node name="Automat" type="Sprite3D" parent="Automat/Sprite3D" unique_id=838759074]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -0.051116943, -0.26561213, 0)
+transform = Transform3D(1.138, 0, 0, 0, 1.138, 0, 0, 0, 1.138, -0.217, -0.266, 0)
 sorting_offset = 1.0
-texture = ExtResource("73_3d21k")
+texture = ExtResource("25_phynr")
+
+[node name="AutomatFace" type="Sprite3D" parent="Automat/Sprite3D/Automat" unique_id=862840875]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03488159, -0.8103876, 0)
+sorting_offset = 2.0
+texture = ExtResource("26_h2ujk")
+
+[node name="AutomatSpace1" type="Sprite3D" parent="Automat/Sprite3D/Automat" unique_id=746259282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035, 0.756, 0)
+sorting_offset = 2.0
+texture = ExtResource("27_3wfe4")
+
+[node name="AutomatSpace2" type="Sprite3D" parent="Automat/Sprite3D/Automat" unique_id=1079355108]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035003662, 1.94, 0)
+sorting_offset = 2.0
+texture = ExtResource("27_3wfe4")
+
+[node name="AutomatSpace3" type="Sprite3D" parent="Automat/Sprite3D/Automat" unique_id=2029602096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0350342, 0.75600004, 0)
+sorting_offset = 2.0
+texture = ExtResource("27_3wfe4")
+
+[node name="AutomatSpace4" type="Sprite3D" parent="Automat/Sprite3D/Automat" unique_id=194476745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0169678, 0.75600004, 0)
+sorting_offset = 2.0
+texture = ExtResource("27_3wfe4")
+
+[node name="AutomatSpace5" type="Sprite3D" parent="Automat/Sprite3D/Automat" unique_id=578377902]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0350342, 1.94, 0)
+sorting_offset = 2.0
+texture = ExtResource("27_3wfe4")
+
+[node name="AutomatSpace6" type="Sprite3D" parent="Automat/Sprite3D/Automat" unique_id=1518102821]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0169678, 1.94, 0)
+sorting_offset = 2.0
+texture = ExtResource("27_3wfe4")
 
 [node name="Slot" type="Sprite3D" parent="Automat/Sprite3D" unique_id=2133225072]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -2.5419617, -0.5617056, 0)
-visible = false
 sorting_offset = 3.0
+modulate = Color(0.09929688, 0.3875, 0.3658848, 1)
 texture = ExtResource("75_j8xoi")
 
 [node name="Slot2" type="Sprite3D" parent="Automat/Sprite3D" unique_id=306531291]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 2.2204895, -1.6182418, 0)
-visible = false
 sorting_offset = 3.0
+modulate = Color(0.09929688, 0.3875, 0.3658848, 1)
 texture = ExtResource("75_j8xoi")
 
 [node name="Slot3" type="Sprite3D" parent="Automat/Sprite3D" unique_id=1004993956]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -2.470459, -3.1779895, 0)
-visible = false
 sorting_offset = 3.0
+modulate = Color(0.09929688, 0.3875, 0.3658848, 1)
 texture = ExtResource("75_j8xoi")
 
 [node name="itemsSlots" type="Node3D" parent="Automat" unique_id=1388334518]
 
-[node name="ItemSlotCoffeeLarge" type="Area3D" parent="Automat/itemsSlots" unique_id=821282033 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, 0.042053223, 1.5588746, 0.489491)
+[node name="ItemSlotCoffeeLarge" type="Area3D" parent="Automat/itemsSlots" unique_id=821282033 node_paths=PackedStringArray("item_in_slot", "hover_sprite")]
+transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, -0.2736435, 1.3241243, 0.489491)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("10_m5y8p")
 item_in_slot = NodePath("coffee_large")
+hover_sprite = NodePath("../../Sprite3D/Automat/AutomatSpace3")
 
 [node name="coffee_large" parent="Automat/itemsSlots/ItemSlotCoffeeLarge" unique_id=1837871512 instance=ExtResource("23_nkddx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.218)
@@ -1563,12 +1588,13 @@ saying = "coffee_large"
 shape = SubResource("SphereShape3D_huasi")
 debug_color = Color(0, 11.618606, 13.50434, 1)
 
-[node name="ItemSlotCoffeeMedium" type="Area3D" parent="Automat/itemsSlots" unique_id=288529252 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, 0.026036263, 1.3172566, 0.489491)
+[node name="ItemSlotCoffeeMedium" type="Area3D" parent="Automat/itemsSlots" unique_id=288529252 node_paths=PackedStringArray("item_in_slot", "hover_sprite")]
+transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, -0.021156311, 1.3172566, 0.489491)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("10_m5y8p")
 item_in_slot = NodePath("coffee_medium")
+hover_sprite = NodePath("../../Sprite3D/Automat/AutomatSpace1")
 
 [node name="coffee_medium" parent="Automat/itemsSlots/ItemSlotCoffeeMedium" unique_id=1763214508 instance=ExtResource("24_nkddx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.21800002)
@@ -1577,12 +1603,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.21800002)
 shape = SubResource("SphereShape3D_huasi")
 debug_color = Color(0, 11.618606, 13.50434, 1)
 
-[node name="ItemSlotRubberDuck" type="Area3D" parent="Automat/itemsSlots" unique_id=448300744 node_paths=PackedStringArray("item_in_slot")]
-transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, 0.25299168, 1.30254, 0.489491)
+[node name="ItemSlotRubberDuck" type="Area3D" parent="Automat/itemsSlots" unique_id=448300744 node_paths=PackedStringArray("item_in_slot", "hover_sprite")]
+transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, 0.24465942, 1.3067039, 0.489491)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("10_m5y8p")
 item_in_slot = NodePath("rubber_duck")
+hover_sprite = NodePath("../../Sprite3D/Automat/AutomatSpace4")
 
 [node name="rubber_duck" parent="Automat/itemsSlots/ItemSlotRubberDuck" unique_id=2097559556 instance=ExtResource("25_nkddx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.21800002)
@@ -1672,11 +1699,11 @@ shape = SubResource("BoxShape3D_mai8y")
 debug_color = Color(0, 2.5736918, 2.998326, 0.41960785)
 
 [node name="DispensorSelector" type="Area3D" parent="Automat" unique_id=340854766]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020730019, 0.7905777, 0.503324)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02444458, 0.72124964, 0.503324)
 script = ExtResource("17_stn0f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/DispensorSelector" unique_id=625571309]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008087158, -0.014855623, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00031280518, -0.03415513, 0)
 shape = SubResource("BoxShape3D_76v2p")
 debug_color = Color(0, 18.892157, 4.8239684, 0.41960785)
 
@@ -1708,10 +1735,10 @@ size_flags_vertical = 3
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 99.0
-offset_top = 115.0
-offset_right = 693.0
-offset_bottom = -107.35303
+offset_left = 95.0
+offset_top = 106.0
+offset_right = 651.0
+offset_bottom = -112.0
 grow_vertical = 2
 pivot_offset = Vector2(387.588, 500)
 stretch = true
@@ -1719,7 +1746,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="UI Control/Left viewport" unique_id=658604717]
 handle_input_locally = false
 physics_object_picking = true
-size = Vector2i(594, 857)
+size = Vector2i(556, 862)
 render_target_update_mode = 4
 
 [node name="RotateAround" type="Node3D" parent="UI Control/Left viewport/SubViewport" unique_id=1713345572]
@@ -1855,9 +1882,8 @@ color = Color(0, 0, 0, 1)
 
 [node name="DialoguePreview" type="CanvasLayer" parent="UI Control" unique_id=539448852 node_paths=PackedStringArray("dialogue_rich_text", "preview_audio_player")]
 layer = 100
-visible = false
 script = ExtResource("65_406us")
-dialogue_rich_text = NodePath("Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/DialogueLabel")
+dialogue_rich_text = NodePath("Balloon/MarginContainer2/HBoxContainer/VBoxContainer/DialogueLabel")
 preview_audio_player = NodePath("PreviewAudioStreamPlayer")
 audio_samples = Array[AudioStream]([ExtResource("46_8swbj"), ExtResource("47_8swbj")])
 
@@ -1878,6 +1904,7 @@ mouse_filter = 2
 theme = SubResource("Theme_qq3yp")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI Control/DialoguePreview/Balloon" unique_id=978174234]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -1898,20 +1925,24 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7qwyv")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI Control/DialoguePreview/Balloon/MarginContainer/PanelContainer" unique_id=1050329407]
+[node name="MarginContainer2" type="MarginContainer" parent="UI Control/DialoguePreview/Balloon" unique_id=1050329407]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 34.0
+offset_right = 686.0
+offset_bottom = 268.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI Control/DialoguePreview/Balloon/MarginContainer2" unique_id=572355579]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI Control/DialoguePreview/Balloon/MarginContainer/PanelContainer/MarginContainer" unique_id=572355579]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI Control/DialoguePreview/Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=391868967]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI Control/DialoguePreview/Balloon/MarginContainer2/HBoxContainer" unique_id=391868967]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="DialogueLabel" parent="UI Control/DialoguePreview/Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1120079061 instance=ExtResource("66_m2lyo")]
+[node name="DialogueLabel" parent="UI Control/DialoguePreview/Balloon/MarginContainer2/HBoxContainer/VBoxContainer" unique_id=1120079061 instance=ExtResource("66_m2lyo")]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
@@ -1932,16 +1963,18 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -347.0
-offset_top = -325.0
-offset_right = -50.0
-offset_bottom = -28.0
+offset_left = -444.0
+offset_top = -331.0
+offset_right = -154.0
+offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.791, 0.791)
 mouse_filter = 2
 texture = ExtResource("67_eekva")
 
 [node name="ColorRect2" type="ColorRect" parent="UI Control/DialoguePreview/Balloon" unique_id=915446475]
+visible = false
 z_index = -6
 layout_mode = 1
 anchors_preset = -1
@@ -1957,6 +1990,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="UI Control/DialoguePreview/Balloon" unique_id=861920921]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.9990001
@@ -2491,11 +2525,22 @@ texture = ExtResource("67_xai13")
 
 [node name="ColorRect" type="ColorRect" parent="BorderAutomat3" unique_id=508691422]
 z_index = -8
+material = SubResource("ShaderMaterial_h2ujk")
 layout_mode = 0
 offset_left = 18.98734
 offset_top = 18.98734
-offset_right = 1198.7341
+offset_right = 879.3798
 offset_bottom = 324.05057
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="BorderAutomat3" unique_id=1441872164]
+z_index = -8
+layout_mode = 0
+offset_left = 883.1773
+offset_top = 20.253147
+offset_right = 1247.7344
+offset_bottom = 337.9747
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
@@ -2587,8 +2632,8 @@ texture = ExtResource("65_243dh")
 [node name="keychain" type="TextureRect" parent="." unique_id=198641863]
 modulate = Color(0.865625, 0.865625, 0.865625, 1)
 z_index = 60
-offset_left = 1742.0
-offset_right = 1924.2786
+offset_left = 1764.0
+offset_right = 1946.2786
 offset_bottom = 266.9079
 scale = Vector2(0.79, 0.79)
 mouse_filter = 2
@@ -2596,33 +2641,31 @@ texture = ExtResource("66_qpkor")
 
 [node name="Flowerbed" type="TextureRect" parent="." unique_id=1264581943]
 z_index = 60
-offset_left = 70.0
-offset_top = 765.0
-offset_right = 370.0
-offset_bottom = 1095.0
-scale = Vector2(0.79, 0.79)
+offset_left = 42.0
+offset_top = 758.00006
+offset_right = 342.0
+offset_bottom = 1088.0
+scale = Vector2(0.9, 0.9)
 mouse_filter = 2
 texture = ExtResource("67_yqe4d")
 
-[node name="Flowerbed2" type="TextureRect" parent="Flowerbed" unique_id=1020727965]
+[node name="Flowerbed2" type="TextureRect" parent="." unique_id=1020727965]
 z_index = 60
-layout_mode = 0
-offset_left = 743.03796
-offset_top = -62.02533
-offset_right = 919.03796
-offset_bottom = 203.97467
-scale = Vector2(0.79, 0.79)
+offset_left = 640.00006
+offset_top = 707.0
+offset_right = 816.00006
+offset_bottom = 973.0
+scale = Vector2(0.9, 0.9)
 mouse_filter = 2
 texture = ExtResource("68_yqe4d")
 
-[node name="Flowerbed3" type="TextureRect" parent="Flowerbed" unique_id=694223251]
+[node name="Flowerbed3" type="TextureRect" parent="." unique_id=694223251]
 z_index = 60
-layout_mode = 0
-offset_left = -40.506332
-offset_top = -645.5696
-offset_right = 259.49365
-offset_bottom = -215.56958
-scale = Vector2(0.79, 0.79)
+offset_left = -14.0
+offset_top = 253.0
+offset_right = 286.0
+offset_bottom = 683.0
+scale = Vector2(0.9, 0.9)
 mouse_filter = 2
 texture = ExtResource("69_m2yrj")
 
@@ -2648,9 +2691,9 @@ texture = ExtResource("71_mhrbp")
 
 [node name="Frame" type="TextureRect" parent="." unique_id=1560612943]
 z_index = 20
-offset_left = -12.410796
-offset_top = -5.0000005
-offset_right = 2412.363
+offset_left = -12.0
+offset_top = -5.0
+offset_right = 2412.774
 offset_bottom = 1392.4684
 scale = Vector2(0.79, 0.79)
 mouse_filter = 2
