@@ -3006,7 +3006,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3189888, 2.973071, 0)
 script = ExtResource("21_3xfwl")
 player = NodePath("../Player")
 dialogue_ui = NodePath("../TextBox")
-dialogue_lines = Array[String](["Oh hello", "It's you again", "Huh, you want to deliver another letter?", "O-okay, I might have something here for you", "(crumpled letter received)", "Sure, it has been here for a year, but it doesn't hurt to deliver it again!", "Off you go, good luck!"])
+dialogue_lines = Array[String](["!", "OH! It's you again", "Please don't tell anyone that I added a bit of green here and there", "It's so boring and lifeless here otherwise", "It's fully automated here, so I am the only one left now", "Huh, you want to deliver another letter?", "O-okay, I might have something here for you", "(crumpled letter received)", "Sure, it has been here for a year, but it doesn't hurt to deliver it again!", "Off you go, good luck!"])
 speaker_portraits = Array[Texture2D]([ExtResource("19_ixu5i")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TextboxTriggerArea" unique_id=624746928]
