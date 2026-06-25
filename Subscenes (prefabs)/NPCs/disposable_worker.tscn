@@ -52,6 +52,7 @@ texture = ExtResource("2_4mpo0")
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="2" unique_id=27529198]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.015281349, -0.073034704, -0.061731696)
 sorting_offset = 1.5
+modulate = Color(0.821875, 0.821875, 0.821875, 1)
 sprite_frames = SubResource("SpriteFrames_qk7r5")
 animation = &"grin"
 autoplay = "idle"

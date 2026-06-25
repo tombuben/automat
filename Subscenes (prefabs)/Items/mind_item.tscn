@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://dtwmshuf707e6"]
 
 [ext_resource type="Script" uid="uid://clluv3r6m72c2" path="res://Scripts/random_item.gd" id="1_wiea4"]
-[ext_resource type="PackedScene" uid="uid://bldsttlbxv7h5" path="res://Assets/Itemmodels/KenneyPlaceholders/carton.glb" id="2_wiea4"]
+[ext_resource type="PackedScene" uid="uid://oabx5myrqcm1" path="res://Assets/Itemmodels/MindLight.glb" id="2_daxdi"]
+[ext_resource type="Material" uid="uid://wnhcr6p104hg" path="res://Materials/OutlineShaderMat.tres" id="3_55621"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vkqkw"]
 size = Vector3(0.6447754, 0.7774048, 0.5761719)
+
+[sub_resource type="SphereMesh" id="SphereMesh_jgbmv"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jgbmv"]
 
 [node name="mind" type="RigidBody3D" unique_id=1837871512]
 collision_layer = 3
@@ -17,5 +22,17 @@ item_name = "mind"
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.008897759, 0)
 shape = SubResource("BoxShape3D_vkqkw")
 
-[node name="carton2" parent="." unique_id=15714468 instance=ExtResource("2_wiea4")]
-transform = Transform3D(0.427, 0, 0, 0, 0.275, 0, 0, 0, 0.427, 0, -0.072693214, 0)
+[node name="MindLight" parent="." unique_id=688565634 instance=ExtResource("2_daxdi")]
+transform = Transform3D(0.11, 0, 0, 0, 0.11, 0, 0, 0, 0.11, -0.002, 0.019, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MindLight" unique_id=1005953241]
+transform = Transform3D(2.0636744, -1.8114537, 0, 1.7254995, 2.1664743, 0, 0, 0, 2.61, -0.09464188, 0.12618895, 0)
+sorting_offset = 3.05
+material_override = ExtResource("3_55621")
+mesh = SubResource("SphereMesh_jgbmv")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MindLight" unique_id=273456287]
+transform = Transform3D(1.044441, -0.27684686, 0, 0.7588307, 0.381047, 0, 0, 0, 1.08, 0.8585664, -1.1595924, 0)
+sorting_offset = 3.05
+material_override = ExtResource("3_55621")
+mesh = SubResource("CylinderMesh_jgbmv")

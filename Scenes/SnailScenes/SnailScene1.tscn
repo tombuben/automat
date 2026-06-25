@@ -2095,6 +2095,34 @@ sorting_offset = 5.0
 modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
 texture = ExtResource("38_3iyww")
 
+[node name="roof4" type="Sprite3D" parent="Scene6" unique_id=1327125865]
+transform = Transform3D(1.146, 0, 0, 0, 2.581, 0, 0, 0, 1, 0, 14.43527, 0)
+sorting_offset = 4.0
+flip_v = true
+modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
+texture = ExtResource("38_3iyww")
+
+[node name="roof6" type="Sprite3D" parent="Scene6" unique_id=1579557700]
+transform = Transform3D(1.146, 0, 0, 0, 2.581, 0, 0, 0, 1, -25.57103, 13.651253, 0)
+sorting_offset = 4.0
+flip_v = true
+modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
+texture = ExtResource("38_3iyww")
+
+[node name="roof7" type="Sprite3D" parent="Scene6" unique_id=1912871818]
+transform = Transform3D(1.291, 0, 0, 0, 2.581, 0, 0, 0, 1, 26.772709, 16.665894, 0)
+sorting_offset = 4.0
+flip_v = true
+modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
+texture = ExtResource("38_3iyww")
+
+[node name="roof5" type="Sprite3D" parent="Scene6" unique_id=681750110]
+transform = Transform3D(1.146, 0, 0, 0, 2.581, 0, 0, 0, 1, 55.912674, 14.43527, 0)
+sorting_offset = 4.0
+flip_v = true
+modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
+texture = ExtResource("38_3iyww")
+
 [node name="roof2" type="Sprite3D" parent="Scene6" unique_id=719105557]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.257973, 0)
 sorting_offset = 3.0
