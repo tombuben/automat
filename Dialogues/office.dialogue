@@ -706,7 +706,7 @@ elif GlobalManager.item_that_hit.item_name == "heart"
 	=> END!
 
 ~ Chapter0End
-do wait(2)
+do wait(0.5)
 do GlobalManager.play_animation.emit("Cinematic0")
-do wait(10)
+do wait(24)
 do GlobalManager.load_into_scene(1)

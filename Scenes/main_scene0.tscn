@@ -49,10 +49,12 @@
 [ext_resource type="Script" uid="uid://dsalx1r160eac" path="res://Scripts/cursor_object.gd" id="52_bnwoa"]
 [ext_resource type="Script" uid="uid://c56o0l1eo5f5k" path="res://Scripts/world_view.gd" id="53_2lywu"]
 [ext_resource type="Resource" uid="uid://xf8o45qv2si4" path="res://Dialogues/office.dialogue" id="53_h3hn5"]
-[ext_resource type="Texture2D" uid="uid://rwo21uam78fk" path="res://Assets/VendingMachine/godImage.png" id="53_t7s67"]
 [ext_resource type="Material" uid="uid://c3ekxbf7k4sdl" path="res://Materials/Vignette.tres" id="54_p3h2o"]
+[ext_resource type="Material" uid="uid://dmcempgvc1imu" path="res://Materials/ChromaticAbberation.tres" id="54_vuse5"]
 [ext_resource type="PackedScene" uid="uid://cci8wr48xkh26" path="res://Subscenes (prefabs)/hand_selection_ui.tscn" id="55_ofv8d"]
+[ext_resource type="Texture2D" uid="uid://dds36ttb7a8tq" path="res://Assets/cinematic/cinematic1.png" id="55_s0ebu"]
 [ext_resource type="FontFile" uid="uid://cvd5j8d7y4hxx" path="res://Assets/Fonts/WinkySans-VariableFont_wght.ttf" id="55_u2p72"]
+[ext_resource type="Texture2D" uid="uid://vlub287qyfar" path="res://Assets/cinematic/cinematic2.png" id="56_6w012"]
 [ext_resource type="Texture2D" uid="uid://b24a00qrtc7yv" path="res://ParticleEffects/circleParticle1.png" id="56_ojn8u"]
 [ext_resource type="Texture2D" uid="uid://bxm3k28htt8ed" path="res://ParticleEffects/circleParticle2.png" id="57_6i5ax"]
 [ext_resource type="Script" uid="uid://c6qs8oiugm1gg" path="res://Scripts/global_animation_player.gd" id="58_2cj6h"]
@@ -347,15 +349,15 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_conat"]
 resource_name = "Cinematic0"
-length = 10.0
+length = 27.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("UI Control/CinematicEnd/OFFLINE:visible")
+tracks/0/path = NodePath("UI Control/CinematicEnd/FirstChromAbb:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.49726248, 1.0241885),
+"times": PackedFloat32Array(0, 0.28353438, 8.218757),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -363,71 +365,191 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("UI Control/CinematicEnd/OFFLINE6:visible")
+tracks/1/path = NodePath("UI Control/CinematicEnd/FirstChromAbb:material")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.0591216, 1.6557714),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.3875461, 2.0389884),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false, true, false]
+"values": [ExtResource("54_vuse5"), ExtResource("54_vuse5")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("UI Control/CinematicEnd/OFFLINE2:visible")
+tracks/2/path = NodePath("UI Control/CinematicEnd/FirstChromAbb:material:shader_parameter/strength")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.6845567, 2.3044243),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
+"times": PackedFloat32Array(0.3875461, 2.039091),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.014000000665, 0.05000000074506]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("UI Control/CinematicEnd/OFFLINE3:visible")
+tracks/3/path = NodePath("UI Control/CinematicEnd/FirstChromAbb:material:shader_parameter/distortion_amount")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 2.3233793, 3.038426),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
+"times": PackedFloat32Array(0.3875461, 2.0392756),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.39600006631000007, 4.7499999933364734e-08]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("UI Control/CinematicEnd/OFFLINE4:visible")
+tracks/4/path = NodePath("UI Control/CinematicEnd/FirstChromAbb:material:shader_parameter/edge_falloff")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 3.047402, 3.6956139),
+"times": PackedFloat32Array(0.30118564, 0.3599502, 2.0305855),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true, false]
+"values": [true, false, true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("UI Control/CinematicEnd/OFFLINE5:visible")
+tracks/5/path = NodePath("UI Control/CinematicEnd/FirstChromAbb:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 3.7068272, 4.2418475),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
+"times": PackedFloat32Array(0.2523134),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(764, 82)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("UI Control/CinematicEnd/OFFLINE7:visible")
+tracks/6/path = NodePath("UI Control/CinematicEnd/black1:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 4.105289),
+"times": PackedFloat32Array(2.067882, 2.180969),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("UI Control/CinematicEnd/FirstChromAbb/Label:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.32714558, 2.0799985),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("UI Control/CinematicEnd/SecondChromAbb:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(2.193086, 2.285979),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("UI Control/CinematicEnd/SecondChromAbb:material:shader_parameter/strength")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(2.3465612, 2.681784),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.05000000074506]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("UI Control/CinematicEnd/black2:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(2.6889408, 3.1934886),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("UI Control/CinematicEnd/automatOffice:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(4.841838, 10.9540825),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.74, 1.74), Vector2(1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("UI Control/CinematicEnd/automatOffice:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(4.2586575, 4.7786093),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("UI Control/CinematicEnd/automatJunkyard:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(10.965799, 11.237145),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("UI Control/CinematicEnd/automatJunkyard:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(11.261906, 17.654175),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.147, 1.147), Vector2(0.935, 0.935)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("UI Control/CinematicEnd/automatJunkyard:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(11.261906, 17.654175),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-81, -128.00002), Vector2(-81, -37.617)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("UI Control/CinematicEnd/black3:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(19.582846, 19.860485),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -626,6 +748,54 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI Control/CinematicEnd/FirstChromAbb:material")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("54_vuse5")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI Control/CinematicEnd/FirstChromAbb:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(764, 82)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("UI Control/CinematicEnd/FirstChromAbb:material:shader_parameter/strength")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.05000000074506]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("UI Control/CinematicEnd/automatJunkyard:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-81, -48)]
 }
 
 [sub_resource type="Animation" id="Animation_kmity"]
@@ -2261,165 +2431,97 @@ vertical_alignment = 1
 [node name="CinematicEnd" type="CanvasLayer" parent="UI Control" unique_id=915110122]
 layer = 101
 
-[node name="OFFLINE" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=1869327280]
+[node name="FirstChromAbb" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=1869327280]
 visible = false
 top_level = true
+material = ExtResource("54_vuse5")
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.001
-offset_left = 2.0
-offset_right = -5.0
-offset_bottom = -0.080078125
+offset_left = 764.0
+offset_top = 82.0
+offset_right = -193.9989
+offset_bottom = -404.08008
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="UI Control/CinematicEnd/OFFLINE" unique_id=1283194179]
+[node name="Label" type="Label" parent="UI Control/CinematicEnd/FirstChromAbb" unique_id=1283194179]
+visible = false
 z_index = 500
 layout_mode = 0
-offset_left = 622.0
-offset_top = 410.0
-offset_right = 1307.0
-offset_bottom = 657.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+offset_left = 305.0
+offset_top = 72.0
+offset_right = 657.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.29803923, 0.7372549, 0.16470589, 1)
 theme_override_fonts/font = ExtResource("55_u2p72")
-theme_override_font_sizes/font_size = 185
-text = "OFFLINE"
+theme_override_font_sizes/font_size = 49
+text = "SHUTTING DOWN"
 vertical_alignment = 1
 
-[node name="OFFLINE6" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=1884750070]
+[node name="black1" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=764154040]
 visible = false
-top_level = true
-z_index = 2
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.001
-offset_left = 2.0
-offset_right = -5.0
-offset_bottom = -0.080078125
-mouse_filter = 2
+offset_left = 779.0
+offset_top = 98.0
+offset_right = 1739.0
+offset_bottom = 692.0
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="UI Control/CinematicEnd/OFFLINE6" unique_id=1307205039]
-z_index = 499
-layout_mode = 0
-offset_left = 211.0
-offset_top = 410.0
-offset_right = 1732.0
-offset_bottom = 657.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("55_u2p72")
-theme_override_font_sizes/font_size = 185
-text = "TRYING TO CONNECT"
-vertical_alignment = 1
-
-[node name="OFFLINE2" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=387449438]
+[node name="SecondChromAbb" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=1532695417]
 visible = false
-top_level = true
-z_index = 3
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.001
-offset_left = 2.0
-offset_right = -5.0
-offset_bottom = -0.080078125
-mouse_filter = 2
-color = Color(0.26755857, 0.83125, 0.4930352, 1)
-
-[node name="Label" type="Label" parent="UI Control/CinematicEnd/OFFLINE2" unique_id=597510913]
-z_index = 500
-layout_mode = 0
-offset_left = 236.0
-offset_top = 327.0
-offset_right = 1736.0
-offset_bottom = 753.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("55_u2p72")
-theme_override_font_sizes/font_size = 254
-text = "SYSTEM DOWN"
-vertical_alignment = 1
-
-[node name="OFFLINE3" type="TextureRect" parent="UI Control/CinematicEnd" unique_id=63943490]
-visible = false
-z_index = 4
-offset_left = 149.73132
-offset_right = 1764.3285
-offset_bottom = 1082.0
-texture = ExtResource("53_t7s67")
-
-[node name="OFFLINE" type="ColorRect" parent="UI Control/CinematicEnd/OFFLINE3" unique_id=1941174025]
-top_level = true
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.001
-offset_left = 2.0
-offset_right = -5.0
-offset_bottom = -0.080078125
-mouse_filter = 2
+material = ExtResource("54_vuse5")
+offset_left = -79.0
+offset_top = -66.0
+offset_right = 2032.7859
+offset_bottom = 1158.0
 color = Color(0, 0, 0, 1)
 
-[node name="OFFLINE4" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=533409040]
+[node name="black2" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=540706663]
 visible = false
-top_level = true
-z_index = 5
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.001
-offset_left = 2.0
-offset_right = -5.0
-offset_bottom = -0.080078125
-mouse_filter = 2
+offset_left = -83.0
+offset_top = -71.0
+offset_right = 2077.0
+offset_bottom = 1163.0
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="UI Control/CinematicEnd/OFFLINE4" unique_id=567591858]
-z_index = 500
-layout_mode = 0
-offset_left = 823.0
-offset_top = 410.0
-offset_right = 1143.0
-offset_bottom = 657.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("55_u2p72")
-theme_override_font_sizes/font_size = 185
-text = "HEY"
-vertical_alignment = 1
-
-[node name="OFFLINE5" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=1204457280]
+[node name="automatOffice" type="TextureRect" parent="UI Control/CinematicEnd" unique_id=1638584605]
 visible = false
-top_level = true
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 1.001
-offset_left = 2.0
-offset_right = -5.0
-offset_bottom = -0.080078125
+anchor_bottom = 1.0
+offset_left = -84.0
+offset_top = -37.0
+offset_right = 84.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.74, 1.74)
+pivot_offset = Vector2(986.595, 588.393)
 mouse_filter = 2
-color = Color(0.26666668, 0.83137256, 0.49411765, 1)
+texture = ExtResource("55_s0ebu")
 
-[node name="Label" type="Label" parent="UI Control/CinematicEnd/OFFLINE5" unique_id=1141402420]
-modulate = Color(0, 0, 0, 1)
-z_index = 500
-layout_mode = 0
-offset_left = 466.0
-offset_top = 353.0
-offset_right = 1471.0
-offset_bottom = 724.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("55_u2p72")
-theme_override_font_sizes/font_size = 278
-text = "WAKE UP"
-vertical_alignment = 1
-
-[node name="OFFLINE7" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=1981590464]
+[node name="automatJunkyard" type="TextureRect" parent="UI Control/CinematicEnd" unique_id=259573921]
 visible = false
-top_level = true
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 1.001
-offset_left = 2.0
-offset_right = -5.0
-offset_bottom = -0.080078125
+anchor_bottom = 1.0
+offset_left = -81.0
+offset_top = -48.0
+offset_right = 87.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.147, 1.147)
+pivot_offset = Vector2(986.595, 588.393)
 mouse_filter = 2
+texture = ExtResource("56_6w012")
+
+[node name="black3" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=1292280055]
+visible = false
+offset_left = -83.0
+offset_top = -71.0
+offset_right = 2077.0
+offset_bottom = 1163.0
 color = Color(0, 0, 0, 1)
 
 [node name="LOCK1" type="ColorRect" parent="UI Control" unique_id=1395487991]
@@ -2479,6 +2581,7 @@ offset_bottom = 92.0
 texture = ExtResource("50_tm3gw")
 
 [node name="BlackCover" type="ColorRect" parent="UI Control" unique_id=1274838645]
+visible = false
 z_index = 500
 layout_mode = 0
 offset_left = 760.0
@@ -2731,9 +2834,9 @@ texture = ExtResource("71_mhrbp")
 
 [node name="Frame" type="TextureRect" parent="." unique_id=1560612943]
 z_index = 20
-offset_left = -18.0
+offset_left = -21.0
 offset_top = 1.0
-offset_right = 2406.774
+offset_right = 2403.774
 offset_bottom = 1398.4684
 scale = Vector2(0.79, 0.79)
 mouse_filter = 2
@@ -2755,7 +2858,7 @@ offset_bottom = 84.25317
 mouse_filter = 2
 texture = ExtResource("75_0x4kb")
 script = ExtResource("77_vuse5")
-pulse_peak = 1.3820000000000001
+pulse_peak = 1.382
 hover_time = 0.282
 
 [node name="TextureRect2" type="TextureRect" parent="Frame/Control" unique_id=1868647798]
