@@ -3,6 +3,7 @@ do GlobalManager.play_animation.emit("disposable_worker_close")
 do GlobalManager.play_animation.emit("ACT1")
 do wait(6)
 do GlobalManager.show_portrait("default")
+do GlobalManager.set_audio_beeps("DisposableWorker")
 
 do wait(2)
 Disposable_worker: Finally
@@ -10,7 +11,6 @@ Disposable_worker: Management gave us of a new robot employee
 do GlobalManager.play_animation.emit("disposable_worker", "grin")
 Disposable_worker: A vending machine
 
-do GlobalManager.set_audio_beeps("hugahugaman")
 Disposable_worker: Moments like these are exactly why I tolerate my job
 
 do GlobalManager.play_animation.emit("disposable_worker_close_to_idle")
@@ -69,6 +69,8 @@ if GlobalManager.get_state("worker", "moral_unlocked", false):
 	if GlobalManager.item_that_hit.item_name == "moral_compass"
 		do GlobalManager.show_portrait("default")
 		do GlobalManager.play_animation.emit("disposable_worker", "throw")
+		do GlobalManager.set_audio_beeps("DisposableWorker")
+
 		Disposable_worker: I can't believe a coffee machine just argued with me
 		Disposable_worker: For wanting coffee
 
@@ -85,6 +87,8 @@ if GlobalManager.get_state("worker", "moral_unlocked", false):
 	elif GlobalManager.item_that_hit.item_name == "coffee_large2"
 		do GlobalManager.show_portrait("default")
 		do GlobalManager.play_animation.emit("disposable_worker", "hit")
+		do GlobalManager.set_audio_beeps("DisposableWorker")
+
 		Disposable_worker: No!
 		Disposable_worker: Give me my large coffee with
 
@@ -101,6 +105,8 @@ if GlobalManager.get_state("worker", "moral_unlocked", false):
 	elif GlobalManager.item_that_hit.item_name == "coffee_medium"
 		do GlobalManager.show_portrait("default")
 		do GlobalManager.play_animation.emit("disposable_worker", "hit")
+		do GlobalManager.set_audio_beeps("DisposableWorker")
+
 		Disposable_worker: Drinking medium coffee is like peeling an apple before eating it
 		Disposable_worker: It's just not worth it
 
@@ -109,6 +115,8 @@ if GlobalManager.get_state("worker", "moral_unlocked", false):
 	elif GlobalManager.item_that_hit.item_name == "rubber_duck"
 		do GlobalManager.show_portrait("default")
 		do GlobalManager.play_animation.emit("disposable_worker", "hit")
+		do GlobalManager.set_audio_beeps("DisposableWorker")
+
 		Disposable_worker: Why do you even have a duck?
 		do GlobalManager.play_animation.emit("disposable_worker", "throw")
 		Disposable_worker: Is that hygienic?
@@ -128,6 +136,7 @@ else:
 	if GlobalManager.item_that_hit.item_name == "coffee_large"
 		do GlobalManager.play_animation.emit("disposable_worker", "hit")
 		do GlobalManager.show_portrait("default")
+		do GlobalManager.set_audio_beeps("DisposableWorker")
 		do wait(1)
 		
 		Disposable_worker: Ouch
@@ -164,13 +173,14 @@ else:
 		do GlobalManager.change_slot_item_saying("ItemSlotCoffeeMedium", "[color=#1bffc2]H-how about a medium?[/color]")
 		do GlobalManager.change_slot_item_saying("ItemSlotRubberDuck", "[color=#1bffc2]D-duck?[/color]")
 	
-		do GlobalManager.change_slot_item_saying("GutsItemSlot", "I just don't know how to make your order")
+		do GlobalManager.change_slot_item_saying("GutsItemSlot", "[color=#1bffc2]I-I don't know how to make your order[/color]")
 		=> END!
 		
 		
 	elif GlobalManager.item_that_hit.item_name == "coffee_medium"
 		do GlobalManager.show_portrait("default")
 		do GlobalManager.play_animation.emit("disposable_worker", "hit")
+		do GlobalManager.set_audio_beeps("DisposableWorker")
 		Disposable_worker: This is a medium
 		Disposable_worker: I am not even taking a sip
 		Disposable_worker: I am alergic to medium things
@@ -181,6 +191,7 @@ else:
 	elif GlobalManager.item_that_hit.item_name == "rubber_duck"
 		do GlobalManager.show_portrait("default")
 		do GlobalManager.play_animation.emit("disposable_worker", "hit")
+		do GlobalManager.set_audio_beeps("DisposableWorker")
 		Disposable_worker: How are you bad at making coffee
 		Disposable_worker: This is a rubber duck
 		=> END!
@@ -195,6 +206,7 @@ else:
 
 ~ worker_wrong_item
 do GlobalManager.play_animation.emit("disposable_worker", "hit")
+do GlobalManager.set_audio_beeps("DisposableWorker")
 Disposable_worker: What the heck is this
 => END!
 
@@ -203,7 +215,10 @@ Disposable_worker: What the heck is this
 # =========================
 
 ~ Small_coffee
+
 do GlobalManager.show_portrait("default")
+do GlobalManager.set_audio_beeps("smallWorker")
+
 do GlobalManager.play_animation.emit("small_worker_enter")
 do wait(GlobalManager.current_animation_length)
 do GlobalManager.play_animation.emit("small_worker_idle")
@@ -231,7 +246,8 @@ do GlobalManager.change_slot_item_saying("GutsItemSlot", "[color=#1bffc2]I dont 
 if GlobalManager.item_that_hit.item_name == "coffee_large"
 	do GlobalManager.play_animation.emit("small_worker", "coffee")
 	do GlobalManager.show_portrait("default")
-	
+	do GlobalManager.set_audio_beeps("smallWorker")
+
 
 	small_coffee_worker: Oh yeah I remember, they stopped making small cups.
 	do GlobalManager.play_animation.emit("small_worker", "idle")
@@ -246,6 +262,7 @@ if GlobalManager.item_that_hit.item_name == "coffee_large"
 elif GlobalManager.item_that_hit.item_name == "coffee_medium"
 	do GlobalManager.play_animation.emit("small_worker", "coffee")
 	do GlobalManager.show_portrait("default")
+	do GlobalManager.set_audio_beeps("smallWorker")
 
 	small_coffee_worker: Oh yeah I remember, they stopped making small cups.
 	do GlobalManager.play_animation.emit("small_worker", "idle")
@@ -256,12 +273,14 @@ elif GlobalManager.item_that_hit.item_name == "coffee_medium"
 	
 elif GlobalManager.item_that_hit.item_name == "rubber_duck"
 	do GlobalManager.show_portrait("default")
+	do GlobalManager.set_audio_beeps("smallWorker")
 
 	small_coffee_worker: Oh nice
 	=> END!
 	
 elif GlobalManager.item_that_hit.item_name == "moral_compass"
 	do GlobalManager.show_portrait("default")
+	do GlobalManager.set_audio_beeps("smallWorker")
 
 	small_coffee_worker: I dont know about that
 	small_coffee_worker: I get your point though
@@ -272,16 +291,20 @@ else:
 
 ~ small_worker_wrong_item
 do GlobalManager.play_animation.emit("small_worker", "hit")
+do GlobalManager.set_audio_beeps("smallWorker")
+
 small_coffee_worker: What the heck is this
 => END!
 
 ~ small_worker_end
 do GlobalManager.play_animation.emit("small_worker", "idle")
-small_coffee_worker: Oh and
-small_coffee_worker: Maybe you should stop shooting full coffee cups?
-small_coffee_worker: There has to be a better way to do stuff.
-small_coffee_worker: Anyways... Thank you!
+do GlobalManager.set_audio_beeps("smallWorker")
 
+small_coffee_worker: Oh and
+small_coffee_worker: Maybe you should not shoot full coffee cups?
+small_coffee_worker: Kinda dangerous.
+small_coffee_worker: Anyways...
+small_coffee_worker: Thank you!
 
 do GlobalManager.play_animation.emit("small_worker_leave")
 do wait(GlobalManager.current_animation_length)
@@ -295,6 +318,7 @@ do wait(GlobalManager.current_animation_length)
 ~ Dramatic_worker_enter
 
 do GlobalManager.show_portrait("dramatic_worker")
+do GlobalManager.set_audio_beeps("SadWorker")
 
 do GlobalManager.play_animation.emit("dramatic_worker_enter")
 do wait(GlobalManager.current_animation_length)
@@ -341,6 +365,7 @@ if GlobalManager.get_state("dramatic_worker", "mind_unlocked", false):
 
 		do GlobalManager.show_portrait("dramatic_worker")
 		do GlobalManager.play_animation.emit("dramatic_worker", "frown")
+		do GlobalManager.set_audio_beeps("SadWorker")
 
 		Dramatic worker: ...
 
@@ -370,6 +395,7 @@ else:
 	
 		do GlobalManager.show_portrait("dramatic_worker")
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		do GlobalManager.set_audio_beeps("SadWorker")
 
 		dramatic_worker: A tarot reader could do it
 		dramatic_worker: Come on, give me something!
@@ -403,6 +429,7 @@ else:
 
 	elif GlobalManager.item_that_hit.item_name == "coffee_large"
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		do GlobalManager.set_audio_beeps("SadWorker")
 
 		dramatic_worker: Large coffee?
 		dramatic_worker: As if I deserve a large coffee
@@ -413,12 +440,16 @@ else:
 
 	elif GlobalManager.item_that_hit.item_name == "coffee_medium"
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		do GlobalManager.set_audio_beeps("SadWorker")
+
 		dramatic_worker: You are right.
 		dramatic_worker: What is my life but a series of "medium" choices.
 		=> END!
 
 	elif GlobalManager.item_that_hit.item_name == "rubber_duck"
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		do GlobalManager.set_audio_beeps("SadWorker")
+
 		dramatic_worker: Ducks don't have to deal with existential pressure
 		dramatic_worker: If you squeeze them
 		dramatic_worker: They just quack
@@ -440,6 +471,7 @@ else:
 ~ printer_enter
 
 do GlobalManager.show_portrait("printer")
+do GlobalManager.set_audio_beeps("printer")
 do GlobalManager.play_animation.emit("printer_enter")
 do wait(GlobalManager.current_animation_length)
 do GlobalManager.play_animation.emit("printer_idle")
@@ -488,6 +520,8 @@ if GlobalManager.get_state("printer", "heart_unlocked", false):
 
 		do GlobalManager.show_portrait("printer")
 		do GlobalManager.play_animation.emit("printer", "idle")
+		do GlobalManager.set_audio_beeps("printer")
+
 		Printer: Huh?
 		do GlobalManager.play_animation.emit("printer", "happy")
 		Printer: O-okay!
@@ -504,6 +538,8 @@ if GlobalManager.get_state("printer", "heart_unlocked", false):
 
 	elif GlobalManager.item_that_hit.item_name == "coffee_large2"
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		do GlobalManager.set_audio_beeps("printer")
+
 		Printer: Oh thanks, but
 		Printer: I don't drink
 		do GlobalManager.play_animation.emit("printer", "sad")
@@ -511,18 +547,24 @@ if GlobalManager.get_state("printer", "heart_unlocked", false):
 		=> END!
 	elif GlobalManager.item_that_hit.item_name == "coffee_medium2"
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		do GlobalManager.set_audio_beeps("printer")
+
 		Printer: Oh no that's okay, thank you
 		do GlobalManager.play_animation.emit("printer", "sad")
 
 		=> END!
 	elif GlobalManager.item_that_hit.item_name == "rubber_duck2"
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		do GlobalManager.set_audio_beeps("printer")
+
 		Printer: I like her
 		do GlobalManager.play_animation.emit("printer", "sad")
 
 		=> END!
 	elif GlobalManager.item_that_hit.item_name == "mind2"
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		do GlobalManager.set_audio_beeps("printer")
+
 		Printer: Yeah... that's true
 		
 		do GlobalManager.play_animation.emit("printer", "sad")
@@ -530,12 +572,16 @@ if GlobalManager.get_state("printer", "heart_unlocked", false):
 		=> END!
 	elif GlobalManager.item_that_hit.item_name == "moral_compass2"
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		do GlobalManager.set_audio_beeps("printer")
+
 		Printer: ...
 		do GlobalManager.play_animation.emit("printer", "sad")
 
 		=> END!
 	else:
 		do GlobalManager.play_animation.emit("printer", "hit")
+		do GlobalManager.set_audio_beeps("printer")
+
 		dramatic_worker: ...
 		do GlobalManager.play_animation.emit("printer", "sad")
 
@@ -552,6 +598,8 @@ else:
 	
 		do GlobalManager.show_portrait("printer")
 		do GlobalManager.play_animation.emit("printer", "hit")
+		do GlobalManager.set_audio_beeps("printer")
+
 
 		Printer: Okay you got me, I can't actually drink coffee
 		Printer: That's not why I am here
@@ -593,26 +641,31 @@ else:
 
 	elif GlobalManager.item_that_hit.item_name == "coffee_medium"
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		do GlobalManager.set_audio_beeps("printer")
 		Printer: I cant drink this!
 		Printer: Its medium!
 		=> END!
 	elif GlobalManager.item_that_hit.item_name == "rubber_duck"
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		do GlobalManager.set_audio_beeps("printer")
 		Printer: Ah
 		Printer: Quack
 		=> END!
 	elif GlobalManager.item_that_hit.item_name == "moral_compass"
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		do GlobalManager.set_audio_beeps("printer")
 		Printer: Oh... uhm
 		Printer: Yeah, uhm. Sure!
 		=> END!
 	elif GlobalManager.item_that_hit.item_name == "mind"
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		do GlobalManager.set_audio_beeps("printer")
 		Printer: I print!
 		Printer: Letters, numbers mostly.
 		=> END!
 	else:
 		do GlobalManager.play_animation.emit("dramatic_worker", "hit")
+		do GlobalManager.set_audio_beeps("printer")
 		dramatic_worker: ...
 		=> END!
 
@@ -623,6 +676,8 @@ else:
 ~ boss_enter
 
 do GlobalManager.show_portrait("boss")
+do GlobalManager.set_audio_beeps("angryWorker")
+
 do GlobalManager.play_animation.emit("boss_enter")
 do wait(GlobalManager.current_animation_length)
 do GlobalManager.play_animation.emit("boss_idle")
@@ -671,6 +726,8 @@ do GlobalManager.change_slot_item_saying("HeartItemSlot", "[color=#1bffc2]S-sorr
 if GlobalManager.item_that_hit.item_name == "coffee_large"
 	do GlobalManager.play_animation.emit("boss", "coffee")
 	do GlobalManager.show_portrait("boss")
+	do GlobalManager.set_audio_beeps("angryWorker")
+
 	boss: ...
 	do GlobalManager.show_portrait("automatSad")
 	automat: [color=#1bffc2]...[/color]
@@ -680,26 +737,36 @@ if GlobalManager.item_that_hit.item_name == "coffee_large"
 
 elif GlobalManager.item_that_hit.item_name == "coffee_medium"
 	do GlobalManager.play_animation.emit("boss", "hit")
+	do GlobalManager.set_audio_beeps("angryWorker")
+
 	boss: Cant you follow a simple request?
 	boss: I will cut this from your pay
 	=> END!
 elif GlobalManager.item_that_hit.item_name == "rubber_duck"
 	do GlobalManager.play_animation.emit("boss", "hit")
+	do GlobalManager.set_audio_beeps("angryWorker")
+
 	boss: No.
 	=> END!
 elif GlobalManager.item_that_hit.item_name == "mind"
 	do GlobalManager.play_animation.emit("boss", "hit")
+	do GlobalManager.set_audio_beeps("angryWorker")
+
 	boss: Maybe you should just do your job
 	boss: Instead of "helping"
 	=> END!
 elif GlobalManager.item_that_hit.item_name == "moral_compass"
 	do GlobalManager.play_animation.emit("boss", "hit")
+	do GlobalManager.set_audio_beeps("angryWorker")
+
 	boss: Why are you even talking
 	boss: We got a machine to be the exact opposite of that
 
 	=> END!
 elif GlobalManager.item_that_hit.item_name == "heart"
 	do GlobalManager.play_animation.emit("boss", "hit")
+	do GlobalManager.set_audio_beeps("angryWorker")
+
 	boss: Stop talking
 	boss: You are not here for "expression"
 	boss: Give me the coffee

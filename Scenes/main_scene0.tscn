@@ -35,10 +35,9 @@
 [ext_resource type="Texture2D" uid="uid://dffn0bxh63v31" path="res://Assets/VendingMachine/Hands/HandLeft.png" id="31_xaya4"]
 [ext_resource type="Texture2D" uid="uid://dwejvy41bc5ia" path="res://Assets/VendingMachine/Hands/HandRight.png" id="32_poada"]
 [ext_resource type="Script" uid="uid://bgngysncqjt3n" path="res://Scripts/cameraTilt.gd" id="34_5ls3k"]
+[ext_resource type="AudioStream" uid="uid://c56uhd28r1n7y" path="res://Assets/Audio/SpeakingSFX/new/automatVoice1.wav" id="44_s0ebu"]
 [ext_resource type="Texture2D" uid="uid://c6lqbgep87b41" path="res://ParticleEffects/Circle.png" id="45_0x4kb"]
-[ext_resource type="AudioStream" uid="uid://kim46bit60jn" path="res://Assets/Audio/SpeakingSFX/DisposableWorkerDialogue001.wav" id="46_8swbj"]
 [ext_resource type="Texture2D" uid="uid://bpargjd4vajyf" path="res://Assets/VendingMachine/GutsWheels.png" id="46_nfcrg"]
-[ext_resource type="AudioStream" uid="uid://bn00ge1ndurw4" path="res://Assets/Audio/SpeakingSFX/DisposableWorkerDialogue003.wav" id="47_8swbj"]
 [ext_resource type="Texture2D" uid="uid://d0qype2yfb4vw" path="res://Assets/ChapterAssets/office/dragIcon.png" id="47_poada"]
 [ext_resource type="Texture2D" uid="uid://c5qds8arncww0" path="res://Assets/VendingMachine/uiBrain.png" id="47_xaya4"]
 [ext_resource type="Script" uid="uid://ci5q4jckgmagi" path="res://Scripts/mouse_cursor.gd" id="48_vuse5"]
@@ -108,6 +107,7 @@
 [ext_resource type="Texture2D" uid="uid://dwdgjiq5okt4m" path="res://Assets/concepts/symbols/symbol17.png" id="90_lj10w"]
 [ext_resource type="Texture2D" uid="uid://cs2fhicmsontw" path="res://Assets/concepts/symbols/symbol18.png" id="91_0a54c"]
 [ext_resource type="Texture2D" uid="uid://by61yeoyscynv" path="res://Assets/concepts/symbols/symbol6.png" id="94_vuse5"]
+[ext_resource type="AudioStream" uid="uid://dacpgextvb70l" path="res://Assets/Audio/SpeakingSFX/ambiences/officeAmbience.wav" id="108_6w012"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t7s67"]
 transparency = 1
@@ -2031,6 +2031,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46343565, -0.6999998)
 
 [node name="SpawnPosition" type="Node3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView/AimRotation" unique_id=1983533065]
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" unique_id=224000350]
+stream = ExtResource("108_6w012")
+volume_db = 43.362
+autoplay = true
+
+[node name="AudioListener3D" type="AudioListener3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" unique_id=665775319]
+
 [node name="Vignette" type="ColorRect" parent="UI Control/Right viewport/SubViewport" unique_id=320886693]
 material = ExtResource("54_p3h2o")
 anchors_preset = 15
@@ -2085,7 +2092,8 @@ layer = 100
 script = ExtResource("65_406us")
 dialogue_rich_text = NodePath("Balloon/MarginContainer2/HBoxContainer/VBoxContainer/DialogueLabel")
 preview_audio_player = NodePath("PreviewAudioStreamPlayer")
-audio_samples = Array[AudioStream]([ExtResource("46_8swbj"), ExtResource("47_8swbj")])
+audio_samples = Array[AudioStream]([ExtResource("44_s0ebu")])
+play_every_n_letters = 6
 
 [node name="Balloon" type="Control" parent="UI Control/DialoguePreview" unique_id=1904455546]
 layout_mode = 3

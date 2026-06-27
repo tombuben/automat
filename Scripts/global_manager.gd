@@ -79,11 +79,23 @@ func show_portrait(speaker_name: String):
 var GenericCharacterSounds001 = preload("res://Assets/Audio/SpeakingSFX/GenericCharacterSounds001.wav")
 var GenericCharacterSounds002 = preload("res://Assets/Audio/SpeakingSFX/GenericCharacterSounds002.wav")
 var GenericCharacterSounds003 = preload("res://Assets/Audio/SpeakingSFX/GenericCharacterSounds003.wav")
+var GenericCharacterSounds004 = preload("res://Assets/Audio/SpeakingSFX/new/automatVoice1.wav")
+var GenericCharacterSounds005 = preload("res://Assets/Audio/SpeakingSFX/new/angryWorker.wav")
+var GenericCharacterSounds006 = preload("res://Assets/Audio/SpeakingSFX/new/NormalWorkerVoice.wav")
+var GenericCharacterSounds007 = preload("res://Assets/Audio/SpeakingSFX/new/printerVoice1.wav")
+var GenericCharacterSounds008 = preload("res://Assets/Audio/SpeakingSFX/new/SadWorkerVoice.wav")
+var GenericCharacterSounds009 = preload("res://Assets/Audio/SpeakingSFX/new/smallWorkerVoice.wav")
+
+
 
 var character_beeps: Dictionary[String, Array] = {
-	"drowning_person": [GenericCharacterSounds001, GenericCharacterSounds002],
-	"hugahugaman": [GenericCharacterSounds001, GenericCharacterSounds002],
-	"default": [GenericCharacterSounds001, GenericCharacterSounds002, GenericCharacterSounds003],
+	"default": [GenericCharacterSounds004],
+	"DisposableWorker": [GenericCharacterSounds006],
+	"smallWorker": [GenericCharacterSounds009],
+	"SadWorker": [GenericCharacterSounds008],
+	"printer": [GenericCharacterSounds007],
+	"angryWorker": [GenericCharacterSounds005],
+
 }
 
 signal update_audio_beeps(beep_array: Array[AudioStream])
