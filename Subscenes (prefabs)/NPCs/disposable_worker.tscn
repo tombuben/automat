@@ -65,3 +65,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04750955, -0.7462084, -0.1
 
 [node name="StaticBody3D" parent="." index="2" unique_id=1792104469]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9269209, 0)
+
+[node name="HitSound" parent="." index="4" unique_id=506978473]
+volume_db = 4.959

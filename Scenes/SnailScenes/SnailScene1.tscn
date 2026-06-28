@@ -794,7 +794,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0050888, 3.5283504, -0.371
 shape = SubResource("BoxShape3D_61a84")
 
 [node name="CameraTarget" type="Node3D" parent="Camera/CameraZones/CameraZone6" unique_id=1255656857]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35178757, 4.1505404, 36.930206)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19260168, 4.1505404, 36.930206)
 
 [node name="CameraZone7" type="Area3D" parent="Camera/CameraZones" unique_id=1788530143 node_paths=PackedStringArray("camera_target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.906935, 0.95017815, 0)
@@ -864,7 +864,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.775665, -0.19042969, 0)
 shape = SubResource("BoxShape3D_ixu5i")
 
 [node name="BlockingWall2" type="MeshInstance3D" parent="Ground and walls" unique_id=364263951]
-transform = Transform3D(0.032017417, 0, 0, 0, 89.083336, 0, 0, 0, 1.1020904, 1.2707022, 58.159798, 0.23113105)
+transform = Transform3D(0.032017417, 0, 0, 0, 89.083336, 0, 0, 0, 1.1020904, 1.5748433, 58.159798, 0.23113105)
 mesh = SubResource("BoxMesh_dgbbk")
 skeleton = NodePath("../..")
 
@@ -1664,7 +1664,7 @@ shape = SubResource("BoxShape3D_mtyxg")
 
 [node name="boxesBG7" type="Sprite3D" parent="Scene2/boxesBG8" unique_id=1220409375]
 transform = Transform3D(0.34202012, 0.9396927, 0, -0.9396927, 0.34202012, 0, 0, 0, 1, 0.0020141602, -2.8679447, 0)
-sorting_offset = 8.529
+sorting_offset = 9.522
 texture = ExtResource("62_xcoxj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Scene2/boxesBG8/boxesBG7" unique_id=1170744247]
@@ -2009,6 +2009,267 @@ scale_amount_min = 2.0
 scale_amount_max = 2.0
 color = Color(0.6375, 0.6375, 0.6375, 1)
 
+[node name="particles4" type="Node3D" parent="Scene2" unique_id=1933004958]
+transform = Transform3D(4.039, 0, 0, 0, 19.524, 0, 0, 0, 1, 80.736885, 2.366147, 0)
+
+[node name="LetterParticles2" type="CPUParticles3D" parent="Scene2/particles4" unique_id=1004053167]
+transform = Transform3D(0.24758603, 0, 0, 0, 0.051219005, 0, 0, 0, 0.9999999, -2.4471283, 0.47542143, 0)
+sorting_offset = 32.0
+amount = 1
+lifetime = 4.0
+draw_order = 1
+mesh = SubResource("QuadMesh_3fbr8")
+emission_shape = 3
+emission_box_extents = Vector3(0.536, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+angular_velocity_min = -78.34
+angular_velocity_max = 63.52
+angular_velocity_curve = SubResource("Curve_dgbbk")
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+angle_min = -253.7
+angle_max = 75.6
+angle_curve = SubResource("Curve_jftt8")
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.6375, 0.6375, 0.6375, 1)
+
+[node name="LetterParticles4" type="CPUParticles3D" parent="Scene2/particles4" unique_id=1966110597]
+transform = Transform3D(0.24758603, 0, 0, 0, 0.051219005, 0, 0, 0, 0.9999999, -2.4471283, 0.6484163, 0)
+sorting_offset = 31.0
+amount = 1
+lifetime = 4.0
+draw_order = 1
+mesh = SubResource("QuadMesh_61a84")
+emission_shape = 3
+emission_box_extents = Vector3(0.536, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+angular_velocity_min = -78.34
+angular_velocity_max = 63.52
+angular_velocity_curve = SubResource("Curve_dgbbk")
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+angle_min = -253.7
+angle_max = 75.6
+angle_curve = SubResource("Curve_jftt8")
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.6375, 0.6375, 0.6375, 1)
+
+[node name="LetterParticles3" type="CPUParticles3D" parent="Scene2/particles4" unique_id=993183707]
+transform = Transform3D(0.24758603, 0, 0, 0, 0.051219005, 0, 0, 0, 0.9999999, -2.4471283, 0.5565709, 0)
+sorting_offset = 30.0
+amount = 1
+lifetime = 4.0
+draw_order = 1
+mesh = SubResource("QuadMesh_dgbbk")
+emission_shape = 3
+emission_box_extents = Vector3(0.536, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+angular_velocity_min = -78.34
+angular_velocity_max = 63.52
+angular_velocity_curve = SubResource("Curve_dgbbk")
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+angle_min = -253.7
+angle_max = 75.6
+angle_curve = SubResource("Curve_jftt8")
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.6375, 0.6375, 0.6375, 1)
+
+[node name="particles5" type="Node3D" parent="Scene2" unique_id=406524303]
+transform = Transform3D(4.039, 0, 0, 0, 19.524, 0, 0, 0, 1, 90.58031, 2.366147, 0)
+
+[node name="LetterParticles2" type="CPUParticles3D" parent="Scene2/particles5" unique_id=1907522439]
+transform = Transform3D(0.24758603, 0, 0, 0, 0.051219005, 0, 0, 0, 0.9999999, -2.4471283, 0.47542143, 0)
+sorting_offset = 32.0
+amount = 1
+lifetime = 4.0
+draw_order = 1
+mesh = SubResource("QuadMesh_3fbr8")
+emission_shape = 3
+emission_box_extents = Vector3(0.536, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+angular_velocity_min = -78.34
+angular_velocity_max = 63.52
+angular_velocity_curve = SubResource("Curve_dgbbk")
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+angle_min = -253.7
+angle_max = 75.6
+angle_curve = SubResource("Curve_jftt8")
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.6375, 0.6375, 0.6375, 1)
+
+[node name="LetterParticles4" type="CPUParticles3D" parent="Scene2/particles5" unique_id=829985859]
+transform = Transform3D(0.24758603, 0, 0, 0, 0.051219005, 0, 0, 0, 0.9999999, -2.4471283, 0.6484163, 0)
+sorting_offset = 31.0
+amount = 1
+lifetime = 4.0
+draw_order = 1
+mesh = SubResource("QuadMesh_61a84")
+emission_shape = 3
+emission_box_extents = Vector3(0.536, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+angular_velocity_min = -78.34
+angular_velocity_max = 63.52
+angular_velocity_curve = SubResource("Curve_dgbbk")
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+angle_min = -253.7
+angle_max = 75.6
+angle_curve = SubResource("Curve_jftt8")
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.6375, 0.6375, 0.6375, 1)
+
+[node name="LetterParticles3" type="CPUParticles3D" parent="Scene2/particles5" unique_id=825353757]
+transform = Transform3D(0.24758603, 0, 0, 0, 0.051219005, 0, 0, 0, 0.9999999, -2.4471283, 0.5565709, 0)
+sorting_offset = 30.0
+amount = 1
+lifetime = 4.0
+draw_order = 1
+mesh = SubResource("QuadMesh_dgbbk")
+emission_shape = 3
+emission_box_extents = Vector3(0.536, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+angular_velocity_min = -78.34
+angular_velocity_max = 63.52
+angular_velocity_curve = SubResource("Curve_dgbbk")
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+angle_min = -253.7
+angle_max = 75.6
+angle_curve = SubResource("Curve_jftt8")
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.6375, 0.6375, 0.6375, 1)
+
+[node name="particles6" type="Node3D" parent="Scene2" unique_id=1610220921]
+transform = Transform3D(4.039, 0, 0, 0, 19.524, 0, 0, 0, 1, 100.327934, 2.366147, 0)
+
+[node name="LetterParticles2" type="CPUParticles3D" parent="Scene2/particles6" unique_id=1138174077]
+transform = Transform3D(0.24758603, 0, 0, 0, 0.051219005, 0, 0, 0, 0.9999999, -2.4471283, 0.47542143, 0)
+sorting_offset = 32.0
+amount = 1
+lifetime = 4.0
+draw_order = 1
+mesh = SubResource("QuadMesh_3fbr8")
+emission_shape = 3
+emission_box_extents = Vector3(0.536, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+angular_velocity_min = -78.34
+angular_velocity_max = 63.52
+angular_velocity_curve = SubResource("Curve_dgbbk")
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+angle_min = -253.7
+angle_max = 75.6
+angle_curve = SubResource("Curve_jftt8")
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.6375, 0.6375, 0.6375, 1)
+
+[node name="LetterParticles4" type="CPUParticles3D" parent="Scene2/particles6" unique_id=196903332]
+transform = Transform3D(0.24758603, 0, 0, 0, 0.051219005, 0, 0, 0, 0.9999999, -2.4471283, 0.6484163, 0)
+sorting_offset = 31.0
+amount = 1
+lifetime = 4.0
+draw_order = 1
+mesh = SubResource("QuadMesh_61a84")
+emission_shape = 3
+emission_box_extents = Vector3(0.536, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+angular_velocity_min = -78.34
+angular_velocity_max = 63.52
+angular_velocity_curve = SubResource("Curve_dgbbk")
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+angle_min = -253.7
+angle_max = 75.6
+angle_curve = SubResource("Curve_jftt8")
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.6375, 0.6375, 0.6375, 1)
+
+[node name="LetterParticles3" type="CPUParticles3D" parent="Scene2/particles6" unique_id=749650526]
+transform = Transform3D(0.24758603, 0, 0, 0, 0.051219005, 0, 0, 0, 0.9999999, -2.4471283, 0.5565709, 0)
+sorting_offset = 30.0
+amount = 1
+lifetime = 4.0
+draw_order = 1
+mesh = SubResource("QuadMesh_dgbbk")
+emission_shape = 3
+emission_box_extents = Vector3(0.536, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+angular_velocity_min = -78.34
+angular_velocity_max = 63.52
+angular_velocity_curve = SubResource("Curve_dgbbk")
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+angle_min = -253.7
+angle_max = 75.6
+angle_curve = SubResource("Curve_jftt8")
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.6375, 0.6375, 0.6375, 1)
+
 [node name="Pipes" type="Sprite3D" parent="Scene2" unique_id=1238153108]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.2555447, 0)
 sorting_offset = 33.0
@@ -2117,7 +2378,7 @@ modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
 texture = ExtResource("38_3iyww")
 
 [node name="roof5" type="Sprite3D" parent="Scene6" unique_id=681750110]
-transform = Transform3D(1.146, 0, 0, 0, 2.581, 0, 0, 0, 1, 55.912674, 14.43527, 0)
+transform = Transform3D(1.726, 0, 0, 0, 2.581, 0, 0, 0, 1, 59.95282, 14.43527, 0)
 sorting_offset = 4.0
 flip_v = true
 modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
@@ -2238,7 +2499,7 @@ script = ExtResource("59_dgbbk")
 
 [node name="plant7" type="Sprite3D" parent="Scene6/SwingingPlant2" unique_id=1593753046]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12846947, -1.7343512, 0)
-sorting_offset = 2.0
+sorting_offset = 3.414
 texture = ExtResource("55_6iq8j")
 
 [node name="ForegroundPipes" type="Sprite3D" parent="Scene6" unique_id=1600489962]
@@ -2320,7 +2581,7 @@ texture = ExtResource("43_eqvne")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.02312, 2.8870988, 0)
 
 [node name="BG" type="Sprite3D" parent="Scene7" unique_id=765061326]
-transform = Transform3D(49.416, 0, 0, 0, 29.173, 0, 0, 0, 25.099, 0, 3.301062, -5.31)
+transform = Transform3D(58.537, 0, 0, 0, 29.173, 0, 0, 0, 25.099, 4.916607, 3.301062, -5.31)
 sorting_offset = -5.0
 modulate = Color(0.80784315, 0.7058824, 0.58431375, 1)
 texture = ExtResource("7_s81e8")
@@ -2346,34 +2607,37 @@ texture = ExtResource("37_3iyww")
 
 [node name="boxesBG5" type="Sprite3D" parent="Scene7" unique_id=1602717318]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.157158, -0.72884417, 0)
+visible = false
 sorting_offset = 9.0
 texture = ExtResource("57_7yl0i")
 
 [node name="boxesBG6" type="Sprite3D" parent="Scene7" unique_id=432397415]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0552692, -0.72884417, 0)
+visible = false
 sorting_offset = 9.0
 texture = ExtResource("57_7yl0i")
 
 [node name="boxesBG7" type="Sprite3D" parent="Scene7" unique_id=1525402118]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0552692, 2.0665236, 0)
+visible = false
 sorting_offset = 10.0
 texture = ExtResource("57_7yl0i")
 
 [node name="Ground" type="Sprite3D" parent="Scene7" unique_id=1618003851]
-transform = Transform3D(1.261, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.0869553, 0)
+transform = Transform3D(1.943, 0, 0, 0, 1, 0, 0, 0, 1, 4.117073, -3.0869553, 0)
 sorting_offset = 5.0
 modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
 texture = ExtResource("37_2kss6")
 
 [node name="Ground3" type="Sprite3D" parent="Scene7" unique_id=1660478273]
-transform = Transform3D(1.305, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.882645, 0)
+transform = Transform3D(1.813, 0, 0, 0, 1, 0, 0, 0, 1, 5.6298466, -5.882645, 0)
 sorting_offset = 4.5
 flip_v = true
 modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
 texture = ExtResource("37_2kss6")
 
-[node name="Ground2" type="Sprite3D" parent="Scene7" unique_id=457068812]
-transform = Transform3D(1.181, 0, 0, 0, 1, 0, 0, 0, 1, 0.9297447, 4.500697, 0)
+[node name="grad" type="Sprite3D" parent="Scene7" unique_id=457068812]
+transform = Transform3D(1.544, 0, 0, 0, 1, 0, 0, 0, 1, 5.175913, 4.500697, 0)
 sorting_offset = 4.0
 texture = ExtResource("39_eqvne")
 
@@ -2385,7 +2649,7 @@ modulate = Color(0.903125, 0.6337786, 0.23424803, 1)
 texture = ExtResource("40_ruwvp")
 
 [node name="roof" type="Sprite3D" parent="Scene7" unique_id=1336977861]
-transform = Transform3D(1.203, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.119, 0)
+transform = Transform3D(1.58, 0, 0, 0, 1, 0, 0, 0, 1, 6.2973022, 10.119001, 0)
 sorting_offset = 5.0
 modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
 texture = ExtResource("38_3iyww")
@@ -2636,9 +2900,9 @@ sorting_offset = 6.0
 flip_v = true
 texture = ExtResource("37_2kss6")
 
-[node name="Ground2" type="Sprite3D" parent="Scene3" unique_id=1078122805]
+[node name="grad" type="Sprite3D" parent="Scene3" unique_id=1078122805]
 transform = Transform3D(1.435, 0, 0, 0, 1, 0, 0, 0, 1, 0.6658325, 4.434246, 0)
-sorting_offset = 4.0
+sorting_offset = 2.441
 texture = ExtResource("39_eqvne")
 
 [node name="roof" type="Sprite3D" parent="Scene3" unique_id=307845363]

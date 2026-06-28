@@ -732,7 +732,21 @@ if GlobalManager.item_that_hit.item_name == "coffee_large"
 	do GlobalManager.show_portrait("automatSad")
 	automat: [color=#1bffc2]...[/color]
 	do GlobalManager.show_portrait("boss")
-	boss: You are done
+	boss: You know what
+	boss: Let's do your evaluation, right now
+	boss: 
+	boss: Bad at making people coffee
+	boss: Talking WAY more than recquired
+	boss: "Has a rubber duck"
+	boss: violent outburst at a superior
+	boss: Look at that
+	boss: three strikes
+	boss: or whatever
+	boss: We have no place for ones with no pride in their work
+	boss: No
+	boss: Place
+	
+
 	=> Chapter0End
 
 elif GlobalManager.item_that_hit.item_name == "coffee_medium"

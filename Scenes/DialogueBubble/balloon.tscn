@@ -270,10 +270,10 @@ text = "Response example"
 [node name="Portrait" type="TextureRect" parent="Balloon" unique_id=1757619546]
 z_index = 22
 layout_mode = 0
-offset_left = 1487.0
-offset_top = 763.0
-offset_right = 1785.6975
-offset_bottom = 1061.6975
+offset_left = 1481.0
+offset_top = 756.0
+offset_right = 1831.0
+offset_bottom = 1076.0
 scale = Vector2(0.691, 0.691)
 texture = ExtResource("5_mu5lg")
 script = ExtResource("6_mu5lg")

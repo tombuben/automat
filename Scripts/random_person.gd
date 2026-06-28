@@ -8,13 +8,14 @@ extends Node3D
 @export var visual: Sprite3D  # assign this in the Inspector
 
 @onready var rigidbody: RigidBody3D = $RigidBody3D
+@onready var hit_sound: AudioStreamPlayer = $HitSound
 
 # Hit cooldown
 @export var hit_cooldown: float = 0.5
 var can_be_hit: bool = true
 
 func _ready() -> void:
-	# ✅ REGISTER THIS CHARACTER FOR ANIMATION SYSTEM
+	# Register this character
 	if person_name != "":
 		GlobalManager.characters[person_name] = self
 	else:
@@ -27,7 +28,7 @@ func _ready() -> void:
 	setup_material()
 
 # -----------------------------
-# SETUP MATERIAL (IMPORTANT)
+# SETUP MATERIAL
 # -----------------------------
 func setup_material():
 	if visual == null:
@@ -52,18 +53,23 @@ func body_entered(body: Node) -> void:
 		return
 	
 	if body is RandomItem:
-		var item: RandomItem = body as RandomItem
+		var item: RandomItem = body
 		
 		# Register hit
 		item.hit_speed = item.linear_velocity.length()
 		GlobalManager.item_that_hit = item
 		
-		# Trigger dialogue (unchanged)
-		GlobalManager.scene_dialogue_manager.show_dialogue(person_name + "_hit")
+		# Trigger dialogue
+		GlobalManager.scene_dialogue_manager.show_dialogue(
+			person_name + "_hit"
+		)
 
-		# Camera hit shake
+		# Camera shake
 		if GlobalManager.world_view:
 			GlobalManager.world_view.play_hit_shake(0.25, 0.2)
+
+		# Sound
+		play_hit_sound()
 
 		# Effects
 		play_hit_particles()
@@ -72,6 +78,15 @@ func body_entered(body: Node) -> void:
 		# Systems
 		start_hit_cooldown()
 		apply_hitstop()
+
+# -----------------------------
+# SOUND
+# -----------------------------
+func play_hit_sound() -> void:
+	if hit_sound:
+		hit_sound.pitch_scale = randf_range(0.9, 1.1)
+		hit_sound.stop()
+		hit_sound.play()
 
 # -----------------------------
 # FLASH (SHADER)
@@ -95,12 +110,16 @@ func flash_white():
 # -----------------------------
 func start_hit_cooldown() -> void:
 	can_be_hit = false
-	var t: Timer = Timer.new()
+
+	var t := Timer.new()
 	t.one_shot = true
 	t.wait_time = hit_cooldown
+
 	add_child(t)
 	t.start()
+
 	await t.timeout
+
 	t.queue_free()
 	can_be_hit = true
 
@@ -116,14 +135,18 @@ func play_hit_particles() -> void:
 # -----------------------------
 func apply_hitstop() -> void:
 	var original_time_scale = Engine.time_scale
+
 	Engine.time_scale = hitstop_scale
-	
-	var t: Timer = Timer.new()
+
+	var t := Timer.new()
 	t.one_shot = true
 	t.wait_time = hitstop_duration
+
 	add_child(t)
 	t.start()
+
 	await t.timeout
+
 	t.queue_free()
-	
+
 	Engine.time_scale = original_time_scale

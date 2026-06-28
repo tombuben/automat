@@ -513,7 +513,7 @@ tracks/13/path = NodePath("UI Control/CinematicEnd/automatJunkyard:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(10.965799, 11.237145),
+"times": PackedFloat32Array(10.965799, 10.980383),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -525,7 +525,7 @@ tracks/14/path = NodePath("UI Control/CinematicEnd/automatJunkyard:scale")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(11.261906, 17.654175),
+"times": PackedFloat32Array(10.979395, 17.654175),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1.147, 1.147), Vector2(0.935, 0.935)]
@@ -537,7 +537,7 @@ tracks/15/path = NodePath("UI Control/CinematicEnd/automatJunkyard:position")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(11.261906, 17.654175),
+"times": PackedFloat32Array(10.979395, 17.654175),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-81, -128.00002), Vector2(-81, -37.617)]
@@ -1189,7 +1189,7 @@ tracks/0/path = NodePath("UI Control/MoralCompassUnlocked:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.33333334, 2.9666667),
+"times": PackedFloat32Array(0, 0.22176401, 2.9666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -1201,10 +1201,10 @@ tracks/1/path = NodePath("UI Control/MoralCompassUnlocked:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.4, 2.9666667),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.3506464, 2.4),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 1200)]
+"values": [Vector2(0, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_tscpr"]
@@ -1371,6 +1371,18 @@ size = Vector3(3.4240723, 4.498291, 9.817078)
 [sub_resource type="BoxShape3D" id="BoxShape3D_nfcrg"]
 size = Vector3(4.4628906, 10.067139, 3.6013184)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6w012"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("45_0x4kb")
+
+[sub_resource type="QuadMesh" id="QuadMesh_rqlcv"]
+material = SubResource("StandardMaterial3D_6w012")
+
+[sub_resource type="Gradient" id="Gradient_bnwoa"]
+offsets = PackedFloat32Array(0, 0.3931925, 1)
+colors = PackedColorArray(0.596875, 0.49428713, 0.18652344, 1, 0.84375, 0.7303711, 0.39023435, 1, 1, 1, 1, 1)
+
 [node name="MainScene" type="Node3D" unique_id=350775679]
 
 [node name="World" type="Node" parent="." unique_id=1861547874]
@@ -1394,7 +1406,7 @@ texture = ExtResource("2_vyhah")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.612469, 16.472914, 0)
 
 [node name="Boss" parent="World/Characters" unique_id=830950824 instance=ExtResource("3_xaya4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.909, 1.22, 0.847)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.884, 16.815, 0.847)
 
 [node name="Printer" parent="World/Characters" unique_id=2018004010 instance=ExtResource("3_nfcrg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.30207, 0.09223, 0.11178)
@@ -2031,12 +2043,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46343565, -0.6999998)
 
 [node name="SpawnPosition" type="Node3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView/AimRotation" unique_id=1983533065]
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" unique_id=224000350]
-stream = ExtResource("108_6w012")
-volume_db = 43.362
-autoplay = true
-
-[node name="AudioListener3D" type="AudioListener3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" unique_id=665775319]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" unique_id=1095333742]
 
 [node name="Vignette" type="ColorRect" parent="UI Control/Right viewport/SubViewport" unique_id=320886693]
 material = ExtResource("54_p3h2o")
@@ -2254,6 +2261,25 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_m7ytr")
 [node name="PreviewAudioStreamPlayer" type="AudioStreamPlayer" parent="UI Control/DialoguePreview" unique_id=1906561119]
 stream = ExtResource("49_1o7k8")
 
+[node name="Portrait" type="TextureRect" parent="UI Control" unique_id=2002671212]
+modulate = Color(0.687832, 0.853125, 0.7074606, 1)
+z_index = 21
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -494.0
+offset_top = -331.0
+offset_right = -204.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.791, 0.791)
+mouse_filter = 2
+texture = ExtResource("67_eekva")
+
 [node name="MoralCompassUnlocked" type="CanvasLayer" parent="UI Control" unique_id=508310520]
 layer = 101
 visible = false
@@ -2265,7 +2291,7 @@ anchor_right = 1.0
 anchor_bottom = 1.001
 offset_right = -5.0
 offset_bottom = -0.080078125
-color = Color(0, 0, 0, 0.54509807)
+color = Color(0, 0, 0, 0.7254902)
 
 [node name="TextureRect" type="TextureRect" parent="UI Control/MoralCompassUnlocked/ColorRect" unique_id=1906833846]
 z_index = 22
@@ -2288,15 +2314,6 @@ theme_override_font_sizes/font_size = 76
 text = "Moral Compass unlocked"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="ColorRect2" type="ColorRect" parent="UI Control/MoralCompassUnlocked/ColorRect" unique_id=481628669]
-top_level = true
-z_index = 11
-layout_mode = 0
-offset_top = 372.0
-offset_right = 1915.0
-offset_bottom = 713.0
-color = Color(0, 0, 0, 1)
 
 [node name="MindUnlocked" type="CanvasLayer" parent="UI Control" unique_id=505039651]
 layer = 101
@@ -2454,7 +2471,6 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="UI Control/CinematicEnd/FirstChromAbb" unique_id=1283194179]
-visible = false
 z_index = 500
 layout_mode = 0
 offset_left = 305.0
@@ -3121,8 +3137,10 @@ texture = ExtResource("63_u40t6")
 
 [node name="ShootingUI" type="TextureRect" parent="." unique_id=1751701702]
 visible = false
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -66.0
+offset_top = 14.0
+offset_right = -26.0
+offset_bottom = 54.0
 mouse_filter = 2
 
 [node name="ShootingUIGradient" type="TextureRect" parent="ShootingUI" unique_id=1721352303]
@@ -3360,5 +3378,27 @@ theme_override_font_sizes/font_size = 160
 text = "ACT I"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1332952117]
+stream = ExtResource("108_6w012")
+volume_db = 1.179
+autoplay = true
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=872502646]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -107.65, 0.869, -10.222)
+sorting_offset = 8.0
+amount = 127
+mesh = SubResource("QuadMesh_rqlcv")
+emission_shape = 1
+emission_sphere_radius = 0.01
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 8.5
+radial_accel_max = 14.37
+tangential_accel_max = 2.03
+damping_max = 0.123
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+color = Color(1, 0.997133, 0.984375, 1)
+color_ramp = SubResource("Gradient_bnwoa")
 
 [connection signal="gui_input" from="UI Control/DialoguePreview/Balloon" to="UI Control/DialoguePreview" method="_on_balloon_gui_input"]

@@ -81,12 +81,10 @@ var GenericCharacterSounds002 = preload("res://Assets/Audio/SpeakingSFX/GenericC
 var GenericCharacterSounds003 = preload("res://Assets/Audio/SpeakingSFX/GenericCharacterSounds003.wav")
 var GenericCharacterSounds004 = preload("res://Assets/Audio/SpeakingSFX/new/automatVoice1.wav")
 var GenericCharacterSounds005 = preload("res://Assets/Audio/SpeakingSFX/new/angryWorker.wav")
-var GenericCharacterSounds006 = preload("res://Assets/Audio/SpeakingSFX/new/NormalWorkerVoice.wav")
+var GenericCharacterSounds006 = preload("res://Assets/Audio/SpeakingSFX/new/smallWorkerVoice2.wav")
 var GenericCharacterSounds007 = preload("res://Assets/Audio/SpeakingSFX/new/printerVoice1.wav")
 var GenericCharacterSounds008 = preload("res://Assets/Audio/SpeakingSFX/new/SadWorkerVoice.wav")
 var GenericCharacterSounds009 = preload("res://Assets/Audio/SpeakingSFX/new/smallWorkerVoice.wav")
-
-
 
 var character_beeps: Dictionary[String, Array] = {
 	"default": [GenericCharacterSounds004],

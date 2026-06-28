@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b6vfboinyegqy" path="res://Assets/concepts/NPCConcept.png" id="1_sr24p"]
 [ext_resource type="Script" uid="uid://os1e3ic4o4wa" path="res://Scripts/random_person.gd" id="1_t8clt"]
 [ext_resource type="Material" uid="uid://c18tvun8su7y" path="res://Materials/explosionSmoke3d.tres" id="4_mu26o"]
+[ext_resource type="AudioStream" uid="uid://djqc1okug72al" path="res://Assets/Audio/itemHit.wav" id="5_ru2fq"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8gkds"]
 
@@ -88,3 +89,6 @@ angle_max = 105.9
 scale_amount_min = 0.2
 scale_amount_max = 0.4
 scale_amount_curve = SubResource("Curve_mu26o")
+
+[node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=506978473]
+stream = ExtResource("5_ru2fq")
