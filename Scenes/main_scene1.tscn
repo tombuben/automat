@@ -1871,6 +1871,7 @@ mouse_filter = 2
 texture = ExtResource("66_vtv6d")
 
 [node name="Control" type="Control" parent="." unique_id=1769754529]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

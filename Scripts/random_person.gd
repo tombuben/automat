@@ -5,7 +5,11 @@ extends Node3D
 @export var hit_particles: CPUParticles3D
 @export var hitstop_duration: float = 0.05
 @export var hitstop_scale: float = 0.01
-@export var visual: Sprite3D  # assign this in the Inspector
+@export var visual: Sprite3D
+
+# Hit sound pitch variation
+@export var min_hit_pitch: float = 0.92
+@export var max_hit_pitch: float = 1.08
 
 @onready var rigidbody: RigidBody3D = $RigidBody3D
 @onready var hit_sound: AudioStreamPlayer = $HitSound
@@ -30,7 +34,7 @@ func _ready() -> void:
 # -----------------------------
 # SETUP MATERIAL
 # -----------------------------
-func setup_material():
+func setup_material() -> void:
 	if visual == null:
 		return
 	
@@ -84,14 +88,17 @@ func body_entered(body: Node) -> void:
 # -----------------------------
 func play_hit_sound() -> void:
 	if hit_sound:
-		hit_sound.pitch_scale = randf_range(0.9, 1.1)
+		hit_sound.pitch_scale = randf_range(
+			min_hit_pitch,
+			max_hit_pitch
+		)
 		hit_sound.stop()
 		hit_sound.play()
 
 # -----------------------------
 # FLASH (SHADER)
 # -----------------------------
-func flash_white():
+func flash_white() -> void:
 	if visual == null:
 		return
 	

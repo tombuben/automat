@@ -195,13 +195,13 @@ radius = 0.001
 radius = 0.05
 height = 0.1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4d4va"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6w012"]
 transparency = 1
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("56_ojn8u")
 
 [sub_resource type="QuadMesh" id="QuadMesh_0c7y5"]
-material = SubResource("StandardMaterial3D_4d4va")
+material = SubResource("StandardMaterial3D_6w012")
 
 [sub_resource type="Curve" id="Curve_4d4va"]
 _data = [Vector2(0, 0), 0.0, 1.8158603, 0, 0, Vector2(1, 1), -0.018612122, 0.0, 0, 0]
@@ -211,15 +211,15 @@ point_count = 2
 offsets = PackedFloat32Array(0.6618799, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vdma7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqlcv"]
 transparency = 1
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("57_6i5ax")
 
 [sub_resource type="QuadMesh" id="QuadMesh_4d4va"]
-material = SubResource("StandardMaterial3D_vdma7")
+material = SubResource("StandardMaterial3D_rqlcv")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bnwoa"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 3
 border_width_top = 3
@@ -231,7 +231,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ri4m3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2lywu"]
 bg_color = Color(0.121569, 0.121569, 0.121569, 1)
 border_width_left = 3
 border_width_top = 3
@@ -243,7 +243,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0njw"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3h2o"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 3
 border_width_top = 3
@@ -255,7 +255,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkmqt"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofv8d"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 3
 border_width_top = 3
@@ -269,15 +269,15 @@ corner_radius_bottom_left = 5
 [sub_resource type="Theme" id="Theme_qq3yp"]
 default_font = ExtResource("55_u2p72")
 default_font_size = 20
-Button/styles/disabled = SubResource("StyleBoxFlat_spyqn")
-Button/styles/focus = SubResource("StyleBoxFlat_ri4m3")
-Button/styles/hover = SubResource("StyleBoxFlat_e0njw")
-Button/styles/normal = SubResource("StyleBoxFlat_e0njw")
+Button/styles/disabled = SubResource("StyleBoxFlat_bnwoa")
+Button/styles/focus = SubResource("StyleBoxFlat_2lywu")
+Button/styles/hover = SubResource("StyleBoxFlat_p3h2o")
+Button/styles/normal = SubResource("StyleBoxFlat_p3h2o")
 MarginContainer/constants/margin_bottom = 15
 MarginContainer/constants/margin_left = 30
 MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_ofv8d")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qwyv"]
 bg_color = Color(0, 0, 0, 1)
@@ -310,42 +310,6 @@ shader_parameter/texture_scale = Vector2(2.4, 0.8)
 [sub_resource type="Animation" id="Animation_4x0hr"]
 resource_name = "ACT1"
 length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ACT I:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("The Office:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5, 5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("The Office:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(4, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_conat"]
 resource_name = "Cinematic0"
@@ -728,70 +692,46 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ACT I:visible")
+tracks/1/path = NodePath("UI Control/CinematicEnd/FirstChromAbb:material")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [ExtResource("54_vuse5")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("The Office:visible")
+tracks/2/path = NodePath("UI Control/CinematicEnd/FirstChromAbb:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(764, 82)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("UI Control/CinematicEnd/FirstChromAbb:material")
+tracks/3/path = NodePath("UI Control/CinematicEnd/FirstChromAbb:material:shader_parameter/strength")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("54_vuse5")]
+"update": 0,
+"values": [0.05000000074506]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("UI Control/CinematicEnd/FirstChromAbb:position")
+tracks/4/path = NodePath("UI Control/CinematicEnd/automatJunkyard:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(764, 82)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("UI Control/CinematicEnd/FirstChromAbb:material:shader_parameter/strength")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.05000000074506]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("UI Control/CinematicEnd/automatJunkyard:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -1371,13 +1311,13 @@ size = Vector3(3.4240723, 4.498291, 9.817078)
 [sub_resource type="BoxShape3D" id="BoxShape3D_nfcrg"]
 size = Vector3(4.4628906, 10.067139, 3.6013184)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6w012"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ojn8u"]
 transparency = 1
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("45_0x4kb")
 
 [sub_resource type="QuadMesh" id="QuadMesh_rqlcv"]
-material = SubResource("StandardMaterial3D_6w012")
+material = SubResource("StandardMaterial3D_ojn8u")
 
 [sub_resource type="Gradient" id="Gradient_bnwoa"]
 offsets = PackedFloat32Array(0, 0.3931925, 1)
@@ -3322,6 +3262,7 @@ shape = SubResource("BoxShape3D_nfcrg")
 debug_color = Color(0, 0.5950001, 0.7, 1)
 
 [node name="The Office" type="Control" parent="." unique_id=1954408302]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -3351,6 +3292,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ACT I" type="Control" parent="." unique_id=1210952754]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -3379,13 +3321,18 @@ text = "ACT I"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1332952117]
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1332952117]
 stream = ExtResource("108_6w012")
-volume_db = 1.179
+volume_db = 1.252
+autoplay = true
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=210362632]
+volume_db = 0.063
 autoplay = true
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=872502646]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -107.65, 0.869, -10.222)
+visible = false
 sorting_offset = 8.0
 amount = 127
 mesh = SubResource("QuadMesh_rqlcv")

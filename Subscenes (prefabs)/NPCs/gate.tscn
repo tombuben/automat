@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://deca263k25sfq"]
+
+[ext_resource type="PackedScene" uid="uid://b8l8mhyb5sfwf" path="res://Subscenes (prefabs)/random_person.tscn" id="1_bcw1t"]
+[ext_resource type="Texture2D" uid="uid://cwttqbcmv1aet" path="res://Assets/ChapterAssets/office/backwall.png" id="2_bcw1t"]
+[ext_resource type="Texture2D" uid="uid://clc1dxuyyo7hs" path="res://Assets/ChapterAssets/office/lock.png" id="3_rqaio"]
+[ext_resource type="Texture2D" uid="uid://c6lqbgep87b41" path="res://ParticleEffects/Circle.png" id="4_3ppjr"]
+
+[node name="gate" unique_id=1055277779 instance=ExtResource("1_bcw1t")]
+person_name = "gate"
+
+[node name="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="1" unique_id=82952497]
+transform = Transform3D(0.4, 0, 0, 0, 0.697, 0, 0, 0, 0.4, -1.4688721, 0.40424562, 0)
+texture = ExtResource("2_bcw1t")
+
+[node name="Sprite3D2" type="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="2" unique_id=1195400460]
+transform = Transform3D(0.4, 0, 0, 0, 0.697, 0, 0, 0, 0.4, 1.5116577, 0.40424562, 0)
+cast_shadow = 0
+texture = ExtResource("2_bcw1t")
+
+[node name="Sprite3D5" type="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="3" unique_id=195596287]
+transform = Transform3D(0.602, 0, 0, 0, 0.602, 0, 0, 0, 0.602, -0.001645565, 0.22511843, 0)
+sorting_offset = -2.0
+cast_shadow = 0
+modulate = Color(0.23124999, 0.23124999, 0.23124999, 1)
+texture = ExtResource("4_3ppjr")
+
+[node name="Sprite3D4" type="Sprite3D" parent="RigidBody3D/Sprite3D5" index="0" unique_id=350963393]
+transform = Transform3D(2.0283976, 0, 0, 0, 2.0283976, 0, 0, 0, 2.0283976, 0, 0, 0)
+cast_shadow = 0
+texture = ExtResource("3_rqaio")
+
+[node name="Sprite3D3" type="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="4" unique_id=523770598]
+transform = Transform3D(-1.7484556e-08, -0.639, 0, 0.4, -2.7931577e-08, 0, 0, 0, 0.4, -0.037439823, 2.1197765, 0)
+sorting_offset = 1.0
+cast_shadow = 0
+texture = ExtResource("2_bcw1t")
+
+[node name="CollisionShape3D2" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="5" unique_id=1174005432]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.046936035, -0.06591797)
+
+[node name="PinJoint3D" parent="." index="1" unique_id=318766112]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04750955, -0.7462084, -0.1003198)
+
+[node name="StaticBody3D" parent="." index="2" unique_id=1792104469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9269209, 0)
+
+[node name="HitSound" parent="." index="4" unique_id=506978473]
+volume_db = 4.959

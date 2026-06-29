@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clc1dxuyyo7hs"
-path.s3tc="res://.godot/imported/lock.png-d3e632c4def9622d089502e505c1745b.s3tc.ctex"
+uid="uid://beo1daicwvh4c"
+path.s3tc="res://.godot/imported/junkyardBG.png-4b2525b17ce36c1bd193b6f0e33a3627.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/ChapterAssets/office/lock.png"
-dest_files=["res://.godot/imported/lock.png-d3e632c4def9622d089502e505c1745b.s3tc.ctex"]
+source_file="res://Assets/ChapterAssets/junkyard/junkyardBG.png"
+dest_files=["res://.godot/imported/junkyardBG.png-4b2525b17ce36c1bd193b6f0e33a3627.s3tc.ctex"]
 
 [params]
 

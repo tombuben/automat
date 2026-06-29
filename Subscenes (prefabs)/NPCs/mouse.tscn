@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://pf0833sc55mb"]
+
+[ext_resource type="PackedScene" uid="uid://b8l8mhyb5sfwf" path="res://Subscenes (prefabs)/random_person.tscn" id="1_2xc6p"]
+[ext_resource type="Texture2D" uid="uid://cu6wsyt0whtff" path="res://Assets/ChapterAssets/office/disposable_worker.png" id="2_04hfu"]
+[ext_resource type="Texture2D" uid="uid://4poh5gog6q27" path="res://Assets/ChapterAssets/junkyard/mouse.png" id="5_04hfu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qk7r5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_04hfu")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_04hfu")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="mouse" unique_id=1055277779 instance=ExtResource("1_2xc6p")]
+person_name = "mouse"
+
+[node name="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="1" unique_id=82952497]
+visible = false
+texture = ExtResource("2_04hfu")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="2" unique_id=27529198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015281349, 0.062040687, -0.061731696)
+sorting_offset = 1.5
+modulate = Color(0.821875, 0.821875, 0.821875, 1)
+sprite_frames = SubResource("SpriteFrames_qk7r5")
+animation = &"hit"
+autoplay = "idle"
+
+[node name="CollisionShape3D2" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="3" unique_id=1174005432]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.046936035, -0.06591797)
+
+[node name="PinJoint3D" parent="." index="1" unique_id=318766112]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04750955, -0.7462084, -0.1003198)
+
+[node name="StaticBody3D" parent="." index="2" unique_id=1792104469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9269209, 0)
+
+[node name="HitSound" parent="." index="4" unique_id=506978473]
+volume_db = 4.959
