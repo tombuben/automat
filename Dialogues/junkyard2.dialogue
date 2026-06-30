@@ -6,6 +6,7 @@
 ~ start_mouse1
 
 do GlobalManager.show_portrait("default")
+do wait(2)
 
 mouse1: Oh hello you are alive!
 mouse1: Popped in a bunch of old AA bateries and bing bam, here you are!

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dqprnk3grci8p"
+path="res://.godot/imported/Komiku - Time Flute's place.mp3-55b0be83cbccea054f95d7d76b5eb1ab.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Komiku - Time Flute's place.mp3"
+dest_files=["res://.godot/imported/Komiku - Time Flute's place.mp3-55b0be83cbccea054f95d7d76b5eb1ab.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

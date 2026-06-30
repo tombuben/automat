@@ -1,7 +1,7 @@
 ~ start
 do GlobalManager.play_animation.emit("disposable_worker_close")
 do GlobalManager.play_animation.emit("ACT1")
-do wait(6)
+do wait(3)
 do GlobalManager.show_portrait("default")
 do GlobalManager.set_audio_beeps("DisposableWorker")
 
@@ -164,6 +164,10 @@ else:
 		do GlobalManager.set_state("worker", "moral_unlocked", true)
 		do GlobalManager.play_animation.emit("moral_compass_unlocked")
 		do wait(3)
+		do GlobalManager.play_animation.emit("compass_gain")
+		do wait(GlobalManager.current_animation_length)
+
+
 		do GlobalManager.play_animation.emit("Lock1")
 		
 		
@@ -408,6 +412,8 @@ else:
 		do GlobalManager.set_state("dramatic_worker", "mind_unlocked", true)
 		do GlobalManager.play_animation.emit("mind_unlocked")
 		do wait(3)
+		do GlobalManager.play_animation.emit("mind_gain")
+		do wait(GlobalManager.current_animation_length)
 		do GlobalManager.play_animation.emit("Lock2")
 
 		#  IMPORTANT: change ONLY WHAT YOU NEED
@@ -617,6 +623,8 @@ else:
 		do GlobalManager.set_state("printer", "heart_unlocked", true)
 		do GlobalManager.play_animation.emit("heart_unlocked")
 		do wait(3)
+		do GlobalManager.play_animation.emit("heart_gain")
+		do wait(GlobalManager.current_animation_length)
 		do GlobalManager.play_animation.emit("Lock3")
 
 		#  IMPORTANT: change ONLY WHAT YOU NEED
@@ -731,10 +739,10 @@ if GlobalManager.item_that_hit.item_name == "coffee_large"
 	boss: ...
 	do GlobalManager.show_portrait("automatSad")
 	automat: [color=#1bffc2]...[/color]
-	do GlobalManager.show_portrait("boss")
+	do GlobalManager.show_portrait("default")
+
 	boss: You know what
 	boss: Let's do your evaluation, right now
-	boss: 
 	boss: Bad at making people coffee
 	boss: Talking WAY more than recquired
 	boss: "Has a rubber duck"
@@ -745,7 +753,6 @@ if GlobalManager.item_that_hit.item_name == "coffee_large"
 	boss: We have no place for ones with no pride in their work
 	boss: No
 	boss: Place
-	
 
 	=> Chapter0End
 

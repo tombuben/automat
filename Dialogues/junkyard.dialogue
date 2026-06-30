@@ -1,7 +1,7 @@
 ~ start
 
 do GlobalManager.play_animation.emit("ACT2")
-do wait(7)
+do wait(3)
 
 do GlobalManager.show_portrait("default")
 

@@ -3,16 +3,20 @@ extends Area3D
 @export var player: Node3D
 @export var music: AudioStreamPlayer3D
 
+@export var fade_out_volume := -40.0
+
 var is_inside := false
 var tween: Tween
+var target_volume := 0.0
 
 
 func _ready():
 	if music:
-		music.volume_db = -40
+		target_volume = music.volume_db  # Remember the Inspector value.
+		music.volume_db = fade_out_volume
 
 
-func _process(delta):
+func _process(_delta):
 	if player == null or music == null:
 		return
 
@@ -26,7 +30,6 @@ func _process(delta):
 
 	if currently_inside and not is_inside:
 		_enter_zone()
-
 	elif not currently_inside and is_inside:
 		_exit_zone()
 
@@ -40,7 +43,7 @@ func _enter_zone():
 		tween.kill()
 
 	tween = create_tween()
-	tween.tween_property(music, "volume_db", 0.0, 2.0)
+	tween.tween_property(music, "volume_db", target_volume, 2.0)
 
 
 func _exit_zone():
@@ -50,5 +53,5 @@ func _exit_zone():
 		tween.kill()
 
 	tween = create_tween()
-	tween.tween_property(music, "volume_db", -40.0, 1.5)
+	tween.tween_property(music, "volume_db", fade_out_volume, 1.5)
 	tween.tween_callback(music.stop)
