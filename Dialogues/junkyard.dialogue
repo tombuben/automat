@@ -213,7 +213,9 @@ super_intelligence: ...
 
 ~ END_OF_INTELLIGENCE
 
-super_intelligence: Hi, this is the end
-super_intelligence: Glad you made it
-
+super_intelligence: Wait
+super_intelligence: Something is happening
+super_intelligence: Is your battery coming back?
+[next=auto]
+super_intelligence: Hey-
 do GlobalManager.load_into_scene(3)

@@ -23,9 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://dtwmshuf707e6" path="res://Subscenes (prefabs)/Items/mind_item.tscn" id="17_hdw03"]
 [ext_resource type="Texture2D" uid="uid://555kgn22dkss" path="res://ParticleEffects/white_square.png" id="17_uwnov"]
 [ext_resource type="PackedScene" uid="uid://b05n3m3lg3hqp" path="res://Subscenes (prefabs)/Items/guts_item.tscn" id="17_yxgvy"]
-[ext_resource type="PackedScene" uid="uid://u3huooeiecrc" path="res://Subscenes (prefabs)/Items/coffeeLarge.tscn" id="28_vxmec"]
-[ext_resource type="PackedScene" uid="uid://c4r4310opxu44" path="res://Subscenes (prefabs)/Items/coffeeMedium.tscn" id="29_x1ubo"]
-[ext_resource type="PackedScene" uid="uid://bokb66s75j3c1" path="res://Subscenes (prefabs)/Items/rubber_duck.tscn" id="30_2rjld"]
 [ext_resource type="Texture2D" uid="uid://c6lqbgep87b41" path="res://ParticleEffects/Circle.png" id="30_kbbok"]
 [ext_resource type="AudioStream" uid="uid://c56uhd28r1n7y" path="res://Assets/Audio/SpeakingSFX/new/automatVoice1.wav" id="32_vtv6d"]
 [ext_resource type="PackedScene" uid="uid://cci8wr48xkh26" path="res://Subscenes (prefabs)/hand_selection_ui.tscn" id="33_nrumr"]
@@ -491,52 +488,6 @@ flip_h = true
 texture = ExtResource("13_arerb")
 
 [node name="itemsSlots" type="Node3D" parent="Automat" unique_id=1171000097]
-
-[node name="ItemSlotCoffeeLarge" type="Area3D" parent="Automat/itemsSlots" unique_id=1566032378 node_paths=PackedStringArray("item_in_slot", "hover_sprite")]
-transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, -0.2511444, 1.273211, 0.489491)
-collision_layer = 0
-collision_mask = 16
-script = ExtResource("3_maf8m")
-item_in_slot = NodePath("coffee_large")
-hover_sprite = NodePath("../../Sprite3D/Automat/AutomatSpace3")
-
-[node name="coffee_large" parent="Automat/itemsSlots/ItemSlotCoffeeLarge" unique_id=1837871512 instance=ExtResource("28_vxmec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.218)
-saying = "coffee_large"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/itemsSlots/ItemSlotCoffeeLarge" unique_id=1423174697]
-shape = SubResource("SphereShape3D_t5y6a")
-debug_color = Color(0, 11.618606, 13.50434, 1)
-
-[node name="ItemSlotCoffeeMedium" type="Area3D" parent="Automat/itemsSlots" unique_id=28854946 node_paths=PackedStringArray("item_in_slot", "hover_sprite")]
-transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, -0.010231018, 1.2663432, 0.489491)
-collision_layer = 0
-collision_mask = 16
-script = ExtResource("3_maf8m")
-item_in_slot = NodePath("coffee_medium")
-hover_sprite = NodePath("../../Sprite3D/Automat/AutomatSpace1")
-
-[node name="coffee_medium" parent="Automat/itemsSlots/ItemSlotCoffeeMedium" unique_id=1935232454 instance=ExtResource("29_x1ubo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.21800002)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/itemsSlots/ItemSlotCoffeeMedium" unique_id=1208411537]
-shape = SubResource("SphereShape3D_t5y6a")
-debug_color = Color(0, 11.618606, 13.50434, 1)
-
-[node name="ItemSlotRubberDuck" type="Area3D" parent="Automat/itemsSlots" unique_id=19760178 node_paths=PackedStringArray("item_in_slot", "hover_sprite")]
-transform = Transform3D(0.877, 0, 0, 0, 0.877, 0, 0, 0, 0.877, 0.25183868, 1.2557906, 0.489491)
-collision_layer = 0
-collision_mask = 16
-script = ExtResource("3_maf8m")
-item_in_slot = NodePath("rubber_duck")
-hover_sprite = NodePath("../../Sprite3D/Automat/AutomatSpace4")
-
-[node name="rubber_duck" parent="Automat/itemsSlots/ItemSlotRubberDuck" unique_id=1624774121 instance=ExtResource("30_2rjld")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.21800002)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/itemsSlots/ItemSlotRubberDuck" unique_id=1455678399]
-shape = SubResource("SphereShape3D_t5y6a")
-debug_color = Color(0, 11.618606, 13.50434, 1)
 
 [node name="MindItemSlot" type="Area3D" parent="Automat/itemsSlots" unique_id=1554763224 node_paths=PackedStringArray("item_in_slot")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.663, 0.886, 0.489)
