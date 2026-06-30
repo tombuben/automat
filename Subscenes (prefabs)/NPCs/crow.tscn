@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b8l8mhyb5sfwf" path="res://Subscenes (prefabs)/random_person.tscn" id="1_oc5sc"]
 [ext_resource type="Texture2D" uid="uid://cu6wsyt0whtff" path="res://Assets/ChapterAssets/office/disposable_worker.png" id="2_chjf7"]
+[ext_resource type="Texture2D" uid="uid://bvn865p68ky2o" path="res://Assets/ChapterAssets/junkyard/key.png" id="4_lpx4t"]
 [ext_resource type="Texture2D" uid="uid://by04dmiu8v2bw" path="res://Assets/ChapterAssets/junkyard/crow.png" id="5_chjf7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qk7r5"]
@@ -39,7 +40,7 @@ visible = false
 texture = ExtResource("2_chjf7")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="2" unique_id=27529198]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.025403827, 0.37531245, -0.061731696)
+transform = Transform3D(0.725, 0, 0, 0, 0.725, 0, 0, 0, 0.725, 0.025403827, 0.37531245, -0.061731696)
 sorting_offset = 1.5
 modulate = Color(0.821875, 0.821875, 0.821875, 1)
 sprite_frames = SubResource("SpriteFrames_qk7r5")
@@ -48,6 +49,10 @@ autoplay = "idle"
 
 [node name="CollisionShape3D2" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="3" unique_id=1174005432]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.046936035, -0.06591797)
+
+[node name="Sprite3D2" type="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="4" unique_id=1847360931]
+transform = Transform3D(0.665, 0, 0, 0, 0.665, 0, 0, 0, 0.665, 0.29618764, 2.1160161, 0)
+texture = ExtResource("4_lpx4t")
 
 [node name="PinJoint3D" parent="." index="1" unique_id=318766112]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04750955, -0.7462084, -0.1003198)

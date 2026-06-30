@@ -12,30 +12,48 @@ person_name = "gate"
 transform = Transform3D(0.4, 0, 0, 0, 0.697, 0, 0, 0, 0.4, -1.4688721, 0.40424562, 0)
 texture = ExtResource("2_bcw1t")
 
-[node name="Sprite3D2" type="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="2" unique_id=1195400460]
-transform = Transform3D(0.4, 0, 0, 0, 0.697, 0, 0, 0, 0.4, 1.5116577, 0.40424562, 0)
+[node name="Sprite3D2" type="Sprite3D" parent="RigidBody3D/Sprite3D" index="0" unique_id=1195400460]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 7.4513245, 0, 0)
 cast_shadow = 0
 texture = ExtResource("2_bcw1t")
 
-[node name="Sprite3D5" type="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="3" unique_id=195596287]
-transform = Transform3D(0.602, 0, 0, 0, 0.602, 0, 0, 0, 0.602, -0.001645565, 0.22511843, 0)
-sorting_offset = -2.0
-cast_shadow = 0
-modulate = Color(0.23124999, 0.23124999, 0.23124999, 1)
-texture = ExtResource("4_3ppjr")
-
-[node name="Sprite3D4" type="Sprite3D" parent="RigidBody3D/Sprite3D5" index="0" unique_id=350963393]
-transform = Transform3D(2.0283976, 0, 0, 0, 2.0283976, 0, 0, 0, 2.0283976, 0, 0, 0)
+[node name="Sprite3D4" type="Sprite3D" parent="RigidBody3D/Sprite3D" index="1" unique_id=350963393]
+transform = Transform3D(3.0527382, 0, 0, 0, 1.7519302, 0, 0, 0, 3.0527382, 3.6657202, -0.25699738, 0.4928589)
+sorting_offset = 1.958
 cast_shadow = 0
 texture = ExtResource("3_rqaio")
 
-[node name="Sprite3D3" type="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="4" unique_id=523770598]
-transform = Transform3D(-1.7484556e-08, -0.639, 0, 0.4, -2.7931577e-08, 0, 0, 0, 0.4, -0.037439823, 2.1197765, 0)
+[node name="Sprite3D" type="Sprite3D" parent="RigidBody3D/Sprite3D/Sprite3D4" index="0" unique_id=1815113974]
+transform = Transform3D(0.377, 0, 0, 0, 0.377, 0, 0, 0, 0.377, 0, 0, 0)
+sorting_offset = 1.689
+modulate = Color(0.03866307, 0.038203117, 0.07499999, 1)
+texture = ExtResource("4_3ppjr")
+
+[node name="Sprite3D3" type="Sprite3D" parent="RigidBody3D/Sprite3D" index="2" unique_id=523770598]
+transform = Transform3D(-4.371139e-08, -1.5975, 0, 0.5738881, -4.0074e-08, 0, 0, 0, 1, 3.5785806, 2.4613068, 0)
 sorting_offset = 1.0
 cast_shadow = 0
 texture = ExtResource("2_bcw1t")
 
-[node name="CollisionShape3D2" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="5" unique_id=1174005432]
+[node name="Sprite3D5" type="Sprite3D" parent="RigidBody3D/Sprite3D" index="3" unique_id=1960965005]
+transform = Transform3D(-4.371139e-08, -1.5975, 0, 0.5738881, -4.0074e-08, 0, 0, 0, 1, 3.5785806, 0.91642565, 0)
+sorting_offset = 1.0
+cast_shadow = 0
+texture = ExtResource("2_bcw1t")
+
+[node name="Sprite3D6" type="Sprite3D" parent="RigidBody3D/Sprite3D" index="4" unique_id=966046926]
+transform = Transform3D(-4.371139e-08, -1.5975, 0, 0.5738881, -4.0074e-08, 0, 0, 0, 1, 3.5785806, -0.5896519, 0)
+sorting_offset = 1.0
+cast_shadow = 0
+texture = ExtResource("2_bcw1t")
+
+[node name="Sprite3D7" type="Sprite3D" parent="RigidBody3D/Sprite3D" index="5" unique_id=75299482]
+transform = Transform3D(-4.371139e-08, -1.5975, 0, 0.5738881, -4.0074e-08, 0, 0, 0, 1, 3.5785806, -1.988086, 0)
+sorting_offset = 1.0
+cast_shadow = 0
+texture = ExtResource("2_bcw1t")
+
+[node name="CollisionShape3D2" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="2" unique_id=1174005432]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.046936035, -0.06591797)
 
 [node name="PinJoint3D" parent="." index="1" unique_id=318766112]

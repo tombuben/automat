@@ -1,21 +1,435 @@
 ~ start
-Mouse: !
-Mouse: You are alive!
-Mouse: Popped in a bunch of old AA bateries and bing bam, here you are!
+# =========================================================
+# SECTION 1: MOUSE FIRST
+# =========================================================
 
-Mouse: ...
-Mouse: Tohle je konec dema
-Mouse: Snad se to líbilo
-Mouse: To že automat oživne mi připadalo jako dobrý narativní stopping point
+~ start_mouse1
 
-Mouse: ...
-Mouse: Kvak
+do GlobalManager.show_portrait("default")
 
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
-=> END
+mouse1: Oh hello you are alive!
+mouse1: Popped in a bunch of old AA bateries and bing bam, here you are!
+mouse1: Anyways, this might seem weird, but my friend is stuck inside you.
+mouse1: He really wanted to try coffee. (mouse waves "help")
+mouse1: C-can you get him out please!
+
+# RESET STATE
+do GlobalManager.set_state("mouse1", "reunited", false)
+
+# SET SLOT OPTIONS (four items available at once, no gating)
+do GlobalManager.change_slot_item_name("HeartItemSlot", "heart1")
+do GlobalManager.change_slot_item_saying("HeartItemSlot", "I shouldn't do anything... I am a failure")
+
+do GlobalManager.change_slot_item_name("MindItemSlot", "mind1")
+do GlobalManager.change_slot_item_saying("MindItemSlot", "I can't, anything I touch breaks!")
+
+do GlobalManager.change_slot_item_name("GutsItemSlot", "moral_compass1")
+do GlobalManager.change_slot_item_saying("GutsItemSlot", "I think god hates me.")
+
+do GlobalManager.change_slot_item_name("MouseItemSlot", "mouseItem")
+do GlobalManager.change_slot_item_saying("MouseItemSlot", "(squeak)")
+
+=> END!
+
+
+# =========================
+# HIT NODE
+# =========================
+
+~ mouse1_hit
+
+if GlobalManager.get_state("mouse1", "reunited", false):
+	=> mouse1_hit_final
+
+if GlobalManager.item_that_hit.item_name == "heart1":
+	=> Mouse1_Heart1
+elif GlobalManager.item_that_hit.item_name == "mind1":
+	=> Mouse1_Mind1
+elif GlobalManager.item_that_hit.item_name == "moral_compass1":
+	=> Mouse1_MoralCompass1
+elif GlobalManager.item_that_hit.item_name == "mouseItem":
+	=> Mouse_Brother_Reunion
+else:
+	=> mouse1_wrong_item
+
+
+# =========================
+# HEART 1
+# =========================
+
+~ Mouse1_Heart1
+do GlobalManager.show_portrait("default")
+do GlobalManager.play_animation.emit("mouse1", "hit")
+
+mouse1: Okay hey that's not great and all but I really need my brother back (písk)
+
+=> END!
+
+
+# =========================
+# MIND 1
+# =========================
+
+~ Mouse1_Mind1
+do GlobalManager.show_portrait("default")
+do GlobalManager.play_animation.emit("mouse1", "hit")
+
+mouse1: I hope that's not true!
+
+=> END!
+
+
+# =========================
+# MORAL COMPASS 1
+# =========================
+
+~ Mouse1_MoralCompass1
+do GlobalManager.show_portrait("default")
+do GlobalManager.play_animation.emit("mouse1", "hit")
+
+mouse1: God hates everyone I think.
+
+=> END!
+
+
+# =========================
+# MOUSE BROTHER REUNION (triggered directly by MouseItemSlot)
+# =========================
+
+~ Mouse_Brother_Reunion
+do GlobalManager.show_portrait("default")
+do GlobalManager.play_animation.emit("hide_mouse")
+mouse1: Brother!
+mouse2: Písk!
+
+mouse1: Thank you thank you! You really saved us here. I really owe you!
+mouse1: Now that there is no danger anymore, how did you get here?
+mouse1: You seemed to be kind of dead before. What was that about?
+
+do GlobalManager.set_state("mouse1", "reunited", true)
+
+# SET SECOND SLOT OPTIONS
+do GlobalManager.change_slot_item_name("HeartItemSlot", "heart2")
+do GlobalManager.change_slot_item_saying("HeartItemSlot", "I was too sensitive")
+
+do GlobalManager.change_slot_item_name("MindItemSlot", "mind2")
+do GlobalManager.change_slot_item_saying("MindItemSlot", "I think I got fired")
+
+do GlobalManager.change_slot_item_name("GutsItemSlot", "moral_compass2")
+do GlobalManager.change_slot_item_saying("GutsItemSlot", "I spilled coffee on my boss")
+
+
+=> END!
+
+
+# =========================
+# FINAL HIT NODE
+# =========================
+
+~ mouse1_hit_final
+
+if GlobalManager.item_that_hit.item_name == "heart2":
+	=> Mouse1_Heart_Final
+elif GlobalManager.item_that_hit.item_name == "mind2":
+	=> Mouse1_Mind_Final
+elif GlobalManager.item_that_hit.item_name == "moral_compass2":
+	=> Mouse1_MoralCompass_Final
+else:
+	=> mouse1_wrong_item
+
+
+# =========================
+# FINAL OUTCOMES (any pick leads to the same continuation)
+# =========================
+
+~ Mouse1_Heart_Final
+do GlobalManager.show_portrait("default")
+do GlobalManager.play_animation.emit("mouse1", "hit")
+=> Mouse1_Battery_Search
+
+~ Mouse1_Mind_Final
+do GlobalManager.show_portrait("default")
+do GlobalManager.play_animation.emit("mouse1", "hit")
+=> Mouse1_Battery_Search
+
+~ Mouse1_MoralCompass_Final
+do GlobalManager.show_portrait("default")
+do GlobalManager.play_animation.emit("mouse1", "hit")
+=> Mouse1_Battery_Search
+
+
+# =========================
+# WRONG ITEM
+# =========================
+
+~ mouse1_wrong_item
+do GlobalManager.play_animation.emit("mouse1", "hit")
+mouse1: ...
+=> END!
+
+
+# =========================
+# BATTERY SEARCH / TRANSITION
+# =========================
+
+~ Mouse1_Battery_Search
+
+mouse1: Oh yeah, I gave you a bunch of batteries. Though, it looks like they are almost out of power. There wont really be a charged battery here in the junkyard.
+mouse1: I am gonna look for a battery, you go too.
+mouse1: walk walk walk
+
+do GlobalManager.play_animation.emit("FadeToBlack")
+do wait(GlobalManager.current_animation_length)
+do GlobalManager.play_animation.emit("mouse_leave")
+do wait(GlobalManager.current_animation_length)
+
+do GlobalManager.play_animation.emit("crow_idle")
+do wait(GlobalManager.current_animation_length)
+
+do GlobalManager.play_animation.emit("FadeFromBlack")
+do wait(GlobalManager.current_animation_length)
+
+
+
+# =========================================================
+# SECTION 2: CROW MEETING
+# =========================================================
+
+~ start_crow
+
+do GlobalManager.show_portrait("default")
+
+crow: See that gate in the distance? That's the only exit in this junkyard. It's locked.
+crow: I am going to tell you a story.
+crow: There once was a mother bird. How lonely she was. Thankfully she had laid eggs and was soon to have company.
+crow: She put all of herself into caring for these eggs. She was exhausted. Due to this constant burden, she became blind. She still kept giving herself away.
+crow: One day the eggs hatched.
+crow: They were snake eggs, they were never hers.
+crow: Now tell me, what do you think happened to the bird mother?
+crow: I will give you the key to the gate, if you answer correctly.
+
+# RESET STATE
+do GlobalManager.set_state("crow", "answered", false)
+
+# SET SLOT OPTIONS
+do GlobalManager.change_slot_item_name("MindItemSlot", "mind_crow")
+do GlobalManager.change_slot_item_saying("MindItemSlot", "The snakes devoured her")
+
+do GlobalManager.change_slot_item_name("HeartItemSlot", "heart_crow")
+do GlobalManager.change_slot_item_saying("HeartItemSlot", "They remained a family")
+
+do GlobalManager.change_slot_item_name("GutsItemSlot", "moral_compass_crow")
+do GlobalManager.change_slot_item_saying("GutsItemSlot", "She escaped and was alone once more")
+
+=> END!
+
+
+# =========================
+# HIT NODE
+# =========================
+
+~ crow_hit
+
+if GlobalManager.get_state("crow", "answered", false):
+	=> END!
+
+if GlobalManager.item_that_hit.item_name == "mind_crow":
+	=> Crow_Mind_Correct
+elif GlobalManager.item_that_hit.item_name == "heart_crow":
+	=> Crow_Heart_Wrong
+elif GlobalManager.item_that_hit.item_name == "moral_compass_crow":
+	=> Crow_MoralCompass_Wrong
+else:
+	=> crow_wrong_item
+
+
+# =========================
+# CORRECT ANSWER
+# =========================
+
+~ Crow_Mind_Correct
+do GlobalManager.show_portrait("default")
+do GlobalManager.play_animation.emit("crow", "hit")
+
+crow: Correct. Her oblivousness had brought her to ruin. Being trusting and kind kills. Here
+
+do GlobalManager.set_state("crow", "answered", true)
+do GlobalManager.play_animation.emit("key_received")
+do wait(GlobalManager.current_animation_length)
+
+do GlobalManager.play_animation.emit("key_give")
+do wait(GlobalManager.current_animation_length)
+
+=> END_OF_CROW
+
+# =========================
+# WRONG ANSWERS
+# =========================
+
+~ Crow_Heart_Wrong
+do GlobalManager.show_portrait("default")
+do GlobalManager.play_animation.emit("crow", "hit")
+
+crow: A shame. This naivete will let people devour you.
+crow: The end of your tribulations ends sooner than you expected.
+
+do GlobalManager.set_state("crow", "answered", true)
+
+=> END_OF_CROW
+
+
+~ Crow_MoralCompass_Wrong
+do GlobalManager.show_portrait("default")
+do GlobalManager.play_animation.emit("crow", "hit")
+
+crow: Good guess. But even if this had happened, the result would be the same. The isolation made her return to her snake children. They have never eaten an easier prey.
+
+do GlobalManager.set_state("crow", "answered", true)
+
+=> END_OF_CROW
+
+
+# =========================
+# WRONG ITEM
+# =========================
+
+~ crow_wrong_item
+do GlobalManager.play_animation.emit("crow", "hit")
+crow: Caw
+=> END!
+
+
+# =========================
+# END
+# =========================
+
+~ END_OF_CROW
+
+crow: Caw
+
+do GlobalManager.play_animation.emit("FadeToBlack")
+do wait(GlobalManager.current_animation_length)
+do GlobalManager.play_animation.emit("crow_leave")
+do wait(GlobalManager.current_animation_length)
+do GlobalManager.play_animation.emit("FadeFromBlack")
+do wait(GlobalManager.current_animation_length)
+
+do GlobalManager.play_animation.emit("mouse_enter")
+do wait(GlobalManager.current_animation_length)
+
+do GlobalManager.play_animation.emit("mouse_idle")
+
+
+# =========================================================
+# SECTION 3: MOUSE SECOND
+# =========================================================
+
+~ start_mouse2
+
+do GlobalManager.show_portrait("default")
+
+mouse1: Hey hello, I didn't find the battery. But I brought you something else
+mouse1: "Our letter just came. Every year, I send a letter with our adress, so it comes back. It's a nice reminder"
+mouse1: you seem to have been through a lot
+mouse1: I think you need to hear it too.
+mouse1: The greatest cheese has no holes. Its big and full. Like your heart. Mom.
+mouse1: I can see you have a big heart. So don't let anybody ruin that for you.
+mouse1: There is a village nearby, they must have a bunch of bateries there!
+
+mouse1: So I guess this is a goodbye.
+
+# RESET STATE
+do GlobalManager.set_state("mouse2", "answered", false)
+
+# SET SLOT OPTIONS
+do GlobalManager.change_slot_item_name("HeartItemSlot", "heart_mouse2")
+do GlobalManager.change_slot_item_saying("HeartItemSlot", "thank you for helping me")
+
+do GlobalManager.change_slot_item_name("MindItemSlot", "mind_mouse2")
+do GlobalManager.change_slot_item_saying("MindItemSlot", "Thank you")
+
+do GlobalManager.change_slot_item_name("GutsItemSlot", "moral_compass_mouse2")
+do GlobalManager.change_slot_item_saying("GutsItemSlot", "We will meet again")
+
+=> END!
+
+
+# =========================
+# HIT NODE
+# =========================
+
+~ mouse2_hit
+
+if GlobalManager.get_state("mouse2", "answered", false):
+	=> END!
+
+if GlobalManager.item_that_hit.item_name == "heart_mouse2":
+	=> Mouse2_Heart
+elif GlobalManager.item_that_hit.item_name == "mind_mouse2":
+	=> Mouse2_Mind
+elif GlobalManager.item_that_hit.item_name == "moral_compass_mouse2":
+	=> Mouse2_MoralCompass
+else:
+	=> mouse2_wrong_item
+
+
+# =========================
+# OUTCOMES (all lead to the same farewell)
+# =========================
+
+~ Mouse2_Heart
+do GlobalManager.show_portrait("default")
+do GlobalManager.play_animation.emit("mouse1", "hit")
+
+do GlobalManager.set_state("mouse2", "answered", true)
+
+=> END_OF_MOUSE2
+
+
+~ Mouse2_Mind
+do GlobalManager.show_portrait("default")
+do GlobalManager.play_animation.emit("mouse1", "hit")
+
+do GlobalManager.set_state("mouse2", "answered", true)
+
+=> END_OF_MOUSE2
+
+
+~ Mouse2_MoralCompass
+do GlobalManager.show_portrait("default")
+do GlobalManager.play_animation.emit("mouse1", "hit")
+
+do GlobalManager.set_state("mouse2", "answered", true)
+
+=> END_OF_MOUSE2
+
+
+# =========================
+# WRONG ITEM
+# =========================
+
+~ mouse2_wrong_item
+do GlobalManager.play_animation.emit("mouse1", "hit")
+mouse1: ...
+=> END!
+
+
+# =========================
+# END
+# =========================
+
+~ END_OF_MOUSE2
+
+mouse1: Have a nice journey.
+
+
+do GlobalManager.play_animation.emit("FadeToBlack")
+do wait(GlobalManager.current_animation_length)
+do GlobalManager.play_animation.emit("mouse_leave")
+do wait(GlobalManager.current_animation_length)
+
+do GlobalManager.play_animation.emit("gate_idle")
+do wait(GlobalManager.current_animation_length)
+
+do GlobalManager.play_animation.emit("FadeFromBlack")
+do wait(GlobalManager.current_animation_length)

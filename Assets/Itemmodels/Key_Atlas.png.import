@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvn865p68ky2o"
-path.s3tc="res://.godot/imported/key.png-ae63fe2c67ce77e67061fdfac4d1af77.s3tc.ctex"
+uid="uid://boow2vghn68sl"
+path.s3tc="res://.godot/imported/Key_Atlas.png-2d0ba64a7a56c915a1ee8e8086c3e8be.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "3795851c85c1d7fbaf0b3b63054ec153"
+}
 
 [deps]
 
-source_file="res://Assets/ChapterAssets/junkyard/key.png"
-dest_files=["res://.godot/imported/key.png-ae63fe2c67ce77e67061fdfac4d1af77.s3tc.ctex"]
+source_file="res://Assets/Itemmodels/Key_Atlas.png"
+dest_files=["res://.godot/imported/Key_Atlas.png-2d0ba64a7a56c915a1ee8e8086c3e8be.s3tc.ctex"]
 
 [params]
 
