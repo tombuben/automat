@@ -1444,7 +1444,7 @@ texture = ExtResource("9_fcgxk")
 transform = Transform3D(1.327, 0, 0, 0, 1.602, 0, 0, 0, 1.167, -6.423, 2.225, -4.756)
 sorting_offset = -2.523
 amount = 12
-lifetime = 12.08
+lifetime = 7.0
 preprocess = 2.02
 speed_scale = 0.42
 mesh = SubResource("QuadMesh_nfcrg")
@@ -1462,7 +1462,7 @@ color = Color(0.38200197, 0.43287644, 0.553125, 1)
 transform = Transform3D(1.327, 0, 0, 0, 1.602, 0, 0, 0, 1.167, 7.300448, 2.225, -4.756)
 sorting_offset = -2.827
 amount = 12
-lifetime = 12.08
+lifetime = 7.0
 preprocess = 2.02
 speed_scale = 0.42
 mesh = SubResource("QuadMesh_nfcrg")
@@ -2396,7 +2396,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="TutorialDragging" type="CanvasLayer" parent="UI Control" unique_id=1911891087]
 layer = 101
-visible = false
 
 [node name="DragItemsTutorial" type="ColorRect" parent="UI Control/TutorialDragging" unique_id=1209786331]
 top_level = true
@@ -3374,7 +3373,7 @@ vertical_alignment = 1
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1332952117]
 stream = ExtResource("108_6w012")
-volume_db = 1.252
+volume_db = 10.0
 autoplay = true
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=210362632]

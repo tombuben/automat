@@ -2368,7 +2368,7 @@ autoplay = true
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1904959533]
 stream = ExtResource("100_dycsj")
-volume_db = 0.468
+volume_db = -10.661
 autoplay = true
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=1620942498]
