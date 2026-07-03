@@ -7,8 +7,11 @@
 
 do GlobalManager.show_portrait("default")
 do wait(2)
+do GlobalManager.set_audio_beeps("mouse")
 
 mouse1: Oh hello you are alive!
+do GlobalManager.screen_shake(10, 0.2, 50)
+
 mouse1: Popped in a bunch of old AA bateries and bing bam, here you are!
 mouse1: You seem to be in distress
 mouse1: You are at a junkyard
@@ -69,6 +72,7 @@ else:
 ~ Mouse1_Heart1
 do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("mouse1", "hit")
+do GlobalManager.set_audio_beeps("mouse")
 
 mouse1: Okay hey that's not great and all but I really need my brother back
 mouse1: squeak
@@ -83,6 +87,7 @@ mouse1: squeak
 ~ Mouse1_Mind1
 do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("mouse1", "hit")
+do GlobalManager.set_audio_beeps("mouse")
 
 mouse1: I hope that's not true!
 
@@ -96,6 +101,7 @@ mouse1: I hope that's not true!
 ~ Mouse1_MoralCompass1
 do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("mouse1", "hit")
+do GlobalManager.set_audio_beeps("mouse")
 
 mouse1: God hates everyone I think
 
@@ -109,6 +115,8 @@ mouse1: God hates everyone I think
 ~ Mouse_Brother_Reunion
 do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("hide_mouse")
+do GlobalManager.set_audio_beeps("mouse")
+
 mouse1: Brother!
 mouse2: Squeak!
 
@@ -186,6 +194,7 @@ mouse1: ...
 # =========================
 
 ~ Mouse1_Battery_Search
+do GlobalManager.set_audio_beeps("mouse")
 
 mouse1: Oh yeah, I gave you a bunch of batteries.
 mouse1: Though, it looks like they are almost out of power
@@ -214,6 +223,8 @@ do wait(GlobalManager.current_animation_length)
 ~ start_crow
 
 do GlobalManager.show_portrait("default")
+do GlobalManager.set_audio_beeps("crow")
+
 crow: Caw Caw
 crow: Greetings
 crow: See that gate in the distance?
@@ -277,6 +288,7 @@ else:
 ~ Crow_Mind_Correct
 do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("crow", "hit")
+do GlobalManager.set_audio_beeps("crow")
 
 crow: That is correct
 crow: Her oblivousness had brought her to ruin
@@ -299,6 +311,7 @@ do wait(GlobalManager.current_animation_length)
 ~ Crow_Heart_Wrong
 do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("crow", "hit")
+do GlobalManager.set_audio_beeps("crow")
 
 crow: Shame
 crow: This naivete will let people devour you
@@ -312,6 +325,7 @@ do GlobalManager.set_state("crow", "answered", true)
 ~ Crow_MoralCompass_Wrong
 do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("crow", "hit")
+do GlobalManager.set_audio_beeps("crow")
 
 crow: Good guess
 crow: But even if this had happened
@@ -320,7 +334,6 @@ crow: The isolation made her return to her snake children
 crow: They have never eaten easier prey
 
 do GlobalManager.set_state("crow", "answered", true)
-
 => END_OF_CROW
 
 
@@ -330,6 +343,8 @@ do GlobalManager.set_state("crow", "answered", true)
 
 ~ crow_wrong_item
 do GlobalManager.play_animation.emit("crow", "hit")
+do GlobalManager.set_audio_beeps("crow")
+
 crow: Goodbye
 crow: Caw Caw
 => END!
@@ -340,6 +355,7 @@ crow: Caw Caw
 # =========================
 
 ~ END_OF_CROW
+do GlobalManager.set_audio_beeps("crow")
 
 crow: Caw
 
@@ -365,6 +381,8 @@ do GlobalManager.play_animation.emit("mouse_idle")
 ~ start_mouse2
 
 do GlobalManager.show_portrait("default")
+do GlobalManager.set_audio_beeps("mouse")
+
 
 mouse1: Hey hello
 mouse1: I didn't find the battery
@@ -473,6 +491,7 @@ mouse1: ...
 # =========================
 
 ~ END_OF_MOUSE2
+do GlobalManager.set_audio_beeps("mouse")
 
 mouse1: Have a nice journey.
 mouse1: •ᴗ•

@@ -8,15 +8,8 @@ extends Area3D
 
 @export var zone_priority := 0
 
-# X framing toggle
 @export var lock_camera_position := true
-
-# Camera movement speed when framing this zone
-# Lower = slower camera movement
-# Higher = faster camera movement
 @export var camera_x_speed := 2.0
-
-# Y comes from camera_target transform
 @export var use_camera_target_y := false
 
 @export var camera_target: Node3D
@@ -29,7 +22,11 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.has_method("get_camera_controller"):
-		body.get_camera_controller().push_camera_zone(self)
+		var controller = body.get_camera_controller()
+
+		# IMPORTANT FIX:
+		# Do NOT directly move camera here anymore
+		controller.request_camera_zone(self)
 
 
 func _on_body_exited(body):

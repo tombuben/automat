@@ -99,7 +99,6 @@
 [ext_resource type="Texture2D" uid="uid://cs2fhicmsontw" path="res://Assets/concepts/symbols/symbol18.png" id="84_raoow"]
 [ext_resource type="Texture2D" uid="uid://by61yeoyscynv" path="res://Assets/concepts/symbols/symbol6.png" id="85_d10bi"]
 [ext_resource type="Script" uid="uid://c6qs8oiugm1gg" path="res://Scripts/global_animation_player.gd" id="99_1gaum"]
-[ext_resource type="AudioStream" uid="uid://dacpgextvb70l" path="res://Assets/Audio/SpeakingSFX/ambiences/officeAmbience.wav" id="99_11jek"]
 [ext_resource type="Texture2D" uid="uid://bvn865p68ky2o" path="res://Assets/ChapterAssets/junkyard/key.png" id="100_57rvl"]
 [ext_resource type="AudioStream" uid="uid://brce16x8x7wky" path="res://Assets/Audio/Friends 2068 Komiku.wav" id="100_dycsj"]
 [ext_resource type="Texture2D" uid="uid://bbfugywbxcri7" path="res://Assets/cinematic/cinematic3.png" id="101_akm1w"]
@@ -1100,14 +1099,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.683)
 fov = 70.0
 script = ExtResource("1_52fb6")
 shoot_particles_root = NodePath("../../../HandSelectionUI/ShootParticles")
-shoot_particles_delay = 0.3
 spawn_scale = 3.059
 shoot_strength = 4.0
 throw_arc = 0.0
 charge_fov = 72.0
 fov_speed = 79.0
-shoot_shake_duration = 0.086
-shoot_shake_strength = 0.001
 max_charge_duration = 2.544
 charge_speed = 8.0
 
@@ -2362,13 +2358,12 @@ shape = SubResource("BoxShape3D_a8bjn")
 debug_color = Color(0, 0.5950001, 0.7, 1)
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=314593790]
-stream = ExtResource("99_11jek")
 volume_db = 1.252
 autoplay = true
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1904959533]
 stream = ExtResource("100_dycsj")
-volume_db = -10.661
+volume_db = -25.0
 autoplay = true
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=1620942498]
