@@ -340,7 +340,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/path = NodePath("UI Control/CinematicEnd/FirstChromAbb:material:shader_parameter/strength")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -352,7 +352,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("UI Control/CinematicEnd/FirstChromAbb:material:shader_parameter/distortion_amount")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
@@ -453,10 +453,10 @@ tracks/11/path = NodePath("UI Control/CinematicEnd/automatOffice:scale")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(4.841838, 10.9540825),
+"times": PackedFloat32Array(4.841838, 8.874274),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1.74, 1.74), Vector2(1, 1)]
+"values": [Vector2(1.32, 1.32), Vector2(1, 1)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
@@ -477,7 +477,7 @@ tracks/13/path = NodePath("UI Control/CinematicEnd/automatJunkyard:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(10.965799, 10.980383),
+"times": PackedFloat32Array(8.885991, 8.900575),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -489,7 +489,7 @@ tracks/14/path = NodePath("UI Control/CinematicEnd/automatJunkyard:scale")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(10.979395, 17.654175),
+"times": PackedFloat32Array(8.899587, 15.574367),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1.147, 1.147), Vector2(0.935, 0.935)]
@@ -501,7 +501,7 @@ tracks/15/path = NodePath("UI Control/CinematicEnd/automatJunkyard:position")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(10.979395, 17.654175),
+"times": PackedFloat32Array(8.899587, 15.574367),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-81, -128.00002), Vector2(-81, -37.617)]
@@ -513,7 +513,7 @@ tracks/16/path = NodePath("UI Control/CinematicEnd/black3:visible")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
-"times": PackedFloat32Array(19.582846, 19.860485),
+"times": PackedFloat32Array(17.503036, 17.780678),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -2018,14 +2018,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.683)
 fov = 70.0
 script = ExtResource("53_2lywu")
 shoot_particles_root = NodePath("../../../HandSelectionUI/ShootParticles")
-shoot_particles_delay = 0.3
 spawn_scale = 3.059
 shoot_strength = 4.0
 throw_arc = 0.0
 charge_fov = 72.0
 fov_speed = 79.0
-shoot_shake_duration = 0.086
-shoot_shake_strength = 0.001
 max_charge_duration = 2.544
 charge_speed = 8.0
 
@@ -2461,6 +2458,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="UI Control/CinematicEnd/FirstChromAbb" unique_id=1283194179]
+visible = false
 z_index = 500
 layout_mode = 0
 offset_left = 305.0
@@ -2474,7 +2472,6 @@ text = "SHUTTING DOWN"
 vertical_alignment = 1
 
 [node name="black1" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=764154040]
-visible = false
 offset_left = 779.0
 offset_top = 98.0
 offset_right = 1739.0
@@ -2482,7 +2479,6 @@ offset_bottom = 692.0
 color = Color(0, 0, 0, 1)
 
 [node name="SecondChromAbb" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=1532695417]
-visible = false
 material = ExtResource("54_vuse5")
 offset_left = -79.0
 offset_top = -66.0
@@ -2491,7 +2487,6 @@ offset_bottom = 1158.0
 color = Color(0, 0, 0, 1)
 
 [node name="black2" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=540706663]
-visible = false
 offset_left = -83.0
 offset_top = -71.0
 offset_right = 2077.0
@@ -2499,7 +2494,6 @@ offset_bottom = 1163.0
 color = Color(0, 0, 0, 1)
 
 [node name="automatOffice" type="TextureRect" parent="UI Control/CinematicEnd" unique_id=1638584605]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2509,13 +2503,11 @@ offset_right = 84.0
 offset_bottom = 37.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.74, 1.74)
 pivot_offset = Vector2(986.595, 588.393)
 mouse_filter = 2
 texture = ExtResource("55_s0ebu")
 
 [node name="automatJunkyard" type="TextureRect" parent="UI Control/CinematicEnd" unique_id=259573921]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2525,13 +2517,12 @@ offset_right = 87.0
 offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.147, 1.147)
+scale = Vector2(0.935, 0.935)
 pivot_offset = Vector2(986.595, 588.393)
 mouse_filter = 2
 texture = ExtResource("56_6w012")
 
 [node name="black3" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=1292280055]
-visible = false
 offset_left = -83.0
 offset_top = -71.0
 offset_right = 2077.0

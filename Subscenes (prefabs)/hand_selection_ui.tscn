@@ -33,7 +33,7 @@ script = ExtResource("1_7jw3s")
 put_back_button = NodePath("PutBackButton")
 launch_button = NodePath("LaunchButton")
 object_preview_spawn_point = NodePath("SubViewportContainer/SubViewport/Camera3D/ObjectPreviewSpawnPoint")
-item_name_label = NodePath("ItemName")
+item_name_label = NodePath("Control/ItemName")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=111374632]
 modulate = Color(0.02, 0.0198, 0.0198, 1)
@@ -67,16 +67,28 @@ grow_vertical = 2
 mouse_filter = 1
 color = Color(0, 0, 0, 1)
 
-[node name="ItemName" type="RichTextLabel" parent="." unique_id=35319702]
+[node name="Control" type="Control" parent="." unique_id=741871363]
+layout_mode = 1
+anchor_left = 0.358
+anchor_right = 0.647
+anchor_bottom = 0.224
+offset_left = -0.3600464
+offset_right = 0.76000977
+offset_bottom = 0.07998657
+grow_horizontal = 2
+
+[node name="ItemName" type="RichTextLabel" parent="Control" unique_id=35319702]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_left = -152.0
 offset_top = 22.94458
+offset_right = 176.0
 offset_bottom = 222.94458
 grow_horizontal = 2
 pivot_offset_ratio = Vector2(0.5, 0)
 theme = SubResource("Theme_hhd7d")
-theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/normal_font_size = 55
 text = "Words words words"
 horizontal_alignment = 1
 vertical_alignment = 1
