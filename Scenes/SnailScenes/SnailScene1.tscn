@@ -447,19 +447,19 @@ shader_parameter/sway_speed = 0.5
 shader_parameter/sway_frequency = 0.8
 shader_parameter/random_enabled = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_61a84"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xxvhv"]
 render_priority = 0
 shader = ExtResource("24_qt80e")
-shader_parameter/albedo_texture = ExtResource("67_jscfm")
+shader_parameter/albedo_texture = ExtResource("68_6at24")
 shader_parameter/sway_strength = 0.5
 shader_parameter/sway_speed = 0.5
 shader_parameter/sway_frequency = 0.8
 shader_parameter/random_enabled = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xxvhv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_61a84"]
 render_priority = 0
 shader = ExtResource("24_qt80e")
-shader_parameter/albedo_texture = ExtResource("68_6at24")
+shader_parameter/albedo_texture = ExtResource("67_jscfm")
 shader_parameter/sway_strength = 0.5
 shader_parameter/sway_speed = 0.5
 shader_parameter/sway_frequency = 0.8
@@ -574,23 +574,6 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_bq7wa"]
 length = 0.001
 
-[sub_resource type="Animation" id="Animation_74oad"]
-resource_name = "WandererIdle"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Scene4/Scene5/frontBridge/Wanderer:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(1, 1, 1), Vector3(1, 0.98, 1), Vector3(1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_uc4lo"]
 resource_name = "fade_in"
 length = 2.02
@@ -627,7 +610,6 @@ tracks/0/keys = {
 _data = {
 &"Interlude1": SubResource("Animation_vcgka"),
 &"RESET": SubResource("Animation_bq7wa"),
-&"WandererIdle": SubResource("Animation_74oad"),
 &"fade_in": SubResource("Animation_uc4lo"),
 &"fade_out": SubResource("Animation_mybb8")
 }
@@ -653,7 +635,7 @@ size = Vector3(121.6543, 36.831604, 1)
 [node name="SnailScene1" type="Node3D" unique_id=46586574]
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1980153873 node_paths=PackedStringArray("camera_controller", "sprite") groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.089005, 1.739, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107.728775, 1.739, 0)
 up_direction = Vector3(0, -1, 0)
 script = ExtResource("1_jo7c2")
 speed = 2.85
@@ -842,7 +824,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.345322, 1.2060804, -0.3711
 shape = SubResource("BoxShape3D_uc4lo")
 
 [node name="CameraTarget" type="Node3D" parent="Camera/CameraZones/CameraZone4" unique_id=1898968558]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.64592, -6.9369392, 204.97868)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.64592, -0.7873173, 204.97868)
 
 [node name="Ground and walls" type="Node3D" parent="." unique_id=1854533928]
 transform = Transform3D(31.233, 0, 0, 0, 0.108, 0, 0, 0, 5.789, 0, 0, -1.3380176)
@@ -876,7 +858,7 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_ixu5i")
 
 [node name="BlockingWall3" type="MeshInstance3D" parent="Ground and walls" unique_id=932553649]
-transform = Transform3D(0.032017417, 0, 0, 0, 89.083336, 0, 0, 0, 1.1020904, 2.636847, -11.984706, 0.23113105)
+transform = Transform3D(0.032017417, 0, 0, 0, 89.083336, 0, 0, 0, 1.1020904, 2.6339002, -11.984706, -0.48194697)
 mesh = SubResource("BoxMesh_bq7wa")
 skeleton = NodePath("../..")
 
@@ -2954,15 +2936,16 @@ texture = ExtResource("53_6f0xv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.73704, 5.888631, 0)
 
 [node name="scene4Parent" type="Node3D" parent="Scene4" unique_id=649441716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0305862)
 
 [node name="Sprite3D2" type="Sprite3D" parent="Scene4/scene4Parent" unique_id=756203956]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 17.327484, -8.972324, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 17.327484, -8.972324, 0.35133982)
 sorting_offset = 4.8
 texture = ExtResource("60_ppto4")
 
 [node name="Sprite3D3" type="Sprite3D" parent="Scene4/scene4Parent" unique_id=299275007]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 14.130989, 4.9975357, 0)
-sorting_offset = 4.0
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 14.130989, 4.5893745, -2.4698238)
+sorting_offset = 1.0
 texture = ExtResource("61_b2j5u")
 
 [node name="HangingSign" type="Node3D" parent="Scene4/scene4Parent" unique_id=538983345]
@@ -2975,208 +2958,185 @@ sorting_offset = 3.0
 texture = ExtResource("72_dgbbk")
 
 [node name="PlantBehingHouse" type="Sprite3D" parent="Scene4/scene4Parent" unique_id=321083018]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 32.31933, -5.424011, 0)
-sorting_offset = 2.0
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 33.33026, -5.6468806, -9.896619)
+sorting_offset = -40.109
 material_override = SubResource("ShaderMaterial_aue1g")
 texture = ExtResource("62_mkn7e")
 
-[node name="PlantBehingHouse2" type="Sprite3D" parent="Scene4/scene4Parent/PlantBehingHouse" unique_id=1877371556]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.057430267, -0.35895443, 0)
-sorting_offset = 3.0
+[node name="PlantBehingHouse4" type="Sprite3D" parent="Scene4/scene4Parent" unique_id=1877371556]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 30.34507, -5.5957437, -8.881425)
+sorting_offset = -36.739
+sorting_use_aabb_center = false
 material_override = SubResource("ShaderMaterial_f458t")
 texture = ExtResource("63_l84nq")
 
-[node name="PlantBehingHouse2" type="Sprite3D" parent="Scene4/scene4Parent" unique_id=549975798]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 43.894005, -6.5587826, 0)
-sorting_offset = 2.0
-material_override = SubResource("ShaderMaterial_aue1g")
-texture = ExtResource("62_mkn7e")
-
-[node name="PlantBehingHouse2" type="Sprite3D" parent="Scene4/scene4Parent/PlantBehingHouse2" unique_id=516626835]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.057430267, -0.35895443, 0)
-sorting_offset = 3.0
+[node name="PlantBehingHouse3" type="Sprite3D" parent="Scene4/scene4Parent" unique_id=516626835]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 44.016792, -7.2766914, -9.4161625)
+sorting_offset = -37.0
 material_override = SubResource("ShaderMaterial_f458t")
 texture = ExtResource("63_l84nq")
 
 [node name="Sprite3D4" type="Sprite3D" parent="Scene4/scene4Parent" unique_id=675415503]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.4208527, -2.965576, 0)
-sorting_offset = 7.0
+sorting_offset = 11.0
 modulate = Color(0.45625, 0.45625, 0.45625, 1)
 texture = ExtResource("62_xcoxj")
 
 [node name="Sprite3D5" type="Sprite3D" parent="Scene4/scene4Parent" unique_id=1069130242]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 7.851181, -3.2390027, 0)
-sorting_offset = 6.0
+sorting_offset = 11.0
 texture = ExtResource("63_uxwvt")
 
-[node name="FrontGroundGrass" type="Sprite3D" parent="Scene4/scene4Parent" unique_id=1866871740]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 16.83107, -7.673803, 0)
-sorting_offset = 8.0
-material_override = SubResource("ShaderMaterial_61a84")
-modulate = Color(0.65, 0.65, 0.65, 1)
-texture = ExtResource("67_jscfm")
-
-[node name="FrontGroundGrass2" type="Sprite3D" parent="Scene4/scene4Parent/FrontGroundGrass" unique_id=901671122]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1679077, 0.7786031, 0)
-sorting_offset = 10.0
+[node name="FrontGroundGrass2" type="Sprite3D" parent="Scene4/scene4Parent" unique_id=901671122]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 19.166885, -5.27289, 0.9674015)
+sorting_offset = 24.249
 material_override = SubResource("ShaderMaterial_xxvhv")
-modulate = Color(0.65, 0.65, 0.65, 1)
 texture = ExtResource("68_6at24")
 
-[node name="Scene5" type="Node3D" parent="Scene4" unique_id=116604537]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.34028, 0, 0)
+[node name="FrontGroundGrass" type="Sprite3D" parent="Scene4/scene4Parent" unique_id=1866871740]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 16.83107, -6.8300962, 0)
+visible = false
+sorting_offset = 5.0
+material_override = SubResource("ShaderMaterial_61a84")
+modulate = Color(0.571875, 0.571875, 0.571875, 1)
+texture = ExtResource("67_jscfm")
 
-[node name="BG" type="Sprite3D" parent="Scene4/Scene5" unique_id=1666802335]
-transform = Transform3D(259.254, 0, 0, 0, 164.38, 0, 0, 0, 4.32, 10.224396, 4.268257, 0)
-sorting_offset = -8.459
+[node name="Scene9" type="Node3D" parent="." unique_id=116604537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 151.07732, 5.888631, 0)
+
+[node name="BG" type="Sprite3D" parent="Scene9" unique_id=1666802335]
+transform = Transform3D(327.767, 0, 0, 0, 207.821, 0, 0, 0, 5.461, 10.224396, 4.268257, -49.58076)
+sorting_offset = -80.0
 modulate = Color(0.9411765, 0.9098039, 0.7529412, 1)
 texture = ExtResource("7_s81e8")
 
-[node name="Bridge" type="Sprite3D" parent="Scene4/Scene5" unique_id=380389595]
-transform = Transform3D(4.8, 0, 0, 0, 4.8, 0, 0, 0, 4.8, 20.313416, -10.82363, 0)
-sorting_offset = 5.0
+[node name="Bridge" type="Sprite3D" parent="Scene9" unique_id=380389595]
+transform = Transform3D(4.825, 0, 0, 0, 4.88, 0, 0, 0, 4.825, 20.313416, -10.935549, -2.1839476)
+sorting_offset = -8.156
 texture = ExtResource("69_6clpg")
 
-[node name="Bridge2" type="Sprite3D" parent="Scene4/Scene5" unique_id=1489594272]
-transform = Transform3D(1.9998507, -0.024434002, 0, 0.024434002, 1.9998507, 0, 0, 0, 2, 78.36864, -13.716042, 0)
-sorting_offset = 4.0
+[node name="Bridge2" type="Sprite3D" parent="Scene9" unique_id=1489594272]
+transform = Transform3D(2.264831, -0.027671507, 0, 0.027671507, 2.264831, 0, 0, 0, 2.265, 97.029465, -14.044852, -2.1502075)
+sorting_offset = -14.27
 texture = ExtResource("60_ppto4")
 
-[node name="sun" type="Sprite3D" parent="Scene4/Scene5" unique_id=125287294]
-transform = Transform3D(4.8, 0, 0, 0, 4.8, 0, 0, 0, 4.8, 17.446457, -5.6156616, 0)
-sorting_offset = 4.0
+[node name="sun" type="Sprite3D" parent="Scene9" unique_id=125287294]
+transform = Transform3D(4.793, 0, 0, 0, 4.793, 0, 0, 0, 4.793, 14.200302, -5.6156616, -24.762852)
+sorting_offset = -35.73
 texture = ExtResource("70_jscfm")
 
-[node name="PlantBehingHouse" type="Sprite3D" parent="Scene4/Scene5" unique_id=470457438]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 51.645874, -9.238092, 0)
-sorting_offset = 2.0
-material_override = SubResource("ShaderMaterial_aue1g")
-texture = ExtResource("62_mkn7e")
-
-[node name="PlantBehingHouse2" type="Sprite3D" parent="Scene4/Scene5/PlantBehingHouse" unique_id=1631017900]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.057430267, -0.35895443, 0)
-sorting_offset = 3.0
+[node name="PlantBehingHouse6" type="Sprite3D" parent="Scene9" unique_id=1631017900]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 51.760727, -9.956001, -4.647151)
+sorting_offset = -49.17
 material_override = SubResource("ShaderMaterial_f458t")
 texture = ExtResource("63_l84nq")
 
-[node name="PlantBehingHouse2" type="Sprite3D" parent="Scene4/Scene5" unique_id=702031763]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 65.76982, -11.017485, 0)
-sorting_offset = 2.0
+[node name="PlantBehingHouse2" type="Sprite3D" parent="Scene9" unique_id=702031763]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 64.87599, -11.017485, -7.3482018)
+sorting_offset = -50.0
 material_override = SubResource("ShaderMaterial_aue1g")
 texture = ExtResource("62_mkn7e")
 
-[node name="PlantBehingHouse2" type="Sprite3D" parent="Scene4/Scene5/PlantBehingHouse2" unique_id=1072193485]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.057430267, -0.35895443, 0)
-sorting_offset = 3.0
+[node name="PlantBehingHouse4" type="Sprite3D" parent="Scene9" unique_id=1072193485]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 64.99086, -11.735394, -5.127922)
+sorting_offset = -47.0
 material_override = SubResource("ShaderMaterial_f458t")
 texture = ExtResource("63_l84nq")
 
-[node name="PlantBehingHouse3" type="Sprite3D" parent="Scene4/Scene5" unique_id=446346590]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 78.5036, -11.017485, 0)
-sorting_offset = 2.0
+[node name="PlantBehingHouse3" type="Sprite3D" parent="Scene9" unique_id=446346590]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 78.504, -11.017, -7.5)
+sorting_offset = -50.0
 material_override = SubResource("ShaderMaterial_aue1g")
 texture = ExtResource("62_mkn7e")
 
-[node name="PlantBehingHouse2" type="Sprite3D" parent="Scene4/Scene5/PlantBehingHouse3" unique_id=543386517]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.057430267, -0.35895443, 0)
-sorting_offset = 3.0
+[node name="PlantBehingHouse7" type="Sprite3D" parent="Scene9" unique_id=1923031338]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 49.08786, -11.017485, -8.190344)
+sorting_offset = -52.0
+material_override = SubResource("ShaderMaterial_aue1g")
+texture = ExtResource("62_mkn7e")
+
+[node name="PlantBehingHouse5" type="Sprite3D" parent="Scene9" unique_id=543386517]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 78.618454, -11.735394, -4.3921585)
+sorting_offset = -49.0
 material_override = SubResource("ShaderMaterial_f458t")
 texture = ExtResource("63_l84nq")
 
-[node name="plants" type="Sprite3D" parent="Scene4/Scene5" unique_id=1947305282]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 57.122696, -11.640829, 0)
-visible = false
-sorting_offset = -1.0
-texture = ExtResource("62_mkn7e")
-
-[node name="plants2" type="Sprite3D" parent="Scene4/Scene5/plants" unique_id=1104182731]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.958664, 0.5636506, 0)
-texture = ExtResource("63_l84nq")
-
-[node name="plants4" type="Sprite3D" parent="Scene4/Scene5/plants" unique_id=2109508794]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1445236, 0.46826553, 0)
-texture = ExtResource("63_l84nq")
-
-[node name="plants3" type="Sprite3D" parent="Scene4/Scene5/plants" unique_id=223836905]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6236115, -0.38501167, 0)
-sorting_offset = -1.0
-flip_h = true
-texture = ExtResource("62_mkn7e")
-
-[node name="Sprite3D8" type="Sprite3D" parent="Scene4/Scene5" unique_id=1342240465]
-transform = Transform3D(6.4, 0, 0, 0, 6.4, 0, 0, 0, 6.4, 5.982483, 17.387882, 0)
-sorting_offset = -1.79
+[node name="clouds" type="Sprite3D" parent="Scene9" unique_id=1342240465]
+transform = Transform3D(7.119, 0, 0, 0, 7.119, 0, 0, 0, 7.119, 6.6931915, 21.054878, -38.365)
+sorting_offset = -65.0
 modulate = Color(0.99375, 0.99375, 0.99375, 1)
 texture = ExtResource("77_7trq8")
 
-[node name="gradient" type="Sprite3D" parent="Scene4/Scene5" unique_id=338036232]
-transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 11.632004, -8.932991, 0)
-sorting_offset = 3.5
+[node name="gradient" type="Sprite3D" parent="Scene9" unique_id=338036232]
+transform = Transform3D(7.979, 0, 0, 0, 7.512, 0, 0, 0, 7.512, 11.632004, -8.932991, -41.967354)
+sorting_offset = -60.0
 texture = ExtResource("71_japqh")
 
-[node name="farGrass1" type="Sprite3D" parent="Scene4/Scene5" unique_id=1212332724]
-transform = Transform3D(4.8, 0, 0, 0, 4.8, 0, 0, 0, 4.8, 17.9169, -21.745794, 0)
-sorting_offset = 4.5
+[node name="farGrass1" type="Sprite3D" parent="Scene9" unique_id=1212332724]
+transform = Transform3D(4.8, 0, 0, 0, 4.8, 0, 0, 0, 4.8, 17.9169, -21.745794, -16.736923)
+sorting_offset = -33.881
 material_override = SubResource("ShaderMaterial_dgbbk")
 texture = ExtResource("71_6at24")
 
-[node name="farGrass2" type="Sprite3D" parent="Scene4/Scene5/farGrass1" unique_id=1528972446]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -0.47979736, -0.22015, 0)
-sorting_offset = 4.6
+[node name="farGrass2" type="Sprite3D" parent="Scene9/farGrass1" unique_id=1528972446]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -0.47979736, -0.22014976, 0.848663)
+sorting_offset = -32.339
 material_override = SubResource("ShaderMaterial_icy5s")
 texture = ExtResource("72_japqh")
 
-[node name="grounds" type="Sprite3D" parent="Scene4/Scene5" unique_id=1506782864]
-transform = Transform3D(5.5, 0, 0, 0, 5.5, 0, 0, 0, 5.5, 10.059723, -19.189732, 0)
-sorting_offset = 11.0
-texture = ExtResource("74_svfwo")
-
-[node name="grounds2" type="Sprite3D" parent="Scene4/Scene5/grounds" unique_id=1298444540]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, -0.018978596, 0)
-sorting_offset = 6.0
-texture = ExtResource("75_7ck46")
-
-[node name="grounds3" type="Sprite3D" parent="Scene4/Scene5/grounds" unique_id=1072634476]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.04664707, 0)
-sorting_offset = 6.0
+[node name="grounds3" type="Sprite3D" parent="Scene9" unique_id=1072634476]
+transform = Transform3D(5.4999995, 0, 0, 0, 5.4999995, 0, 0, 0, 5.4999995, 10.059723, -18.037045, 2.5156841)
+sorting_offset = 65.623
 texture = ExtResource("76_mwiwq")
 
-[node name="FrontGroundGrass" type="Sprite3D" parent="Scene4/Scene5" unique_id=172035328]
-transform = Transform3D(6.4, 0, 0, 0, 6.4, 0, 0, 0, 6.4, 10.026688, -37.35138, 14.95183)
-sorting_offset = 22.0
+[node name="grounds2" type="Sprite3D" parent="Scene9" unique_id=1298444540]
+transform = Transform3D(5.4999995, 0, 0, 0, 5.4999995, 0, 0, 0, 5.4999995, 10.059723, -16.39959, 3.5652494)
+sorting_offset = 70.0
+texture = ExtResource("75_7ck46")
+
+[node name="grounds" type="Sprite3D" parent="Scene9" unique_id=1506782864]
+transform = Transform3D(5.5, 0, 0, 0, 5.5, 0, 0, 0, 5.5, 10.059723, -15.008754, 4.902828)
+sorting_offset = 75.0
+modulate = Color(0.5375, 0.5375, 0.5375, 1)
+texture = ExtResource("74_svfwo")
+
+[node name="FrontGroundGrass" type="Sprite3D" parent="Scene9" unique_id=172035328]
+transform = Transform3D(6.4, 0, 0, 0, 6.4, 0, 0, 0, 6.4, 10.026688, -37.35138, 6.419258)
+sorting_offset = 92.622
 material_override = SubResource("ShaderMaterial_vcgka")
 texture = ExtResource("77_7ck46")
 
-[node name="FrontGroundGrass2" type="Sprite3D" parent="Scene4/Scene5/FrontGroundGrass" unique_id=319211741]
-sorting_offset = 23.0
+[node name="FrontGroundGrass2" type="Sprite3D" parent="Scene9" unique_id=319211741]
+transform = Transform3D(6.4, 0, 0, 0, 6.4, 0, 0, 0, 6.4, 10.026688, -37.35138, 9.902044)
+sorting_offset = 95.0
 material_override = SubResource("ShaderMaterial_hcvwp")
 texture = ExtResource("78_mwiwq")
 
-[node name="FrontGroundGrass3" type="Sprite3D" parent="Scene4/Scene5/FrontGroundGrass" unique_id=555904439]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20794582, 0)
-sorting_offset = 24.0
+[node name="FrontGroundGrass3" type="Sprite3D" parent="Scene9" unique_id=555904439]
+transform = Transform3D(6.4, 0, 0, 0, 6.4, 0, 0, 0, 6.4, 10.026688, -38.68223, 13.286848)
+sorting_offset = 97.0
 material_override = SubResource("ShaderMaterial_7yl0i")
 texture = ExtResource("79_efsro")
 
-[node name="FrontGroundGrass4" type="Sprite3D" parent="Scene4/Scene5/FrontGroundGrass" unique_id=2128562315]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.040961742, 0)
-sorting_offset = 25.0
+[node name="FrontGroundGrass4" type="Sprite3D" parent="Scene9" unique_id=2128562315]
+transform = Transform3D(6.4, 0, 0, 0, 6.4, 0, 0, 0, 6.4, 10.026688, -37.613537, 17.32605)
+sorting_offset = 100.0
 material_override = SubResource("ShaderMaterial_mtyxg")
 texture = ExtResource("80_ub5m5")
 
-[node name="frontBridge" type="Sprite3D" parent="Scene4/Scene5" unique_id=778344912]
+[node name="frontBridge" type="Sprite3D" parent="Scene9" unique_id=778344912]
 transform = Transform3D(6.1, 0, 0, 0, 6.1, 0, 0, 0, 6.1, 31.159058, -37.53095, 29.204832)
-sorting_offset = 26.0
+sorting_offset = 117.746
 texture = ExtResource("82_rsn71")
 
-[node name="Wanderer" type="Sprite3D" parent="Scene4/Scene5/frontBridge" unique_id=674079897]
+[node name="Wanderer" type="Sprite3D" parent="Scene9/frontBridge" unique_id=674079897]
 transform = Transform3D(1, 0, 0, 0, 0.98, 0, 0, 0, 1, 0, 2.4276762, 0)
-sorting_offset = 27.0
+sorting_offset = 120.967
 texture = ExtResource("83_whykw")
 
-[node name="frontmostgrass" type="Sprite3D" parent="Scene4/Scene5/frontBridge" unique_id=476594908]
+[node name="frontmostgrass" type="Sprite3D" parent="Scene9/frontBridge" unique_id=476594908]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2130623, -0.988338, 0.5814023)
-sorting_offset = 38.263
+sorting_offset = 167.64
 material_override = SubResource("ShaderMaterial_jftt8")
 texture = ExtResource("84_qai4r")
 
