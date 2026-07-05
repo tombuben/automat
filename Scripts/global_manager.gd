@@ -89,6 +89,8 @@ var GenericCharacterSounds009 = preload("res://Assets/Audio/SpeakingSFX/new/smal
 var GenericCharacterSounds010 = preload("res://Assets/Audio/SpeakingSFX/new/mouseVoice.wav")
 var GenericCharacterSounds011 = preload("res://Assets/Audio/SpeakingSFX/new/crowVoices1.wav")
 var GenericCharacterSounds012 = preload("res://Assets/Audio/SpeakingSFX/new/crowVoices2.wav")
+var GenericCharacterSounds013 = preload("res://Assets/Audio/SpeakingSFX/new/SIVoice.wav")
+
 
 var character_beeps: Dictionary[String, Array] = {
 	"default": [GenericCharacterSounds004],
@@ -99,6 +101,7 @@ var character_beeps: Dictionary[String, Array] = {
 	"angryWorker": [GenericCharacterSounds005],
 	"crow": [GenericCharacterSounds011, GenericCharacterSounds012],
 	"mouse": [GenericCharacterSounds010],
+	"SI": [GenericCharacterSounds013],
 }
 
 signal update_audio_beeps(beep_array: Array[AudioStream])

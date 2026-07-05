@@ -2384,7 +2384,7 @@ autoplay = true
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1904959533]
 stream = ExtResource("100_dycsj")
-volume_db = -10.0
+volume_db = -15.684
 autoplay = true
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=1620942498]
@@ -2514,6 +2514,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="FadeToBlack" type="ColorRect" parent="." unique_id=2047270865]
+modulate = Color(1, 1, 1, 0)
 offset_left = 793.0
 offset_top = 112.0
 offset_right = 1724.0
@@ -2522,17 +2523,18 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="cinematicEnd" type="TextureRect" parent="." unique_id=1209093171]
+visible = false
 z_index = 690
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -84.0
-offset_top = -276.15
+offset_top = -803.00006
 offset_right = 84.0
-offset_bottom = 535.85
+offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.92, 0.92)
+scale = Vector2(1.036, 1.036)
 pivot_offset = Vector2(1000, 900)
 mouse_filter = 2
 texture = ExtResource("101_akm1w")

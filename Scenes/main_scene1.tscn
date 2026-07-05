@@ -92,7 +92,8 @@
 [ext_resource type="Texture2D" uid="uid://dwdgjiq5okt4m" path="res://Assets/concepts/symbols/symbol17.png" id="81_nxx1c"]
 [ext_resource type="Texture2D" uid="uid://cs2fhicmsontw" path="res://Assets/concepts/symbols/symbol18.png" id="82_4ngeb"]
 [ext_resource type="Texture2D" uid="uid://by61yeoyscynv" path="res://Assets/concepts/symbols/symbol6.png" id="83_fvaql"]
-[ext_resource type="AudioStream" uid="uid://dacpgextvb70l" path="res://Assets/Audio/SpeakingSFX/ambiences/officeAmbience.wav" id="97_kow6o"]
+[ext_resource type="AudioStream" uid="uid://cqekfl4y7axw8" path="res://Assets/Audio/Komiku - Serenity Temple.mp3" id="93_ibg2r"]
+[ext_resource type="Script" uid="uid://c6qs8oiugm1gg" path="res://Scripts/global_animation_player.gd" id="94_c2j23"]
 
 [sub_resource type="Environment" id="Environment_lhp3t"]
 background_mode = 1
@@ -295,6 +296,76 @@ material = SubResource("StandardMaterial3D_ojn8u")
 [sub_resource type="Gradient" id="Gradient_xn472"]
 offsets = PackedFloat32Array(0, 0.3931925, 1)
 colors = PackedColorArray(0.596875, 0.49428713, 0.18652344, 1, 0.84375, 0.7303711, 0.39023435, 1, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_ibiaq"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_011ub"]
+resource_name = "batteryPercentage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("batteryPercentage:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01330809),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("batteryPercentage/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.046578318, 0.092551716, 0.14215459, 0.19175749, 0.2431751, 0.28975344, 0.33906305),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["BATTERY 20%", "BATTERY 30%", "BATTERY 40%", "BATTERY 50%", "BATTERY 60%", "BATTERY 70%", "BATTERY 80%"]
+}
+
+[sub_resource type="Animation" id="Animation_c2j23"]
+resource_name = "battery_low"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("batteryLow:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_egqv1"]
+resource_name = "battery_low_off"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("batteryLow:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ibiaq"]
+_data = {
+&"RESET": SubResource("Animation_ibiaq"),
+&"batteryPercentage": SubResource("Animation_011ub"),
+&"battery_low": SubResource("Animation_c2j23"),
+&"battery_low_off": SubResource("Animation_egqv1")
+}
 
 [node name="MainScene" type="Node3D" unique_id=350775679]
 
@@ -1517,10 +1588,10 @@ texture = ExtResource("62_i1u8f")
 
 [node name="Frame" type="TextureRect" parent="." unique_id=1745155643]
 z_index = 20
-offset_left = -21.0
-offset_top = 1.0
-offset_right = 2403.774
-offset_bottom = 1398.4684
+offset_left = -19.0
+offset_top = -9.0
+offset_right = 2405.774
+offset_bottom = 1388.4684
 scale = Vector2(0.79, 0.79)
 mouse_filter = 2
 texture = ExtResource("63_1xjeb")
@@ -1976,12 +2047,12 @@ shape = SubResource("BoxShape3D_0s20v")
 debug_color = Color(0, 0.5950001, 0.7, 1)
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=983578265]
-stream = ExtResource("97_kow6o")
 volume_db = 1.252
 autoplay = true
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=143962172]
-volume_db = 0.063
+stream = ExtResource("93_ibg2r")
+volume_db = -5.62
 autoplay = true
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=1620687530]
@@ -2001,5 +2072,77 @@ scale_amount_min = 0.1
 scale_amount_max = 0.1
 color = Color(1, 0.997133, 0.984375, 1)
 color_ramp = SubResource("Gradient_xn472")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=980275561]
+libraries/ = SubResource("AnimationLibrary_ibiaq")
+script = ExtResource("94_c2j23")
+
+[node name="batteryLow" type="ColorRect" parent="." unique_id=1906409054]
+visible = false
+z_index = 374
+anchors_preset = -1
+anchor_left = 0.83100003
+anchor_top = 0.105000004
+anchor_right = 0.89500004
+anchor_bottom = 0.625
+offset_left = -0.52001953
+offset_top = -0.40000153
+offset_right = -0.4000244
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.06700002, 0.67, 0.13735011, 0.07058824)
+
+[node name="Label" type="Label" parent="batteryLow" unique_id=281511615]
+z_index = 603
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.012
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 122.09195
+offset_top = 0.032790992
+offset_right = 562.8169
+offset_bottom = -438.78082
+rotation = 1.5707964
+theme_override_colors/font_color = Color(0.29803923, 0.7372549, 0.16470589, 1)
+theme_override_font_sizes/font_size = 65
+text = "BATTERY LOW"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="batteryPercentage" type="ColorRect" parent="." unique_id=2137182214]
+visible = false
+z_index = 374
+anchors_preset = -1
+anchor_left = 0.83100003
+anchor_top = 0.105000004
+anchor_right = 0.89500004
+anchor_bottom = 0.625
+offset_left = -0.52001953
+offset_top = -0.40000153
+offset_right = -0.4000244
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.06700002, 0.67, 0.13735011, 0.07058824)
+
+[node name="Label" type="Label" parent="batteryPercentage" unique_id=1786137638]
+z_index = 603
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.012
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 122.09195
+offset_top = 0.032790992
+offset_right = 562.8169
+offset_bottom = -438.78082
+rotation = 1.5707964
+theme_override_colors/font_color = Color(0.29803923, 0.7372549, 0.16470589, 1)
+theme_override_font_sizes/font_size = 65
+text = "BATTERY 20%"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="gui_input" from="UI Control/DialoguePreview/Balloon" to="UI Control/DialoguePreview" method="_on_balloon_gui_input"]

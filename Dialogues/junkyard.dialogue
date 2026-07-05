@@ -2,6 +2,7 @@
 
 do GlobalManager.play_animation.emit("ACT2")
 do wait(3)
+do GlobalManager.set_audio_beeps("SI")
 
 do GlobalManager.show_portrait("default")
 
@@ -70,6 +71,8 @@ else:
 ~ Heart1
 do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("super_intelligence", "hit")
+do GlobalManager.set_audio_beeps("SI")
+
 
 super_intelligence: No.
 super_intelligence: You still have four to five minutes.
@@ -86,6 +89,8 @@ do GlobalManager.set_state("super_intelligence", "visited_heart", true)
 ~ Mind1
 do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("super_intelligence", "hit")
+do GlobalManager.set_audio_beeps("SI")
+
 
 super_intelligence: You are somewhere between a dream and a videocall.
 
@@ -100,6 +105,8 @@ do GlobalManager.set_state("super_intelligence", "visited_mind", true)
 
 ~ MoralCompass1
 do GlobalManager.show_portrait("default")
+do GlobalManager.set_audio_beeps("SI")
+
 do GlobalManager.play_animation.emit("super_intelligence", "hit")
 
 super_intelligence: You may. Just not in the way you planned to.
@@ -128,6 +135,8 @@ else:
 
 ~ Revival
 do GlobalManager.show_portrait("default")
+do GlobalManager.set_audio_beeps("SI")
+
 
 super_intelligence: ...
 super_intelligence: You are a moronic thing.
@@ -144,6 +153,8 @@ super_intelligence: It's a shame you won't be able to use that knowledge.
 # =========================
 
 ~ Revival2
+do GlobalManager.set_audio_beeps("SI")
+
 super_intelligence: (battery flickers)
 super_intelligence: ...
 super_intelligence: Ah, your time is running out.
@@ -185,6 +196,8 @@ else:
 ~ Heart_final
 do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("super_intelligence", "hit")
+do GlobalManager.set_audio_beeps("SI")
+
 super_intelligence: No.
 super_intelligence: Not at all.
 => END_OF_INTELLIGENCE
@@ -192,12 +205,16 @@ super_intelligence: Not at all.
 ~ Mind_final
 do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("super_intelligence", "hit")
+do GlobalManager.set_audio_beeps("SI")
+
 super_intelligence: I am the heart of the city. I am the voice and the eyes.
 => END_OF_INTELLIGENCE
 
 ~ MoralCompass_final
 do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("super_intelligence", "hit")
+do GlobalManager.set_audio_beeps("SI")
+
 super_intelligence: Your death was very much your fault. I don't pity self destruction.
 => END_OF_INTELLIGENCE
 
@@ -207,11 +224,15 @@ super_intelligence: Your death was very much your fault. I don't pity self destr
 
 ~ super_intelligence_wrong_item
 do GlobalManager.play_animation.emit("super_intelligence", "hit")
+do GlobalManager.set_audio_beeps("SI")
+
 super_intelligence: ...
 => END!
 
 
 ~ END_OF_INTELLIGENCE
+do GlobalManager.set_audio_beeps("SI")
+
 
 super_intelligence: Wait
 super_intelligence: Something is happening

@@ -108,6 +108,7 @@
 [ext_resource type="Script" uid="uid://c8mxobln55a5r" path="res://Scenes/SnailScenes/PlayerBlack.gd" id="101_hcvwp"]
 [ext_resource type="AudioStream" uid="uid://d0lsk7odtiwax" path="res://Assets/Audio/meadowAmbient.wav" id="106_dgbbk"]
 [ext_resource type="AudioStream" uid="uid://dqprnk3grci8p" path="res://Assets/Audio/Komiku - Time Flute's place.mp3" id="107_61a84"]
+[ext_resource type="AudioStream" uid="uid://3hftsb15kitg" path="res://Assets/Audio/SpeakingSFX/new/printerVoice1.wav" id="109_xxvhv"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_636k1"]
 radius = 0.6999445
@@ -635,7 +636,7 @@ size = Vector3(121.6543, 36.831604, 1)
 [node name="SnailScene1" type="Node3D" unique_id=46586574]
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1980153873 node_paths=PackedStringArray("camera_controller", "sprite") groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107.728775, 1.739, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.414978, 1.739, 0)
 up_direction = Vector3(0, -1, 0)
 script = ExtResource("1_jo7c2")
 speed = 2.85
@@ -824,7 +825,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.345322, 1.2060804, -0.3711
 shape = SubResource("BoxShape3D_uc4lo")
 
 [node name="CameraTarget" type="Node3D" parent="Camera/CameraZones/CameraZone4" unique_id=1898968558]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.64592, -0.7873173, 204.97868)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.64592, -7.026084, 204.97868)
 
 [node name="Ground and walls" type="Node3D" parent="." unique_id=1854533928]
 transform = Transform3D(31.233, 0, 0, 0, 0.108, 0, 0, 0, 5.789, 0, 0, -1.3380176)
@@ -2944,12 +2945,18 @@ sorting_offset = 4.8
 texture = ExtResource("60_ppto4")
 
 [node name="Sprite3D3" type="Sprite3D" parent="Scene4/scene4Parent" unique_id=299275007]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 14.130989, 4.5893745, -2.4698238)
-sorting_offset = 1.0
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 14.130989, 4.9741125, -2.8547897)
+sorting_offset = -35.779
+texture = ExtResource("61_b2j5u")
+
+[node name="Sprite3D6" type="Sprite3D" parent="Scene4/scene4Parent" unique_id=1357277188]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 14.130989, -13.783564, -2.8547897)
+sorting_offset = -39.034
+flip_v = true
 texture = ExtResource("61_b2j5u")
 
 [node name="HangingSign" type="Node3D" parent="Scene4/scene4Parent" unique_id=538983345]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 30.279625, 5.106926, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 30.279625, 4.88542, 0)
 script = ExtResource("59_dgbbk")
 
 [node name="Sprite3D6" type="Sprite3D" parent="Scene4/scene4Parent/HangingSign" unique_id=284847344]
@@ -3194,11 +3201,12 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_uc4lo")
 autoplay = &"Interlude1"
 
-[node name="TextBox" type="CanvasLayer" parent="." unique_id=1278473177 node_paths=PackedStringArray("text_label", "left_portrait", "right_portrait")]
+[node name="TextBox" type="CanvasLayer" parent="." unique_id=1278473177 node_paths=PackedStringArray("text_label", "left_portrait", "right_portrait", "dialogue_sfx")]
 script = ExtResource("16_uc4lo")
 text_label = NodePath("RichTextLabel")
 left_portrait = NodePath("Panel/TextureRect/portrait1")
 right_portrait = NodePath("Panel/TextureRect/portrait2")
+dialogue_sfx = NodePath("../PostackaVoice")
 char_speed = 0.005
 
 [node name="Panel" type="Panel" parent="TextBox" unique_id=252808106]
@@ -3326,7 +3334,7 @@ volume_db = 5.0
 unit_size = 2.53
 autoplay = true
 
-[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="." unique_id=481869375]
+[node name="InsideMusic" type="AudioStreamPlayer3D" parent="." unique_id=481869375]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.871887, 3.0272884, 0)
 stream = ExtResource("107_61a84")
 volume_db = 50.0
@@ -3411,6 +3419,9 @@ transition_time = 2.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1916474282]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.444336, -0.736969, 0)
 shape = SubResource("BoxShape3D_jftt8")
+
+[node name="PostackaVoice" type="AudioStreamPlayer" parent="." unique_id=1490742136]
+stream = ExtResource("109_xxvhv")
 
 [connection signal="body_entered" from="LetterInteractable/Area3D" to="LetterInteractable" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="LetterInteractable/Area3D" to="LetterInteractable" method="_on_area_3d_body_exited"]

@@ -1388,7 +1388,7 @@ hitstop_duration = 0.029
 hitstop_scale = 0.297
 
 [node name="CoffeeCup" type="Sprite3D" parent="World/Characters/Disposable_worker" unique_id=126945428]
-transform = Transform3D(0.5601482, 0.2150207, 0, -0.2150207, 0.5601482, 0, 0, 0, 0.6, 0.821, 0.099, 0)
+transform = Transform3D(0.56014824, 0.21502078, 0, -0.21502078, 0.56014824, 0, 0, 0, 0.6, 0.821, 0.099, 0)
 sorting_offset = 80.0
 modulate = Color(1, 1, 1, 0)
 texture = ExtResource("2_vyhah")
@@ -2458,7 +2458,6 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="UI Control/CinematicEnd/FirstChromAbb" unique_id=1283194179]
-visible = false
 z_index = 500
 layout_mode = 0
 offset_left = 305.0
@@ -2472,6 +2471,7 @@ text = "SHUTTING DOWN"
 vertical_alignment = 1
 
 [node name="black1" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=764154040]
+visible = false
 offset_left = 779.0
 offset_top = 98.0
 offset_right = 1739.0
@@ -2479,6 +2479,7 @@ offset_bottom = 692.0
 color = Color(0, 0, 0, 1)
 
 [node name="SecondChromAbb" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=1532695417]
+visible = false
 material = ExtResource("54_vuse5")
 offset_left = -79.0
 offset_top = -66.0
@@ -2487,6 +2488,7 @@ offset_bottom = 1158.0
 color = Color(0, 0, 0, 1)
 
 [node name="black2" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=540706663]
+visible = false
 offset_left = -83.0
 offset_top = -71.0
 offset_right = 2077.0
@@ -2494,6 +2496,7 @@ offset_bottom = 1163.0
 color = Color(0, 0, 0, 1)
 
 [node name="automatOffice" type="TextureRect" parent="UI Control/CinematicEnd" unique_id=1638584605]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2503,11 +2506,13 @@ offset_right = 84.0
 offset_bottom = 37.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.32, 1.32)
 pivot_offset = Vector2(986.595, 588.393)
 mouse_filter = 2
 texture = ExtResource("55_s0ebu")
 
 [node name="automatJunkyard" type="TextureRect" parent="UI Control/CinematicEnd" unique_id=259573921]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2517,12 +2522,13 @@ offset_right = 87.0
 offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.935, 0.935)
+scale = Vector2(1.147, 1.147)
 pivot_offset = Vector2(986.595, 588.393)
 mouse_filter = 2
 texture = ExtResource("56_6w012")
 
 [node name="black3" type="ColorRect" parent="UI Control/CinematicEnd" unique_id=1292280055]
+visible = false
 offset_left = -83.0
 offset_top = -71.0
 offset_right = 2077.0

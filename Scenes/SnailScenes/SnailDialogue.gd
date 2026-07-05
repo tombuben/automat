@@ -4,6 +4,10 @@ extends CanvasLayer
 @export var left_portrait: TextureRect
 @export var right_portrait: TextureRect
 
+@export var dialogue_sfx: AudioStreamPlayer
+@export var left_voice: AudioStream
+@export var right_voice: AudioStream
+
 @export var char_speed := 0.02
 
 var lines: Array[String]
@@ -19,6 +23,7 @@ var skip_requested := false
 
 
 func _ready():
+	randomize()
 	hide()
 
 
@@ -60,7 +65,6 @@ func _show_next_line():
 
 	await _type_text(current_text)
 
-	# auto-wait for input after typing finishes
 	skip_requested = false
 
 
@@ -79,10 +83,16 @@ func _update_portraits(i: int):
 		left_portrait.texture = portrait
 		left_portrait.modulate = Color.WHITE
 		right_portrait.modulate = Color(0.5, 0.5, 0.5)
+
+		if left_voice:
+			dialogue_sfx.stream = left_voice
 	else:
 		right_portrait.texture = portrait
 		right_portrait.modulate = Color.WHITE
 		left_portrait.modulate = Color(0.5, 0.5, 0.5)
+
+		if right_voice:
+			dialogue_sfx.stream = right_voice
 
 
 # =====================================================
@@ -95,13 +105,25 @@ func _type_text(text: String):
 
 	for i in range(text.length()):
 
-		# instant skip typing
+		# Instant skip typing
 		if skip_requested:
 			text_label.text = current_text
 			typing = false
 			return
 
-		text_label.text += text[i]
+		var c := text[i]
+		text_label.text += c
+
+		# Only play sounds for letters/numbers
+		if c.is_valid_identifier():
+
+			dialogue_sfx.stop()
+
+			# Small pitch variation
+			dialogue_sfx.pitch_scale = randf_range(0.95, 1.05)
+
+			dialogue_sfx.play()
+
 		await get_tree().create_timer(char_speed).timeout
 
 	typing = false
@@ -129,7 +151,6 @@ func _unhandled_input(event):
 	if not pressed:
 		return
 
-
 	# -------------------------------------------------
 	# If typing → skip to full text
 	# -------------------------------------------------
@@ -138,7 +159,6 @@ func _unhandled_input(event):
 		text_label.text = current_text
 		typing = false
 		return
-
 
 	# -------------------------------------------------
 	# Otherwise → next line
