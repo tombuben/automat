@@ -607,12 +607,29 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_xxvhv"]
+resource_name = "letter_received"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/LetterReceived:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3474161, 1.62, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uc4lo"]
 _data = {
 &"Interlude1": SubResource("Animation_vcgka"),
 &"RESET": SubResource("Animation_bq7wa"),
 &"fade_in": SubResource("Animation_uc4lo"),
-&"fade_out": SubResource("Animation_mybb8")
+&"fade_out": SubResource("Animation_mybb8"),
+&"letter_received": SubResource("Animation_xxvhv")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3xfwl"]
@@ -636,7 +653,7 @@ size = Vector3(121.6543, 36.831604, 1)
 [node name="SnailScene1" type="Node3D" unique_id=46586574]
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1980153873 node_paths=PackedStringArray("camera_controller", "sprite") groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.414978, 1.739, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.208954, 1.739, 0)
 up_direction = Vector3(0, -1, 0)
 script = ExtResource("1_jo7c2")
 speed = 2.85
@@ -3406,6 +3423,38 @@ offset_right = 1918.0
 offset_bottom = 1082.0
 theme_override_font_sizes/font_size = 160
 text = "INTERLUDE I"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LetterReceived" type="ColorRect" parent="Control" unique_id=2091231686]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -11.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="TextureRect" type="TextureRect" parent="Control/LetterReceived" unique_id=976841027]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 398.0
+offset_right = 719.0
+offset_bottom = 636.0
+mouse_filter = 2
+texture = ExtResource("45_r34qq")
+
+[node name="Label" type="Label" parent="Control/LetterReceived" unique_id=292273102]
+layout_mode = 0
+offset_top = 403.0
+offset_right = 1916.0
+offset_bottom = 662.0
+theme_override_font_sizes/font_size = 63
+text = "Letter received!"
 horizontal_alignment = 1
 vertical_alignment = 1
 

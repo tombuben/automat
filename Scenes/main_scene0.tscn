@@ -1388,7 +1388,7 @@ hitstop_duration = 0.029
 hitstop_scale = 0.297
 
 [node name="CoffeeCup" type="Sprite3D" parent="World/Characters/Disposable_worker" unique_id=126945428]
-transform = Transform3D(0.56014824, 0.21502078, 0, -0.21502078, 0.56014824, 0, 0, 0, 0.6, 0.821, 0.099, 0)
+transform = Transform3D(0.5601482, 0.21502076, 0, -0.21502076, 0.5601482, 0, 0, 0, 0.6, 0.821, 0.099, 0)
 sorting_offset = 80.0
 modulate = Color(1, 1, 1, 0)
 texture = ExtResource("2_vyhah")
