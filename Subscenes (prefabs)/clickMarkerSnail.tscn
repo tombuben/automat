@@ -8,5 +8,6 @@ script = ExtResource("1_ndwdm")
 visual = NodePath("Sprite3D")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1020738083]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 sorting_offset = 20.0
 texture = ExtResource("2_6sv5g")
