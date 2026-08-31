@@ -5,44 +5,73 @@
 [ext_resource type="Texture2D" uid="uid://bncp7ank8nt8h" path="res://Assets/ChapterAssets/Snekce1/snailSprite.png" id="2_vncjp"]
 [ext_resource type="Script" uid="uid://b5ylpcrve2f5x" path="res://Scenes/SnailScenes/camera_mover.gd" id="3_hr6cm"]
 [ext_resource type="Texture2D" uid="uid://bkqhclygxjt42" path="res://Assets/concepts/cursorSmaller.png" id="3_icy5s"]
+[ext_resource type="Texture2D" uid="uid://bsspe3cnglexx" path="res://Assets/Snail/idle/snail_idle_0000.png" id="4_22sda"]
+[ext_resource type="Texture2D" uid="uid://vl2mkodd3wlu" path="res://Assets/Snail/idle/snail_idle_0001.png" id="5_qi8to"]
+[ext_resource type="Texture2D" uid="uid://20bu2ivlwko7" path="res://Assets/Snail/idle/snail_idle_0002.png" id="6_ku40t"]
 [ext_resource type="Texture2D" uid="uid://1y7wg77wd30x" path="res://Assets/concepts/cursor.png" id="6_wfnla"]
 [ext_resource type="Script" uid="uid://dddyuvvp33qia" path="res://Scenes/SnailScenes/letter_interactable.gd" id="6_wgho2"]
 [ext_resource type="Texture2D" uid="uid://c5775nbs48ef8" path="res://Assets/Snail/Snekce1/PipeBG/bgSnekce1.png" id="6_x6ry3"]
 [ext_resource type="Texture2D" uid="uid://053kljxh62k3" path="res://Assets/Snail/Snekce1/PipeBG/groundSnekce1.png" id="7_k1qlf"]
+[ext_resource type="Texture2D" uid="uid://bda3xhnb12r7r" path="res://Assets/Snail/idle/snail_idle_0003.png" id="7_mj1ii"]
 [ext_resource type="Texture2D" uid="uid://555kgn22dkss" path="res://ParticleEffects/white_square.png" id="7_s81e8"]
 [ext_resource type="Texture2D" uid="uid://bpk1tufc817iu" path="res://Assets/Snail/Snekce1/PipeBG/bgGrass1.png" id="8_crqpe"]
 [ext_resource type="Texture2D" uid="uid://c6lqbgep87b41" path="res://ParticleEffects/Circle.png" id="8_e3ln3"]
 [ext_resource type="Texture2D" uid="uid://dkomakantjhik" path="res://Assets/Snail/Snekce1/PipeBG/pipe1.png" id="8_k1qlf"]
+[ext_resource type="Texture2D" uid="uid://cs5n14phtblow" path="res://Assets/Snail/idle/snail_idle_0004.png" id="8_vdvun"]
 [ext_resource type="Texture2D" uid="uid://kricv6uqxtna" path="res://Assets/Snail/Snekce1/PipeBG/FrontGrassSnekce1Scene1.png" id="9_5amrc"]
 [ext_resource type="Script" uid="uid://duo5sodfe8l6a" path="res://Scripts/cameraZone.gd" id="9_7nroy"]
 [ext_resource type="Texture2D" uid="uid://dxsvldi62epn3" path="res://Assets/Snail/Snekce1/PipeBG/pipe1Lines.png" id="9_21in6"]
+[ext_resource type="Texture2D" uid="uid://t43hu2lhfyyr" path="res://Assets/Snail/idle/snail_idle_0005.png" id="9_a4was"]
 [ext_resource type="Texture2D" uid="uid://vwjl017qgxuh" path="res://Assets/ChapterAssets/VillageAssets/Flower.png" id="9_lkkxc"]
 [ext_resource type="Texture2D" uid="uid://bs6jfvqqsq4ro" path="res://Assets/Snail/Snekce1/PipeBG/bgGrass2.png" id="9_u3q6u"]
+[ext_resource type="Texture2D" uid="uid://b21t54w8522l3" path="res://Assets/Snail/idle/snail_idle_0006.png" id="10_f4vyv"]
 [ext_resource type="Script" uid="uid://dyibrbve8wim1" path="res://Scenes/SnailScenes/FadeManager.gd" id="10_lkkxc"]
 [ext_resource type="Texture2D" uid="uid://cipbr2uvuh1og" path="res://Assets/Snail/Snekce1/PipeBG/pipe2.png" id="10_u3q6u"]
+[ext_resource type="Texture2D" uid="uid://i5y2ckosre3c" path="res://Assets/Snail/idle/snail_idle_0007.png" id="11_exqud"]
+[ext_resource type="Texture2D" uid="uid://crn6x5gltdgge" path="res://Assets/Snail/idle/snail_idle_0008.png" id="12_l31rq"]
+[ext_resource type="Texture2D" uid="uid://drfa3mr2oingf" path="res://Assets/Snail/idle/snail_idle_0009.png" id="13_6xceo"]
+[ext_resource type="Texture2D" uid="uid://b04qg4r4ftbuk" path="res://Assets/Snail/idle/snail_idle_0010.png" id="14_wgyv0"]
+[ext_resource type="Texture2D" uid="uid://dtwak2hosf1wx" path="res://Assets/Snail/idle/snail_idle_0011.png" id="15_lqh85"]
+[ext_resource type="Texture2D" uid="uid://cexkeayjjlaet" path="res://Assets/Snail/run/snail_run_0000.png" id="16_7ihq1"]
 [ext_resource type="Script" uid="uid://cu45afdhvavd7" path="res://Scripts/TeleportTrigger.gd" id="16_bq7wa"]
 [ext_resource type="Texture2D" uid="uid://l0fwil2ls2r3" path="res://Assets/Snail/Snekce1/PipeBG/plant1.png" id="16_phc63"]
 [ext_resource type="Script" uid="uid://bwod8tay0rfot" path="res://Scenes/SnailScenes/SnailDialogue.gd" id="16_uc4lo"]
+[ext_resource type="Texture2D" uid="uid://q3rmrea0e0xm" path="res://Assets/Snail/run/snail_run_0001.png" id="17_h0npg"]
 [ext_resource type="Texture2D" uid="uid://c3x3xrnkts1vu" path="res://Assets/Snail/Snekce1/PipeBG/plant2.png" id="17_pmqyr"]
 [ext_resource type="Texture2D" uid="uid://b3owfy4qywpmq" path="res://Assets/Snail/TextboxSnail.png" id="17_uc4lo"]
 [ext_resource type="Texture2D" uid="uid://c41iexs2e1d16" path="res://portraits/default1.png" id="18_8wkqm"]
+[ext_resource type="Texture2D" uid="uid://b6ne2gkw8w7gm" path="res://Assets/Snail/run/snail_run_0002.png" id="18_357pa"]
 [ext_resource type="FontFile" uid="uid://cvd5j8d7y4hxx" path="res://Assets/Fonts/WinkySans-VariableFont_wght.ttf" id="18_vcro0"]
 [ext_resource type="Texture2D" uid="uid://damldn1j4ckbp" path="res://Assets/Snail/Snekce1/PipeBG/plant3.png" id="18_x8e2k"]
 [ext_resource type="Texture2D" uid="uid://c6gygofqcv0p8" path="res://Assets/Snail/Snekce1/PipeBG/plant4.png" id="19_d52xi"]
+[ext_resource type="Texture2D" uid="uid://cm3uf8531xs1j" path="res://Assets/Snail/run/snail_run_0003.png" id="19_dlbku"]
 [ext_resource type="Texture2D" uid="uid://cnbn4wmojrc6i" path="res://portraits/default.png" id="19_ixu5i"]
 [ext_resource type="Texture2D" uid="uid://c1ovt5oyp3q4b" path="res://Assets/Snail/Snekce1/PipeBG/plant5.png" id="20_onaq8"]
+[ext_resource type="Texture2D" uid="uid://dt2qc01lscfxl" path="res://Assets/Snail/run/snail_run_0004.png" id="20_x50fg"]
 [ext_resource type="Texture2D" uid="uid://chch74s5hn6p6" path="res://Assets/Snail/Snekce1/PipeBG/plant6.png" id="21_1lf5p"]
 [ext_resource type="Script" uid="uid://bnqkxavwdia6k" path="res://Scenes/SnailScenes/SnailDialogueTrigger.gd" id="21_3xfwl"]
+[ext_resource type="Texture2D" uid="uid://dudoqk26xv08" path="res://Assets/Snail/run/snail_run_0005.png" id="21_x3h46"]
 [ext_resource type="Texture2D" uid="uid://bl4wrlquvwwcg" path="res://Assets/Snail/Snekce1/PipeBG/plant7.png" id="22_al4ku"]
+[ext_resource type="Texture2D" uid="uid://b78v0d1y3aon5" path="res://Assets/Snail/run/snail_run_0006.png" id="22_iwp1n"]
 [ext_resource type="Texture2D" uid="uid://ccax0pnd7d4gf" path="res://Assets/Snail/Snekce1/PipeBG/plant8.png" id="23_3c7cj"]
+[ext_resource type="Texture2D" uid="uid://dw4hgovvrerop" path="res://Assets/Snail/run/snail_run_0007.png" id="23_f2d6s"]
 [ext_resource type="Texture2D" uid="uid://csx3rswm2efy3" path="res://Assets/Snail/Snekce1/PipeBG/plant10.png" id="24_al4ku"]
 [ext_resource type="Shader" uid="uid://c42r6waoujhrg" path="res://Scenes/windSprite3D.gdshader" id="24_qt80e"]
+[ext_resource type="Texture2D" uid="uid://bjwvxmx36rxjp" path="res://Assets/Snail/run/snail_run_0008.png" id="24_xy7fp"]
 [ext_resource type="Texture2D" uid="uid://g6o7attxmd6o" path="res://Assets/Snail/Snekce1/PipeBG/plant11.png" id="25_3c7cj"]
+[ext_resource type="Texture2D" uid="uid://dol0drjtcuem7" path="res://Assets/Snail/run/snail_run_0009.png" id="25_bdgsm"]
 [ext_resource type="Texture2D" uid="uid://bhscpw1ik8ybw" path="res://Assets/Snail/Snekce1/PipeBG/stone6.png" id="26_fy4v7"]
+[ext_resource type="Texture2D" uid="uid://bfxopee5tvls1" path="res://Assets/Snail/stop/snail_stop_0000.png" id="26_p7yjx"]
+[ext_resource type="Texture2D" uid="uid://m0tial4k3ild" path="res://Assets/Snail/stop/snail_stop_0001.png" id="27_2gdcx"]
 [ext_resource type="Texture2D" uid="uid://bc0isr26ttc1f" path="res://Assets/Snail/Snekce1/PipeBG/stone5.png" id="27_xvmsi"]
 [ext_resource type="Texture2D" uid="uid://b678rnih7ycm8" path="res://Assets/Snail/Snekce1/PipeBG/stone4.png" id="28_iucih"]
+[ext_resource type="Texture2D" uid="uid://dpx22qkkf2huc" path="res://Assets/Snail/stop/snail_stop_0002.png" id="28_qdv5r"]
+[ext_resource type="Texture2D" uid="uid://crbvqr1vmvn0y" path="res://Assets/Snail/stop/snail_stop_0003.png" id="29_nylrd"]
 [ext_resource type="Texture2D" uid="uid://ss0augraj5ci" path="res://Assets/Snail/Snekce1/PipeBG/stone3.png" id="29_qt80e"]
+[ext_resource type="Texture2D" uid="uid://bqij66jyxigmi" path="res://Assets/Snail/stop/snail_stop_0004.png" id="30_dnli2"]
 [ext_resource type="Texture2D" uid="uid://bmadi55nr4j6j" path="res://Assets/Snail/Snekce1/PipeBG/stone2.png" id="30_xvmsi"]
+[ext_resource type="Texture2D" uid="uid://b8y0mktyh5rrk" path="res://Assets/Snail/stop/snail_stop_0005.png" id="31_j0pdk"]
+[ext_resource type="Texture2D" uid="uid://b68jdwmuquvr8" path="res://Assets/Snail/stop/snail_stop_0006.png" id="32_40fpg"]
 [ext_resource type="Texture2D" uid="uid://b8tnx5d3nxk2a" path="res://Assets/Snail/Snekce1/PostOfficeBack/boxes3.png" id="34_1f6dt"]
 [ext_resource type="Texture2D" uid="uid://bm35h8pmmu0k2" path="res://Assets/Snail/Snekce1/PostOfficeBack/boxes2.png" id="35_exnfy"]
 [ext_resource type="Texture2D" uid="uid://dfojigkwukiqb" path="res://Assets/Snail/Snekce1/PostOfficeBack/boxes1.png" id="36_atwsc"]
@@ -104,11 +133,114 @@
 [ext_resource type="Script" uid="uid://cqpeaxqy0a3oj" path="res://Scenes/SnailScenes/TrimeshCollision.gd" id="95_crlph"]
 [ext_resource type="Script" uid="uid://c1eaiskguh6ym" path="res://Scenes/SnailScenes/load_next_scene_area.gd" id="98_qetl3"]
 [ext_resource type="Script" uid="uid://dw2pc8caq7wxj" path="res://Scenes/SnailScenes/audioZone.gd" id="99_58jgl"]
-[ext_resource type="AudioStream" uid="uid://nl8it6a6rkcb" path="res://Assets/Audio/430869__anzaticus1__spring-sleet-song-by-james-marlowe.wav" id="100_74oad"]
 [ext_resource type="Script" uid="uid://c8mxobln55a5r" path="res://Scenes/SnailScenes/PlayerBlack.gd" id="101_hcvwp"]
 [ext_resource type="AudioStream" uid="uid://d0lsk7odtiwax" path="res://Assets/Audio/meadowAmbient.wav" id="106_dgbbk"]
-[ext_resource type="AudioStream" uid="uid://dqprnk3grci8p" path="res://Assets/Audio/Komiku - Time Flute's place.mp3" id="107_61a84"]
 [ext_resource type="AudioStream" uid="uid://3hftsb15kitg" path="res://Assets/Audio/SpeakingSFX/new/printerVoice1.wav" id="109_xxvhv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fyslw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_22sda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qi8to")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ku40t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mj1ii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vdvun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_a4was")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_f4vyv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_exqud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_l31rq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_6xceo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_wgyv0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_lqh85")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_7ihq1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_h0npg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_357pa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_dlbku")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_x50fg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_x3h46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_iwp1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_f2d6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_xy7fp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_bdgsm")
+}],
+"loop": true,
+"name": &"run",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_p7yjx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_2gdcx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_qdv5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_nylrd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_dnli2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_j0pdk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_40fpg")
+}],
+"loop": false,
+"name": &"stop",
+"speed": 15.0
+}]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_636k1"]
 radius = 0.6999445
@@ -660,14 +792,24 @@ speed = 2.85
 acceleration = 5.0
 gravity = 7.0
 camera_controller = NodePath("../Camera/CameraController")
-sprite = NodePath("Sprite3D")
+sprite = NodePath("AnimatedSprite3D")
 click_marker_scene = ExtResource("2_hcvwp")
 custom_cursor = ExtResource("3_icy5s")
 
 [node name="Visual" type="Node3D" parent="Player" unique_id=1316322353]
 
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player" unique_id=1194921531]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.33389366, 0)
+sorting_offset = 15.0
+flip_h = true
+sprite_frames = SubResource("SpriteFrames_fyslw")
+animation = &"stop"
+frame = 6
+frame_progress = 1.0
+
 [node name="Sprite3D" type="Sprite3D" parent="Player" unique_id=1963431825]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0020000339, 0.3189125, 0)
+visible = false
 sorting_offset = 15.0
 pixel_size = 0.0095
 texture = ExtResource("2_vncjp")
@@ -3119,7 +3261,7 @@ sorting_offset = 70.0
 texture = ExtResource("75_7ck46")
 
 [node name="grounds" type="Sprite3D" parent="Scene9" unique_id=1506782864]
-transform = Transform3D(5.5, 0, 0, 0, 5.5, 0, 0, 0, 5.5, 10.059723, -15.008754, 4.902828)
+transform = Transform3D(5.5, 0, 0, 0, 5.5, 0, 0, 0, 5.5, 12.391205, -15.008754, 4.902828)
 sorting_offset = 75.0
 modulate = Color(0.5375, 0.5375, 0.5375, 1)
 texture = ExtResource("74_svfwo")
@@ -3131,7 +3273,7 @@ material_override = SubResource("ShaderMaterial_vcgka")
 texture = ExtResource("77_7ck46")
 
 [node name="FrontGroundGrass2" type="Sprite3D" parent="Scene9" unique_id=319211741]
-transform = Transform3D(6.4, 0, 0, 0, 6.4, 0, 0, 0, 6.4, 10.026688, -37.35138, 9.902044)
+transform = Transform3D(6.4, 0, 0, 0, 6.4, 0, 0, 0, 6.4, 11.526199, -37.35138, 9.902044)
 sorting_offset = 95.0
 material_override = SubResource("ShaderMaterial_hcvwp")
 texture = ExtResource("78_mwiwq")
@@ -3329,7 +3471,6 @@ shape = SubResource("BoxShape3D_58jgl")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="AudioZone(Song)" unique_id=1696002541]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.92772, 2.9003906, 0)
-stream = ExtResource("100_74oad")
 volume_db = 12.0
 unit_size = 10.52
 max_db = 4.943
@@ -3353,12 +3494,12 @@ autoplay = true
 
 [node name="InsideMusic" type="AudioStreamPlayer3D" parent="." unique_id=481869375]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.871887, 3.0272884, 0)
-stream = ExtResource("107_61a84")
 volume_db = 50.0
 unit_size = 4.85
 autoplay = true
 
 [node name="Control" type="Control" parent="." unique_id=262135660]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -3398,6 +3539,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Interlude I" type="Control" parent="Control" unique_id=40430082]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
