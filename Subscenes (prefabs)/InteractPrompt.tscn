@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bvyi4tq6eos2h"]
+
+[ext_resource type="Script" uid="uid://w842cr4k3wk1" path="res://Subscenes (prefabs)/interactPrompt.gd" id="1_0je2m"]
+[ext_resource type="Texture2D" uid="uid://c6iickcdokgih" path="res://Assets/concepts/cogWheel1.png" id="2_e4iqx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_km7dx"]
+
+[node name="InteractPrompt" type="Node3D" unique_id=918776169]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=884071832]
+script = ExtResource("1_0je2m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2117796799]
+shape = SubResource("BoxShape3D_km7dx")
+
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D" unique_id=1447935044]
+texture = ExtResource("2_e4iqx")

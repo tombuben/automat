@@ -7,8 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bsspe3cnglexx" path="res://Assets/Snail/idle/snail_idle_0000.png" id="4_22sda"]
 [ext_resource type="Texture2D" uid="uid://vl2mkodd3wlu" path="res://Assets/Snail/idle/snail_idle_0001.png" id="5_qi8to"]
 [ext_resource type="Texture2D" uid="uid://20bu2ivlwko7" path="res://Assets/Snail/idle/snail_idle_0002.png" id="6_ku40t"]
-[ext_resource type="Texture2D" uid="uid://1y7wg77wd30x" path="res://Assets/concepts/cursor.png" id="6_wfnla"]
-[ext_resource type="Script" uid="uid://dddyuvvp33qia" path="res://Scenes/SnailScenes/letter_interactable.gd" id="6_wgho2"]
 [ext_resource type="Texture2D" uid="uid://c5775nbs48ef8" path="res://Assets/Snail/Snekce1/PipeBG/bgSnekce1.png" id="6_x6ry3"]
 [ext_resource type="Texture2D" uid="uid://053kljxh62k3" path="res://Assets/Snail/Snekce1/PipeBG/groundSnekce1.png" id="7_k1qlf"]
 [ext_resource type="Texture2D" uid="uid://bda3xhnb12r7r" path="res://Assets/Snail/idle/snail_idle_0003.png" id="7_mj1ii"]
@@ -37,7 +35,6 @@
 [ext_resource type="Script" uid="uid://bwod8tay0rfot" path="res://Scenes/SnailScenes/SnailDialogue.gd" id="16_uc4lo"]
 [ext_resource type="Texture2D" uid="uid://q3rmrea0e0xm" path="res://Assets/Snail/run/snail_run_0001.png" id="17_h0npg"]
 [ext_resource type="Texture2D" uid="uid://c3x3xrnkts1vu" path="res://Assets/Snail/Snekce1/PipeBG/plant2.png" id="17_pmqyr"]
-[ext_resource type="Texture2D" uid="uid://b3owfy4qywpmq" path="res://Assets/Snail/TextboxSnail.png" id="17_uc4lo"]
 [ext_resource type="Texture2D" uid="uid://c41iexs2e1d16" path="res://portraits/default1.png" id="18_8wkqm"]
 [ext_resource type="Texture2D" uid="uid://b6ne2gkw8w7gm" path="res://Assets/Snail/run/snail_run_0002.png" id="18_357pa"]
 [ext_resource type="FontFile" uid="uid://cvd5j8d7y4hxx" path="res://Assets/Fonts/WinkySans-VariableFont_wght.ttf" id="18_vcro0"]
@@ -152,6 +149,9 @@
 [ext_resource type="Texture2D" uid="uid://c15hgj6s4nunc" path="res://Assets/Characters/wanderer/wandererPlaying_0012.png" id="133_2gdcx"]
 [ext_resource type="Texture2D" uid="uid://jw0jk6e4epy4" path="res://Assets/Characters/wanderer/wandererPlaying_0013.png" id="134_qdv5r"]
 [ext_resource type="Texture2D" uid="uid://dqcfbcjlo8l6u" path="res://Assets/Characters/wanderer/wandererPlaying_0014.png" id="135_nylrd"]
+[ext_resource type="Texture2D" uid="uid://rgndj2mirlll" path="res://Assets/concepts/textboxTex.png" id="142_7ihq1"]
+[ext_resource type="Texture2D" uid="uid://dsux6doyqca4c" path="res://Assets/ChapterAssets/Textbox/textBoxTriangle.png" id="143_h0npg"]
+[ext_resource type="Texture2D" uid="uid://hyes0ystr20b" path="res://Assets/snekceBorder.png" id="152_lqh85"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fyslw"]
 animations = [{
@@ -725,9 +725,6 @@ shader_parameter/sway_speed = 0.5
 shader_parameter/sway_frequency = 0.8
 shader_parameter/random_enabled = 0.0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wfnla"]
-size = Vector3(2.7109375, 1, 3.136963)
-
 [sub_resource type="Animation" id="Animation_vcgka"]
 resource_name = "Interlude1"
 length = 5.0
@@ -829,7 +826,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3xfwl"]
-size = Vector3(2.2270508, 3.3498535, 4.7402344)
+size = Vector3(3.0976563, 4.048462, 4.7402344)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8wkqm"]
 size = Vector3(1.8786621, 8.786377, 7.0236816)
@@ -1614,6 +1611,23 @@ sorting_offset = 32.0
 modulate = Color(0.091796875, 0.38152298, 0.5875, 0.61960787)
 texture = ExtResource("36_mtyxg")
 
+[node name="pipe2" type="Sprite3D" parent="Scenes/Scene1" unique_id=1977306927]
+transform = Transform3D(0.671, 0, 0, 0, 0.671, 0, 0, 0, 0.671, 1.4253616, 2.4804602, 0)
+sorting_offset = 50.0
+modulate = Color(0.011999818, 0, 0.72, 0.50980395)
+texture = ExtResource("36_mtyxg")
+
+[node name="pipe2" type="Sprite3D" parent="Scenes/Scene1/pipe2" unique_id=1379044109]
+sorting_offset = 32.0
+texture = ExtResource("9_21in6")
+
+[node name="pipe3" type="Sprite3D" parent="Scenes/Scene1/pipe2" unique_id=1236977201]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04534769, 0)
+visible = false
+sorting_offset = 32.0
+modulate = Color(0.091796875, 0.38152298, 0.5875, 0.61960787)
+texture = ExtResource("36_mtyxg")
+
 [node name="ForegroundPlants" type="Sprite3D" parent="Scenes/Scene1" unique_id=1592995672]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.6738739, -0.5594257, 0)
 sorting_offset = 30.0
@@ -1904,7 +1918,7 @@ modulate = Color(0.903125, 0.6337786, 0.23424803, 1)
 texture = ExtResource("40_ruwvp")
 
 [node name="roof" type="Sprite3D" parent="Scenes/Scene2" unique_id=1210323861]
-transform = Transform3D(1.232, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.394875, 0)
+transform = Transform3D(1.232, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.3364315, 0)
 sorting_offset = 5.0
 modulate = Color(0.484375, 0.484375, 0.484375, 1)
 texture = ExtResource("38_3iyww")
@@ -2250,7 +2264,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.71323586, 6.143947, 0)
 texture = ExtResource("34_1f6dt")
 
 [node name="boxesBG2" type="Sprite3D" parent="Scenes/Scene6" unique_id=608258247]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9210176, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.055358, 0)
 sorting_offset = 1.0
 texture = ExtResource("35_exnfy")
 
@@ -2331,16 +2345,21 @@ texture = ExtResource("41_54n5v")
 
 [node name="roof3" type="Sprite3D" parent="Scenes/Scene6" unique_id=1059289577]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.419981, 0)
-sorting_offset = 4.0
+sorting_offset = -2.329
 texture = ExtResource("42_r34qq")
 
 [node name="pot" type="Sprite3D" parent="Scenes/Scene6" unique_id=1442417289]
-transform = Transform3D(1.065, 0, 0, 0, 1.065, 0, 0, 0, 1.065, 6.602276, 0.30056334, 0)
+transform = Transform3D(0.891, 0, 0, 0, 0.891, 0, 0, 0, 0.891, 3.5747738, -0.009868145, 0)
 sorting_offset = 12.0
 texture = ExtResource("52_mmbjx")
 
 [node name="pot3" type="Sprite3D" parent="Scenes/Scene6" unique_id=1808233446]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.494537, 5.5292, 0)
+sorting_offset = 12.0
+texture = ExtResource("52_mmbjx")
+
+[node name="pot4" type="Sprite3D" parent="Scenes/Scene6" unique_id=1923694747]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 57.808693, 1.7129397, 0)
 sorting_offset = 12.0
 texture = ExtResource("52_mmbjx")
 
@@ -2356,7 +2375,6 @@ texture = ExtResource("28_iucih")
 
 [node name="stone6" type="Sprite3D" parent="Scenes/Scene6" unique_id=152102229]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.346367, -1.4588618, 0)
-visible = false
 sorting_offset = 12.0
 texture = ExtResource("29_qt80e")
 
@@ -2406,7 +2424,7 @@ sorting_offset = 11.0
 texture = ExtResource("56_smn8j")
 
 [node name="SwingingPlant2" type="Node3D" parent="Scenes/Scene6" unique_id=1620689493]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1545677, 9.724346, 0)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4.1545677, 9.724346, 0)
 script = ExtResource("59_dgbbk")
 
 [node name="plant7" type="Sprite3D" parent="Scenes/Scene6/SwingingPlant2" unique_id=1593753046]
@@ -2499,7 +2517,7 @@ modulate = Color(0.80784315, 0.7058824, 0.58431375, 1)
 texture = ExtResource("7_s81e8")
 
 [node name="boxesBG" type="Sprite3D" parent="Scenes/Scene7" unique_id=841235991]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.590787, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.11252, 2.590787, 0)
 texture = ExtResource("34_1f6dt")
 
 [node name="boxesBG2" type="Sprite3D" parent="Scenes/Scene7" unique_id=658587998]
@@ -2507,13 +2525,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7245188, 0)
 sorting_offset = 1.0
 texture = ExtResource("35_exnfy")
 
-[node name="boxesBG3" type="Sprite3D" parent="Scenes/Scene7" unique_id=1330801764]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6772537, 0)
+[node name="boxesBG5" type="Sprite3D" parent="Scenes/Scene7" unique_id=110781833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.151873, 0.7245188, 0)
+sorting_offset = 1.0
+texture = ExtResource("35_exnfy")
+
+[node name="boxesBG6" type="Sprite3D" parent="Scenes/Scene7" unique_id=1348694754]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.571646, 0.5315199, 0)
 sorting_offset = 2.0
 texture = ExtResource("36_atwsc")
 
 [node name="boxesBG4" type="Sprite3D" parent="Scenes/Scene7" unique_id=736491854]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8092003, 0.6772537, 0)
+sorting_offset = 8.0
+texture = ExtResource("37_3iyww")
+
+[node name="boxesBG7" type="Sprite3D" parent="Scenes/Scene7" unique_id=1033976323]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.368448, 0.7417569, 0)
 sorting_offset = 8.0
 texture = ExtResource("37_3iyww")
 
@@ -2543,7 +2571,7 @@ modulate = Color(0.903125, 0.6337786, 0.23424803, 1)
 texture = ExtResource("40_ruwvp")
 
 [node name="roof" type="Sprite3D" parent="Scenes/Scene7" unique_id=1336977861]
-transform = Transform3D(1.58, 0, 0, 0, 1, 0, 0, 0, 1, 3.5267868, 10.119001, 0)
+transform = Transform3D(1.718, 0, 0, 0, 1, 0, 0, 0, 1, 5.8645706, 11.0181465, 0)
 sorting_offset = 4.0
 modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
 texture = ExtResource("38_3iyww")
@@ -2559,29 +2587,6 @@ sorting_offset = 33.0
 modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
 texture = ExtResource("40_3s0x3")
 
-[node name="ForegroundPipes" type="Sprite3D" parent="Scenes/Scene7" unique_id=1936271085]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.357996, 2.5048084, 0)
-sorting_offset = 34.0
-texture = ExtResource("41_0vdtn")
-
-[node name="ForegroundPipes2" type="Sprite3D" parent="Scenes/Scene7/ForegroundPipes" unique_id=1282856277]
-transform = Transform3D(5.133, 0, 0, 0, 19.524, 0, 0, 0, 1, -0.59033585, -0.13866115, 0)
-sorting_offset = 30.0
-modulate = Color(0.087499976, 0.087499976, 0.087499976, 0.3372549)
-texture = ExtResource("7_s81e8")
-
-[node name="ForegroundPipes3" type="Sprite3D" parent="Scenes/Scene7/ForegroundPipes" unique_id=1229843249]
-transform = Transform3D(3.937, 0, 0, 0, 19.524, 0, 0, 0, 1, -10.418842, -0.13866115, 0)
-sorting_offset = 30.0
-modulate = Color(0.087499976, 0.087499976, 0.087499976, 0.3372549)
-texture = ExtResource("7_s81e8")
-
-[node name="ForegroundPipes4" type="Sprite3D" parent="Scenes/Scene7/ForegroundPipes" unique_id=922922820]
-transform = Transform3D(4.039, 0, 0, 0, 19.524, 0, 0, 0, 1, 9.266415, -0.13866115, 0)
-sorting_offset = 30.0
-modulate = Color(0.087499976, 0.087499976, 0.087499976, 0.3372549)
-texture = ExtResource("7_s81e8")
-
 [node name="Pipes" type="Sprite3D" parent="Scenes/Scene7" unique_id=664369079]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.2555447, 0)
 sorting_offset = 33.0
@@ -2590,17 +2595,6 @@ texture = ExtResource("42_mxc2x")
 
 [node name="Pipes2" type="Sprite3D" parent="Scenes/Scene7/Pipes" unique_id=750293546]
 sorting_offset = 9.739
-texture = ExtResource("43_eqvne")
-
-[node name="Pipes2" type="Sprite3D" parent="Scenes/Scene7" unique_id=1460953570]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.501946, 0)
-sorting_offset = 33.0
-flip_v = true
-modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
-texture = ExtResource("42_mxc2x")
-
-[node name="Pipes2" type="Sprite3D" parent="Scenes/Scene7/Pipes2" unique_id=692872621]
-sorting_offset = 30.0
 texture = ExtResource("43_eqvne")
 
 [node name="Scene3" type="Node3D" parent="Scenes" unique_id=696342837]
@@ -2617,17 +2611,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8131523, 3.6393566, 0)
 texture = ExtResource("34_1f6dt")
 
 [node name="boxesBG7" type="Sprite3D" parent="Scenes/Scene3" unique_id=552093512]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6063995, 1.8264279, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5069504, 1.5989337, 0)
 texture = ExtResource("34_1f6dt")
 
 [node name="boxesBG2" type="Sprite3D" parent="Scenes/Scene3" unique_id=1182110947]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4682827, 0)
-sorting_offset = 1.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.760946, 8.320965, 0)
+sorting_offset = 1.645
 texture = ExtResource("35_exnfy")
 
 [node name="boxesBG3" type="Sprite3D" parent="Scenes/Scene3" unique_id=433399416]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6772537, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.535143, -0.6438761, 0)
 sorting_offset = 2.0
+modulate = Color(0.88125, 0.88125, 0.88125, 1)
 texture = ExtResource("36_atwsc")
 
 [node name="boxesBG4" type="Sprite3D" parent="Scenes/Scene3" unique_id=1274066308]
@@ -2652,12 +2647,12 @@ sorting_offset = 11.0
 texture = ExtResource("54_6iq8j")
 
 [node name="Plant2" type="Sprite3D" parent="Scenes/Scene3" unique_id=22746162]
-transform = Transform3D(1.16, 0, 0, 0, 1.16, 0, 0, 0, 1.16, 7.816906, 1.0712981, 0)
+transform = Transform3D(0.979, 0, 0, 0, 0.979, 0, 0, 0, 0.979, 7.145172, 2.4932036, 0)
 sorting_offset = 11.0
 texture = ExtResource("52_mmbjx")
 
 [node name="SwingingPlant4" type="Node3D" parent="Scenes/Scene3" unique_id=90651680]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7583394, 10.892809, 0)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -7.7583394, 10.892809, 0)
 script = ExtResource("59_dgbbk")
 
 [node name="Plant3" type="Sprite3D" parent="Scenes/Scene3/SwingingPlant4" unique_id=843181610]
@@ -2671,7 +2666,7 @@ sorting_offset = 5.0
 texture = ExtResource("56_smn8j")
 
 [node name="SwingingPlant5" type="Node3D" parent="Scenes/Scene3" unique_id=822840825]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9875894, 11.598782, 0)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4.9875894, 11.598782, 0)
 script = ExtResource("59_dgbbk")
 
 [node name="Plant4" type="Sprite3D" parent="Scenes/Scene3/SwingingPlant5" unique_id=1951217253]
@@ -2685,7 +2680,7 @@ sorting_offset = 5.0
 texture = ExtResource("56_smn8j")
 
 [node name="SwingingPlant7" type="Node3D" parent="Scenes/Scene3" unique_id=1170826035]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.396691, 11.621317, 0)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 10.396691, 11.621317, 0)
 script = ExtResource("59_dgbbk")
 
 [node name="Plant5" type="Sprite3D" parent="Scenes/Scene3/SwingingPlant7" unique_id=1661407754]
@@ -2699,7 +2694,7 @@ sorting_offset = 5.0
 texture = ExtResource("56_smn8j")
 
 [node name="SwingingPlant8" type="Node3D" parent="Scenes/Scene3" unique_id=185310400]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.71518, 11.336159, 0)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 6.71518, 11.336159, 0)
 script = ExtResource("59_dgbbk")
 
 [node name="Plant8" type="Sprite3D" parent="Scenes/Scene3/SwingingPlant8" unique_id=774538258]
@@ -2713,7 +2708,7 @@ sorting_offset = 5.0
 texture = ExtResource("56_smn8j")
 
 [node name="SwiningPlant6" type="Node3D" parent="Scenes/Scene3" unique_id=1887054381]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1599126, 11.047781, 0)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3.1599126, 11.047781, 0)
 script = ExtResource("59_dgbbk")
 
 [node name="Plant6" type="Sprite3D" parent="Scenes/Scene3/SwiningPlant6" unique_id=443601127]
@@ -2722,7 +2717,7 @@ sorting_offset = 3.0
 texture = ExtResource("55_6iq8j")
 
 [node name="light" type="Sprite3D" parent="Scenes/Scene3" unique_id=825880339]
-transform = Transform3D(1.341, 0, 0, 0, 1.131, 0, 0, 0, 1, 0.14516449, 4.692966, 0)
+transform = Transform3D(2.632, 0, 0, 0, 1.131, 0, 0, 0, 1, 1.0880623, 4.692966, 0)
 sorting_offset = 6.966
 modulate = Color(1, 0.7935, 0.41000003, 0.6509804)
 texture = ExtResource("40_ruwvp")
@@ -2766,7 +2761,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.56735, 10.768261, 0)
 script = ExtResource("59_dgbbk")
 
 [node name="Plant7" type="Sprite3D" parent="Scenes/Scene3/SwingingPlant3" unique_id=412562910]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13097572, -1.7999992, 0)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 1, -0.13097572, -1.7999992, 0)
 sorting_offset = 2.0
 texture = ExtResource("55_6iq8j")
 
@@ -2823,13 +2818,14 @@ modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
 texture = ExtResource("50_f5xwj")
 
 [node name="Table" type="Sprite3D" parent="Scenes/Scene3" unique_id=873782782]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28103638, 0)
-sorting_offset = 10.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0529313, 0)
+sorting_offset = 5.817
+modulate = Color(0.559375, 0.559375, 0.559375, 1)
 texture = ExtResource("51_t6w52")
 
 [node name="Postacka" type="Sprite3D" parent="Scenes/Scene3" unique_id=386465563]
-transform = Transform3D(1, 0, 0, 0, 0.98, 0, 0, 0, 1, 0, 3.567943, 0)
-sorting_offset = 9.0
+transform = Transform3D(1, 0, 0, 0, 0.98, 0, 0, 0, 1, 0, 2.4091697, 0)
+sorting_offset = 5.513
 texture = ExtResource("52_t6w52")
 
 [node name="eyes" type="Sprite3D" parent="Scenes/Scene3/Postacka" unique_id=674710505]
@@ -3061,42 +3057,6 @@ sorting_offset = 167.64
 material_override = SubResource("ShaderMaterial_jftt8")
 texture = ExtResource("84_qai4r")
 
-[node name="LetterInteractable" type="Node3D" parent="." unique_id=1204034309 node_paths=PackedStringArray("popup", "bubble", "text")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.790993, 30.710905, 2.3841858e-07)
-visible = false
-script = ExtResource("6_wgho2")
-popup = NodePath("Popup")
-bubble = NodePath("Popup/Sprite3D")
-text = NodePath("Popup/Label3D")
-speed = 6.0
-text_delay = 6.082
-text_softness = 6.0
-
-[node name="Area3D" type="Area3D" parent="LetterInteractable" unique_id=219065239]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LetterInteractable/Area3D" unique_id=1106197530]
-shape = SubResource("BoxShape3D_wfnla")
-debug_color = Color(0, 11.708403, 13.469126, 0.41960785)
-
-[node name="Sprite3D" type="Sprite3D" parent="LetterInteractable" unique_id=1700118210]
-transform = Transform3D(1, 0, 0, 0, 0.17880218, 0.98388505, 0, -0.98388505, 0.17880218, 6.945471, -0.49882483, 0)
-texture = ExtResource("6_wfnla")
-
-[node name="Popup" type="Node3D" parent="LetterInteractable" unique_id=2091985224]
-
-[node name="Sprite3D" type="Sprite3D" parent="LetterInteractable/Popup" unique_id=1527011646]
-transform = Transform3D(1.1194196, 0, 0, 0, 1.1943277, 0, 0, 0, 1, 0, 1.3535378, 0)
-texture = ExtResource("8_e3ln3")
-
-[node name="Label3D" type="Label3D" parent="LetterInteractable/Popup" unique_id=1721836620]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3778374, 0.07966283)
-no_depth_test = true
-modulate = Color(0, 0, 0, 1)
-outline_modulate = Color(0, 0, 0, 0)
-text = "What is a a circles favourite food? Steak"
-font_size = 39
-autowrap_mode = 2
-
 [node name="fade_manager" type="CanvasLayer" parent="." unique_id=164451199]
 script = ExtResource("10_lkkxc")
 
@@ -3117,30 +3077,49 @@ autoplay = &"Interlude1"
 
 [node name="TextBox" type="CanvasLayer" parent="." unique_id=1278473177 node_paths=PackedStringArray("text_label", "left_portrait", "right_portrait", "dialogue_sfx")]
 script = ExtResource("16_uc4lo")
-text_label = NodePath("TextureRect/RichTextLabel")
-left_portrait = NodePath("TextureRect/portrait1")
-right_portrait = NodePath("TextureRect/portrait2")
+text_label = NodePath("Control/TextureRect/RichTextLabel")
+left_portrait = NodePath("Control/TextureRect/portrait1")
+right_portrait = NodePath("Control/TextureRect/portrait2")
 dialogue_sfx = NodePath("../PostackaVoice")
 left_voice = ExtResource("126_0er7f")
 char_speed = 0.007
 
-[node name="TextureRect" type="TextureRect" parent="TextBox" unique_id=1413041745]
+[node name="Control" type="Control" parent="TextBox" unique_id=1929807268]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="TextBox/Control" unique_id=1413041745]
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.28800002
-anchor_top = 0.028
-anchor_right = 0.71000004
-anchor_bottom = 0.275
-offset_left = 0.039978027
-offset_top = -0.24000168
-offset_right = 809.7999
-offset_bottom = 267.0
+anchor_left = 0.321
+anchor_top = 0.128
+anchor_right = 0.609
+anchor_bottom = 0.312
+offset_left = 61.679993
+offset_top = 20.759995
+offset_right = 614.40576
+offset_bottom = 220.03998
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 mouse_filter = 2
-texture = ExtResource("17_uc4lo")
+texture = ExtResource("142_7ihq1")
 
-[node name="portrait1" type="TextureRect" parent="TextBox/TextureRect" unique_id=1338766853]
+[node name="TextureRect" type="TextureRect" parent="TextBox/Control/TextureRect" unique_id=1975328834]
+z_index = -337
+layout_mode = 0
+offset_left = 486.0
+offset_top = 348.0
+offset_right = 666.0
+offset_bottom = 528.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("143_h0npg")
+
+[node name="portrait1" type="TextureRect" parent="TextBox/Control/TextureRect" unique_id=1338766853]
 visible = false
 modulate = Color(0.42812502, 0.42812502, 0.42812502, 1)
 layout_mode = 0
@@ -3151,7 +3130,7 @@ offset_bottom = 342.85712
 scale = Vector2(1.239, 1.239)
 texture = ExtResource("18_8wkqm")
 
-[node name="portrait2" type="TextureRect" parent="TextBox/TextureRect" unique_id=449252067]
+[node name="portrait2" type="TextureRect" parent="TextBox/Control/TextureRect" unique_id=449252067]
 visible = false
 modulate = Color(0.42812502, 0.42812502, 0.42812502, 1)
 layout_mode = 0
@@ -3162,19 +3141,20 @@ offset_bottom = 342.85712
 scale = Vector2(1.239, 1.239)
 texture = ExtResource("18_8wkqm")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="TextBox/TextureRect" unique_id=1185643325]
+[node name="RichTextLabel" type="RichTextLabel" parent="TextBox/Control/TextureRect" unique_id=1185643325]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.076000005
 anchor_top = 0.19500001
-anchor_right = 0.90900004
+anchor_right = 0.91300005
 anchor_bottom = 0.823
 offset_left = 0.26091003
 offset_top = 0.016746521
-offset_right = 0.46740723
+offset_right = 0.44909668
 offset_bottom = -0.14337158
+theme_override_colors/default_color = Color(0.934375, 0.934375, 0.81757814, 1)
 theme_override_fonts/normal_font = ExtResource("18_vcro0")
-theme_override_font_sizes/normal_font_size = 68
+theme_override_font_sizes/normal_font_size = 60
 text = "Snakes can't blush"
 tab_size = 24
 horizontal_alignment = 1
@@ -3189,7 +3169,7 @@ dialogue_lines = Array[String](["!", "OH! It's you again", "Please don't tell an
 speaker_portraits = Array[Texture2D]([ExtResource("19_ixu5i")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TextboxTriggerArea" unique_id=624746928]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6135254, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6135254, -0.3493042, 0)
 shape = SubResource("BoxShape3D_3xfwl")
 
 [node name="TeleportArea1" type="Area3D" parent="." unique_id=37767665 node_paths=PackedStringArray("target_position", "fade_manager", "player", "camera")]
@@ -3372,5 +3352,17 @@ shape = SubResource("BoxShape3D_jftt8")
 [node name="PostackaVoice" type="AudioStreamPlayer" parent="." unique_id=1490742136]
 stream = ExtResource("109_xxvhv")
 
-[connection signal="body_entered" from="LetterInteractable/Area3D" to="LetterInteractable" method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="LetterInteractable/Area3D" to="LetterInteractable" method="_on_area_3d_body_exited"]
+[node name="Control2" type="Control" parent="." unique_id=1329901172]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control2" unique_id=1725396707]
+layout_mode = 0
+offset_right = 3840.0
+offset_bottom = 2160.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("152_lqh85")
