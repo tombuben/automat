@@ -41,7 +41,6 @@
 [ext_resource type="Texture2D" uid="uid://damldn1j4ckbp" path="res://Assets/Snail/Snekce1/PipeBG/plant3.png" id="18_x8e2k"]
 [ext_resource type="Texture2D" uid="uid://c6gygofqcv0p8" path="res://Assets/Snail/Snekce1/PipeBG/plant4.png" id="19_d52xi"]
 [ext_resource type="Texture2D" uid="uid://cm3uf8531xs1j" path="res://Assets/Snail/run/snail_run_0003.png" id="19_dlbku"]
-[ext_resource type="Texture2D" uid="uid://cnbn4wmojrc6i" path="res://portraits/default.png" id="19_ixu5i"]
 [ext_resource type="Texture2D" uid="uid://c1ovt5oyp3q4b" path="res://Assets/Snail/Snekce1/PipeBG/plant5.png" id="20_onaq8"]
 [ext_resource type="Texture2D" uid="uid://dt2qc01lscfxl" path="res://Assets/Snail/run/snail_run_0004.png" id="20_x50fg"]
 [ext_resource type="Texture2D" uid="uid://chch74s5hn6p6" path="res://Assets/Snail/Snekce1/PipeBG/plant6.png" id="21_1lf5p"]
@@ -138,7 +137,6 @@
 [ext_resource type="Texture2D" uid="uid://df2aq0pk35qmv" path="res://Assets/Characters/wanderer/wandererPlaying_0002.png" id="123_h0npg"]
 [ext_resource type="Texture2D" uid="uid://dv0uyftnv3mc2" path="res://Assets/Characters/wanderer/wandererPlaying_0003.png" id="124_357pa"]
 [ext_resource type="Texture2D" uid="uid://117n8la185pa" path="res://Assets/Characters/wanderer/wandererPlaying_0004.png" id="125_dlbku"]
-[ext_resource type="AudioStream" uid="uid://cjirrgy4k4rw5" path="res://Assets/Audio/SpeakingSFX/GenericCharacterSounds001.wav" id="126_0er7f"]
 [ext_resource type="Texture2D" uid="uid://w3qboajpgecy" path="res://Assets/Characters/wanderer/wandererPlaying_0005.png" id="126_x50fg"]
 [ext_resource type="Texture2D" uid="uid://dvufy4yh7x8rb" path="res://Assets/Characters/wanderer/wandererPlaying_0006.png" id="127_x3h46"]
 [ext_resource type="Texture2D" uid="uid://cwq7ao7fcjbg6" path="res://Assets/Characters/wanderer/wandererPlaying_0007.png" id="128_iwp1n"]
@@ -3075,13 +3073,9 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_uc4lo")
 autoplay = &"Interlude1"
 
-[node name="TextBox" type="CanvasLayer" parent="." unique_id=1278473177 node_paths=PackedStringArray("text_label", "left_portrait", "right_portrait", "dialogue_sfx")]
+[node name="TextBox" type="CanvasLayer" parent="." unique_id=1278473177 node_paths=PackedStringArray("dialogue_sfx")]
 script = ExtResource("16_uc4lo")
-text_label = NodePath("Control/TextureRect/RichTextLabel")
-left_portrait = NodePath("Control/TextureRect/portrait1")
-right_portrait = NodePath("Control/TextureRect/portrait2")
 dialogue_sfx = NodePath("../PostackaVoice")
-left_voice = ExtResource("126_0er7f")
 char_speed = 0.007
 
 [node name="Control" type="Control" parent="TextBox" unique_id=1929807268]
@@ -3160,13 +3154,9 @@ tab_size = 24
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextboxTriggerArea" type="Area3D" parent="." unique_id=577110177 node_paths=PackedStringArray("player", "dialogue_ui")]
+[node name="TextboxTriggerArea" type="Area3D" parent="." unique_id=577110177]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3189888, 2.973071, 0)
 script = ExtResource("21_3xfwl")
-player = NodePath("../Player")
-dialogue_ui = NodePath("../TextBox")
-dialogue_lines = Array[String](["!", "OH! It's you again", "Please don't tell anyone that I added a bit of green here and there", "It's so boring and lifeless here otherwise", "It's fully automated here, so I am the only one left now", "Huh, you want to deliver another letter?", "O-okay, I might have something here for you", "(crumpled letter received)", "Sure, it has been here for a year, but it doesn't hurt to deliver it again!", "Off you go, good luck!"])
-speaker_portraits = Array[Texture2D]([ExtResource("19_ixu5i")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TextboxTriggerArea" unique_id=624746928]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6135254, -0.3493042, 0)
