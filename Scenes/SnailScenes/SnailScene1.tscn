@@ -35,7 +35,6 @@
 [ext_resource type="Script" uid="uid://bwod8tay0rfot" path="res://Scenes/SnailScenes/SnailDialogue.gd" id="16_uc4lo"]
 [ext_resource type="Texture2D" uid="uid://q3rmrea0e0xm" path="res://Assets/Snail/run/snail_run_0001.png" id="17_h0npg"]
 [ext_resource type="Texture2D" uid="uid://c3x3xrnkts1vu" path="res://Assets/Snail/Snekce1/PipeBG/plant2.png" id="17_pmqyr"]
-[ext_resource type="Texture2D" uid="uid://c41iexs2e1d16" path="res://portraits/default1.png" id="18_8wkqm"]
 [ext_resource type="Texture2D" uid="uid://b6ne2gkw8w7gm" path="res://Assets/Snail/run/snail_run_0002.png" id="18_357pa"]
 [ext_resource type="FontFile" uid="uid://cvd5j8d7y4hxx" path="res://Assets/Fonts/WinkySans-VariableFont_wght.ttf" id="18_vcro0"]
 [ext_resource type="Texture2D" uid="uid://damldn1j4ckbp" path="res://Assets/Snail/Snekce1/PipeBG/plant3.png" id="18_x8e2k"]
@@ -147,9 +146,10 @@
 [ext_resource type="Texture2D" uid="uid://c15hgj6s4nunc" path="res://Assets/Characters/wanderer/wandererPlaying_0012.png" id="133_2gdcx"]
 [ext_resource type="Texture2D" uid="uid://jw0jk6e4epy4" path="res://Assets/Characters/wanderer/wandererPlaying_0013.png" id="134_qdv5r"]
 [ext_resource type="Texture2D" uid="uid://dqcfbcjlo8l6u" path="res://Assets/Characters/wanderer/wandererPlaying_0014.png" id="135_nylrd"]
-[ext_resource type="Texture2D" uid="uid://rgndj2mirlll" path="res://Assets/concepts/textboxTex.png" id="142_7ihq1"]
-[ext_resource type="Texture2D" uid="uid://dsux6doyqca4c" path="res://Assets/ChapterAssets/Textbox/textBoxTriangle.png" id="143_h0npg"]
 [ext_resource type="Texture2D" uid="uid://hyes0ystr20b" path="res://Assets/snekceBorder.png" id="152_lqh85"]
+[ext_resource type="Texture2D" uid="uid://cwwnusls20bts" path="res://Scenes/SnailScenes/continue_arrow.png" id="wob_arrow"]
+[ext_resource type="Texture2D" uid="uid://bbcqcr07tnijt" path="res://Scenes/SnailScenes/dialogue_box.png" id="wob_boxtex"]
+[ext_resource type="Shader" uid="uid://6l28ku40rdyk" path="res://Scenes/SnailScenes/wobble.gdshader" id="wob_shader"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fyslw"]
 animations = [{
@@ -823,6 +823,14 @@ _data = {
 &"letter_received": SubResource("Animation_xxvhv")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wobble"]
+shader = ExtResource("wob_shader")
+shader_parameter/wobble_amount = 0.3410000161975
+shader_parameter/boil_fps = 30.0
+shader_parameter/wobble_scale = 0.21600000991073998
+shader_parameter/wave_amount = 0.5550000263625
+shader_parameter/wave_speed = 0.27200001292
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_3xfwl"]
 size = Vector3(3.0976563, 4.048462, 4.7402344)
 
@@ -844,7 +852,7 @@ size = Vector3(121.6543, 36.831604, 1)
 [node name="SnailScene1" type="Node3D" unique_id=46586574]
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1980153873 node_paths=PackedStringArray("camera_controller", "sprite") groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.208954, 1.739, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.617676, 1.739, 0)
 up_direction = Vector3(0, -1, 0)
 script = ExtResource("1_jo7c2")
 speed = 2.85
@@ -1770,7 +1778,7 @@ modulate = Color(0.3160547, 0.3625, 0.31634498, 1)
 texture = ExtResource("10_u3q6u")
 
 [node name="ForeGroundPipe3" type="Sprite3D" parent="Scenes/Scene1" unique_id=1661149029]
-transform = Transform3D(-6.119594e-08, -1.015, 0, 1.4, -4.436706e-08, 0, 0, 0, 1.015, 60.37728, -1.3084373, 0)
+transform = Transform3D(6.119594e-08, 1.015, 8.873412e-08, 1.4, -4.436706e-08, 0, 5.3499194e-15, 8.873412e-08, -1.015, 60.881466, -1.3084373, 0)
 sorting_offset = 35.0
 modulate = Color(0.3160547, 0.3625, 0.31634498, 1)
 texture = ExtResource("10_u3q6u")
@@ -2388,7 +2396,7 @@ texture = ExtResource("51_mmbjx")
 
 [node name="boxesPile2" type="Sprite3D" parent="Scenes/Scene6" unique_id=1977050555]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.259579, 0.8576319, 0)
-sorting_offset = 6.0
+sorting_offset = 9.002
 texture = ExtResource("50_t0wr4")
 
 [node name="placeholder" type="Sprite3D" parent="Scenes/Scene6" unique_id=1182583692]
@@ -3073,93 +3081,113 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_uc4lo")
 autoplay = &"Interlude1"
 
-[node name="TextBox" type="CanvasLayer" parent="." unique_id=1278473177 node_paths=PackedStringArray("dialogue_sfx")]
+[node name="TextBox" type="CanvasLayer" parent="." unique_id=1278473177 node_paths=PackedStringArray("box", "background", "text_label", "continue_arrow", "dialogue_sfx")]
 script = ExtResource("16_uc4lo")
+box = NodePath("Box")
+background = NodePath("Box/Background")
+text_label = NodePath("Box/Text")
+continue_arrow = NodePath("Box/ContinueArrow")
 dialogue_sfx = NodePath("../PostackaVoice")
 char_speed = 0.007
+open_from_scale = 0.702
+open_time = 0.537
+close_time = 0.23
+resize_time = 0.282
+sway_angle = 0.0
+sway_speed = 0.0
+bob_amount = 1.0
 
-[node name="Control" type="Control" parent="TextBox" unique_id=1929807268]
+[node name="Box" type="Control" parent="TextBox" unique_id=865532262]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="TextBox/Control" unique_id=1413041745]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.321
-anchor_top = 0.128
-anchor_right = 0.609
-anchor_bottom = 0.312
-offset_left = 61.679993
-offset_top = 20.759995
-offset_right = 614.40576
-offset_bottom = 220.03998
+offset_left = -300.0
+offset_top = -839.0
+offset_right = 300.0
+offset_bottom = -699.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.5, 0.5)
 mouse_filter = 2
-texture = ExtResource("142_7ihq1")
 
-[node name="TextureRect" type="TextureRect" parent="TextBox/Control/TextureRect" unique_id=1975328834]
-z_index = -337
-layout_mode = 0
-offset_left = 486.0
-offset_top = 348.0
-offset_right = 666.0
-offset_bottom = 528.0
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("143_h0npg")
-
-[node name="portrait1" type="TextureRect" parent="TextBox/Control/TextureRect" unique_id=1338766853]
-visible = false
-modulate = Color(0.42812502, 0.42812502, 0.42812502, 1)
-layout_mode = 0
-offset_left = 1147.1428
-offset_top = 52.85712
-offset_right = 1437.1428
-offset_bottom = 342.85712
-scale = Vector2(1.239, 1.239)
-texture = ExtResource("18_8wkqm")
-
-[node name="portrait2" type="TextureRect" parent="TextBox/Control/TextureRect" unique_id=449252067]
-visible = false
-modulate = Color(0.42812502, 0.42812502, 0.42812502, 1)
-layout_mode = 0
-offset_left = 1147.1428
-offset_top = 52.85712
-offset_right = 1437.1428
-offset_bottom = 342.85712
-scale = Vector2(1.239, 1.239)
-texture = ExtResource("18_8wkqm")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="TextBox/Control/TextureRect" unique_id=1185643325]
+[node name="Background" type="NinePatchRect" parent="TextBox/Box" unique_id=689906740]
+material = SubResource("ShaderMaterial_wobble")
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.076000005
-anchor_top = 0.19500001
-anchor_right = 0.91300005
-anchor_bottom = 0.823
-offset_left = 0.26091003
-offset_top = 0.016746521
-offset_right = 0.44909668
-offset_bottom = -0.14337158
-theme_override_colors/default_color = Color(0.934375, 0.934375, 0.81757814, 1)
+anchor_left = -0.15
+anchor_top = -0.15
+anchor_right = 1.1500001
+anchor_bottom = 1.1500001
+offset_right = -6.1035156e-05
+offset_bottom = -1.5258789e-05
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("wob_boxtex")
+patch_margin_left = 40
+patch_margin_top = 40
+patch_margin_right = 40
+patch_margin_bottom = 40
+
+[node name="Text" type="RichTextLabel" parent="TextBox/Box" unique_id=2018931753]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.080000006
+anchor_top = 0.12100001
+anchor_right = 1.087
+anchor_bottom = 0.90000004
+offset_top = 0.059999466
+offset_right = -0.2000122
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.95, 0.93, 0.88, 1)
 theme_override_fonts/normal_font = ExtResource("18_vcro0")
-theme_override_font_sizes/normal_font_size = 60
-text = "Snakes can't blush"
-tab_size = 24
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Snakes can't blush. This is preview text, the real lines come from the trigger."
+fit_content = true
+scroll_active = false
 
-[node name="TextboxTriggerArea" type="Area3D" parent="." unique_id=577110177]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3189888, 2.973071, 0)
+[node name="ContinueArrow" type="TextureRect" parent="TextBox/Box" unique_id=56553358]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 59.0
+offset_top = -6.0
+offset_right = 83.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("wob_arrow")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextboxTriggerArea1" type="Area3D" parent="." unique_id=577110177 node_paths=PackedStringArray("dialogue_ui", "player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6794028, 2.973071, 0)
 script = ExtResource("21_3xfwl")
+dialogue_ui = NodePath("../TextBox")
+dialogue_lines = Array[String](["Snakes can't blush.", "You know", "Wooow", "And despite all that", "Such a fan"])
+player = NodePath("../Player")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TextboxTriggerArea" unique_id=624746928]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6135254, -0.3493042, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TextboxTriggerArea1" unique_id=624746928]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29857826, -0.3493042, 0)
+shape = SubResource("BoxShape3D_3xfwl")
+
+[node name="TextboxTriggerArea2" type="Area3D" parent="." unique_id=1991536404 node_paths=PackedStringArray("dialogue_ui", "player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.243135, 2.973071, 0)
+script = ExtResource("21_3xfwl")
+dialogue_ui = NodePath("../TextBox")
+dialogue_lines = Array[String](["Snakes can't blush.", "You know", "Wooow WooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooow", "And despite all that", "Such a fan"])
+player = NodePath("../Player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TextboxTriggerArea2" unique_id=1451075506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29857826, -0.3493042, 0)
 shape = SubResource("BoxShape3D_3xfwl")
 
 [node name="TeleportArea1" type="Area3D" parent="." unique_id=37767665 node_paths=PackedStringArray("target_position", "fade_manager", "player", "camera")]
@@ -3268,7 +3296,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Interlude I" type="Control" parent="Control" unique_id=40430082]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
