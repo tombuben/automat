@@ -827,7 +827,7 @@ _data = {
 shader = ExtResource("wob_shader")
 shader_parameter/wobble_amount = 0.3410000161975
 shader_parameter/boil_fps = 30.0
-shader_parameter/wobble_scale = 0.21600000991073998
+shader_parameter/wobble_scale = 0.21600000991074
 shader_parameter/wave_amount = 0.5550000263625
 shader_parameter/wave_speed = 0.27200001292
 
@@ -852,7 +852,7 @@ size = Vector3(121.6543, 36.831604, 1)
 [node name="SnailScene1" type="Node3D" unique_id=46586574]
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1980153873 node_paths=PackedStringArray("camera_controller", "sprite") groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.617676, 1.739, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.04776, 1.739, 0)
 up_direction = Vector3(0, -1, 0)
 script = ExtResource("1_jo7c2")
 speed = 2.85
@@ -1395,11 +1395,6 @@ texture = ExtResource("10_u3q6u")
 transform = Transform3D(1.244, 0, 0, 0, 1.244, 0, 0, 0, 1.244, -5.138954, 2.1581032, 0)
 sorting_offset = 7.278
 texture = ExtResource("63_uxwvt")
-
-[node name="Bench2" type="Sprite3D" parent="Scenes/Scene8" unique_id=1831249754]
-transform = Transform3D(1.244, 0, 0, 0, 1.244, 0, 0, 0, 1.244, -1.7401047, 1.1427016, 0)
-sorting_offset = 21.597
-texture = ExtResource("45_r34qq")
 
 [node name="pipe" type="Sprite3D" parent="Scenes/Scene8" unique_id=1678940691]
 transform = Transform3D(-2.933034e-08, -0.671, 0, 0.671, -2.933034e-08, 0, 0, 0, 0.671, -10.212692, 5.4048867, 0)
@@ -3172,7 +3167,7 @@ stretch_mode = 5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6794028, 2.973071, 0)
 script = ExtResource("21_3xfwl")
 dialogue_ui = NodePath("../TextBox")
-dialogue_lines = Array[String](["Snakes can't blush.", "You know", "Wooow", "And despite all that", "Such a fan"])
+dialogue_lines = Array[String](["O-oh, hello!", "It's you!", "First things first", "Don't tell my boss I made the place just a bit more lush and green", "Is it a crime, to like plants?", "Then call me a criminal", "...", "Yeah, but for real don't tell anyone", "Anyways", "You are here for another letter, yes?", "The last customer said it took them a half a year longer to get it delivered", "That's not really ideal", "I know you really want to do this", "So you should get a head start?", "Uhm...", "Good luck!!"])
 player = NodePath("../Player")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TextboxTriggerArea1" unique_id=624746928]
@@ -3183,10 +3178,21 @@ shape = SubResource("BoxShape3D_3xfwl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.243135, 2.973071, 0)
 script = ExtResource("21_3xfwl")
 dialogue_ui = NodePath("../TextBox")
-dialogue_lines = Array[String](["Snakes can't blush.", "You know", "Wooow WooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooowWooow", "And despite all that", "Such a fan"])
+dialogue_lines = Array[String](["Stacks and stacks of boxes", "Being delivered to different places", "mostly by delivery drones", "Just in time and right in place", "They never stay for long", "Each box a story", "Limited only by its deliverer"])
 player = NodePath("../Player")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TextboxTriggerArea2" unique_id=1451075506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29857826, -0.3493042, 0)
+shape = SubResource("BoxShape3D_3xfwl")
+
+[node name="TextboxTriggerArea3" type="Area3D" parent="." unique_id=1403906250 node_paths=PackedStringArray("dialogue_ui", "player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.274124, 2.973071, 0)
+script = ExtResource("21_3xfwl")
+dialogue_ui = NodePath("../TextBox")
+dialogue_lines = Array[String](["The wind whispers a melody", "It's quiet", "But it's there"])
+player = NodePath("../Player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TextboxTriggerArea3" unique_id=1181516640]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29857826, -0.3493042, 0)
 shape = SubResource("BoxShape3D_3xfwl")
 
