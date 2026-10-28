@@ -432,7 +432,7 @@ size = Vector3(5.7337503, 1, 1)
 size = Vector3(1, 1.312, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ixu5i"]
-size = Vector3(4.1602173, 1.3808594, 1)
+size = Vector3(5, 2.3100586, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_dgbbk"]
 size = Vector3(1, 1.312, 1)
@@ -1203,10 +1203,12 @@ grow_vertical = 2
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=2095098203]
+handle_input_locally = false
 size = Vector2i(1642, 923)
+render_target_update_mode = 4
 
 [node name="Player" type="CharacterBody3D" parent="SubViewportContainer/SubViewport" unique_id=1980153873 node_paths=PackedStringArray("camera_controller", "sprite") groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.68906, 1.739, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.05996, 1.739, 0)
 up_direction = Vector3(0, -1, 0)
 script = ExtResource("1_jo7c2")
 speed = 2.85
@@ -1228,8 +1230,6 @@ sorting_offset = 15.0
 flip_h = true
 sprite_frames = SubResource("SpriteFrames_fyslw")
 animation = &"stop"
-frame = 6
-frame_progress = 1.0
 
 [node name="Letter" type="Sprite3D" parent="SubViewportContainer/SubViewport/Player" unique_id=555413536]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0020000935, 1.5203247, 0)
@@ -1422,6 +1422,10 @@ skeleton = NodePath("../../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Ground and walls/BlockingWall1/StaticBody3D" unique_id=308073136]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9379578, -0.19042969, 0)
+shape = SubResource("BoxShape3D_ixu5i")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Ground and walls/BlockingWall1/StaticBody3D" unique_id=650035717]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 378.6477, -0.6550293, 0)
 shape = SubResource("BoxShape3D_ixu5i")
 
 [node name="BlockingWall2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Ground and walls" unique_id=364263951]
@@ -3544,7 +3548,7 @@ sprite_frames = SubResource("SpriteFrames_g5ol4")
 autoplay = "default"
 frame_progress = 0.18804957
 
-[node name="TextboxTriggerArea3" type="Area3D" parent="SubViewportContainer/SubViewport/Texboxes" unique_id=1403906250 node_paths=PackedStringArray("player", "dialogue_ui", "button", "walk_target")]
+[node name="TextboxTriggerArea3" type="Area3D" parent="SubViewportContainer/SubViewport/Texboxes" unique_id=1403906250 node_paths=PackedStringArray("player", "dialogue_ui", "button")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.39867, 2.973071, 0)
 script = ExtResource("21_3xfwl")
 start_mode = 1
@@ -3553,7 +3557,6 @@ dialogue_ui = NodePath("../TextBox")
 dialogue_lines = Array[String](["The wind whispers a melody", "It's as old as time", "It's quiet", "But it's there", "It will always be there"])
 button = NodePath("AnimatedSprite3D")
 hover_scale = 1.03
-walk_target = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Texboxes/TextboxTriggerArea3" unique_id=1181516640]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.044166565, -0.95510864, 0)
