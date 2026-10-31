@@ -18,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://dgeeujn086l1f" path="res://Assets/ChapterAssets/office/pc2.png" id="14_tm3gw"]
 [ext_resource type="Texture2D" uid="uid://555kgn22dkss" path="res://Materials/ParticleEffects/white_square.png" id="15_5ls3k"]
 [ext_resource type="Texture2D" uid="uid://c1bicyy1k0ge2" path="res://Assets/ChapterAssets/office/pc3.png" id="16_urueq"]
-[ext_resource type="Script" uid="uid://vysddvus01vk" path="res://Scripts/items/dispensor_selector.gd" id="17_stn0f"]
 [ext_resource type="Texture2D" uid="uid://1l7ra2oshxu7" path="res://Assets/ChapterAssets/office/pc4.png" id="17_t7s67"]
 [ext_resource type="PackedScene" uid="uid://dtwmshuf707e6" path="res://Prefabs/Items/mind_item.tscn" id="22_yqe4d"]
 [ext_resource type="PackedScene" uid="uid://bgsjyc1ordm2c" path="res://Prefabs/Items/heart_item.tscn" id="23_m2yrj"]
@@ -50,7 +49,6 @@
 [ext_resource type="Resource" uid="uid://dbnt5plvmvah6" path="res://resources/Chapters/office/office_chapter.tres" id="53_h3hn5"]
 [ext_resource type="Material" uid="uid://c3ekxbf7k4sdl" path="res://Materials/materials/Vignette.tres" id="54_p3h2o"]
 [ext_resource type="Material" uid="uid://dmcempgvc1imu" path="res://Materials/materials/ChromaticAbberation.tres" id="54_vuse5"]
-[ext_resource type="PackedScene" uid="uid://cci8wr48xkh26" path="res://Prefabs/hand_selection_ui.tscn" id="55_ofv8d"]
 [ext_resource type="Texture2D" uid="uid://dds36ttb7a8tq" path="res://Assets/cinematic/cinematic1.png" id="55_s0ebu"]
 [ext_resource type="FontFile" uid="uid://cvd5j8d7y4hxx" path="res://Assets/Fonts/WinkySans-VariableFont_wght.ttf" id="55_u2p72"]
 [ext_resource type="Texture2D" uid="uid://vlub287qyfar" path="res://Assets/cinematic/cinematic2.png" id="56_6w012"]
@@ -65,7 +63,6 @@
 [ext_resource type="Texture2D" uid="uid://dw0q2co8osbl" path="res://Assets/concepts/AutomatFrame.png" id="62_stn0f"]
 [ext_resource type="Texture2D" uid="uid://c67ylkonhqft0" path="res://Assets/concepts/cogWheel2.png" id="63_0a3c2"]
 [ext_resource type="Texture2D" uid="uid://rgndj2mirlll" path="res://Assets/concepts/textboxTex.png" id="63_c1qkb"]
-[ext_resource type="Texture2D" uid="uid://d2t43ycvg8w8v" path="res://Assets/VendingMachine/ShootingOverlay/automatHands.png" id="63_u40t6"]
 [ext_resource type="Texture2D" uid="uid://b157jvk7vnkux" path="res://Assets/concepts/tubes1.png" id="64_0a3c2"]
 [ext_resource type="Material" uid="uid://bfuew5nfqk7t3" path="res://Materials/materials/ColorAdjustmentMat.material" id="64_8swbj"]
 [ext_resource type="Texture2D" uid="uid://nn4fkabqoeg7" path="res://Assets/VendingMachine/ShootingOverlay/ScannerGradient.png" id="64_35gkj"]
@@ -107,6 +104,8 @@
 [ext_resource type="Texture2D" uid="uid://cs2fhicmsontw" path="res://Assets/concepts/symbols/symbol18.png" id="91_0a54c"]
 [ext_resource type="Texture2D" uid="uid://by61yeoyscynv" path="res://Assets/concepts/symbols/symbol6.png" id="94_vuse5"]
 [ext_resource type="AudioStream" uid="uid://dacpgextvb70l" path="res://Assets/Audio/Ambience/officeAmbience.wav" id="108_6w012"]
+[ext_resource type="PackedScene" path="res://Prefabs/drag_ghost.tscn" id="drag_ghost_prefab"]
+[ext_resource type="PackedScene" uid="uid://dktgxr8kfyyo4" path="res://Prefabs/shooting_hands.tscn" id="shooting_hands_prefab"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t7s67"]
 transparency = 1
@@ -183,9 +182,6 @@ size = Vector3(0.489746, 0.692017, 0.319092)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mai8y"]
 size = Vector3(0.218384, 1.46027, 0.319092)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_76v2p"]
-size = Vector3(0.37023926, 0.26046753, 0.5)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_iacmt"]
 radius = 0.001
@@ -1574,39 +1570,39 @@ texture = ExtResource("13_5ls3k")
 
 [node name="pc1" type="Sprite3D" parent="World/OfficeBG" unique_id=2024042985]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.752, -0.775, -2.749)
-sorting_offset = 28.0
+sorting_offset = 1.392
 modulate = Color(0.42352942, 0.42352942, 0.42352942, 1)
 texture = ExtResource("14_tm3gw")
 
 [node name="pc2" type="Sprite3D" parent="World/OfficeBG" unique_id=1159984318]
 transform = Transform3D(0.856, 0, 0, 0, 0.856, 0, 0, 0, 0.856, 7.527, 1.208, -4.38)
-sorting_offset = 2.219
+sorting_offset = 1.392
 flip_h = true
 modulate = Color(0.42352942, 0.42352942, 0.42352942, 1)
 texture = ExtResource("16_urueq")
 
 [node name="pc5" type="Sprite3D" parent="World/OfficeBG" unique_id=1509369993]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.125999, -1.863, -1.238)
-sorting_offset = 30.0
+sorting_offset = 1.392
 flip_h = true
 modulate = Color(0.62352943, 0.62352943, 0.62352943, 1)
 texture = ExtResource("17_t7s67")
 
 [node name="pc4" type="Sprite3D" parent="World/OfficeBG" unique_id=1067267226]
 transform = Transform3D(0.856, 0, 0, 0, 0.856, 0, 0, 0, 0.856, -5.316, 1.208, -4.38)
-sorting_offset = 2.219
+sorting_offset = 1.392
 modulate = Color(0.42352942, 0.42352942, 0.42352942, 1)
 texture = ExtResource("16_urueq")
 
 [node name="pc3" type="Sprite3D" parent="World/OfficeBG" unique_id=1973020918]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.316, -0.775, -2.749)
-sorting_offset = 28.0
+sorting_offset = 1.392
 modulate = Color(0.421875, 0.421875, 0.421875, 1)
 texture = ExtResource("16_urueq")
 
 [node name="pc6" type="Sprite3D" parent="World/OfficeBG" unique_id=1061884004]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.316, -1.863, -1.238)
-sorting_offset = 30.0
+sorting_offset = 1.392
 modulate = Color(0.671875, 0.671875, 0.671875, 1)
 texture = ExtResource("17_t7s67")
 
@@ -1690,11 +1686,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.263, 0, 0)
 
 [node name="openHands" type="AnimatedSprite3D" parent="Automat" unique_id=404451573]
 transform = Transform3D(0.133, 0, 0, 0, 0.133, 0, 0, 0, 0.133, -0.015, 0.681, 1.086)
+visible = false
 sorting_offset = 3.886
 modulate = Color(0.4921875, 0.875, 0.63993967, 1)
 sprite_frames = SubResource("SpriteFrames_tscpr")
-animation = &"close_hand"
-frame_progress = 0.42844397
+animation = &"open_hand"
 
 [node name="box" type="CSGBox3D" parent="Automat" unique_id=738468243]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011609077, 1.2301935, -0.16988623)
@@ -1901,14 +1897,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62335587, 0.51338404, -0.20
 shape = SubResource("BoxShape3D_mai8y")
 debug_color = Color(0, 2.5736918, 2.998326, 0.41960785)
 
-[node name="DispensorSelector" type="Area3D" parent="Automat" unique_id=340854766]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015327454, 0.6607636, 0.503324)
-script = ExtResource("17_stn0f")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/DispensorSelector" unique_id=625571309]
-shape = SubResource("BoxShape3D_76v2p")
-debug_color = Color(0, 18.892157, 4.8239684, 0.41960785)
-
 [node name="handLeft" type="Sprite3D" parent="Automat" unique_id=1710198803]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 107.92022, -1.615, 0)
 visible = false
@@ -2016,14 +2004,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.465, 1.461, 3.071)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.683)
 fov = 70.0
 script = ExtResource("53_2lywu")
-shoot_particles_root = NodePath("../../../HandSelectionUI/ShootParticles")
-spawn_scale = 3.059
+shoot_particles_root = NodePath("../../ShootParticles")
+spawn_scale = 1.9
 shoot_strength = 4.0
 throw_arc = 0.0
 charge_fov = 72.0
 fov_speed = 79.0
 max_charge_duration = 2.544
 charge_speed = 8.0
+
+[node name="ShootingHands" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" unique_id=962925162 instance=ExtResource("shooting_hands_prefab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.051, 0, -1.25)
+reach_spread = 0.03
+pose_time = 0.375
 
 [node name="AimRotation" type="Node3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" unique_id=1338827862]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46343565, -0.6999998)
@@ -2040,11 +2033,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HandSelectionUI" parent="UI Control/Right viewport" unique_id=637314647 instance=ExtResource("55_ofv8d")]
-visible = false
-layout_mode = 2
-
-[node name="ShootParticles" type="CPUParticles3D" parent="UI Control/Right viewport/HandSelectionUI" unique_id=702076476]
+[node name="ShootParticles" type="CPUParticles3D" parent="UI Control/Right viewport/SubViewport" unique_id=702076476]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47223, 1.3117574, 3.823878)
 visible = false
 emitting = false
@@ -2057,7 +2046,7 @@ linear_accel_max = 21.76
 scale_amount_curve = SubResource("Curve_4d4va")
 color_ramp = SubResource("Gradient_vdma7")
 
-[node name="CPUParticles3D2" type="CPUParticles3D" parent="UI Control/Right viewport/HandSelectionUI/ShootParticles" unique_id=1238361702]
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="UI Control/Right viewport/SubViewport/ShootParticles" unique_id=1238361702]
 emitting = false
 amount = 1
 lifetime = 0.6
@@ -3105,16 +3094,6 @@ mouse_filter = 2
 texture = ExtResource("89_04lfq")
 script = ExtResource("77_vuse5")
 
-[node name="Hands" type="TextureRect" parent="." unique_id=808869947]
-visible = false
-offset_left = 1010.00006
-offset_top = 365.0
-offset_right = 1710.0
-offset_bottom = 765.0
-scale = Vector2(0.84, 0.84)
-mouse_filter = 2
-texture = ExtResource("63_u40t6")
-
 [node name="ShootingUI" type="TextureRect" parent="." unique_id=1751701702]
 visible = false
 offset_left = -66.0
@@ -3226,6 +3205,8 @@ theme_override_font_sizes/font_size = 20
 text = "Item Name"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="DragGhost" parent="." unique_id=73678929 instance=ExtResource("drag_ghost_prefab")]
 
 [node name="MouseLayer" type="CanvasLayer" parent="." unique_id=1881637122]
 layer = 10000

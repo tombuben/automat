@@ -5,6 +5,7 @@ extends Camera3D
 @onready var aim_transform = aim_rotation.transform
 @onready var spawn_position = $AimRotation/SpawnPosition
 @onready var spawn_transform = spawn_position.transform
+@onready var hands : ShootingHands = $ShootingHands
 
 @export var spawn_shootable : PackedScene
 @export var shake_curve : Curve
@@ -80,6 +81,22 @@ var charge_duration : float
 var rotated_fast : bool
 var rotate_object_tween : Tween
 var charging : bool
+## The slot item that object_to_shoot is a copy of. Hidden while it's in the hands.
+var loaded_item : RandomItem
+var throw_in_flight : bool = false
+## How long after a shot items can't be picked up.
+@export var throw_lock_time : float = 0.4
+var held_scale : Vector3
+var load_tween : Tween
+
+# -------------------------
+# LOAD FEEL
+# -------------------------
+@export var load_time : float = 0.22
+## Size of the item at the drop point, compared to its size in the hands.
+@export var load_start_scale : float = 0.35
+@export var load_squash : float = 0.08
+@export var load_shake : float = 0.004
 
 # -------------------------
 # CHARGE SETTINGS
@@ -104,7 +121,7 @@ func _ready() -> void:
 # INPUT
 # -------------------------
 func _input(event) -> void:
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.is_pressed():
 			charge()
 		if event.is_released():
@@ -120,6 +137,8 @@ func _process(delta: float) -> void:
 	var viewport_rect = get_viewport().get_visible_rect()
 	if not viewport_rect.has_point(mouse_pos):
 		screen_position = viewport_rect.size / 2
+
+	spawn_position.position.y = hands.get_item_offset()
 
 	handle_fov(delta)
 	handle_recoil(delta)
@@ -218,7 +237,35 @@ func _set_particles_world_space(node: Node) -> void:
 # -------------------------
 # OBJECT HANDLING
 # -------------------------
-func spawn_duplicate(original : RigidBody3D) -> void:
+## The mouse position in this view's pixels, or null when it's outside the view.
+func get_mouse_in_view() -> Variant:
+	var container := get_viewport().get_parent() as SubViewportContainer
+	var local_position := container.get_local_mouse_position()
+	if not Rect2(Vector2.ZERO, container.size).has_point(local_position):
+		return null
+	return local_position * Vector2(get_viewport().size) / container.size
+
+## Puts the item in the hands, ready to charge and shoot.
+func load_item(item : RandomItem, drop_position : Vector2) -> void:
+	put_back_loaded_item()
+	spawn_duplicate(item, drop_position)
+	loaded_item = item
+	loaded_item.visible = false
+
+func put_back_loaded_item() -> void:
+	if loaded_item == null:
+		return
+	loaded_item.visible = true
+	loaded_item = null
+	_stop_load_tween()
+	delete_object_to_shoot()
+
+func _stop_load_tween() -> void:
+	if load_tween:
+		load_tween.kill()
+		load_tween = null
+
+func spawn_duplicate(original : RigidBody3D, drop_position : Vector2) -> void:
 	aim_rotation.transform = aim_transform
 	spawn_position.transform = spawn_transform
 
@@ -226,31 +273,42 @@ func spawn_duplicate(original : RigidBody3D) -> void:
 	object_to_shoot.rotation = Vector3.ZERO
 	spawn_position.add_child(object_to_shoot)
 
-	object_to_shoot.scale *= spawn_scale
+	held_scale = object_to_shoot.scale * spawn_scale
+	object_to_shoot.scale = held_scale * load_start_scale
 	object_to_shoot.freeze = true
-	object_to_shoot.global_position = spawn_position.global_position + Vector3.DOWN * 0.1
+	object_to_shoot.global_position = project_position(drop_position, -to_local(spawn_position.global_position).z)
 
-	var tween = create_tween()
-	tween.tween_property(object_to_shoot, "global_position", spawn_position.global_position, 0.1)
+	# Falls from the drop point into the hands, then squashes on landing.
+	load_tween = create_tween().set_parallel(true)
+	load_tween.tween_property(object_to_shoot, "position", Vector3.ZERO, load_time).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	load_tween.tween_property(object_to_shoot, "scale", held_scale, load_time).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	load_tween.chain().tween_callback(_on_item_landed)
+	load_tween.chain().tween_property(object_to_shoot, "scale", held_scale * Vector3(1.0 + load_squash, 1.0 - load_squash, 1.0 + load_squash), 0.05)
+	load_tween.chain().tween_property(object_to_shoot, "scale", held_scale, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+func _on_item_landed() -> void:
+	hands.catch_item()
+	play_hit_shake(load_shake, 0.1)
 
 func delete_object_to_shoot() -> void:
 	if object_to_shoot:
+		var object_to_delete = object_to_shoot
+		object_to_shoot = null
 		var tween = create_tween()
 		tween.tween_property(
-			object_to_shoot,
+			object_to_delete,
 			"global_position",
 			spawn_position.global_position + Vector3.DOWN * 0.1,
 			0.1
 		)
 		await tween.finished
-		object_to_shoot.queue_free()
-		object_to_shoot = null
+		object_to_delete.queue_free()
 
 # -------------------------
 # CHARGING
 # -------------------------
 func charge() -> void:
-	if not object_to_shoot:
+	if not object_to_shoot or GlobalManager.cursor_body.in_dialogue:
 		return
 	charging = true
 	charge_duration = 0
@@ -276,16 +334,17 @@ func handle_object_aim_rotation(delta: float) -> void:
 		rotate_object_tween.tween_property(object_to_shoot, "rotation", Vector3(deg_to_rad(90), 0, 0), 1)
 		rotated_fast = true
 
-	GlobalManager.dispensor_selector.update_rotation(charge_duration / max_charge_duration)
-
 # -------------------------
 # SHOOT
 # -------------------------
 func shoot(mouse_position : Vector2) -> void:
-	if object_to_shoot == null:
+	if object_to_shoot == null or not charging:
 		return
 	if rotate_object_tween != null:
 		rotate_object_tween.stop()
+	_stop_load_tween()
+	object_to_shoot.position = Vector3.ZERO
+	object_to_shoot.scale = held_scale
 
 	var from = project_ray_origin(mouse_position)
 	var direction = project_ray_normal(mouse_position) * 2
@@ -309,6 +368,7 @@ func shoot(mouse_position : Vector2) -> void:
 
 	add_recoil(1.0 + normalized_charge)
 	shoot_shake_timer = shoot_shake_duration
+	hands.throw_item(normalized_charge)
 
 	# 🔥 PARTICLES (WORLD SPACE)
 	play_shoot_particles(normalized_charge)
@@ -318,5 +378,10 @@ func shoot(mouse_position : Vector2) -> void:
 	rotated_fast = false
 	charging = false
 
-	GlobalManager.dispensor_selector.shoot_from_dispenser()
+	loaded_item.visible = true
+	loaded_item = null
 	GlobalManager.cursor_body.last_dragged_object = null
+
+	throw_in_flight = true
+	await get_tree().create_timer(throw_lock_time).timeout
+	throw_in_flight = false

@@ -20,6 +20,7 @@ var cursor_visual: Node
 @onready var pin = $PinJoint3D
 var moused_over_item : RandomItem
 var last_dragged_object : RandomItem
+var in_dialogue : bool = false
 
 # --- movement scaling ---
 @export var min_scale: float = 0.6
@@ -117,7 +118,7 @@ func _physics_process(delta: float) -> void:
 	params.collision_mask = mask
 
 	var result = space_state.intersect_point(params)
-	if len(result) and result[0].collider is RandomItem:
+	if len(result) and result[0].collider is RandomItem and result[0].collider.visible:
 		moused_over_item = result[0].collider
 	else:
 		moused_over_item = null
@@ -126,11 +127,10 @@ func _physics_process(delta: float) -> void:
 
 
 func start_drag():
-	if moused_over_item == null:
+	if moused_over_item == null or in_dialogue or GlobalManager.world_view.throw_in_flight:
 		return
 
-	if GlobalManager.dispensor_selector.body_in_dispenser and moused_over_item != GlobalManager.dispensor_selector.body_in_dispenser:
-		GlobalManager.dispensor_selector.remove_from_dispenser()
+	GlobalManager.world_view.put_back_loaded_item()
 
 	moused_over_item.take_out_of_slot()
 	pin.node_b = moused_over_item.get_path()
@@ -141,6 +141,8 @@ func start_drag():
 		last_dragged_object.axis_lock_angular_x = true
 		last_dragged_object.axis_lock_angular_y = true
 		last_dragged_object.axis_lock_angular_z = true
+
+	GlobalManager.drag_ghost.show_item(moused_over_item)
 
 	emit_signal("started_dragging", moused_over_item)
 
@@ -160,6 +162,12 @@ func stop_drag():
 		last_dragged_object.axis_lock_angular_y = false
 		last_dragged_object.axis_lock_angular_z = false
 
+	GlobalManager.drag_ghost.hide_item()
+
+	var drop_position = GlobalManager.world_view.get_mouse_in_view()
+	if drop_position != null and not in_dialogue:
+		GlobalManager.world_view.load_item(last_dragged_object, drop_position)
+
 	emit_signal("stopped_dragging", last_dragged_object)
 
 	open_hands.stop()
@@ -168,6 +176,8 @@ func stop_drag():
 
 func on_dialogue_started(resource: Resource) -> void:
 	collision_layer = 0
+	in_dialogue = true
 
 func on_dialogue_closed(resource: Resource) -> void:
 	collision_layer = original_collision_layer
+	in_dialogue = false

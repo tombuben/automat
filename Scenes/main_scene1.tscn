@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://7mv8rlcaqlga" path="res://Scripts/items/item_slot.gd" id="3_maf8m"]
 [ext_resource type="Texture2D" uid="uid://7isoxc11vui5" path="res://Assets/ChapterAssets/junkyard/SuperIntelligence/SIbg.png" id="4_h246y"]
 [ext_resource type="Script" uid="uid://dsalx1r160eac" path="res://Scripts/items/cursor_object.gd" id="5_6ev3c"]
-[ext_resource type="Script" uid="uid://vysddvus01vk" path="res://Scripts/items/dispensor_selector.gd" id="7_huasi"]
 [ext_resource type="Texture2D" uid="uid://bna5akpeoh17b" path="res://Assets/concepts/WiresBg1.png" id="8_011ub"]
 [ext_resource type="Texture2D" uid="uid://campjvxsdl01s" path="res://Assets/concepts/WiresBg2.png" id="9_ng0pt"]
 [ext_resource type="Texture2D" uid="uid://cmq5qxhnvxum" path="res://Assets/VendingMachine/Hands/handsClosed.png" id="9_tscpr"]
@@ -25,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://b05n3m3lg3hqp" path="res://Prefabs/Items/guts_item.tscn" id="17_yxgvy"]
 [ext_resource type="Texture2D" uid="uid://c6lqbgep87b41" path="res://Materials/ParticleEffects/Circle.png" id="30_kbbok"]
 [ext_resource type="AudioStream" uid="uid://c56uhd28r1n7y" path="res://Assets/Audio/SpeakingSFX/new/automatVoice1.wav" id="32_vtv6d"]
-[ext_resource type="PackedScene" uid="uid://cci8wr48xkh26" path="res://Prefabs/hand_selection_ui.tscn" id="33_nrumr"]
 [ext_resource type="Texture2D" uid="uid://dffn0bxh63v31" path="res://Assets/VendingMachine/Hands/HandLeft.png" id="35_y3ewi"]
 [ext_resource type="Texture2D" uid="uid://dwejvy41bc5ia" path="res://Assets/VendingMachine/Hands/HandRight.png" id="36_ohw5p"]
 [ext_resource type="Script" uid="uid://bgngysncqjt3n" path="res://Scripts/camera/cameraTilt.gd" id="37_7hdo6"]
@@ -93,6 +91,8 @@
 [ext_resource type="Texture2D" uid="uid://by61yeoyscynv" path="res://Assets/concepts/symbols/symbol6.png" id="83_fvaql"]
 [ext_resource type="AudioStream" uid="uid://cqekfl4y7axw8" path="res://Assets/Audio/Music/Komiku - Serenity Temple.mp3" id="93_ibg2r"]
 [ext_resource type="Script" uid="uid://c6qs8oiugm1gg" path="res://Scripts/core/global_animation_player.gd" id="94_c2j23"]
+[ext_resource type="PackedScene" path="res://Prefabs/drag_ghost.tscn" id="drag_ghost_prefab"]
+[ext_resource type="PackedScene" path="res://Prefabs/shooting_hands.tscn" id="shooting_hands_prefab"]
 
 [sub_resource type="Environment" id="Environment_lhp3t"]
 background_mode = 1
@@ -640,14 +640,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62335587, 0.51338404, -0.20
 shape = SubResource("BoxShape3D_mhwyo")
 debug_color = Color(0, 2.5736918, 2.998326, 0.41960785)
 
-[node name="DispensorSelector" type="Area3D" parent="Automat" unique_id=15315039]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015327454, 0.6607636, 0.503324)
-script = ExtResource("7_huasi")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/DispensorSelector" unique_id=152406472]
-shape = SubResource("BoxShape3D_jbdi0")
-debug_color = Color(0, 18.892157, 4.8239684, 0.41960785)
-
 [node name="handLeft" type="Sprite3D" parent="Automat" unique_id=446041050]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 14.531257, -1.965, 0)
 visible = false
@@ -755,17 +747,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.465, 1.461, 3.071)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.683)
 fov = 70.0
 script = ExtResource("1_52fb6")
-shoot_particles_root = NodePath("../../../HandSelectionUI/ShootParticles")
+shoot_particles_root = NodePath("../../ShootParticles")
 shoot_particles_delay = 0.3
-spawn_scale = 3.059
+spawn_scale = 1.9
 shoot_strength = 4.0
 throw_arc = 0.0
 charge_fov = 72.0
 fov_speed = 79.0
-shoot_shake_duration = 0.086
-shoot_shake_strength = 0.001
 max_charge_duration = 2.544
 charge_speed = 8.0
+shoot_shake_duration = 0.086
+shoot_shake_strength = 0.001
+
+[node name="ShootingHands" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" instance=ExtResource("shooting_hands_prefab")]
 
 [node name="AimRotation" type="Node3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" unique_id=951560273]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46343565, -0.6999998)
@@ -782,11 +776,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HandSelectionUI" parent="UI Control/Right viewport" unique_id=637314647 instance=ExtResource("33_nrumr")]
-visible = false
-layout_mode = 2
-
-[node name="ShootParticles" type="CPUParticles3D" parent="UI Control/Right viewport/HandSelectionUI" unique_id=2006256971]
+[node name="ShootParticles" type="CPUParticles3D" parent="UI Control/Right viewport/SubViewport" unique_id=2006256971]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47223, 1.3117574, 3.823878)
 visible = false
 emitting = false
@@ -799,7 +789,7 @@ linear_accel_max = 21.76
 scale_amount_curve = SubResource("Curve_gr3sa")
 color_ramp = SubResource("Gradient_0tm5g")
 
-[node name="CPUParticles3D2" type="CPUParticles3D" parent="UI Control/Right viewport/HandSelectionUI/ShootParticles" unique_id=1897363716]
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="UI Control/Right viewport/SubViewport/ShootParticles" unique_id=1897363716]
 emitting = false
 amount = 1
 lifetime = 0.6
@@ -1937,6 +1927,8 @@ theme_override_font_sizes/font_size = 20
 text = "Item Name"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="DragGhost" parent="." instance=ExtResource("drag_ghost_prefab")]
 
 [node name="MouseLayer" type="CanvasLayer" parent="." unique_id=1950620525]
 layer = 10000

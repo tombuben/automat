@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dktgxr8kfyyo4"]
+
+[ext_resource type="Script" path="res://Scripts/characters/shooting_hands.gd" id="1_hands"]
+[ext_resource type="Texture2D" uid="uid://dffn0bxh63v31" path="res://Assets/VendingMachine/Hands/HandLeft.png" id="2_left"]
+[ext_resource type="Texture2D" uid="uid://dwejvy41bc5ia" path="res://Assets/VendingMachine/Hands/HandRight.png" id="3_right"]
+
+[node name="ShootingHands" type="Node3D" unique_id=87310684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.25)
+script = ExtResource("1_hands")
+
+[node name="Left" type="Sprite3D" parent="." unique_id=1414914731]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42, -0.8, 0)
+pixel_size = 0.0014
+texture = ExtResource("2_left")
+
+[node name="Right" type="Sprite3D" parent="." unique_id=1424887875]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42, -0.8, 0)
+pixel_size = 0.0014
+texture = ExtResource("3_right")

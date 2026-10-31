@@ -46,22 +46,17 @@ func on_body_entered(body):
 	if body is CursorBody:
 		cursor_body = body
 
-		var dispenser_body = GlobalManager.dispensor_selector.body_in_dispenser
-		if not body.dragging and dispenser_body != item_in_slot:
+		if not body.dragging:
 			highlight_item()
 
 
 func on_body_exited(body):
 	if body is CursorBody:
-		var dispenser_body = GlobalManager.dispensor_selector.body_in_dispenser
-		if not body.dragging and dispenser_body != item_in_slot:
+		if not body.dragging:
 			reset_highlight()
 
 
 func stopped_dragging(item : RandomItem):
-	if GlobalManager.dispensor_selector.body_in_dispenser == item:
-		return
-
 	if not slot_occupied:
 		item.return_to_slot()
 	elif item == item_in_slot:
@@ -69,7 +64,7 @@ func stopped_dragging(item : RandomItem):
 
 
 func highlight_item():
-	if item_in_slot == null:
+	if item_in_slot == null or not item_in_slot.visible:
 		return
 
 	GlobalManager.dialogue_preview.show_preview(item_in_slot.saying)

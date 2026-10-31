@@ -24,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://dtwmshuf707e6" path="res://Prefabs/Items/mind_item.tscn" id="22_h122j"]
 [ext_resource type="PackedScene" uid="uid://bgsjyc1ordm2c" path="res://Prefabs/Items/heart_item.tscn" id="23_boe7s"]
 [ext_resource type="PackedScene" uid="uid://b05n3m3lg3hqp" path="res://Prefabs/Items/guts_item.tscn" id="24_2xhaj"]
-[ext_resource type="Script" uid="uid://vysddvus01vk" path="res://Scripts/items/dispensor_selector.gd" id="25_quuli"]
 [ext_resource type="Texture2D" uid="uid://cay2erkv5hxyt" path="res://Assets/ChapterAssets/VillageAssets/TreeVillage1.png" id="26_xkhh6"]
 [ext_resource type="Material" uid="uid://ov2vajd47wc5" path="res://Materials/materials/swayMaterial.tres" id="27_bmtx2"]
 [ext_resource type="Texture2D" uid="uid://uoolpd713scy" path="res://Assets/ChapterAssets/VillageAssets/TreeVillage1Crown.png" id="28_puc7u"]
@@ -59,7 +58,6 @@
 [ext_resource type="Material" uid="uid://c3ekxbf7k4sdl" path="res://Materials/materials/Vignette.tres" id="57_ssthv"]
 [ext_resource type="Script" uid="uid://c56o0l1eo5f5k" path="res://Scripts/camera/world_view.gd" id="58_8r1gw"]
 [ext_resource type="Shader" uid="uid://in6n5v4f5fhw" path="res://Materials/shaders/warpScreen.gdshader" id="59_e4hjg"]
-[ext_resource type="PackedScene" uid="uid://cci8wr48xkh26" path="res://Prefabs/hand_selection_ui.tscn" id="60_ep6iw"]
 [ext_resource type="Texture2D" uid="uid://b24a00qrtc7yv" path="res://Materials/ParticleEffects/circleParticle1.png" id="61_dbb3n"]
 [ext_resource type="Texture2D" uid="uid://bxm3k28htt8ed" path="res://Materials/ParticleEffects/circleParticle2.png" id="62_mx4jw"]
 [ext_resource type="Texture2D" uid="uid://c776t1tab8em0" path="res://Assets/VendingMachine/frontviewBG.png" id="63_xealt"]
@@ -77,6 +75,8 @@
 [ext_resource type="Texture2D" uid="uid://d2ik0h0qqle21" path="res://Assets/VendingMachine/UI/uiHeart.png" id="76_2j2gt"]
 [ext_resource type="Texture2D" uid="uid://c5qds8arncww0" path="res://Assets/VendingMachine/UI/uiBrain.png" id="77_u1aka"]
 [ext_resource type="Texture2D" uid="uid://bpargjd4vajyf" path="res://Assets/VendingMachine/UI/GutsWheels.png" id="78_vvxh1"]
+[ext_resource type="PackedScene" path="res://Prefabs/drag_ghost.tscn" id="drag_ghost_prefab"]
+[ext_resource type="PackedScene" path="res://Prefabs/shooting_hands.tscn" id="shooting_hands_prefab"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oyb3p"]
 albedo_color = Color(0.1767, 0.55033505, 0.57, 1)
@@ -1073,15 +1073,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62335587, 0.51338404, -0.20
 shape = SubResource("BoxShape3D_mai8y")
 debug_color = Color(0, 2.5736918, 2.998326, 0.41960785)
 
-[node name="DispensorSelector" type="Area3D" parent="World/Automat" unique_id=340854766]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020730019, 0.7905777, 0.503324)
-script = ExtResource("25_quuli")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Automat/DispensorSelector" unique_id=625571309]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005309105, 0.0049310327, 0)
-shape = SubResource("BoxShape3D_76v2p")
-debug_color = Color(0, 18.892157, 4.8239684, 0.41960785)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=2137756423]
 environment = SubResource("Environment_lhp3t")
 
@@ -1787,17 +1778,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47223, 1.46115, 3.07052)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.683)
 fov = 70.0
 script = ExtResource("58_8r1gw")
-shoot_particles_root = NodePath("../../../HandSelectionUI/ShootParticles")
+shoot_particles_root = NodePath("../../ShootParticles")
 shoot_particles_delay = 0.3
-spawn_scale = 2.203
+spawn_scale = 1.4
 shoot_strength = 2.66
 throw_arc = 0.0
 charge_fov = 72.0
 fov_speed = 79.0
-shoot_shake_duration = 0.086
-shoot_shake_strength = 0.001
 max_charge_duration = 2.544
 charge_speed = 8.0
+shoot_shake_duration = 0.086
+shoot_shake_strength = 0.001
+
+[node name="ShootingHands" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" instance=ExtResource("shooting_hands_prefab")]
 
 [node name="AimRotation" type="Node3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" unique_id=1338827862]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46343565, -0.6999998)
@@ -1821,11 +1814,7 @@ offset_top = -19.0
 offset_right = 1111.1111
 offset_bottom = 632.0
 
-[node name="HandSelectionUI" parent="UI Control/Right viewport" unique_id=637314647 instance=ExtResource("60_ep6iw")]
-visible = false
-layout_mode = 2
-
-[node name="ShootParticles" type="CPUParticles3D" parent="UI Control/Right viewport/HandSelectionUI" unique_id=702076476]
+[node name="ShootParticles" type="CPUParticles3D" parent="UI Control/Right viewport/SubViewport" unique_id=702076476]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47223, 1.3117574, 3.823878)
 visible = false
 emitting = false
@@ -1838,7 +1827,7 @@ linear_accel_max = 21.76
 scale_amount_curve = SubResource("Curve_4d4va")
 color_ramp = SubResource("Gradient_vdma7")
 
-[node name="CPUParticles3D2" type="CPUParticles3D" parent="UI Control/Right viewport/HandSelectionUI/ShootParticles" unique_id=1238361702]
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="UI Control/Right viewport/SubViewport/ShootParticles" unique_id=1238361702]
 emitting = false
 amount = 1
 lifetime = 0.6
@@ -2002,6 +1991,8 @@ offset_bottom = 51.05237
 rotation = -0.25132743
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_m7ytr")
+
+[node name="DragGhost" parent="." instance=ExtResource("drag_ghost_prefab")]
 
 [node name="MouseLayer" type="CanvasLayer" parent="." unique_id=1881637122]
 layer = 10000

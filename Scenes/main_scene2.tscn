@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://cwttqbcmv1aet" path="res://Assets/ChapterAssets/office/backwall.png" id="5_kbb45"]
 [ext_resource type="Texture2D" uid="uid://brgoqvthwsu8h" path="res://Assets/ChapterAssets/junkyard/junkyardFrontGround2.png" id="5_twkya"]
 [ext_resource type="Texture2D" uid="uid://b80xtrjmn1pmq" path="res://Assets/ChapterAssets/junkyard/junkyardFrontGroudn.png" id="6_io56h"]
-[ext_resource type="Script" uid="uid://vysddvus01vk" path="res://Scripts/items/dispensor_selector.gd" id="7_huasi"]
 [ext_resource type="Texture2D" uid="uid://cmq5qxhnvxum" path="res://Assets/VendingMachine/Hands/handsClosed.png" id="9_tscpr"]
 [ext_resource type="Texture2D" uid="uid://bna5akpeoh17b" path="res://Assets/concepts/WiresBg1.png" id="10_0kxqi"]
 [ext_resource type="Script" uid="uid://ci5q4jckgmagi" path="res://Scripts/ui/mouse_cursor.gd" id="10_76v2p"]
@@ -34,7 +33,6 @@
 [ext_resource type="Texture2D" uid="uid://dwejvy41bc5ia" path="res://Assets/VendingMachine/Hands/HandRight.png" id="24_nvk46"]
 [ext_resource type="Script" uid="uid://bgngysncqjt3n" path="res://Scripts/camera/cameraTilt.gd" id="25_t3img"]
 [ext_resource type="Texture2D" uid="uid://c6lqbgep87b41" path="res://Materials/ParticleEffects/Circle.png" id="30_kbbok"]
-[ext_resource type="PackedScene" uid="uid://cci8wr48xkh26" path="res://Prefabs/hand_selection_ui.tscn" id="33_nrumr"]
 [ext_resource type="AudioStream" uid="uid://c56uhd28r1n7y" path="res://Assets/Audio/SpeakingSFX/new/automatVoice1.wav" id="34_1gaum"]
 [ext_resource type="AudioStream" uid="uid://bx6q6oiijmqqw" path="res://Assets/Audio/SpeakingSFX/blbblblb.wav" id="39_bubpk"]
 [ext_resource type="Material" uid="uid://dmcempgvc1imu" path="res://Materials/materials/ChromaticAbberation.tres" id="43_kbb45"]
@@ -102,6 +100,8 @@
 [ext_resource type="AudioStream" uid="uid://brce16x8x7wky" path="res://Assets/Audio/Music/Friends 2068 Komiku.wav" id="100_dycsj"]
 [ext_resource type="Texture2D" uid="uid://bbfugywbxcri7" path="res://Assets/cinematic/cinematic3.png" id="101_akm1w"]
 [ext_resource type="Texture2D" uid="uid://bncp7ank8nt8h" path="res://Assets/ChapterAssets/Snekce1/snailSprite.png" id="102_51rr0"]
+[ext_resource type="PackedScene" path="res://Prefabs/drag_ghost.tscn" id="drag_ghost_prefab"]
+[ext_resource type="PackedScene" path="res://Prefabs/shooting_hands.tscn" id="shooting_hands_prefab"]
 
 [sub_resource type="Environment" id="Environment_82fll"]
 background_mode = 1
@@ -982,14 +982,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62335587, 0.51338404, -0.20
 shape = SubResource("BoxShape3D_0chaf")
 debug_color = Color(0, 2.5736918, 2.998326, 0.41960785)
 
-[node name="DispensorSelector" type="Area3D" parent="Automat" unique_id=707531028]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015327454, 0.6607636, 0.503324)
-script = ExtResource("7_huasi")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Automat/DispensorSelector" unique_id=239324849]
-shape = SubResource("BoxShape3D_48xrd")
-debug_color = Color(0, 18.892157, 4.8239684, 0.41960785)
-
 [node name="handLeft" type="Sprite3D" parent="Automat" unique_id=1238663132]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 14.531257, -1.965, 0)
 visible = false
@@ -1097,14 +1089,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.465, 1.461, 3.071)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.683)
 fov = 70.0
 script = ExtResource("1_52fb6")
-shoot_particles_root = NodePath("../../../HandSelectionUI/ShootParticles")
-spawn_scale = 3.059
+shoot_particles_root = NodePath("../../ShootParticles")
+spawn_scale = 1.9
 shoot_strength = 4.0
 throw_arc = 0.0
 charge_fov = 72.0
 fov_speed = 79.0
 max_charge_duration = 2.544
 charge_speed = 8.0
+
+[node name="ShootingHands" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" instance=ExtResource("shooting_hands_prefab")]
 
 [node name="AimRotation" type="Node3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" unique_id=489653742]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46343565, -0.6999998)
@@ -1113,32 +1107,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46343565, -0.6999998)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" unique_id=2131864246]
 
-[node name="HandSelectionUI" parent="UI Control/Right viewport" unique_id=637314647 instance=ExtResource("33_nrumr")]
-visible = false
-layout_mode = 2
-
-[node name="Control" parent="UI Control/Right viewport/HandSelectionUI" index="3" unique_id=741871363]
-anchor_left = 0.21400002
-anchor_right = 0.791
-offset_left = 0.35795593
-offset_right = 0.041992188
-
-[node name="ItemName" parent="UI Control/Right viewport/HandSelectionUI/Control" index="0" unique_id=35319702]
-anchors_preset = -1
-anchor_left = -0.165
-anchor_top = 0.039
-anchor_right = 1.139
-anchor_bottom = 0.74200004
-offset_left = 0.07022858
-offset_top = 0.008625984
-offset_right = -0.18652344
-offset_bottom = 0.035873413
-
-[node name="SubViewport" parent="UI Control/Right viewport/HandSelectionUI/SubViewportContainer" parent_id_path=PackedInt32Array(637314647, 996379110) index="0" unique_id=1363525237]
-size = Vector2i(938, 571)
-render_target_update_mode = 0
-
-[node name="ShootParticles" type="CPUParticles3D" parent="UI Control/Right viewport/HandSelectionUI" unique_id=2057325003]
+[node name="ShootParticles" type="CPUParticles3D" parent="UI Control/Right viewport/SubViewport" unique_id=2057325003]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47223, 1.3117574, 3.823878)
 visible = false
 emitting = false
@@ -1151,7 +1120,7 @@ linear_accel_max = 21.76
 scale_amount_curve = SubResource("Curve_hwk8p")
 color_ramp = SubResource("Gradient_hodqo")
 
-[node name="CPUParticles3D2" type="CPUParticles3D" parent="UI Control/Right viewport/HandSelectionUI/ShootParticles" unique_id=1614497862]
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="UI Control/Right viewport/SubViewport/ShootParticles" unique_id=1614497862]
 emitting = false
 amount = 1
 lifetime = 0.6
@@ -2269,6 +2238,8 @@ theme_override_font_sizes/font_size = 20
 text = "Item Name"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="DragGhost" parent="." instance=ExtResource("drag_ghost_prefab")]
 
 [node name="MouseLayer" type="CanvasLayer" parent="." unique_id=179655970]
 layer = 10000

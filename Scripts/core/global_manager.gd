@@ -122,8 +122,7 @@ func set_audio_beeps(speaker_name: String):
 # EXISTING SYSTEMS
 # -----------------------------
 var cursor_body: CursorBody
-var dispensor_selector: DispenserSelector
-var hand_selection_ui: HandSelectionUI
+var drag_ghost: DragGhost
 var world_view: WorldView
 var rotate_around: RotateAround
 
