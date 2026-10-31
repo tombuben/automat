@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b05n3m3lg3hqp"]
+
+[ext_resource type="Script" uid="uid://clluv3r6m72c2" path="res://Scripts/items/random_item.gd" id="1_ppwq5"]
+[ext_resource type="PackedScene" uid="uid://cla64nqbve73k" path="res://Assets/Itemmodels/Custom/MoralCompass.glb" id="2_vh5so"]
+[ext_resource type="Material" uid="uid://wnhcr6p104hg" path="res://Materials/materials/OutlineShaderMat.tres" id="3_6bgfp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vkqkw"]
+size = Vector3(0.6447754, 0.7774048, 0.5761719)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vh5so"]
+height = 0.18
+
+[node name="frog" type="RigidBody3D" unique_id=1837871512]
+collision_layer = 3
+mass = 0.35
+angular_damp = 10.0
+script = ExtResource("1_ppwq5")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=7575584]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.008897759, 0)
+shape = SubResource("BoxShape3D_vkqkw")
+
+[node name="MoralCompass" parent="." unique_id=1636623453 instance=ExtResource("2_vh5so")]
+transform = Transform3D(0.11, 0, 0, 0, 0.11, 0, 0, 0, 0.11, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MoralCompass" unique_id=581559529]
+transform = Transform3D(2.3999999, 0, 0, 0, -1.0490733e-07, 2.3999999, 0, -2.3999999, -1.0490733e-07, 0, 0, 0)
+sorting_offset = 3.05
+material_override = ExtResource("3_6bgfp")
+mesh = SubResource("CylinderMesh_vh5so")
+skeleton = NodePath("../..")

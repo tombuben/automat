@@ -5,8 +5,8 @@ extends RefCounted
 const CHAPTERS_DIR := "res://Chapters/"
 const DIALOGUES_DIR := "res://Dialogues/"
 const CHARACTERS_DIR := "res://Characters/"
-const PREFABS_DIR := "res://Subscenes (prefabs)/NPCs/"
-const BASE_PREFAB := "res://Subscenes (prefabs)/random_person.tscn"
+const PREFABS_DIR := "res://Prefabs/NPCs/"
+const BASE_PREFAB := "res://Prefabs/random_person.tscn"
 const SCENES_DIR := "res://Scenes/"
 const VOICES_DIR := "res://Assets/Audio/SpeakingSFX/"
 const CHAPTER_SUFFIX := "_chapter.tres"
@@ -88,7 +88,7 @@ static func create_chapter(display_name : String, template_scene : String, make_
 ## Points the scene's SceneDialogueManager at this chapter.
 static func attach_chapter_to_scene(scene_path : String, chapter_path : String) -> bool:
 	var text := FileAccess.get_file_as_string(scene_path)
-	var script_line := RegEx.create_from_string("\\[ext_resource [^\\]]*path=\"res://Scripts/scene_dialogue_manager\\.gd\" id=\"([^\"]+)\"\\]").search(text)
+	var script_line := RegEx.create_from_string("\\[ext_resource [^\\]]*path=\"res://Scripts/dialogue/scene_dialogue_manager\\.gd\" id=\"([^\"]+)\"\\]").search(text)
 	if script_line == null:
 		return false
 	var script_id := script_line.get_string(1)

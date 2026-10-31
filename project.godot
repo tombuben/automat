@@ -26,7 +26,7 @@ buses/default_bus_layout="uid://bjpbm4ybmkw80"
 
 [autoload]
 
-GlobalManager="*res://Scripts/global_manager.gd"
+GlobalManager="*res://Scripts/core/global_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [dialogue_manager]

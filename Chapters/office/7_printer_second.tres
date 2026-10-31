@@ -2,8 +2,8 @@
 
 [ext_resource type="Resource" path="res://Characters/printer.tres" id="1_0nspu"]
 [ext_resource type="Resource" uid="uid://c354pn3iaquyc" path="res://Dialogues/office/printer.dialogue" id="2_26act"]
-[ext_resource type="Script" uid="uid://bsffxurvnao5k" path="res://Scripts/item_reaction.gd" id="3_gtfbw"]
-[ext_resource type="Script" uid="uid://bvdc7166winy6" path="res://Scripts/encounter.gd" id="4_2dx71"]
+[ext_resource type="Script" uid="uid://bsffxurvnao5k" path="res://Scripts/dialogue/item_reaction.gd" id="3_gtfbw"]
+[ext_resource type="Script" uid="uid://bvdc7166winy6" path="res://Scripts/dialogue/encounter.gd" id="4_2dx71"]
 
 [sub_resource type="Resource" id="Resource_176pc"]
 script = ExtResource("3_gtfbw")
