@@ -5,8 +5,6 @@ extends Camera3D
 @onready var aim_transform = aim_rotation.transform
 @onready var spawn_position = $AimRotation/SpawnPosition
 @onready var spawn_transform = spawn_position.transform
-@onready var aim_plane : AnimationPlayer = $AimPlane
-@onready var animation_player = $AnimationPlayer
 
 @export var spawn_shootable : PackedScene
 @export var shake_curve : Curve
