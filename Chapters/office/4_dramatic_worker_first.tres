@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Encounter" format=3 uid="uid://cb5ffkd3ppn5x"]
+
+[ext_resource type="Resource" path="res://Characters/dramatic_worker.tres" id="1_gjuxb"]
+[ext_resource type="Resource" uid="uid://c645gtpivf823" path="res://Dialogues/office/dramatic_worker.dialogue" id="2_ccybk"]
+[ext_resource type="Script" path="res://Scripts/item_reaction.gd" id="3_nmu1c"]
+[ext_resource type="Script" path="res://Scripts/encounter.gd" id="4_v53sy"]
+
+[sub_resource type="Resource" id="Resource_bjxhc"]
+script = ExtResource("3_nmu1c")
+preview = "H-here you go"
+dialogue_title = "large_coffee"
+
+[sub_resource type="Resource" id="Resource_22kow"]
+script = ExtResource("3_nmu1c")
+item = "coffee_medium"
+preview = "H-here you go"
+dialogue_title = "medium_coffee"
+
+[sub_resource type="Resource" id="Resource_fb76b"]
+script = ExtResource("3_nmu1c")
+item = "rubber_duck"
+preview = "Ducks are great! And you could even take care of them!"
+dialogue_title = "duck"
+
+[sub_resource type="Resource" id="Resource_ff1fy"]
+script = ExtResource("3_nmu1c")
+item = "moral_compass"
+preview = "B-but I don't know your life"
+dialogue_title = "compass"
+next_encounter = true
+
+[resource]
+script = ExtResource("4_v53sy")
+character = ExtResource("1_gjuxb")
+dialogue = ExtResource("2_ccybk")
+intro_title = "intro"
+reactions = Array[ExtResource("3_nmu1c")]([SubResource("Resource_bjxhc"), SubResource("Resource_22kow"), SubResource("Resource_fb76b"), SubResource("Resource_ff1fy")])
+other_title = "silence"

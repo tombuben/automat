@@ -65,7 +65,6 @@
 [ext_resource type="Texture2D" uid="uid://c776t1tab8em0" path="res://Assets/VendingMachine/frontviewBG.png" id="63_xealt"]
 [ext_resource type="Script" uid="uid://b6228d12meyik" path="res://Scripts/dialogue_preview.gd" id="64_mfxcm"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="65_kbluy"]
-[ext_resource type="Texture2D" uid="uid://c06cbm4ck0syy" path="res://portraits/automat.png" id="66_7sqy3"]
 [ext_resource type="Script" uid="uid://ci5q4jckgmagi" path="res://Scripts/mouse_cursor.gd" id="67_7oet2"]
 [ext_resource type="Texture2D" uid="uid://1y7wg77wd30x" path="res://Assets/concepts/cursor.png" id="68_ey0ds"]
 [ext_resource type="Script" uid="uid://c6qs8oiugm1gg" path="res://Scripts/global_animation_player.gd" id="69_rw4r4"]
@@ -1954,16 +1953,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 custom_effects = [null]
 script = null
-
-[node name="Portrait" type="TextureRect" parent="UI Control/DialoguePreview/Balloon" unique_id=1757619546]
-z_index = 22
-layout_mode = 0
-offset_left = 1535.0
-offset_top = 690.0
-offset_right = 1935.0
-offset_bottom = 1090.0
-mouse_filter = 2
-texture = ExtResource("66_7sqy3")
 
 [node name="ColorRect2" type="ColorRect" parent="UI Control/DialoguePreview/Balloon" unique_id=915446475]
 z_index = -6

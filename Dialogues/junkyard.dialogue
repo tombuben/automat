@@ -4,7 +4,6 @@ do GlobalManager.play_animation.emit("ACT2")
 do wait(3)
 do GlobalManager.set_audio_beeps("SI")
 
-do GlobalManager.show_portrait("default")
 
 super_intelligence: ...
 
@@ -69,7 +68,6 @@ else:
 # =========================
 
 ~ Heart1
-do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("super_intelligence", "hit")
 do GlobalManager.set_audio_beeps("SI")
 
@@ -87,7 +85,6 @@ do GlobalManager.set_state("super_intelligence", "visited_heart", true)
 # =========================
 
 ~ Mind1
-do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("super_intelligence", "hit")
 do GlobalManager.set_audio_beeps("SI")
 
@@ -104,7 +101,6 @@ do GlobalManager.set_state("super_intelligence", "visited_mind", true)
 # =========================
 
 ~ MoralCompass1
-do GlobalManager.show_portrait("default")
 do GlobalManager.set_audio_beeps("SI")
 
 do GlobalManager.play_animation.emit("super_intelligence", "hit")
@@ -134,7 +130,6 @@ else:
 # =========================
 
 ~ Revival
-do GlobalManager.show_portrait("default")
 do GlobalManager.set_audio_beeps("SI")
 
 
@@ -194,7 +189,6 @@ else:
 # =========================
 
 ~ Heart_final
-do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("super_intelligence", "hit")
 do GlobalManager.set_audio_beeps("SI")
 
@@ -203,7 +197,6 @@ super_intelligence: Not at all.
 => END_OF_INTELLIGENCE
 
 ~ Mind_final
-do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("super_intelligence", "hit")
 do GlobalManager.set_audio_beeps("SI")
 
@@ -211,7 +204,6 @@ super_intelligence: I am the heart of the city. I am the voice and the eyes.
 => END_OF_INTELLIGENCE
 
 ~ MoralCompass_final
-do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("super_intelligence", "hit")
 do GlobalManager.set_audio_beeps("SI")
 

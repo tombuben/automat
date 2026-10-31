@@ -4,8 +4,6 @@
 [ext_resource type="FontFile" uid="uid://cvd5j8d7y4hxx" path="res://Assets/Fonts/WinkySans-VariableFont_wght.ttf" id="2_7qwyv"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
-[ext_resource type="Texture2D" uid="uid://cnbn4wmojrc6i" path="res://portraits/default.png" id="5_mu5lg"]
-[ext_resource type="Script" path="res://Scripts/portrait.gd" id="6_mu5lg"]
 [ext_resource type="Script" uid="uid://dcl5ld443vhtn" path="res://Scripts/dialogue_audio_beeps.gd" id="7_vhv0x"]
 [ext_resource type="AudioStream" uid="uid://bx6q6oiijmqqw" path="res://Assets/Audio/SpeakingSFX/blbblblb.wav" id="7_y87q8"]
 [ext_resource type="AudioStream" uid="uid://kim46bit60jn" path="res://Assets/Audio/SpeakingSFX/DisposableWorkerDialogue001.wav" id="9_862fn"]
@@ -266,17 +264,6 @@ theme = SubResource("Theme_m7ytr")
 theme_type_variation = &"FlatButton"
 theme_override_font_sizes/font_size = 36
 text = "Response example"
-
-[node name="Portrait" type="TextureRect" parent="Balloon" unique_id=1757619546]
-z_index = 22
-layout_mode = 0
-offset_left = 1481.0
-offset_top = 756.0
-offset_right = 1831.0
-offset_bottom = 1076.0
-scale = Vector2(0.691, 0.691)
-texture = ExtResource("5_mu5lg")
-script = ExtResource("6_mu5lg")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Balloon" unique_id=1502918690]
 unique_name_in_owner = true

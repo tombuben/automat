@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3]
+
+[ext_resource type="Script" path="res://Scripts/character_data.gd" id="1"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/SpeakingSFX/new/angryWorker.wav" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = "boss"
+display_name = "Boss"
+voice_sounds = Array[AudioStream]([ExtResource("2")])

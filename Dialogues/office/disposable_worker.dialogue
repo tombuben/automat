@@ -1,0 +1,103 @@
+~ intro
+do play("disposable_worker_close")
+do play("ACT1")
+do wait(3)
+
+do wait(2)
+disposable_worker: Finally
+disposable_worker: Management gave us of a new robot employee
+disposable_worker: A vending machine [#anim=grin]
+disposable_worker: Moments like these are exactly why I tolerate my job
+
+do play_and_wait("disposable_worker_close_to_idle")
+do play("disposable_worker_idle")
+
+disposable_worker: I will have...
+disposable_worker: [color=#1bffc2]One large coffee[/color].
+disposable_worker: Inside, there will be five shots of espresso
+disposable_worker: Low acidity, caramel drizzle
+disposable_worker: Extra foam
+disposable_worker: Four melted ice cubes
+disposable_worker: Blessed by a sacred animal
+disposable_worker: Sugar free caramel
+disposable_worker: Quadruple blended
+disposable_worker: With extra cream and cinnamon on the side
+disposable_worker: Coffee is a sacred ritual for me
+disposable_worker: Be exact, my mental health depends on this
+
+do play("drag_items_tutorial")
+=> END!
+
+~ first_large_coffee
+do wait(1)
+disposable_worker: Ouch
+disposable_worker: Listen buddy
+disposable_worker: This is just plain black coffee without any of the stuff I said
+disposable_worker: Back in my day, robots just did things
+disposable_worker: People used to be able to press a button
+disposable_worker: and if that didn't work, then just kick the thing
+disposable_worker: Now you are all so smart
+disposable_worker: Just the other day
+disposable_worker: They threw out one robot for [color=#ff851b][wave amp=25 freq=5]emotional malfunctions[/wave][/color] last week
+disposable_worker: You can have this back, it tastes like disappointment
+
+do play("disposable_worker", "throw")
+do play_and_wait("coffeeCup")
+do play("Screenshake")
+do play("disposable_worker", "grin")
+
+automat: [color=#1bffc2]H-hey, wait this isnt fair![/color]
+
+do play("moral_compass_unlocked")
+do wait(3)
+do play_and_wait("compass_gain")
+do play("Lock1")
+=> END!
+
+~ first_medium
+disposable_worker: This is a medium
+disposable_worker: I am not even taking a sip
+disposable_worker: I am alergic to medium things
+disposable_worker: Because of my high standards
+=> END!
+
+~ first_duck
+disposable_worker: How are you bad at making coffee
+disposable_worker: This is a rubber duck
+=> END!
+
+~ wrong_item
+disposable_worker: What the heck is this
+=> END!
+
+~ argued_with
+disposable_worker: I can't believe a coffee machine just argued with me
+disposable_worker: For wanting coffee
+disposable_worker: I am filing a report [#anim=grin]
+disposable_worker: And I am REALLY good at paperwork
+do play("disposable_worker", "idle")
+do play_and_wait("disposable_worker_leave")
+=> END!
+
+~ second_large_coffee
+disposable_worker: No!
+disposable_worker: Give me my large coffee with
+disposable_worker: five shots of espresso[next=auto]
+disposable_worker: low acidity, caramel drizzle[next=auto]
+disposable_worker: extra foam.[next=auto]
+disposable_worker: four melted ice cubes.[next=auto]
+disposable_worker: Sugar free caramel.[next=auto]
+disposable_worker: Quadruple blended.[next=auto]
+disposable_worker: extra cream and cinnamon on the side.[next=auto]
+disposable_worker: It's a simple order
+=> END!
+
+~ second_medium
+disposable_worker: Drinking medium coffee is like peeling an apple before eating it
+disposable_worker: It's just not worth it
+=> END!
+
+~ second_duck
+disposable_worker: Why do you even have a duck?
+disposable_worker: Is that hygienic? [#anim=throw]
+=> END!

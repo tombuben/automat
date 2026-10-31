@@ -1,0 +1,46 @@
+~ intro
+do play_and_wait("small_worker_enter")
+do play("small_worker_idle")
+small_worker: Jeez, that guy
+small_worker: Hello
+small_worker: I will have a small coffee
+=> END!
+
+~ large_coffee
+=>< small_cups
+small_worker: Or I can share this large coffee with three people.
+small_worker: Yeah, imma do that
+=> goodbye
+
+~ medium_coffee
+=>< small_cups
+=> goodbye
+
+~ small_cups
+small_worker: Oh yeah I remember, they stopped making small cups.
+small_worker: Not because of ecology or anything. [#anim=idle]
+small_worker: Because people who drink small amounts of coffee won't achieve big things here.
+small_worker: Now, we just drink half of the medium cup.
+=> END
+
+~ goodbye
+small_worker: Oh and [#anim=idle]
+small_worker: Maybe you should not shoot full coffee cups?
+small_worker: Kinda dangerous.
+small_worker: Anyways...
+small_worker: Thank you!
+do play_and_wait("small_worker_leave")
+=> END!
+
+~ duck
+small_worker: Oh nice
+=> END!
+
+~ compass
+small_worker: I dont know about that
+small_worker: I get your point though
+=> END!
+
+~ wrong_item
+small_worker: What the heck is this
+=> END!

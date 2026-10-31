@@ -5,7 +5,6 @@
 
 ~ start_mouse1
 
-do GlobalManager.show_portrait("default")
 do wait(2)
 do GlobalManager.set_audio_beeps("mouse")
 
@@ -70,7 +69,6 @@ else:
 # =========================
 
 ~ Mouse1_Heart1
-do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("mouse1", "hit")
 do GlobalManager.set_audio_beeps("mouse")
 
@@ -85,7 +83,6 @@ mouse1: squeak
 # =========================
 
 ~ Mouse1_Mind1
-do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("mouse1", "hit")
 do GlobalManager.set_audio_beeps("mouse")
 
@@ -99,7 +96,6 @@ mouse1: I hope that's not true!
 # =========================
 
 ~ Mouse1_MoralCompass1
-do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("mouse1", "hit")
 do GlobalManager.set_audio_beeps("mouse")
 
@@ -113,7 +109,6 @@ mouse1: God hates everyone I think
 # =========================
 
 ~ Mouse_Brother_Reunion
-do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("hide_mouse")
 do GlobalManager.set_audio_beeps("mouse")
 
@@ -164,17 +159,14 @@ else:
 # =========================
 
 ~ Mouse1_Heart_Final
-do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("mouse1", "hit")
 => Mouse1_Battery_Search
 
 ~ Mouse1_Mind_Final
-do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("mouse1", "hit")
 => Mouse1_Battery_Search
 
 ~ Mouse1_MoralCompass_Final
-do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("mouse1", "hit")
 => Mouse1_Battery_Search
 
@@ -222,7 +214,6 @@ do wait(GlobalManager.current_animation_length)
 
 ~ start_crow
 
-do GlobalManager.show_portrait("default")
 do GlobalManager.set_audio_beeps("crow")
 
 crow: Caw Caw
@@ -286,7 +277,6 @@ else:
 # =========================
 
 ~ Crow_Mind_Correct
-do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("crow", "hit")
 do GlobalManager.set_audio_beeps("crow")
 
@@ -309,7 +299,6 @@ do wait(GlobalManager.current_animation_length)
 # =========================
 
 ~ Crow_Heart_Wrong
-do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("crow", "hit")
 do GlobalManager.set_audio_beeps("crow")
 
@@ -323,7 +312,6 @@ do GlobalManager.set_state("crow", "answered", true)
 
 
 ~ Crow_MoralCompass_Wrong
-do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("crow", "hit")
 do GlobalManager.set_audio_beeps("crow")
 
@@ -380,7 +368,6 @@ do GlobalManager.play_animation.emit("mouse_idle")
 
 ~ start_mouse2
 
-do GlobalManager.show_portrait("default")
 do GlobalManager.set_audio_beeps("mouse")
 
 
@@ -450,7 +437,6 @@ else:
 # =========================
 
 ~ Mouse2_Heart
-do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("mouse1", "hit")
 
 do GlobalManager.set_state("mouse2", "answered", true)
@@ -459,7 +445,6 @@ do GlobalManager.set_state("mouse2", "answered", true)
 
 
 ~ Mouse2_Mind
-do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("mouse1", "hit")
 
 do GlobalManager.set_state("mouse2", "answered", true)
@@ -468,7 +453,6 @@ do GlobalManager.set_state("mouse2", "answered", true)
 
 
 ~ Mouse2_MoralCompass
-do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("mouse1", "hit")
 
 do GlobalManager.set_state("mouse2", "answered", true)
@@ -517,7 +501,6 @@ do wait(GlobalManager.current_animation_length)
 # =========================================================
 
 ~ start_gate
-do GlobalManager.show_portrait("default")
 
 narrator: (You reach the gate)
 
@@ -566,7 +549,6 @@ else:
 # =========================
 
 ~ Gate_Heart
-do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("gate", "hit")
 
 do GlobalManager.set_state("gate", "answered", true)
@@ -575,7 +557,6 @@ do GlobalManager.set_state("gate", "answered", true)
 
 
 ~ Gate_Mind
-do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("gate", "hit")
 
 do GlobalManager.set_state("gate", "answered", true)
@@ -584,7 +565,6 @@ do GlobalManager.set_state("gate", "answered", true)
 
 
 ~ Gate_MoralCompass
-do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("gate", "hit")
 
 do GlobalManager.set_state("gate", "answered", true)
@@ -593,7 +573,6 @@ do GlobalManager.set_state("gate", "answered", true)
 
 
 ~ Gate_Key
-do GlobalManager.show_portrait("default")
 do GlobalManager.play_animation.emit("gate", "hit")
 
 do GlobalManager.set_state("gate", "answered", true)

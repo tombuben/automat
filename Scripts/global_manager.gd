@@ -51,20 +51,27 @@ func has_state(character_name: String, key: String) -> bool:
 	return character_states.has(character_name) and character_states[character_name].has(key)
 
 # -----------------------------
-# PORTRAITS
+# CHARACTER DATA
 # -----------------------------
-var character_portraits: Dictionary = {
-	"drowning_person": preload("res://portraits/drowning_person.png"),
-	"automat": preload("res://portraits/automat.png"),
-	"automatSad": preload("res://portraits/automatSad.png"),
-	"default": preload("res://portraits/default.png"),
-}
+const CHARACTER_DATA_FOLDER := "res://Characters/"
 
-signal update_portrait(texture)
+var _character_data: Dictionary[String, CharacterData] = {}
+var _character_data_loaded := false
+var _unknown_speakers: Dictionary[String, bool] = {}
 
-func show_portrait(speaker_name: String):
-	var portrait = character_portraits.get(speaker_name, null)
-	update_portrait.emit(portrait)
+func get_character_data(character_id: String) -> CharacterData:
+	if not _character_data_loaded:
+		_character_data_loaded = true
+		for file_name in ResourceLoader.list_directory(CHARACTER_DATA_FOLDER):
+			var data := load(CHARACTER_DATA_FOLDER + file_name) as CharacterData
+			if data:
+				_character_data[data.id] = data
+
+	if character_id != "" and not _character_data.has(character_id) and not _unknown_speakers.has(character_id):
+		_unknown_speakers[character_id] = true
+		push_warning("No CharacterData for speaker '%s': using the old voice setup" % character_id)
+
+	return _character_data.get(character_id)
 
 # -----------------------------
 # SCREEN SHAKE (NEW)
@@ -150,6 +157,11 @@ func change_slot_item_saying(slot_node_name: String, new_saying: String):
 		slots[slot_node_name].change_item_saying(new_saying)
 	else:
 		print("Unknown slot " + slot_node_name + " can't change saying to " + new_saying)
+
+func set_item_preview(item_name: String, preview: String):
+	for slot in slots.values():
+		if is_instance_valid(slot) and slot.item_backup.item_name == item_name:
+			slot.change_item_saying(preview)
 
 # -----------------------------
 # GLOBAL INPUT

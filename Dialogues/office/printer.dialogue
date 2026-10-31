@@ -1,0 +1,86 @@
+~ intro
+do play_and_wait("printer_enter")
+do play("printer_idle")
+printer: O-oh hi
+printer: A new robot worker?
+printer: I had a crazy day yesterday and-[next=auto] [#anim=happy]
+printer: ... [#anim=idle]
+printer: Oh right.
+printer: O-one large coffee please
+=> END!
+
+~ large_coffee
+printer: Okay you got me, I can't actually drink coffee
+printer: That's not why I am here
+printer: I-I know we aren't supposed to show emotions, b-but...
+printer: Somebody ordered to print a document 400 times
+printer: It's clearly an error, but I can't tell them that! [#anim=sad]
+
+automat: [color=#1bffc2]W-wait![/color]
+
+do play("heart_unlocked")
+do wait(3)
+do play_and_wait("heart_gain")
+do play("Lock3")
+=> END!
+
+~ medium_coffee
+printer: I cant drink this!
+printer: Its medium!
+=> END!
+
+~ duck
+printer: Ah
+printer: Quack
+=> END!
+
+~ compass
+printer: Oh... uhm
+printer: Yeah, uhm. Sure!
+=> END!
+
+~ mind
+printer: I print!
+printer: Letters, numbers mostly.
+=> END!
+
+~ silence
+printer: ...
+=> END!
+
+~ heart_final
+printer: Huh?
+printer: O-okay! [#anim=happy]
+printer: I CAN do this!
+printer: I will tell them off! [#anim=super_happy]
+do play("printer_particles")
+printer: PRRRRRRRR
+do wait(3)
+do play_and_wait("printer_leave")
+=> END!
+
+~ second_large_coffee
+printer: Oh thanks, but
+printer: I don't drink
+do play("printer", "sad")
+=> END!
+
+~ second_medium
+printer: Oh no that's okay, thank you
+do play("printer", "sad")
+=> END!
+
+~ second_duck
+printer: I like her
+do play("printer", "sad")
+=> END!
+
+~ second_mind
+printer: Yeah... that's true
+do play("printer", "sad")
+=> END!
+
+~ second_other
+printer: ...
+do play("printer", "sad")
+=> END!

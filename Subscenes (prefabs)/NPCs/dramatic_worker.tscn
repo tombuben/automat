@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c3najycieiusi" path="res://Assets/ChapterAssets/office/dramatic_worker_sad.png" id="3_7faiy"]
 [ext_resource type="Texture2D" uid="uid://cfjsgesbhx12e" path="res://Assets/ChapterAssets/office/dramatic_worker.png" id="3_qk88a"]
 [ext_resource type="Texture2D" uid="uid://dyxctjviywks3" path="res://Assets/ChapterAssets/office/dramatic_worker_cry.png" id="5_7faiy"]
+[ext_resource type="Resource" path="res://Characters/dramatic_worker.tres" id="character_data"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qk7r5"]
 animations = [{
@@ -44,6 +45,7 @@ animations = [{
 
 [node name="dramatic_worker" unique_id=1055277779 instance=ExtResource("1_j6ya5")]
 person_name = "dramatic_worker"
+character = ExtResource("character_data")
 
 [node name="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="1" unique_id=82952497]
 visible = false

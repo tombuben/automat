@@ -1,0 +1,61 @@
+~ intro
+do play_and_wait("boss_enter")
+do play("boss_idle")
+boss: What the hell is going on here
+boss: YOU
+boss: Infecting others with your malfunctions
+boss: A hammer has a worth
+boss: It hammers nails, it fullfills its duty
+boss: You on the other hand
+boss: Are WORTHLESS
+
+automat: [color=#1bffc2]...[/color]
+
+boss: Do the ONLY thing you are good for and give me a large coffee
+=> END!
+
+~ large_coffee
+boss: ...
+automat: [color=#1bffc2]...[/color]
+boss: You know what
+boss: Let's do your evaluation, right now
+boss: Bad at making people coffee
+boss: Talking WAY more than recquired
+boss: "Has a rubber duck"
+boss: violent outburst at a superior
+boss: Look at that
+boss: three strikes
+boss: or whatever
+boss: We have no place for ones with no pride in their work
+boss: No
+boss: Place
+do wait(0.5)
+do play("Cinematic0")
+do wait(24)
+do GlobalManager.load_into_scene(1)
+=> END!
+
+~ medium_coffee
+boss: Cant you follow a simple request?
+boss: I will cut this from your pay
+=> END!
+
+~ duck
+boss: No.
+=> END!
+
+~ mind
+boss: Maybe you should just do your job
+boss: Instead of "helping"
+=> END!
+
+~ compass
+boss: Why are you even talking
+boss: We got a machine to be the exact opposite of that
+=> END!
+
+~ heart
+boss: Stop talking
+boss: You are not here for "expression"
+boss: Give me the coffee
+=> END!

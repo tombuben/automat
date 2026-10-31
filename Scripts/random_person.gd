@@ -2,6 +2,8 @@ class_name RandomPerson
 extends Node3D
 
 @export var person_name: String
+## When set, its id replaces person_name.
+@export var character: CharacterData
 @export var hit_particles: CPUParticles3D
 @export var hitstop_duration: float = 0.05
 @export var hitstop_scale: float = 0.01
@@ -19,6 +21,9 @@ extends Node3D
 var can_be_hit: bool = true
 
 func _ready() -> void:
+	if character:
+		person_name = character.id
+
 	# Register this character
 	if person_name != "":
 		GlobalManager.characters[person_name] = self
@@ -64,9 +69,7 @@ func body_entered(body: Node) -> void:
 		GlobalManager.item_that_hit = item
 		
 		# Trigger dialogue
-		GlobalManager.scene_dialogue_manager.show_dialogue(
-			person_name + "_hit"
-		)
+		GlobalManager.scene_dialogue_manager.character_hit(person_name, item)
 
 		# Camera shake
 		if GlobalManager.world_view:

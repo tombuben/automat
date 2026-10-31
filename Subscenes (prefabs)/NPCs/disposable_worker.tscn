@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://m4efalhu6rgd" path="res://Assets/Characters/disposableWorker/disposable_worker_idle_0009.png" id="14_rebxa"]
 [ext_resource type="Texture2D" uid="uid://dy037ltqllxq1" path="res://Assets/Characters/disposableWorker/disposable_worker_idle_0010.png" id="15_h7fvi"]
 [ext_resource type="Texture2D" uid="uid://4vmdxwm3uqi1" path="res://Assets/Characters/disposableWorker/disposable_worker_idle_0011.png" id="16_yh2ee"]
+[ext_resource type="Resource" path="res://Characters/disposable_worker.tres" id="character_data"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qk7r5"]
 animations = [{
@@ -88,6 +89,7 @@ animations = [{
 
 [node name="Disposable_worker" unique_id=1055277779 instance=ExtResource("1_am2x6")]
 person_name = "Disposable_worker"
+character = ExtResource("character_data")
 
 [node name="Sprite3D" parent="RigidBody3D" parent_id_path=PackedInt32Array(368135441) index="1" unique_id=82952497]
 visible = false

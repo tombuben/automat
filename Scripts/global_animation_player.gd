@@ -40,7 +40,7 @@ func play_animation(arg1, arg2 = null):
 
 				await get_tree().create_timer(default_return_time).timeout
 
-				if is_instance_valid(current_sprite) and current_sprite.sprite_frames:
+				if is_instance_valid(current_sprite) and current_sprite.sprite_frames and current_sprite.animation == animation_name:
 					current_sprite.play("idle")
 
 	# CASE 2: Global animation

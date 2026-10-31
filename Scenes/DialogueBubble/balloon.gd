@@ -20,6 +20,9 @@ extends CanvasLayer
 ## A sound player for voice lines (if they exist).
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
+## Plays the typing beeps (see dialogue_audio_beeps.gd).
+@onready var voice_beeps: AudioStreamPlayer = $AudioStreamPlayer
+
 ## Temporary game states
 var temporary_game_states: Array = []
 
@@ -128,6 +131,16 @@ func apply_dialogue_line() -> void:
 
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
+
+	# Characters with a CharacterData file bring their own name and voice
+	var character_data := GlobalManager.get_character_data(dialogue_line.character)
+	if character_data:
+		character_label.text = character_data.display_name
+	voice_beeps.speaker_samples = character_data.voice_sounds if character_data else ([] as Array[AudioStream])
+
+	# [#anim=grin] on a line plays that animation on the speaker
+	if dialogue_line.has_tag("anim"):
+		GlobalManager.play_animation.emit(dialogue_line.character, dialogue_line.get_tag_value("anim"))
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line

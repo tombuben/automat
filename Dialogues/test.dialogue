@@ -1,7 +1,6 @@
 ~ day1_start
 
 ~ drowning_person_enter
-do GlobalManager.show_portrait("drowning_person")
 
 do GlobalManager.play_animation.emit("drowning_person_enter")
 do wait(GlobalManager.current_animation_length)

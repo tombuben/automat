@@ -76,7 +76,6 @@
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="66_mlrbq"]
 [ext_resource type="Script" uid="uid://dkwqfeewc47kx" path="res://Scripts/Board.gd" id="66_mqbjo"]
 [ext_resource type="Texture2D" uid="uid://dpkxdv74lot02" path="res://Assets/concepts/symbols/symbol1.png" id="67_1neq5"]
-[ext_resource type="Texture2D" uid="uid://c06cbm4ck0syy" path="res://portraits/automat.png" id="67_mlrbq"]
 [ext_resource type="Script" uid="uid://dog5kcrm0aiv2" path="res://Scripts/Symbol.gd" id="68_ufyeq"]
 [ext_resource type="Texture2D" uid="uid://jj2a2aqwu05w" path="res://Assets/concepts/symbols/symbol2.png" id="69_768c6"]
 [ext_resource type="Texture2D" uid="uid://cm07di53ng7qc" path="res://Assets/concepts/symbols/symbol3.png" id="70_yd2kr"]
@@ -1252,25 +1251,6 @@ vertical_alignment = 1
 custom_effects = [null]
 script = null
 
-[node name="Portrait" type="TextureRect" parent="UI Control/DialoguePreview/Balloon" unique_id=1365241838]
-modulate = Color(0.687832, 0.853125, 0.7074606, 1)
-z_index = 22
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -444.0
-offset_top = -331.0
-offset_right = -154.0
-offset_bottom = -41.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.791, 0.791)
-mouse_filter = 2
-texture = ExtResource("67_mlrbq")
-
 [node name="ColorRect2" type="ColorRect" parent="UI Control/DialoguePreview/Balloon" unique_id=1913981349]
 visible = false
 z_index = -6
@@ -1342,25 +1322,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_egydv")
 
 [node name="PreviewAudioStreamPlayer" type="AudioStreamPlayer" parent="UI Control/DialoguePreview" unique_id=358084858]
 stream = ExtResource("39_bubpk")
-
-[node name="Portrait" type="TextureRect" parent="UI Control" unique_id=1288281121]
-modulate = Color(0.687832, 0.853125, 0.7074606, 1)
-z_index = 21
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -494.0
-offset_top = -331.0
-offset_right = -204.0
-offset_bottom = -41.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.791, 0.791)
-mouse_filter = 2
-texture = ExtResource("67_mlrbq")
 
 [node name="MoralCompassUnlocked" type="CanvasLayer" parent="UI Control" unique_id=1803123074]
 layer = 101

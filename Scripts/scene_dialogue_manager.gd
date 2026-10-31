@@ -2,8 +2,15 @@ class_name SceneDialogueManager extends Node
 
 @export var dialogue_resource : DialogueResource
 @export var dialogue_starting_point : String
+## When set, the scene runs this chapter and the two fields above are ignored.
+@export var chapter : Chapter
 
 var started := false
+
+var encounter_index := -1
+var encounter : Encounter
+var in_conversation := false
+var go_to_next_encounter := false
 
 func _ready() -> void:
 	print("SceneDialogueManager START:", self)
@@ -21,6 +28,11 @@ func _ready() -> void:
 	# ✅ Register this one as the active manager
 	GlobalManager.scene_dialogue_manager = self
 
+	if chapter:
+		DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+		_start_encounter(0)
+		return
+
 	# ▶️ Start dialogue
 	DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_starting_point)
 
@@ -31,3 +43,73 @@ func show_dialogue(dialogue_entry : String):
 		return
 	
 	DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_entry)
+
+
+func character_hit(person_name : String, item : RandomItem) -> void:
+	if not chapter:
+		show_dialogue(person_name + "_hit")
+		return
+
+	if in_conversation or encounter == null or encounter.character.id != person_name:
+		return
+
+	var reaction := encounter.get_reaction(item.item_name)
+	var title := encounter.other_title
+	var animation := encounter.other_animation
+	if reaction:
+		animation = reaction.animation
+		go_to_next_encounter = reaction.next_encounter
+		if reaction.dialogue_title != "":
+			title = reaction.dialogue_title
+
+	if animation != "":
+		play(person_name, animation)
+	if title != "":
+		_say(title)
+
+
+func _start_encounter(index : int) -> void:
+	encounter_index = index
+	encounter = chapter.encounters[index]
+	if encounter.intro_title != "":
+		_say(encounter.intro_title)
+	else:
+		_apply_previews()
+
+
+func _apply_previews() -> void:
+	var color := chapter.preview_color.to_html(false)
+	for reaction in encounter.reactions:
+		GlobalManager.set_item_preview(reaction.item, "[color=#%s]%s[/color]" % [color, reaction.preview])
+
+
+func _say(title : String) -> void:
+	in_conversation = true
+	DialogueManager.show_dialogue_balloon(encounter.dialogue, title, [self])
+
+
+func _on_dialogue_ended(_resource : DialogueResource) -> void:
+	if not in_conversation:
+		return
+	in_conversation = false
+
+	if go_to_next_encounter:
+		go_to_next_encounter = false
+		_start_encounter(encounter_index + 1)
+	else:
+		_apply_previews()
+
+
+# -----------------------------
+# SHORTCUTS FOR .dialogue FILES
+# -----------------------------
+func play(animation_or_character : String, character_animation : String = "") -> void:
+	if character_animation == "":
+		GlobalManager.play_animation.emit(animation_or_character)
+	else:
+		GlobalManager.play_animation.emit(animation_or_character, character_animation)
+
+
+func play_and_wait(animation_name : String) -> void:
+	GlobalManager.play_animation.emit(animation_name)
+	await get_tree().create_timer(GlobalManager.current_animation_length).timeout

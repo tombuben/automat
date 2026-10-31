@@ -1,0 +1,52 @@
+~ intro
+do play_and_wait("dramatic_worker_enter")
+do play("dramatic_worker_idle")
+dramatic_worker: MY LIFE is in shambles [#anim=cry]
+dramatic_worker: ITS ALL MEANINGLESS
+dramatic_worker: Can you help?
+=> END!
+
+~ compass
+dramatic_worker: A tarot reader could do it
+dramatic_worker: Come on, give me something!
+dramatic_worker: Okay, guess I will go
+
+automat: [color=#1bffc2]W-wait![/color]
+
+do play("mind_unlocked")
+do wait(3)
+do play_and_wait("mind_gain")
+do play("Lock2")
+=> END!
+
+~ large_coffee
+dramatic_worker: Large coffee?
+dramatic_worker: As if I deserve a large coffee
+dramatic_worker: Large things are for winners and hedonists
+dramatic_worker: I would deserve like
+dramatic_worker: coffee foam maybe
+=> END!
+
+~ medium_coffee
+dramatic_worker: You are right.
+dramatic_worker: What is my life but a series of "medium" choices.
+=> END!
+
+~ duck
+dramatic_worker: Ducks don't have to deal with existential pressure
+dramatic_worker: If you squeeze them
+dramatic_worker: They just quack
+dramatic_worker: It's nature
+=> END!
+
+~ silence
+dramatic_worker: ...
+=> END!
+
+~ mind
+dramatic_worker: ...
+dramatic_worker: huh.
+dramatic_worker: I think I liked robots before [#anim=idle]
+dramatic_worker: back when they didn't say what they thought
+do play_and_wait("dramatic_worker_leave")
+=> END!
