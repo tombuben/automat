@@ -2,7 +2,10 @@
 class_name Chapter extends Resource
 ## The encounters of a scene, in play order. Drag to reorder.
 
-@export var encounters : Array[Encounter]
+@export var encounters : Array[Encounter]:
+	set(value):
+		encounters = value
+		emit_changed()
 @export var preview_color : Color = Color("1bffc2")
 ## The scene this chapter runs in. Used to check animation names.
 @export_file("*.tscn") var scene_path : String
@@ -37,8 +40,6 @@ func check_for_mistakes() -> Array[String]:
 			_check_animation(scene, encounter.character.id, reaction.animation, row, problems)
 			if reaction.dialogue_title == "" and encounter.other_title == "":
 				problems.append("%s: no dialogue_title and no 'any other item' title" % row)
-			if reaction.next_encounter and i == encounters.size() - 1:
-				problems.append("%s: next_encounter is on, but this is the last encounter" % row)
 
 		var path := encounter.dialogue.resource_path
 		if not checked_files.has(path):
@@ -101,6 +102,22 @@ func _check_animation(scene : Node, character_id : String, animation : String, l
 	found = found or (sprite != null and sprite.sprite_frames != null and sprite.sprite_frames.has_animation(animation))
 	if not found:
 		problems.append("%s: '%s' has no animation '%s'" % [label, character_id, animation])
+
+
+func get_character_animations(scene : Node, character_id : String) -> PackedStringArray:
+	var names : PackedStringArray = []
+	var person := _find_person(scene, character_id)
+	if person == null:
+		return names
+	var player := person.find_child("AnimationPlayer", true, false) as AnimationPlayer
+	var sprite := person.find_child("AnimatedSprite3D", true, false) as AnimatedSprite3D
+	if player:
+		names.append_array(player.get_animation_list())
+	if sprite and sprite.sprite_frames:
+		for animation in sprite.sprite_frames.get_animation_names():
+			if animation not in names:
+				names.append(animation)
+	return names
 
 
 func _find_person(node : Node, character_id : String) -> Node:

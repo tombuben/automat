@@ -44,7 +44,7 @@ mouse_cursor/custom_image="uid://bqk00sbd4q21i"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_board/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg")
 
 [importer_defaults]
 

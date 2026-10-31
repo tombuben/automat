@@ -2,16 +2,13 @@
 do play("disposable_worker_close")
 do play("ACT1")
 do wait(3)
-
 do wait(2)
 disposable_worker: Finally
 disposable_worker: Management gave us of a new robot employee
 disposable_worker: A vending machine [#anim=grin]
 disposable_worker: Moments like these are exactly why I tolerate my job
-
 do play_and_wait("disposable_worker_close_to_idle")
 do play("disposable_worker_idle")
-
 disposable_worker: I will have...
 disposable_worker: [color=#1bffc2]One large coffee[/color].
 disposable_worker: Inside, there will be five shots of espresso
@@ -24,7 +21,6 @@ disposable_worker: Quadruple blended
 disposable_worker: With extra cream and cinnamon on the side
 disposable_worker: Coffee is a sacred ritual for me
 disposable_worker: Be exact, my mental health depends on this
-
 do play("drag_items_tutorial")
 => END!
 
@@ -40,18 +36,15 @@ disposable_worker: Now you are all so smart
 disposable_worker: Just the other day
 disposable_worker: They threw out one robot for [color=#ff851b][wave amp=25 freq=5]emotional malfunctions[/wave][/color] last week
 disposable_worker: You can have this back, it tastes like disappointment
-
 do play("disposable_worker", "throw")
 do play_and_wait("coffeeCup")
-do play("Screenshake")
 do play("disposable_worker", "grin")
-
 automat: [color=#1bffc2]H-hey, wait this isnt fair![/color]
-
 do play("moral_compass_unlocked")
 do wait(3)
 do play_and_wait("compass_gain")
 do play("Lock1")
+do next_encounter()
 => END!
 
 ~ first_medium
@@ -77,7 +70,8 @@ disposable_worker: I am filing a report [#anim=grin]
 disposable_worker: And I am REALLY good at paperwork
 do play("disposable_worker", "idle")
 do play_and_wait("disposable_worker_leave")
-=> END!
+do next_encounter()
+=> END
 
 ~ second_large_coffee
 disposable_worker: No!
@@ -100,4 +94,4 @@ disposable_worker: It's just not worth it
 ~ second_duck
 disposable_worker: Why do you even have a duck?
 disposable_worker: Is that hygienic? [#anim=throw]
-=> END!
+=> END

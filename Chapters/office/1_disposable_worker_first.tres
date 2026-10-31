@@ -1,23 +1,22 @@
 [gd_resource type="Resource" script_class="Encounter" format=3 uid="uid://c58nwrtdi76up"]
 
-[ext_resource type="Resource" path="res://Characters/disposable_worker.tres" id="1_bvwy1"]
+[ext_resource type="Resource" uid="uid://bbfem4ky6xtc6" path="res://Characters/disposable_worker.tres" id="1_bvwy1"]
 [ext_resource type="Resource" uid="uid://nt4tlehu88mr" path="res://Dialogues/office/disposable_worker.dialogue" id="2_v5weo"]
-[ext_resource type="Script" path="res://Scripts/item_reaction.gd" id="3_sgdys"]
-[ext_resource type="Script" path="res://Scripts/encounter.gd" id="4_oqn1l"]
+[ext_resource type="Script" uid="uid://bsffxurvnao5k" path="res://Scripts/item_reaction.gd" id="3_sgdys"]
+[ext_resource type="Script" uid="uid://bvdc7166winy6" path="res://Scripts/encounter.gd" id="4_oqn1l"]
 
-[sub_resource type="Resource" id="Resource_8cg61"]
+[sub_resource type="Resource" id="Resource_bvwy1"]
 script = ExtResource("3_sgdys")
 preview = "H-here you go?"
 dialogue_title = "first_large_coffee"
-next_encounter = true
 
-[sub_resource type="Resource" id="Resource_r53wl"]
+[sub_resource type="Resource" id="Resource_v5weo"]
 script = ExtResource("3_sgdys")
 item = "coffee_medium"
 preview = "H-here you go?"
 dialogue_title = "first_medium"
 
-[sub_resource type="Resource" id="Resource_h8isy"]
+[sub_resource type="Resource" id="Resource_sgdys"]
 script = ExtResource("3_sgdys")
 item = "rubber_duck"
 preview = "C-can I just show you my duck instead?"
@@ -28,5 +27,5 @@ script = ExtResource("4_oqn1l")
 character = ExtResource("1_bvwy1")
 dialogue = ExtResource("2_v5weo")
 intro_title = "intro"
-reactions = Array[ExtResource("3_sgdys")]([SubResource("Resource_8cg61"), SubResource("Resource_r53wl"), SubResource("Resource_h8isy")])
+reactions = Array[ExtResource("3_sgdys")]([SubResource("Resource_bvwy1"), SubResource("Resource_v5weo"), SubResource("Resource_sgdys")])
 other_title = "wrong_item"

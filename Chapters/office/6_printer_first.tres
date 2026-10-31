@@ -2,14 +2,13 @@
 
 [ext_resource type="Resource" path="res://Characters/printer.tres" id="1_1g4r2"]
 [ext_resource type="Resource" uid="uid://c354pn3iaquyc" path="res://Dialogues/office/printer.dialogue" id="2_4pggr"]
-[ext_resource type="Script" path="res://Scripts/item_reaction.gd" id="3_yc8n8"]
-[ext_resource type="Script" path="res://Scripts/encounter.gd" id="4_i3rlu"]
+[ext_resource type="Script" uid="uid://bsffxurvnao5k" path="res://Scripts/item_reaction.gd" id="3_yc8n8"]
+[ext_resource type="Script" uid="uid://bvdc7166winy6" path="res://Scripts/encounter.gd" id="4_i3rlu"]
 
 [sub_resource type="Resource" id="Resource_kvqjx"]
 script = ExtResource("3_yc8n8")
 preview = "Here you go"
 dialogue_title = "large_coffee"
-next_encounter = true
 
 [sub_resource type="Resource" id="Resource_bsho1"]
 script = ExtResource("3_yc8n8")

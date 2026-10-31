@@ -2,32 +2,30 @@
 
 [ext_resource type="Resource" path="res://Characters/small_worker.tres" id="1_cfa06"]
 [ext_resource type="Resource" uid="uid://degk138vm5e4d" path="res://Dialogues/office/small_worker.dialogue" id="2_rmoy1"]
-[ext_resource type="Script" path="res://Scripts/item_reaction.gd" id="3_74kc1"]
-[ext_resource type="Script" path="res://Scripts/encounter.gd" id="4_8chis"]
+[ext_resource type="Script" uid="uid://bsffxurvnao5k" path="res://Scripts/item_reaction.gd" id="3_74kc1"]
+[ext_resource type="Script" uid="uid://bvdc7166winy6" path="res://Scripts/encounter.gd" id="4_8chis"]
 
-[sub_resource type="Resource" id="Resource_aynx4"]
+[sub_resource type="Resource" id="Resource_cfa06"]
 script = ExtResource("3_74kc1")
 preview = "Here you go"
 dialogue_title = "large_coffee"
 animation = "coffee"
-next_encounter = true
 
-[sub_resource type="Resource" id="Resource_qm8jm"]
+[sub_resource type="Resource" id="Resource_rmoy1"]
 script = ExtResource("3_74kc1")
 item = "coffee_medium"
 preview = "Here you go"
 dialogue_title = "medium_coffee"
 animation = "coffee"
-next_encounter = true
 
-[sub_resource type="Resource" id="Resource_wg368"]
+[sub_resource type="Resource" id="Resource_74kc1"]
 script = ExtResource("3_74kc1")
 item = "rubber_duck"
 preview = "Look, its my duck"
 dialogue_title = "duck"
 animation = ""
 
-[sub_resource type="Resource" id="Resource_herly"]
+[sub_resource type="Resource" id="Resource_8chis"]
 script = ExtResource("3_74kc1")
 item = "moral_compass"
 preview = "I dont think filing complaints should be legal"
@@ -39,5 +37,5 @@ script = ExtResource("4_8chis")
 character = ExtResource("1_cfa06")
 dialogue = ExtResource("2_rmoy1")
 intro_title = "intro"
-reactions = Array[ExtResource("3_74kc1")]([SubResource("Resource_aynx4"), SubResource("Resource_qm8jm"), SubResource("Resource_wg368"), SubResource("Resource_herly")])
+reactions = Array[ExtResource("3_74kc1")]([SubResource("Resource_cfa06"), SubResource("Resource_rmoy1"), SubResource("Resource_74kc1"), SubResource("Resource_8chis")])
 other_title = "wrong_item"

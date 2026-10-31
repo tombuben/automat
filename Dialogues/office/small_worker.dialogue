@@ -4,7 +4,7 @@ do play("small_worker_idle")
 small_worker: Jeez, that guy
 small_worker: Hello
 small_worker: I will have a small coffee
-=> END!
+=> END
 
 ~ large_coffee
 =>< small_cups
@@ -30,6 +30,7 @@ small_worker: Kinda dangerous.
 small_worker: Anyways...
 small_worker: Thank you!
 do play_and_wait("small_worker_leave")
+do next_encounter()
 => END!
 
 ~ duck

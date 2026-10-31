@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Chapter" format=3 uid="uid://dbnt5plvmvah6"]
 
-[ext_resource type="Script" path="res://Scripts/encounter.gd" id="1_h7v6j"]
+[ext_resource type="Script" uid="uid://bvdc7166winy6" path="res://Scripts/encounter.gd" id="1_h7v6j"]
 [ext_resource type="Resource" uid="uid://c58nwrtdi76up" path="res://Chapters/office/1_disposable_worker_first.tres" id="2_kj71i"]
 [ext_resource type="Resource" uid="uid://dk451tpepldgg" path="res://Chapters/office/2_disposable_worker_second.tres" id="3_hhmqs"]
 [ext_resource type="Resource" uid="uid://dxwjoiqpjycy1" path="res://Chapters/office/3_small_worker.tres" id="4_6bsoh"]
@@ -9,9 +9,9 @@
 [ext_resource type="Resource" uid="uid://dgv5lnmv5lp88" path="res://Chapters/office/6_printer_first.tres" id="7_q42f0"]
 [ext_resource type="Resource" uid="uid://b6cgkqabtaypf" path="res://Chapters/office/7_printer_second.tres" id="8_87g16"]
 [ext_resource type="Resource" uid="uid://b7t2tsjig3vhs" path="res://Chapters/office/8_boss.tres" id="9_qn40c"]
-[ext_resource type="Script" path="res://Scripts/chapter.gd" id="10_e3tcn"]
+[ext_resource type="Script" uid="uid://cqatbc82djfd8" path="res://Scripts/chapter.gd" id="10_e3tcn"]
 
 [resource]
 script = ExtResource("10_e3tcn")
-encounters = Array[ExtResource("1_h7v6j")]([ExtResource("2_kj71i"), ExtResource("3_hhmqs"), ExtResource("4_6bsoh"), ExtResource("5_jpj7o"), ExtResource("6_i8o7v"), ExtResource("7_q42f0"), ExtResource("8_87g16"), ExtResource("9_qn40c")])
+encounters = Array[ExtResource("1_h7v6j")]([ExtResource("3_hhmqs"), ExtResource("2_kj71i"), ExtResource("4_6bsoh"), ExtResource("5_jpj7o"), ExtResource("6_i8o7v"), ExtResource("7_q42f0"), ExtResource("8_87g16"), ExtResource("9_qn40c")])
 scene_path = "res://Scenes/main_scene0.tscn"

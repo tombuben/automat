@@ -9,5 +9,3 @@ class_name ItemReaction extends Resource
 @export var dialogue_title : String
 ## Played on the character when hit. Empty = no animation.
 @export var animation : String = "hit"
-## After this dialogue ends, move to the next encounter in the chapter.
-@export var next_encounter : bool = false

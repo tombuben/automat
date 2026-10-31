@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BoardColors" format=3 uid="uid://tey7mgucjtcx"]
+
+[ext_resource type="Script" uid="uid://d1kiy63tc5ykm" path="res://addons/dialogue_board/board_colors.gd" id="1_5phen"]
+
+[resource]
+script = ExtResource("1_5phen")
+wire = Color(0.4631836, 0.484375, 0.484375, 1)
+flow = Color(0.23921564, 0.5703185, 0.9098039, 1)
+button = Color(0.19687498, 0.19195311, 0.19195311, 1)
+background = Color(0.061728526, 0.061728526, 0.06562501, 1)

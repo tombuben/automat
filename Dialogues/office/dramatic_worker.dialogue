@@ -10,13 +10,12 @@ dramatic_worker: Can you help?
 dramatic_worker: A tarot reader could do it
 dramatic_worker: Come on, give me something!
 dramatic_worker: Okay, guess I will go
-
 automat: [color=#1bffc2]W-wait![/color]
-
 do play("mind_unlocked")
 do wait(3)
 do play_and_wait("mind_gain")
 do play("Lock2")
+do next_encounter()
 => END!
 
 ~ large_coffee
@@ -49,4 +48,5 @@ dramatic_worker: huh.
 dramatic_worker: I think I liked robots before [#anim=idle]
 dramatic_worker: back when they didn't say what they thought
 do play_and_wait("dramatic_worker_leave")
+do next_encounter()
 => END!

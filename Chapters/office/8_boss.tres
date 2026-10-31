@@ -2,8 +2,8 @@
 
 [ext_resource type="Resource" path="res://Characters/boss.tres" id="1_2li4h"]
 [ext_resource type="Resource" uid="uid://b6bg8nhaq27gd" path="res://Dialogues/office/boss.dialogue" id="2_487k0"]
-[ext_resource type="Script" path="res://Scripts/item_reaction.gd" id="3_8ox84"]
-[ext_resource type="Script" path="res://Scripts/encounter.gd" id="4_5iq1a"]
+[ext_resource type="Script" uid="uid://bsffxurvnao5k" path="res://Scripts/item_reaction.gd" id="3_8ox84"]
+[ext_resource type="Script" uid="uid://bvdc7166winy6" path="res://Scripts/encounter.gd" id="4_5iq1a"]
 
 [sub_resource type="Resource" id="Resource_1b8m0"]
 script = ExtResource("3_8ox84")
