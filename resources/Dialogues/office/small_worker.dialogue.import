@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://degk138vm5e4d"
+path="res://.godot/imported/small_worker.dialogue-b909bf718aab632f64de82346d0d3c39.tres"
+
+[deps]
+
+source_file="res://resources/Dialogues/office/small_worker.dialogue"
+dest_files=["res://.godot/imported/small_worker.dialogue-b909bf718aab632f64de82346d0d3c39.tres"]
+
+[params]
+
+defaults=true

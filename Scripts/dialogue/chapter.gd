@@ -68,8 +68,8 @@ func _check_dialogue_file(path : String, scene : Node, problems : Array[String])
 	var tag_regex := RegEx.create_from_string("\\[#anim=([A-Za-z_0-9]+)\\]")
 	var play_regex := RegEx.create_from_string("^\\s*do play(?:_and_wait)?\\(\"([^\"]+)\"(?:, \"([^\"]+)\")?\\)")
 	var character_ids := {}
-	for file_name in ResourceLoader.list_directory("res://Characters/"):
-		character_ids[(load("res://Characters/" + file_name) as CharacterData).id] = true
+	for file_name in ResourceLoader.list_directory("res://resources/Characters/"):
+		character_ids[(load("res://resources/Characters/" + file_name) as CharacterData).id] = true
 
 	for i in lines.size():
 		var row := "%s line %d" % [label, i + 1]

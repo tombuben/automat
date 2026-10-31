@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://m4efalhu6rgd" path="res://Assets/Characters/disposableWorker/disposable_worker_idle_0009.png" id="14_rebxa"]
 [ext_resource type="Texture2D" uid="uid://dy037ltqllxq1" path="res://Assets/Characters/disposableWorker/disposable_worker_idle_0010.png" id="15_h7fvi"]
 [ext_resource type="Texture2D" uid="uid://4vmdxwm3uqi1" path="res://Assets/Characters/disposableWorker/disposable_worker_idle_0011.png" id="16_yh2ee"]
-[ext_resource type="Resource" path="res://Characters/disposable_worker.tres" id="character_data"]
+[ext_resource type="Resource" uid="uid://bbfem4ky6xtc6" path="res://resources/Characters/disposable_worker.tres" id="character_data"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qk7r5"]
 animations = [{

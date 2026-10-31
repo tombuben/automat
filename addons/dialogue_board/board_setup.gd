@@ -2,9 +2,9 @@
 extends RefCounted
 ## Creates the files behind a chapter or character, so nobody has to make them by hand.
 
-const CHAPTERS_DIR := "res://Chapters/"
-const DIALOGUES_DIR := "res://Dialogues/"
-const CHARACTERS_DIR := "res://Characters/"
+const CHAPTERS_DIR := "res://resources/Chapters/"
+const DIALOGUES_DIR := "res://resources/Dialogues/"
+const CHARACTERS_DIR := "res://resources/Characters/"
 const PREFABS_DIR := "res://Prefabs/NPCs/"
 const BASE_PREFAB := "res://Prefabs/random_person.tscn"
 const SCENES_DIR := "res://Scenes/"
@@ -20,11 +20,7 @@ static func slug(text : String) -> String:
 
 
 static func find_chapters() -> Array:
-	var found := []
-	for folder in DirAccess.get_directories_at(CHAPTERS_DIR):
-		for file_name in DirAccess.get_files_at(CHAPTERS_DIR + folder):
-			if file_name.ends_with(CHAPTER_SUFFIX):
-				found.append(CHAPTERS_DIR + folder + "/" + file_name)
+	var found := _find_files("res://resources/", CHAPTER_SUFFIX)
 	found.sort()
 	return found
 
@@ -88,7 +84,7 @@ static func create_chapter(display_name : String, template_scene : String, make_
 ## Points the scene's SceneDialogueManager at this chapter.
 static func attach_chapter_to_scene(scene_path : String, chapter_path : String) -> bool:
 	var text := FileAccess.get_file_as_string(scene_path)
-	var script_line := RegEx.create_from_string("\\[ext_resource [^\\]]*path=\"res://Scripts/dialogue/scene_dialogue_manager\\.gd\" id=\"([^\"]+)\"\\]").search(text)
+	var script_line := RegEx.create_from_string("\\[ext_resource [^\\]]*path=\"res://[^\"]*scene_dialogue_manager\\.gd\" id=\"([^\"]+)\"\\]").search(text)
 	if script_line == null:
 		return false
 	var script_id := script_line.get_string(1)

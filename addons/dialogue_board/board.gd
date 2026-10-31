@@ -10,7 +10,7 @@ signal open_resource_requested(resource : Resource)
 signal play_requested(scene_path : String)
 
 const BoardSetup = preload("res://addons/dialogue_board/board_setup.gd")
-const DEFAULT_CHAPTER := "res://Chapters/office/office_chapter.tres"
+const DEFAULT_CHAPTER := "res://resources/Chapters/office/office_chapter.tres"
 const LAST_CHAPTER_SECTION := "board"
 const LAYOUT_PATH := "res://addons/dialogue_board/layout.cfg"
 const NODE_WIDTH := 820.0
@@ -226,8 +226,8 @@ func _load_lists() -> void:
 	character_animations = {}
 
 	speakers = []
-	for file_name in ResourceLoader.list_directory("res://Characters/"):
-		var data := load("res://Characters/" + file_name) as CharacterData
+	for file_name in ResourceLoader.list_directory(BoardSetup.CHARACTERS_DIR):
+		var data := load(BoardSetup.CHARACTERS_DIR + file_name) as CharacterData
 		if data:
 			speakers.append(data.id)
 	speakers.sort()

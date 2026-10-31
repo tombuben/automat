@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bo6tiq4skco2" path="res://Assets/ChapterAssets/office/mad_worker_coffee.png" id="3_8pxoo"]
 [ext_resource type="Texture2D" uid="uid://dhnr0xj5j2u83" path="res://Assets/ChapterAssets/office/mad_worker_hit.png" id="4_d444l"]
 [ext_resource type="Texture2D" uid="uid://cuh4slbljcpsx" path="res://Assets/ChapterAssets/office/mad_worker_idle.png" id="5_yw6u6"]
-[ext_resource type="Resource" path="res://Characters/boss.tres" id="character_data"]
+[ext_resource type="Resource" path="res://resources/Characters/boss.tres" id="character_data"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qk7r5"]
 animations = [{

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://by5rfkvj11s6h" path="res://Assets/ChapterAssets/office/small_worker_coffee.png" id="3_xnxp2"]
 [ext_resource type="Texture2D" uid="uid://bxgksdxqo48oa" path="res://Assets/ChapterAssets/office/smallWorker_hit.png" id="4_6ihw4"]
 [ext_resource type="Texture2D" uid="uid://b2rb6fdxmhxl2" path="res://Assets/ChapterAssets/office/smallWorker_idle.png" id="5_fkghs"]
-[ext_resource type="Resource" path="res://Characters/small_worker.tres" id="character_data"]
+[ext_resource type="Resource" path="res://resources/Characters/small_worker.tres" id="character_data"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qk7r5"]
 animations = [{

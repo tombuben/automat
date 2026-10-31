@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dxa6sgapescy4" path="res://Assets/ChapterAssets/office/printer_hit.png" id="4_8txae"]
 [ext_resource type="Texture2D" uid="uid://cmmyvmc65wat1" path="res://Assets/ChapterAssets/office/printer_super_happy.png" id="6_8txae"]
 [ext_resource type="Texture2D" uid="uid://dsmbmv55afwfw" path="res://Assets/ChapterAssets/office/printer_sad.png" id="6_v3g2o"]
-[ext_resource type="Resource" path="res://Characters/printer.tres" id="character_data"]
+[ext_resource type="Resource" path="res://resources/Characters/printer.tres" id="character_data"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qk7r5"]
 animations = [{

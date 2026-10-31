@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c645gtpivf823"
+path="res://.godot/imported/dramatic_worker.dialogue-d2a4c8d114c19abf9c829de49cc4fa14.tres"
+
+[deps]
+
+source_file="res://resources/Dialogues/office/dramatic_worker.dialogue"
+dest_files=["res://.godot/imported/dramatic_worker.dialogue-d2a4c8d114c19abf9c829de49cc4fa14.tres"]
+
+[params]
+
+defaults=true

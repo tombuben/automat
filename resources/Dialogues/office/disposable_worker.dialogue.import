@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://nt4tlehu88mr"
+path="res://.godot/imported/disposable_worker.dialogue-a11555799f4d275bdb4eb7c91991ed4d.tres"
+
+[deps]
+
+source_file="res://resources/Dialogues/office/disposable_worker.dialogue"
+dest_files=["res://.godot/imported/disposable_worker.dialogue-a11555799f4d275bdb4eb7c91991ed4d.tres"]
+
+[params]
+
+defaults=true
