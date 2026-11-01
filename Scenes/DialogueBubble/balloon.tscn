@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 [ext_resource type="Script" uid="uid://dcl5ld443vhtn" path="res://Scripts/dialogue/dialogue_audio_beeps.gd" id="7_vhv0x"]
 [ext_resource type="AudioStream" uid="uid://bx6q6oiijmqqw" path="res://Assets/Audio/SpeakingSFX/blbblblb.wav" id="7_y87q8"]
+[ext_resource type="Script" uid="uid://b2yjdkclu5wf0" path="res://Scripts/dialogue/growing_dialogue_label.gd" id="8_growlbl"]
 [ext_resource type="AudioStream" uid="uid://kim46bit60jn" path="res://Assets/Audio/SpeakingSFX/DisposableWorkerDialogue001.wav" id="9_862fn"]
 [ext_resource type="AudioStream" uid="uid://c6yxcghxkyh42" path="res://Assets/Audio/SpeakingSFX/DisposableWorkerDialogue002.wav" id="10_3on4c"]
 
@@ -188,14 +189,17 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.7313281, 0.925, 0.82031256, 1)
-theme_override_font_sizes/normal_font_size = 43
+theme_override_font_sizes/normal_font_size = 40
 text = "Dialogue..."
 scroll_active = true
 scroll_following = true
 horizontal_alignment = 1
 vertical_alignment = 1
 custom_effects = [null]
-seconds_per_step = 0.008
+script = ExtResource("8_growlbl")
+letter_grow_time = 0.15
+seconds_per_step = 0.025
+skip_pause_at_abbreviations = ["Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex"]
 
 [node name="Control" type="Control" parent="Balloon/VBoxContainer" unique_id=541740382]
 custom_minimum_size = Vector2(20, 10)

@@ -117,8 +117,10 @@ material = SubResource("StandardMaterial3D_t7s67")
 
 [sub_resource type="Environment" id="Environment_8swbj"]
 background_mode = 1
-background_color = Color(0.4421875, 0.5, 0.44808674, 1)
-background_energy_multiplier = 2.8
+background_color = Color(0.703125, 0.703125, 0.703125, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vuse5"]
+size = Vector3(38.591, 1, 24.555)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fcgxk"]
 transparency = 1
@@ -1342,12 +1344,6 @@ _data = {
 &"small_worker_leave": SubResource("Animation_5ls3k")
 }
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_nt2eh"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5cm5d"]
-transparency = 1
-albedo_color = Color(1, 0, 1, 0.36862746)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_nkddx"]
 size = Vector3(128.99219, 82.885544, 3.7753906)
 
@@ -1357,18 +1353,6 @@ size = Vector3(3.4240723, 4.498291, 9.817078)
 [sub_resource type="BoxShape3D" id="BoxShape3D_nfcrg"]
 size = Vector3(4.4628906, 10.067139, 3.6013184)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ojn8u"]
-transparency = 1
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("45_0x4kb")
-
-[sub_resource type="QuadMesh" id="QuadMesh_rqlcv"]
-material = SubResource("StandardMaterial3D_ojn8u")
-
-[sub_resource type="Gradient" id="Gradient_bnwoa"]
-offsets = PackedFloat32Array(0, 0.3931925, 1)
-colors = PackedColorArray(0.596875, 0.49428713, 0.18652344, 1, 0.84375, 0.7303711, 0.39023435, 1, 1, 1, 1, 1)
-
 [node name="MainScene" type="Node3D" unique_id=350775679]
 
 [node name="World" type="Node" parent="." unique_id=1861547874]
@@ -1377,7 +1361,7 @@ colors = PackedColorArray(0.596875, 0.49428713, 0.18652344, 1, 0.84375, 0.730371
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.998743, 0, 0)
 
 [node name="Disposable_worker" parent="World/Characters" unique_id=1055277779 instance=ExtResource("2_nfcrg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.739, 0.745, 0.877)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.739, 1.038, 0.877)
 person_name = "disposable_worker"
 hitstop_duration = 0.029
 hitstop_scale = 0.297
@@ -1426,11 +1410,17 @@ light_indirect_energy = 0.51
 directional_shadow_mode = 0
 
 [node name="OfficeBG" type="Node3D" parent="World" unique_id=1644820740]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.596189, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/OfficeBG" unique_id=47736958]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2266659, -1.4664477, -4.4914713)
+mesh = SubResource("BoxMesh_vuse5")
 
 [node name="Node3D2" type="Node3D" parent="World/OfficeBG" unique_id=1205396388]
 
 [node name="BG" type="Sprite3D" parent="World/OfficeBG" unique_id=1520203208]
 transform = Transform3D(6.556, 0, 0, 0, 6.556, 0, 0, 0, 6.556, -0.071, 1.773, -51.705753)
+visible = false
 sorting_offset = -39.425
 modulate = Color(0.78125, 0.78125, 0.78125, 1)
 texture = ExtResource("9_fcgxk")
@@ -1686,7 +1676,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.263, 0, 0)
 
 [node name="openHands" type="AnimatedSprite3D" parent="Automat" unique_id=404451573]
 transform = Transform3D(0.133, 0, 0, 0, 0.133, 0, 0, 0, 0.133, -0.015, 0.681, 1.086)
-visible = false
 sorting_offset = 3.886
 modulate = Color(0.4921875, 0.875, 0.63993967, 1)
 sprite_frames = SubResource("SpriteFrames_tscpr")
@@ -1901,12 +1890,14 @@ debug_color = Color(0, 2.5736918, 2.998326, 0.41960785)
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 107.92022, -1.615, 0)
 visible = false
 sorting_offset = 4.858
+modulate = Color(0.76875, 0.76875, 0.76875, 1)
 texture = ExtResource("31_xaya4")
 
 [node name="handRight" type="Sprite3D" parent="Automat" unique_id=1552335953]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 111.118645, -1.615, 0)
 visible = false
 sorting_offset = 4.858
+modulate = Color(0.76862746, 0.76862746, 0.76862746, 1)
 texture = ExtResource("32_poada")
 
 [node name="UI Control" type="Control" parent="." unique_id=1381454070]
@@ -2010,13 +2001,13 @@ shoot_strength = 4.0
 throw_arc = 0.0
 charge_fov = 72.0
 fov_speed = 79.0
+tilt_max_angle = 3.0
+tilt_smooth_speed = 6.0
 max_charge_duration = 2.544
 charge_speed = 8.0
 
 [node name="ShootingHands" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" unique_id=962925162 instance=ExtResource("shooting_hands_prefab")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.051, 0, -1.25)
-reach_spread = 0.03
-pose_time = 0.375
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.109, -0.036, -1.25)
 
 [node name="AimRotation" type="Node3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" unique_id=1338827862]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46343565, -0.6999998)
@@ -2074,6 +2065,7 @@ color = Color(0, 0, 0, 1)
 layer = 100
 script = ExtResource("65_406us")
 dialogue_rich_text = NodePath("Balloon/MarginContainer2/HBoxContainer/VBoxContainer/DialogueLabel")
+letters_per_second = 100.0
 preview_audio_player = NodePath("PreviewAudioStreamPlayer")
 audio_samples = Array[AudioStream]([ExtResource("44_s0ebu")])
 play_every_n_letters = 6
@@ -3236,13 +3228,6 @@ script = ExtResource("58_2cj6h")
 script = ExtResource("59_04lfq")
 chapter = ExtResource("53_h3hn5")
 
-[node name="SelectionPlane" type="MeshInstance3D" parent="." unique_id=1437209716]
-transform = Transform3D(100, 0, 0, 0, -4.371139e-06, -100, 0, 100, -4.371139e-06, 0, 0, 0.5)
-visible = false
-mesh = SubResource("PlaneMesh_nt2eh")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_5cm5d")
-
 [node name="worldColliders" type="Node3D" parent="." unique_id=688754971]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="worldColliders" unique_id=1972448526]
@@ -3282,6 +3267,7 @@ shape = SubResource("BoxShape3D_nfcrg")
 debug_color = Color(0, 0.5950001, 0.7, 1)
 
 [node name="TitleCards" type="Control" parent="." unique_id=1953213834]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -3355,23 +3341,5 @@ autoplay = true
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=210362632]
 volume_db = 0.063
 autoplay = true
-
-[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=872502646]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -107.65, 0.869, -10.222)
-visible = false
-sorting_offset = 8.0
-amount = 127
-mesh = SubResource("QuadMesh_rqlcv")
-emission_shape = 1
-emission_sphere_radius = 0.01
-gravity = Vector3(0, 0, 0)
-radial_accel_min = 8.5
-radial_accel_max = 14.37
-tangential_accel_max = 2.03
-damping_max = 0.123
-scale_amount_min = 0.1
-scale_amount_max = 0.1
-color = Color(1, 0.997133, 0.984375, 1)
-color_ramp = SubResource("Gradient_bnwoa")
 
 [connection signal="gui_input" from="UI Control/DialoguePreview/Balloon" to="UI Control/DialoguePreview" method="_on_balloon_gui_input"]

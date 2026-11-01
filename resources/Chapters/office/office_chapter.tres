@@ -13,5 +13,5 @@
 
 [resource]
 script = ExtResource("10_e3tcn")
-encounters = Array[ExtResource("1_h7v6j")]([ExtResource("2_kj71i"), ExtResource("3_hhmqs"), ExtResource("4_6bsoh"), ExtResource("5_jpj7o"), ExtResource("6_i8o7v"), ExtResource("7_q42f0"), ExtResource("8_87g16"), ExtResource("9_qn40c")])
+encounters = Array[ExtResource("1_h7v6j")]([ExtResource("3_hhmqs"), ExtResource("2_kj71i"), ExtResource("4_6bsoh"), ExtResource("5_jpj7o"), ExtResource("6_i8o7v"), ExtResource("7_q42f0"), ExtResource("8_87g16"), ExtResource("9_qn40c")])
 scene_path = "uid://ly1vphjhycta"

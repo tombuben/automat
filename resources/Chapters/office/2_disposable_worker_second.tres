@@ -5,24 +5,24 @@
 [ext_resource type="Script" uid="uid://bsffxurvnao5k" path="res://Scripts/dialogue/item_reaction.gd" id="3_qumui"]
 [ext_resource type="Script" uid="uid://bvdc7166winy6" path="res://Scripts/dialogue/encounter.gd" id="4_vbjem"]
 
-[sub_resource type="Resource" id="Resource_jlys2"]
+[sub_resource type="Resource" id="Resource_31q6a"]
 script = ExtResource("3_qumui")
 preview = "D-do you really not want this?"
 dialogue_title = "second_large_coffee"
 
-[sub_resource type="Resource" id="Resource_lu011"]
+[sub_resource type="Resource" id="Resource_53ikb"]
 script = ExtResource("3_qumui")
 item = "coffee_medium"
 preview = "H-how about a medium?"
 dialogue_title = "second_medium"
 
-[sub_resource type="Resource" id="Resource_qumui"]
+[sub_resource type="Resource" id="Resource_0tl73"]
 script = ExtResource("3_qumui")
 item = "rubber_duck"
 preview = "D-duck?"
 dialogue_title = "second_duck"
 
-[sub_resource type="Resource" id="Resource_vbjem"]
+[sub_resource type="Resource" id="Resource_82dds"]
 script = ExtResource("3_qumui")
 item = "moral_compass"
 preview = "I-I don't know how to make your order"
@@ -33,5 +33,5 @@ animation = "throw"
 script = ExtResource("4_vbjem")
 character = ExtResource("1_jlys2")
 dialogue = ExtResource("2_lu011")
-reactions = Array[ExtResource("3_qumui")]([SubResource("Resource_jlys2"), SubResource("Resource_lu011"), SubResource("Resource_qumui"), SubResource("Resource_vbjem")])
+reactions = Array[ExtResource("3_qumui")]([SubResource("Resource_31q6a"), SubResource("Resource_53ikb"), SubResource("Resource_0tl73"), SubResource("Resource_82dds")])
 other_title = "wrong_item"

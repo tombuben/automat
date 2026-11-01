@@ -1,13 +1,9 @@
 ~ intro
-do play("disposable_worker_close")
-do play("ACT1")
-do wait(3)
-do wait(2)
+# label: Appear
 disposable_worker: Finally
 disposable_worker: Management gave us of a new robot employee
 disposable_worker: A vending machine [#anim=grin]
 disposable_worker: Moments like these are exactly why I tolerate my job
-do play_and_wait("disposable_worker_close_to_idle")
 do play("disposable_worker_idle")
 disposable_worker: I will have...
 disposable_worker: [color=#1bffc2]One large coffee[/color].
@@ -25,6 +21,7 @@ do play("drag_items_tutorial")
 => END!
 
 ~ first_large_coffee
+# label: CoffeeLarge
 do wait(1)
 disposable_worker: Ouch
 disposable_worker: Listen buddy
@@ -48,6 +45,7 @@ do next_encounter()
 => END!
 
 ~ first_medium
+# label: CoffeeMedium
 disposable_worker: This is a medium
 disposable_worker: I am not even taking a sip
 disposable_worker: I am alergic to medium things
@@ -55,15 +53,18 @@ disposable_worker: Because of my high standards
 => END!
 
 ~ first_duck
+# label: Duck
 disposable_worker: How are you bad at making coffee
 disposable_worker: This is a rubber duck
 => END!
 
 ~ wrong_item
+# label: Else
 disposable_worker: What the heck is this
 => END!
 
 ~ argued_with
+# label: Compass
 disposable_worker: I can't believe a coffee machine just argued with me
 disposable_worker: For wanting coffee
 disposable_worker: I am filing a report [#anim=grin]
@@ -74,6 +75,7 @@ do next_encounter()
 => END
 
 ~ second_large_coffee
+# label: CoffeeLarge
 disposable_worker: No!
 disposable_worker: Give me my large coffee with
 disposable_worker: five shots of espresso[next=auto]
@@ -87,11 +89,13 @@ disposable_worker: It's a simple order
 => END!
 
 ~ second_medium
+# label: CoffeeMedium
 disposable_worker: Drinking medium coffee is like peeling an apple before eating it
 disposable_worker: It's just not worth it
 => END!
 
 ~ second_duck
+# label: Duck
 disposable_worker: Why do you even have a duck?
 disposable_worker: Is that hygienic? [#anim=throw]
 => END

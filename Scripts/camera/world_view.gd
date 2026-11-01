@@ -52,6 +52,14 @@ var recoil_rot : float = 0.0
 var recoil_rot_vel : float = 0.0
 
 # -------------------------
+# MOUSE TILT
+# -------------------------
+@export var tilt_max_angle : float = 2.0
+@export var tilt_smooth_speed : float = 5.0
+
+var tilt : Vector3 = Vector3.ZERO
+
+# -------------------------
 # QUICK SHOOT SHAKE
 # -------------------------
 var shoot_shake_timer : float = 0.0
@@ -138,10 +146,9 @@ func _process(delta: float) -> void:
 	if not viewport_rect.has_point(mouse_pos):
 		screen_position = viewport_rect.size / 2
 
-	spawn_position.position.y = hands.get_item_offset()
-
 	handle_fov(delta)
 	handle_recoil(delta)
+	handle_tilt(delta)
 	handle_hit_shake(delta)
 	handle_quick_shoot_shake(delta)
 
@@ -174,6 +181,17 @@ func add_recoil(force: float) -> void:
 	recoil_rot_vel += deg_to_rad(recoil_tilt * force)
 
 # -------------------------
+# MOUSE TILT
+# -------------------------
+func handle_tilt(delta: float) -> void:
+	var target_tilt := Vector3.ZERO
+	var mouse_in_view = get_mouse_in_view()
+	if mouse_in_view != null:
+		var offset : Vector2 = mouse_in_view / Vector2(get_viewport().size) - Vector2(0.5, 0.5)
+		target_tilt = Vector3(-offset.y, -offset.x, 0.0) * deg_to_rad(tilt_max_angle)
+	tilt = tilt.lerp(target_tilt, delta * tilt_smooth_speed)
+
+# -------------------------
 # HIT SHAKE
 # -------------------------
 func play_hit_shake(strength: float = 0.15, duration: float = 0.15) -> void:
@@ -190,7 +208,7 @@ func handle_hit_shake(delta: float) -> void:
 			randf_range(-hit_shake_strength, hit_shake_strength)
 		)
 		position = base_position + Vector3(0,0,recoil_pos) + shake_offset
-		rotation = base_rotation + Vector3(recoil_rot,0,0)
+		rotation = base_rotation + Vector3(recoil_rot,0,0) + tilt
 
 # -------------------------
 # QUICK SHOOT SHAKE
@@ -208,7 +226,7 @@ func handle_quick_shoot_shake(delta: float) -> void:
 		position = base_position + Vector3(0,0,recoil_pos) + shake_offset
 	else:
 		position = base_position + Vector3(0,0,recoil_pos)
-	rotation = base_rotation + Vector3(recoil_rot,0,0)
+	rotation = base_rotation + Vector3(recoil_rot,0,0) + tilt
 
 # -------------------------
 # PARTICLES (WORLD SPACE)
@@ -268,6 +286,7 @@ func _stop_load_tween() -> void:
 func spawn_duplicate(original : RigidBody3D, drop_position : Vector2) -> void:
 	aim_rotation.transform = aim_transform
 	spawn_position.transform = spawn_transform
+	spawn_position.position.y += hands.item_rest_height
 
 	object_to_shoot = original.duplicate()
 	object_to_shoot.rotation = Vector3.ZERO
@@ -368,7 +387,7 @@ func shoot(mouse_position : Vector2) -> void:
 
 	add_recoil(1.0 + normalized_charge)
 	shoot_shake_timer = shoot_shake_duration
-	hands.throw_item(normalized_charge)
+	hands.throw_item()
 
 	# 🔥 PARTICLES (WORLD SPACE)
 	play_shoot_particles(normalized_charge)

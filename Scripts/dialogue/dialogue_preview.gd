@@ -2,7 +2,9 @@ class_name DialoguePreview
 extends CanvasLayer
 
 @export var dialogue_rich_text: RichTextLabel
-@export var letters_per_second: float = 100
+@export var letters_per_second: float = 40
+## How long one letter takes to reach full size, in seconds. 0 turns the growing off.
+@export var letter_grow_time := 0.15
 
 @export var preview_audio_player: AudioStreamPlayer
 @export var audio_samples: Array[AudioStream]
@@ -13,15 +15,21 @@ extends CanvasLayer
 
 var tween: Tween
 var typing_active := false
+var scale_in_effect := ScaleInEffect.new()
 
 
 func _ready() -> void:
 	GlobalManager.dialogue_preview = self
 	visible = false
 
+	scale_in_effect.label = dialogue_rich_text
+	scale_in_effect.grow_time = letter_grow_time
+	dialogue_rich_text.custom_effects = [scale_in_effect]
+
 
 func show_preview(preview_text: String):
-	dialogue_rich_text.text = preview_text
+	scale_in_effect.restart()
+	dialogue_rich_text.text = "[scale]%s[/scale]" % preview_text
 	dialogue_rich_text.visible_ratio = 0
 
 	if tween:
