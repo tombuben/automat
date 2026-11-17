@@ -6,15 +6,22 @@ class_name ShootingHands extends Node3D
 
 ## How far above the spawn point the held item rests.
 @export var item_rest_height := 0.2
+## How much the hands trail behind the camera tilt. 0 = glued to the camera.
+@export var tilt_lag := 0.35
+@export var tilt_lag_speed := 4.0
 
 @onready var world_view : WorldView = get_parent()
+@onready var base_position : Vector3 = position
+var lagged_tilt := Vector3.ZERO
 
 var current_animation : StringName
 var once_animation : StringName
 var playing_once := false
 
 
-func _process(_delta : float) -> void:
+func _process(delta : float) -> void:
+	_follow_tilt(delta)
+
 	if playing_once:
 		if _is_once_animation_playing():
 			return
@@ -25,6 +32,15 @@ func _process(_delta : float) -> void:
 	if wanted != current_animation:
 		current_animation = wanted
 		_play(wanted)
+
+
+## The hands are attached to the camera, so to lag they shift the way the world
+## does when the camera turns, just less and only until they catch up.
+func _follow_tilt(delta : float) -> void:
+	lagged_tilt = lagged_tilt.lerp(world_view.tilt, 1.0 - exp(-tilt_lag_speed * delta))
+	var behind := world_view.tilt - lagged_tilt
+	var distance := -base_position.z
+	position = base_position + Vector3(behind.y, -behind.x, 0.0) * distance * tilt_lag
 
 
 func catch_item() -> void:

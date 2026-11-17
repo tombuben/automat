@@ -1190,21 +1190,32 @@ offset_right = 1470.0
 offset_bottom = 2152.0
 texture = ExtResource("5_lxcyd")
 
+[node name="TextureRect10" type="TextureRect" parent="TextureRect" unique_id=1199964496]
+modulate = Color(0.371875, 0.371875, 0.371875, 1)
+z_index = -14
+layout_mode = 0
+offset_left = -136.0
+offset_top = -109.99999
+offset_right = 3704.0
+offset_bottom = 2050.0
+scale = Vector2(1.081, 1.081)
+texture = ExtResource("152_lqh85")
+
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=524541449]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 124.0
-offset_top = 76.0
-offset_right = -153.55542
-offset_bottom = -80.125
+offset_left = 97.33325
+offset_top = 61.0
+offset_right = -126.88867
+offset_bottom = -65.125
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=2095098203]
 handle_input_locally = false
-size = Vector2i(1642, 923)
+size = Vector2i(1695, 953)
 render_target_update_mode = 4
 
 [node name="Player" type="CharacterBody3D" parent="SubViewportContainer/SubViewport" unique_id=1980153873 node_paths=PackedStringArray("camera_controller", "sprite") groups=["player"]]

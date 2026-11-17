@@ -861,9 +861,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_u4rn1")
 
 [node name="MarginContainer2" type="MarginContainer" parent="UI Control/DialoguePreview/Balloon" unique_id=542737721]
 layout_mode = 0
-offset_left = 26.0
+offset_left = 159.0
 offset_top = 34.0
-offset_right = 686.0
+offset_right = 819.0
 offset_bottom = 268.0
 mouse_filter = 2
 

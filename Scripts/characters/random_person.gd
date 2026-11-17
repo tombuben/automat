@@ -20,6 +20,19 @@ extends Node3D
 @export var hit_cooldown: float = 0.5
 var can_be_hit: bool = true
 
+# Squish while talking
+## How much the visual flattens on each squish. 0.15 = 15% shorter and wider.
+@export var squish_amount: float = 0.15
+## How long one squish takes, in seconds.
+@export var squish_time: float = 0.25
+## The sprite that squishes. Empty = the visual, or the first visible sprite
+## on the RigidBody3D when the visual is hidden (e.g. an AnimatedSprite3D).
+@export var squish_target: SpriteBase3D
+var squish_tween: Tween
+var squish_value := 0.0
+var squish_start_scale: Vector3
+var squish_start_position: Vector3
+
 func _ready() -> void:
 	if character:
 		person_name = character.id
@@ -35,6 +48,45 @@ func _ready() -> void:
 	rigidbody.body_entered.connect(body_entered)
 
 	setup_material()
+
+	if squish_target == null:
+		squish_target = find_squish_target()
+	if squish_target:
+		squish_start_scale = squish_target.scale
+		squish_start_position = squish_target.position
+
+# -----------------------------
+# SQUISH (TALKING)
+# -----------------------------
+func find_squish_target() -> SpriteBase3D:
+	if visual and visual.visible and visual.texture:
+		return visual
+	for child in rigidbody.get_children():
+		if child is SpriteBase3D and child.visible:
+			return child
+	return null
+
+func squish() -> void:
+	if squish_target == null or squish_time <= 0.0:
+		return
+
+	if squish_tween:
+		squish_tween.kill()
+
+	squish_tween = create_tween()
+	squish_tween.tween_method(set_squish, squish_value, 1.0, squish_time * 0.3)\
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	squish_tween.tween_method(set_squish, 1.0, 0.0, squish_time * 0.7)\
+		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+func set_squish(value: float) -> void:
+	squish_value = value
+	var amount := squish_amount * value
+	squish_target.scale = squish_start_scale * Vector3(1.0 + amount, 1.0 - amount, 1.0)
+
+	# Keep the feet on the ground while squished
+	var bottom := squish_target.get_aabb().position.y
+	squish_target.position.y = squish_start_position.y + squish_start_scale.y * amount * bottom
 
 # -----------------------------
 # SETUP MATERIAL

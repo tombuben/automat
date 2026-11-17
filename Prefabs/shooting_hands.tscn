@@ -32,14 +32,12 @@ script = ExtResource("1_hands")
 
 [node name="Left" type="AnimatedSprite3D" parent="." unique_id=1414914731]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46001425, -0.8, 0)
-modulate = Color(0.734375, 0.734375, 0.734375, 1)
 pixel_size = 0.0014
 sprite_frames = SubResource("SpriteFrames_left")
 animation = &"idle"
 
 [node name="Right" type="AnimatedSprite3D" parent="." unique_id=1424887875]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50732195, -0.8, 0)
-modulate = Color(0.734375, 0.734375, 0.734375, 1)
 pixel_size = 0.0014
 sprite_frames = SubResource("SpriteFrames_right")
 animation = &"idle"

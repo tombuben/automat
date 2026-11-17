@@ -17,6 +17,9 @@ extends CanvasLayer
 ## The action to use to skip typing the dialogue
 @export var skip_action: StringName = &"ui_cancel"
 
+## Squish the talking character every this many letters. 0 squishes once per line.
+@export var letters_per_squish: int = 6
+
 ## A sound player for voice lines (if they exist).
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
@@ -74,6 +77,7 @@ var mutation_cooldown: Timer = Timer.new()
 func _ready() -> void:
 	balloon.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
+	dialogue_label.spoke.connect(_on_dialogue_label_spoke)
 
 	# If the responses menu doesn't have a next action set, use this one
 	if responses_menu.next_action.is_empty():
@@ -154,6 +158,8 @@ func apply_dialogue_line() -> void:
 
 	dialogue_label.show()
 	if not dialogue_line.text.is_empty():
+		if letters_per_squish <= 0:
+			squish_speaker()
 		dialogue_label.type_out()
 		await dialogue_label.finished_typing
 
@@ -179,6 +185,13 @@ func apply_dialogue_line() -> void:
 ## Go to the next line
 func next(next_id: String) -> void:
 	dialogue_line = await dialogue_resource.get_next_dialogue_line(next_id, temporary_game_states)
+
+
+## Squish the character saying the current line, if it is in the scene
+func squish_speaker() -> void:
+	var speaker = GlobalManager.characters.get(dialogue_line.character)
+	if is_instance_valid(speaker) and speaker.has_method("squish"):
+		speaker.squish()
 
 
 #region Signals
@@ -217,6 +230,13 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 		next(dialogue_line.next_id)
 	elif event.is_action_pressed(next_action) and get_viewport().gui_get_focus_owner() == balloon:
 		next(dialogue_line.next_id)
+
+
+func _on_dialogue_label_spoke(letter: String, letter_index: int, _speed: float) -> void:
+	if letters_per_squish <= 0 or letter in [" ", ".", ",", "!", "?", ":", ";"]:
+		return
+	if letter_index % letters_per_squish == 0:
+		squish_speaker()
 
 
 func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
