@@ -1,0 +1,67 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://dsalx1r160eac" path="res://Scripts/items/cursor_object.gd" id="5_6ev3c"]
+[ext_resource type="Script" uid="uid://bgngysncqjt3n" path="res://Scripts/camera/cameraTilt.gd" id="25_t3img"]
+[ext_resource type="Material" uid="uid://c3ekxbf7k4sdl" path="res://Materials/materials/Vignette.tres" id="55_tscpr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lr0h6"]
+radius = 0.001
+
+[sub_resource type="SphereMesh" id="SphereMesh_agb6b"]
+radius = 0.05
+height = 0.1
+
+[node name="Left viewport" type="SubViewportContainer" unique_id=230478088]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 95.0
+offset_top = 106.0
+offset_right = 651.0
+offset_bottom = -112.0
+grow_vertical = 2
+pivot_offset = Vector2(387.588, 500)
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=542282430]
+handle_input_locally = false
+physics_object_picking = true
+size = Vector2i(556, 862)
+render_target_update_mode = 4
+
+[node name="RotateAround" type="Node3D" parent="SubViewport" unique_id=1260722246]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.692, 1.203, 0.05)
+
+[node name="AutomatView" type="Camera3D" parent="SubViewport/RotateAround" unique_id=462032141]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.607121, -0.029000044, 2.235)
+projection = 1
+current = true
+fov = 53.8
+size = 2.428
+script = ExtResource("25_t3img")
+
+[node name="CursorBody" type="AnimatableBody3D" parent="SubViewport" unique_id=1831394959]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7001367, 1.597275, 0.1305561)
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("5_6ev3c")
+cursor_visual_path = NodePath("../../../../MouseLayer/Mouse/Cursor")
+speed_for_min = 50.0
+click_squash = 0.487
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/CursorBody" unique_id=739913599]
+shape = SubResource("SphereShape3D_lr0h6")
+
+[node name="PinJoint3D" type="PinJoint3D" parent="SubViewport/CursorBody" unique_id=417944167]
+node_a = NodePath("..")
+params/impulse_clamp = 0.2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/CursorBody" unique_id=532702826]
+visible = false
+mesh = SubResource("SphereMesh_agb6b")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1540090563]
+material = ExtResource("55_tscpr")
+layout_mode = 2
+

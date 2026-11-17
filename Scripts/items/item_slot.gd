@@ -20,7 +20,7 @@ var old_item_position : Vector3
 var old_item_scale : Vector3
 var old_sprite_scale : Vector3
 
-@onready var cursor_body : CursorBody = %CursorBody
+@onready var cursor_body : CursorBody = GlobalManager.cursor_body
 var tween : Tween
 
 

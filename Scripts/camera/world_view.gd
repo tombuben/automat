@@ -96,6 +96,7 @@ var throw_in_flight : bool = false
 @export var throw_lock_time : float = 0.4
 var held_scale : Vector3
 var load_tween : Tween
+var held_item_view : HeldItemView
 
 # -------------------------
 # LOAD FEEL
@@ -121,9 +122,23 @@ func _ready() -> void:
 	base_position = position
 	base_rotation = rotation
 
+	# The held item is drawn by its own view on top, dithered while aiming.
+	cull_mask &= ~HeldItemView.layer_bit()
+	held_item_view = HeldItemView.new(self)
+	_add_held_item_view.call_deferred()
+
 	# Force all shoot particles to run in world space
 	if shoot_particles_root:
 		_set_particles_world_space(shoot_particles_root)
+
+## Goes under the vignette and other screen overlays, so they cover the item too.
+func _add_held_item_view() -> void:
+	var main_viewport := get_viewport()
+	main_viewport.add_child(held_item_view)
+	for child in main_viewport.get_children():
+		if child is CanvasItem and child != held_item_view:
+			main_viewport.move_child(held_item_view, child.get_index())
+			break
 
 # -------------------------
 # INPUT
@@ -291,6 +306,7 @@ func spawn_duplicate(original : RigidBody3D, drop_position : Vector2) -> void:
 	object_to_shoot = original.duplicate()
 	object_to_shoot.rotation = Vector3.ZERO
 	spawn_position.add_child(object_to_shoot)
+	held_item_view.hold(object_to_shoot)
 
 	held_scale = object_to_shoot.scale * spawn_scale
 	object_to_shoot.scale = held_scale * load_start_scale
@@ -371,6 +387,7 @@ func shoot(mouse_position : Vector2) -> void:
 
 	object_to_shoot.reparent(get_parent())
 	object_to_shoot.freeze = false
+	held_item_view.release(object_to_shoot)
 
 	var normalized_charge = charge_duration / max_charge_duration
 	var power = shoot_strength * (1.0 + normalized_charge)

@@ -1,0 +1,204 @@
+[gd_scene format=3 uid="uid://bu3we1qkfk8u7"]
+
+[ext_resource type="Script" uid="uid://7mv8rlcaqlga" path="res://Scripts/items/item_slot.gd" id="3_maf8m"]
+[ext_resource type="Texture2D" uid="uid://cmq5qxhnvxum" path="res://Assets/VendingMachine/Hands/handsClosed.png" id="9_tscpr"]
+[ext_resource type="Texture2D" uid="uid://bna5akpeoh17b" path="res://Assets/concepts/WiresBg1.png" id="10_0kxqi"]
+[ext_resource type="Texture2D" uid="uid://dwlqtr5m6tb2h" path="res://Assets/VendingMachine/Hands/handsOpen.png" id="10_n1krg"]
+[ext_resource type="Texture2D" uid="uid://campjvxsdl01s" path="res://Assets/concepts/WiresBg2.png" id="11_twdfi"]
+[ext_resource type="Texture2D" uid="uid://bau5rsgy31fnl" path="res://Assets/concepts/automatBody.png" id="12_twkya"]
+[ext_resource type="Texture2D" uid="uid://bvqrsng0xkm87" path="res://Assets/concepts/automatFace.png" id="13_io56h"]
+[ext_resource type="Texture2D" uid="uid://t6iupujevpba" path="res://Assets/concepts/automatSpace.png" id="14_0qggc"]
+[ext_resource type="Texture2D" uid="uid://bncqn1rll0plp" path="res://Assets/concepts/emotionsHolder.png" id="15_6vg1w"]
+[ext_resource type="PackedScene" uid="uid://bgsjyc1ordm2c" path="res://Prefabs/Items/heart_item.tscn" id="17_h246y"]
+[ext_resource type="PackedScene" uid="uid://dtwmshuf707e6" path="res://Prefabs/Items/mind_item.tscn" id="17_hdw03"]
+[ext_resource type="PackedScene" uid="uid://b05n3m3lg3hqp" path="res://Prefabs/Items/guts_item.tscn" id="17_yxgvy"]
+[ext_resource type="Texture2D" uid="uid://dffn0bxh63v31" path="res://Assets/VendingMachine/Hands/HandLeft.png" id="23_mpwvh"]
+[ext_resource type="Texture2D" uid="uid://dwejvy41bc5ia" path="res://Assets/VendingMachine/Hands/HandRight.png" id="24_nvk46"]
+[ext_resource type="Texture2D" uid="uid://555kgn22dkss" path="res://Materials/ParticleEffects/white_square.png" id="50_gjlr3"]
+[ext_resource type="Script" uid="uid://vty7mkvcpoi3" path="res://Scripts/items/interact_dim.gd" id="60_dim"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2h1xr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_tscpr")
+}],
+"loop": true,
+"name": &"close_hand",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_n1krg")
+}],
+"loop": true,
+"name": &"open_hand",
+"speed": 12.0
+}]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5f3o5"]
+radius = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dim"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 0.27450982)
+
+[sub_resource type="QuadMesh" id="QuadMesh_dim"]
+material = SubResource("StandardMaterial3D_dim")
+size = Vector2(40, 40)
+
+[node name="Automat" type="Node3D" unique_id=842584356]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.263, 0, 0)
+
+[node name="openHands" type="AnimatedSprite3D" parent="." unique_id=1815350452 groups=["automat_open_hands"]]
+transform = Transform3D(0.133, 0, 0, 0, 0.133, 0, 0, 0, 0.133, -0.015, 0.681, 1.086)
+sorting_offset = 3.886
+modulate = Color(0.4921875, 0.875, 0.63993967, 1)
+sprite_frames = SubResource("SpriteFrames_2h1xr")
+animation = &"close_hand"
+
+[node name="box" type="CSGBox3D" parent="." unique_id=758678780]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011609077, 1.2301935, -0.16988623)
+visible = false
+size = Vector3(1, 1.753, 0.7)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1331307277]
+transform = Transform3D(0.222, 0, 0, 0, 0.222, 0, 0, 0, 0.222, 0.031282425, 1.182, 0)
+
+[node name="InsidesBG3" type="Sprite3D" parent="Sprite3D" unique_id=506722517]
+transform = Transform3D(18.864, 0, 0, 0, 24.606, 0, 0, 0, 18.864, 0, 0, -23.96323)
+sorting_offset = -2.24
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("50_gjlr3")
+
+[node name="InsidesBG2" type="Sprite3D" parent="Sprite3D" unique_id=270001021]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, -0.3619995, 0, -8.281208)
+sorting_offset = -1.82
+texture = ExtResource("10_0kxqi")
+
+[node name="InsidesBG" type="Sprite3D" parent="Sprite3D" unique_id=530993661]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, -0.28997803, -0.03600025, -15.79481)
+sorting_offset = -1.82
+texture = ExtResource("11_twdfi")
+
+[node name="Automat" type="Sprite3D" parent="Sprite3D" unique_id=2088687506]
+transform = Transform3D(1.095, 0, 0, 0, 1.095, 0, 0, 0, 1.095, -0.172, -0.527, 0)
+sorting_offset = 1.0
+modulate = Color(0.890625, 0.890625, 0.890625, 1)
+texture = ExtResource("12_twkya")
+
+[node name="AutomatFace" type="Sprite3D" parent="Sprite3D/Automat" unique_id=2053015658]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03488159, -0.8103876, 0)
+sorting_offset = 2.0
+texture = ExtResource("13_io56h")
+
+[node name="AutomatSpace1" type="Sprite3D" parent="Sprite3D/Automat" unique_id=1368038592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035, 0.756, 0)
+sorting_offset = 2.0
+texture = ExtResource("14_0qggc")
+
+[node name="AutomatSpace2" type="Sprite3D" parent="Sprite3D/Automat" unique_id=1105823414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035003662, 1.94, 0)
+sorting_offset = 2.0
+texture = ExtResource("14_0qggc")
+
+[node name="AutomatSpace3" type="Sprite3D" parent="Sprite3D/Automat" unique_id=1311503566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0350342, 0.75600004, 0)
+sorting_offset = 2.0
+texture = ExtResource("14_0qggc")
+
+[node name="AutomatSpace4" type="Sprite3D" parent="Sprite3D/Automat" unique_id=537378819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0169678, 0.75600004, 0)
+sorting_offset = 2.0
+texture = ExtResource("14_0qggc")
+
+[node name="AutomatSpace5" type="Sprite3D" parent="Sprite3D/Automat" unique_id=2080678111]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0350342, 1.94, 0)
+sorting_offset = 2.0
+texture = ExtResource("14_0qggc")
+
+[node name="AutomatSpace6" type="Sprite3D" parent="Sprite3D/Automat" unique_id=1744491508]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0169678, 1.94, 0)
+sorting_offset = 2.0
+texture = ExtResource("14_0qggc")
+
+[node name="emotionHolder" type="Sprite3D" parent="Sprite3D" unique_id=1528133987]
+transform = Transform3D(1.022, 0, 0, 0, 1.022, 0, 0, 0, 1.022, 2.9325562, -1.411, 0.96197057)
+sorting_offset = 1.0
+texture = ExtResource("15_6vg1w")
+
+[node name="emotionHolder2" type="Sprite3D" parent="Sprite3D" unique_id=2062562183]
+transform = Transform3D(1.022, 0, 0, 0, 1.022, 0, 0, 0, 1.022, -3.5419922, -1.411, 0.88923115)
+sorting_offset = 1.0
+flip_h = true
+texture = ExtResource("15_6vg1w")
+
+[node name="itemsSlots" type="Node3D" parent="." unique_id=1657368285]
+
+[node name="MindItemSlot" type="Area3D" parent="itemsSlots" unique_id=1264786836 node_paths=PackedStringArray("item_in_slot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.663, 0.886, 0.489)
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("3_maf8m")
+item_in_slot = NodePath("mind")
+
+[node name="mind" parent="itemsSlots/MindItemSlot" unique_id=60476503 instance=ExtResource("17_hdw03")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.218)
+saying = ":("
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="itemsSlots/MindItemSlot" unique_id=810956121]
+shape = SubResource("SphereShape3D_5f3o5")
+debug_color = Color(0, 11.618606, 13.50434, 1)
+
+[node name="HeartItemSlot" type="Area3D" parent="itemsSlots" unique_id=1212148976 node_paths=PackedStringArray("item_in_slot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.347, 0.651, 0.489)
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("3_maf8m")
+item_in_slot = NodePath("heart")
+
+[node name="heart" parent="itemsSlots/HeartItemSlot" unique_id=435284618 instance=ExtResource("17_h246y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.218)
+item_name = "heart"
+item_type = Array[String](["heart"])
+saying = ":("
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="itemsSlots/HeartItemSlot" unique_id=192183816]
+shape = SubResource("SphereShape3D_5f3o5")
+debug_color = Color(0, 11.618606, 13.50434, 1)
+
+[node name="GutsItemSlot" type="Area3D" parent="itemsSlots" unique_id=508999275 node_paths=PackedStringArray("item_in_slot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.611, 0.86493313, 0.489)
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("3_maf8m")
+item_in_slot = NodePath("guts")
+
+[node name="guts" parent="itemsSlots/GutsItemSlot" unique_id=1751695975 instance=ExtResource("17_yxgvy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.218)
+item_name = "moral_compass"
+saying = ":("
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="itemsSlots/GutsItemSlot" unique_id=1651676672]
+shape = SubResource("SphereShape3D_5f3o5")
+debug_color = Color(0, 11.618606, 13.50434, 1)
+
+[node name="handLeft" type="Sprite3D" parent="." unique_id=1238663132]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 14.531257, -1.965, 0)
+visible = false
+sorting_offset = 4.858
+texture = ExtResource("23_mpwvh")
+
+[node name="handRight" type="Sprite3D" parent="." unique_id=546055660]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 17.729685, -1.965, 0)
+visible = false
+sorting_offset = 4.858
+texture = ExtResource("24_nvk46")
+
+[node name="InteractDim" type="MeshInstance3D" parent="." unique_id=1733920451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0.15)
+sorting_offset = 4.5
+cast_shadow = 0
+mesh = SubResource("QuadMesh_dim")
+script = ExtResource("60_dim")

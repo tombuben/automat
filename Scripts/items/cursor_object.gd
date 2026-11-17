@@ -12,6 +12,7 @@ signal started_dragging(item)
 signal stopped_dragging(item)
 
 ## private
+## Empty = the automat's openHands, found through the "automat_open_hands" group.
 @export var open_hands: AnimatedSprite3D
 
 @export var cursor_visual_path: NodePath
@@ -41,8 +42,13 @@ var _base_scale_2d: Vector2 = Vector2.ONE
 
 @onready var original_collision_layer = collision_layer
 
-func _ready() -> void:
+func _enter_tree() -> void:
+	# Registered before any _ready, so item slots can find the cursor in theirs
 	GlobalManager.cursor_body = self
+
+func _ready() -> void:
+	if open_hands == null:
+		open_hands = get_tree().get_first_node_in_group(&"automat_open_hands")
 	_last_mouse_pos = get_viewport().get_mouse_position()
 
 	if cursor_visual_path != NodePath():

@@ -1,0 +1,238 @@
+[gd_scene format=3]
+
+[ext_resource type="AudioStream" uid="uid://c56uhd28r1n7y" path="res://Assets/Audio/SpeakingSFX/new/automatVoice1.wav" id="34_1gaum"]
+[ext_resource type="AudioStream" uid="uid://bx6q6oiijmqqw" path="res://Assets/Audio/SpeakingSFX/blbblblb.wav" id="39_bubpk"]
+[ext_resource type="FontFile" uid="uid://cvd5j8d7y4hxx" path="res://Assets/Fonts/WinkySans-VariableFont_wght.ttf" id="56_vge76"]
+[ext_resource type="Script" uid="uid://b6228d12meyik" path="res://Scripts/dialogue/dialogue_preview.gd" id="65_63b1e"]
+[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="66_mlrbq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbb45"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.329412, 0.329412, 0.329412, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57rvl"]
+bg_color = Color(0.121569, 0.121569, 0.121569, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_akm1w"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.6, 0.6, 0.6, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_51rr0"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_arytb"]
+default_font = ExtResource("56_vge76")
+default_font_size = 20
+Button/styles/disabled = SubResource("StyleBoxFlat_kbb45")
+Button/styles/focus = SubResource("StyleBoxFlat_57rvl")
+Button/styles/hover = SubResource("StyleBoxFlat_akm1w")
+Button/styles/normal = SubResource("StyleBoxFlat_akm1w")
+MarginContainer/constants/margin_bottom = 15
+MarginContainer/constants/margin_left = 30
+MarginContainer/constants/margin_right = 30
+MarginContainer/constants/margin_top = 15
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_51rr0")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n40q1"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.13125002, 0.13042971, 0.13042971, 1)
+
+[sub_resource type="Theme" id="Theme_4yrbw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_egydv"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="DialoguePreview" type="CanvasLayer" unique_id=103369598 node_paths=PackedStringArray("dialogue_rich_text", "preview_audio_player")]
+layer = 100
+script = ExtResource("65_63b1e")
+dialogue_rich_text = NodePath("Balloon/MarginContainer2/HBoxContainer/VBoxContainer/DialogueLabel")
+preview_audio_player = NodePath("PreviewAudioStreamPlayer")
+audio_samples = Array[AudioStream]([ExtResource("34_1gaum")])
+play_every_n_letters = 6
+
+[node name="Balloon" type="Control" parent="." unique_id=1912194808]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1167.0
+offset_top = -371.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+mouse_filter = 2
+theme = SubResource("Theme_arytb")
+
+[node name="MarginContainer" type="MarginContainer" parent="Balloon" unique_id=363282033]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1173.0
+offset_top = -361.0
+offset_right = -341.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Balloon/MarginContainer" unique_id=712638159]
+clip_children = 2
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n40q1")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Balloon" unique_id=31478600]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 34.0
+offset_right = 819.0
+offset_bottom = 268.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Balloon/MarginContainer2" unique_id=727144465]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Balloon/MarginContainer2/HBoxContainer" unique_id=437639535]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="DialogueLabel" parent="Balloon/MarginContainer2/HBoxContainer/VBoxContainer" unique_id=701144475 instance=ExtResource("66_mlrbq")]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 43
+text = "Dialogue..."
+scroll_active = true
+scroll_following = true
+horizontal_alignment = 1
+vertical_alignment = 1
+custom_effects = [null]
+script = null
+
+[node name="ColorRect2" type="ColorRect" parent="Balloon" unique_id=1913981349]
+visible = false
+z_index = -6
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.998
+anchor_right = 1.0
+anchor_bottom = 0.998
+offset_left = -1162.0
+offset_top = -343.8401
+offset_right = -319.0
+offset_bottom = 0.15991211
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Balloon" unique_id=233446451]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9990001
+anchor_top = 0.998
+anchor_right = 0.9990001
+anchor_bottom = 0.998
+offset_left = -350.5044
+offset_top = -343.8401
+offset_right = 0.9199219
+offset_bottom = 0.15991211
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CharacterLabel" type="RichTextLabel" parent="Balloon" unique_id=2050523092]
+visible = false
+z_index = 44
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -317.0
+offset_top = -187.0
+offset_right = -30.0
+offset_bottom = 95.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+theme = SubResource("Theme_4yrbw")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "I'll say"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Balloon/CharacterLabel" unique_id=1085008752]
+visible = false
+z_index = 5
+layout_mode = 0
+offset_left = -15.248657
+offset_top = -4.947632
+offset_right = 165.05652
+offset_bottom = 51.05237
+rotation = -0.25132743
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_egydv")
+
+[node name="PreviewAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=358084858]
+stream = ExtResource("39_bubpk")
+
