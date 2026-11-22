@@ -24,6 +24,7 @@ extends Node3D
 signal move_requested(target_x: float, hit_position: Vector3)
 @export var click_marker_scene: PackedScene # optional: assign a "walk here" marker scene in the inspector
 @export var custom_cursor: Texture2D # optional: assign a small cursor image in the inspector
+@export var custom_hover_cursor: Texture2D # optional: shown over clickable things (anything that sets the pointing-hand cursor shape)
 @export var custom_cursor_hotspot := Vector2.ZERO # pixel offset within the image that is the "tip"
 @export var custom_cursor_size := 32 # cursor is resized to this many pixels (width & height) regardless of source image size
 @export var ray_max_distance := 1000.0
@@ -41,6 +42,9 @@ func _ready():
 	if custom_cursor:
 		var resized := _get_resized_cursor_texture(custom_cursor, custom_cursor_size)
 		Input.set_custom_mouse_cursor(resized, Input.CURSOR_ARROW, custom_cursor_hotspot)
+	if custom_hover_cursor:
+		var resized_hover := _get_resized_cursor_texture(custom_hover_cursor, custom_cursor_size)
+		Input.set_custom_mouse_cursor(resized_hover, Input.CURSOR_POINTING_HAND, custom_cursor_hotspot)
 	if click_marker_scene:
 		_click_marker = click_marker_scene.instantiate()
 		_click_marker.visible = false

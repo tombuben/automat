@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://brctxrw68i3qy"]
+
+[ext_resource type="Texture2D" uid="uid://c6lqbgep87b41" path="res://Materials/ParticleEffects/Circle.png" id="1_pai68"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uybya"]
+
+[sub_resource type="Curve" id="Curve_fade"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="MoveParticles" type="CPUParticles2D" unique_id=590847014]
+z_index = 344
+material = SubResource("CanvasItemMaterial_uybya")
+position = Vector2(17, 16)
+emitting = false
+amount = 12
+texture = ExtResource("1_pai68")
+lifetime = 0.4
+direction = Vector2(0, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+linear_accel_min = 0.73
+linear_accel_max = 0.73
+scale_amount_min = 0.0
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_fade")
+split_scale = true
+scale_curve_x = null
+scale_curve_y = null
+color = Color(0.36078432, 0.77254903, 0.19607843, 1)

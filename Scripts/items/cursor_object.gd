@@ -15,30 +15,10 @@ signal stopped_dragging(item)
 ## Empty = the automat's openHands, found through the "automat_open_hands" group.
 @export var open_hands: AnimatedSprite3D
 
-@export var cursor_visual_path: NodePath
-var cursor_visual: Node
-
 @onready var pin = $PinJoint3D
 var moused_over_item : RandomItem
 var last_dragged_object : RandomItem
 var in_dialogue : bool = false
-
-# --- movement scaling ---
-@export var min_scale: float = 0.6
-@export var max_scale: float = 1.2
-@export var speed_for_min: float = 1500.0
-@export var scale_smoothing: float = 10.0
-
-# --- click feel ---
-@export var click_squash: float = 0.85
-@export var click_return_speed: float = 18.0
-
-var _click_strength: float = 0.0
-
-var _last_mouse_pos: Vector2
-var _mouse_speed: float = 0.0
-var _base_scale_3d: Vector3 = Vector3.ONE
-var _base_scale_2d: Vector2 = Vector2.ONE
 
 @onready var original_collision_layer = collision_layer
 
@@ -49,20 +29,9 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	if open_hands == null:
 		open_hands = get_tree().get_first_node_in_group(&"automat_open_hands")
-	_last_mouse_pos = get_viewport().get_mouse_position()
 
-	if cursor_visual_path != NodePath():
-		cursor_visual = get_node(cursor_visual_path)
-
-		if cursor_visual is Node3D:
-			_base_scale_3d = cursor_visual.scale
-		elif cursor_visual is Node2D:
-			_base_scale_2d = cursor_visual.scale
-			
-	
 	DialogueManager.dialogue_started.connect(on_dialogue_started)
 	DialogueManager.dialogue_ended.connect(on_dialogue_closed)
-
 
 func move_cursor():
 	var screen_position = get_viewport().get_mouse_position()
@@ -75,47 +44,16 @@ func move_cursor():
 	if potential_position != null:
 		position = potential_position
 
-
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.is_pressed():
-			_click_strength = 1.0
 			start_drag()
 		elif event.is_released():
 			stop_drag()
 
-
 func _physics_process(delta: float) -> void:
 	move_cursor()
 
-	var current_mouse_pos = get_viewport().get_mouse_position()
-
-	# --- mouse speed ---
-	_mouse_speed = current_mouse_pos.distance_to(_last_mouse_pos) / delta
-
-	# --- base scale from movement ---
-	var t = clamp(_mouse_speed / speed_for_min, 0.0, 1.0)
-	var base_scale = lerp(max_scale, min_scale, t)
-
-	# --- click impulse (IMPORTANT FIX) ---
-	_click_strength = lerp(_click_strength, 0.0, click_return_speed * delta)
-
-	var click_offset = (click_squash - 1.0) * _click_strength
-	var target_scale = base_scale + click_offset * base_scale
-
-	# --- apply to visual ---
-	if cursor_visual:
-		if cursor_visual is Node3D:
-			var target_vec3 = _base_scale_3d * target_scale
-			cursor_visual.scale = cursor_visual.scale.lerp(target_vec3, scale_smoothing * delta)
-
-		elif cursor_visual is Node2D:
-			var target_vec2 = _base_scale_2d * target_scale
-			cursor_visual.scale = cursor_visual.scale.lerp(target_vec2, scale_smoothing * delta)
-
-
-	# --- collision ---
-	var camera: Camera3D = get_viewport().get_camera_3d()
 	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 
 	var mask: int = 1 << 1
@@ -128,9 +66,6 @@ func _physics_process(delta: float) -> void:
 		moused_over_item = result[0].collider
 	else:
 		moused_over_item = null
-
-	_last_mouse_pos = current_mouse_pos
-
 
 func start_drag():
 	if moused_over_item == null or in_dialogue or GlobalManager.world_view.throw_in_flight:
@@ -155,7 +90,6 @@ func start_drag():
 	open_hands.stop()
 	open_hands.play("open_hand")
 
-
 func stop_drag():
 	if not dragging:
 		return
@@ -178,7 +112,6 @@ func stop_drag():
 
 	open_hands.stop()
 	open_hands.play("close_hand")
-
 
 func on_dialogue_started(resource: Resource) -> void:
 	collision_layer = 0

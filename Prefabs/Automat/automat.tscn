@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dwejvy41bc5ia" path="res://Assets/VendingMachine/Hands/HandRight.png" id="24_nvk46"]
 [ext_resource type="Texture2D" uid="uid://555kgn22dkss" path="res://Materials/ParticleEffects/white_square.png" id="50_gjlr3"]
 [ext_resource type="Script" uid="uid://vty7mkvcpoi3" path="res://Scripts/items/interact_dim.gd" id="60_dim"]
+[ext_resource type="Script" path="res://Scripts/items/locked_items_overlay.gd" id="61_locked"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2h1xr"]
 animations = [{
@@ -42,11 +43,20 @@ radius = 0.1
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dim"]
 transparency = 1
 shading_mode = 0
-albedo_color = Color(0, 0, 0, 0.27450982)
+albedo_color = Color(0, 0, 0, 0.3137255)
 
 [sub_resource type="QuadMesh" id="QuadMesh_dim"]
 material = SubResource("StandardMaterial3D_dim")
 size = Vector2(40, 40)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_locked"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.19, 0.76, 0, 0.19607843)
+
+[sub_resource type="QuadMesh" id="QuadMesh_locked"]
+material = SubResource("StandardMaterial3D_locked")
+size = Vector2(0.81, 0.714)
 
 [node name="Automat" type="Node3D" unique_id=842584356]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.263, 0, 0)
@@ -202,3 +212,9 @@ sorting_offset = 4.5
 cast_shadow = 0
 mesh = SubResource("QuadMesh_dim")
 script = ExtResource("60_dim")
+
+[node name="LockedItemsOverlay" type="MeshInstance3D" parent="." unique_id=1584203317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.421, 0.9)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_locked")
+script = ExtResource("61_locked")

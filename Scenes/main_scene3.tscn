@@ -65,6 +65,7 @@
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="65_kbluy"]
 [ext_resource type="Script" uid="uid://ci5q4jckgmagi" path="res://Scripts/ui/mouse_cursor.gd" id="67_7oet2"]
 [ext_resource type="Texture2D" uid="uid://1y7wg77wd30x" path="res://Assets/concepts/cursor.png" id="68_ey0ds"]
+[ext_resource type="Texture2D" uid="uid://dlr05glf53xd0" path="res://Assets/cursor/cursor1.png" id="cursor1_tex"]
 [ext_resource type="Script" uid="uid://c6qs8oiugm1gg" path="res://Scripts/core/global_animation_player.gd" id="69_rw4r4"]
 [ext_resource type="Script" uid="uid://cqptasjmaayf6" path="res://Scripts/dialogue/scene_dialogue_manager.gd" id="70_dbqif"]
 [ext_resource type="Resource" uid="uid://4f6bltfcmio5" path="res://resources/Dialogues/test.dialogue" id="71_owpq8"]
@@ -76,7 +77,7 @@
 [ext_resource type="Texture2D" uid="uid://c5qds8arncww0" path="res://Assets/VendingMachine/UI/uiBrain.png" id="77_u1aka"]
 [ext_resource type="Texture2D" uid="uid://bpargjd4vajyf" path="res://Assets/VendingMachine/UI/GutsWheels.png" id="78_vvxh1"]
 [ext_resource type="PackedScene" path="res://Prefabs/drag_ghost.tscn" id="drag_ghost_prefab"]
-[ext_resource type="PackedScene" path="res://Prefabs/shooting_hands.tscn" id="shooting_hands_prefab"]
+[ext_resource type="PackedScene" uid="uid://dktgxr8kfyyo4" path="res://Prefabs/shooting_hands.tscn" id="shooting_hands_prefab"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oyb3p"]
 albedo_color = Color(0.1767, 0.55033505, 0.57, 1)
@@ -123,9 +124,6 @@ size = Vector3(0.489746, 0.692017, 0.319092)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mai8y"]
 size = Vector3(0.218384, 1.46027, 0.319092)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_76v2p"]
-size = Vector3(0.52319336, 0.3984375, 0.5)
 
 [sub_resource type="Environment" id="Environment_lhp3t"]
 background_mode = 1
@@ -1083,6 +1081,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96020675, 0)
 
 [node name="Tree1" type="Sprite3D" parent="World/BgObjects/trees" unique_id=881442044]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.458, 0, 0)
+visible = false
 
 [node name="TreeTrunk" type="Sprite3D" parent="World/BgObjects/trees/Tree1" unique_id=1540012955]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.9060967, 2.269901, -0.326)
@@ -1099,6 +1098,7 @@ texture = ExtResource("28_puc7u")
 
 [node name="Tree9" type="Sprite3D" parent="World/BgObjects/trees" unique_id=1301884098]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 7.587615, 2.269901, -0.326)
+visible = false
 sorting_offset = 1.211
 no_depth_test = true
 alpha_cut = 2
@@ -1785,12 +1785,12 @@ shoot_strength = 2.66
 throw_arc = 0.0
 charge_fov = 72.0
 fov_speed = 79.0
-max_charge_duration = 2.544
-charge_speed = 8.0
 shoot_shake_duration = 0.086
 shoot_shake_strength = 0.001
+max_charge_duration = 2.544
+charge_speed = 8.0
 
-[node name="ShootingHands" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" instance=ExtResource("shooting_hands_prefab")]
+[node name="ShootingHands" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" unique_id=1606693833 instance=ExtResource("shooting_hands_prefab")]
 
 [node name="AimRotation" type="Node3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" unique_id=1338827862]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46343565, -0.6999998)
@@ -1992,7 +1992,7 @@ rotation = -0.25132743
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_m7ytr")
 
-[node name="DragGhost" parent="." instance=ExtResource("drag_ghost_prefab")]
+[node name="DragGhost" parent="." unique_id=1053372051 instance=ExtResource("drag_ghost_prefab")]
 
 [node name="MouseLayer" type="CanvasLayer" parent="." unique_id=1881637122]
 layer = 10000
@@ -2004,7 +2004,7 @@ script = ExtResource("67_7oet2")
 z_index = 345
 position = Vector2(20.643991, 27.060059)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("68_ey0ds")
+texture = ExtResource("cursor1_tex")
 
 [node name="Cursor2" type="Sprite2D" parent="MouseLayer/Mouse" unique_id=1546842233]
 visible = false

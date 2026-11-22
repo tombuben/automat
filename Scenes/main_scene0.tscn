@@ -25,7 +25,6 @@
 [ext_resource type="Texture2D" uid="uid://d0qype2yfb4vw" path="res://Assets/ChapterAssets/office/dragIcon.png" id="47_poada"]
 [ext_resource type="Texture2D" uid="uid://c5qds8arncww0" path="res://Assets/VendingMachine/UI/uiBrain.png" id="47_xaya4"]
 [ext_resource type="Script" uid="uid://ci5q4jckgmagi" path="res://Scripts/ui/mouse_cursor.gd" id="48_vuse5"]
-[ext_resource type="Texture2D" uid="uid://1y7wg77wd30x" path="res://Assets/concepts/cursor.png" id="49_s0ebu"]
 [ext_resource type="Texture2D" uid="uid://d2ik0h0qqle21" path="res://Assets/VendingMachine/UI/uiHeart.png" id="50_oqhaq"]
 [ext_resource type="Texture2D" uid="uid://clc1dxuyyo7hs" path="res://Assets/ChapterAssets/office/lock.png" id="50_tm3gw"]
 [ext_resource type="Script" uid="uid://c56o0l1eo5f5k" path="res://Scripts/camera/world_view.gd" id="53_2lywu"]
@@ -66,6 +65,8 @@
 [ext_resource type="Texture2D" uid="uid://c1u2q7lswe7mc" path="res://Assets/concepts/symbols/symbol7.png" id="78_vuse5"]
 [ext_resource type="Texture2D" uid="uid://b0epcf00b25e6" path="res://Assets/concepts/symbols/symbol12.png" id="79_s0ebu"]
 [ext_resource type="Texture2D" uid="uid://x1v14m66d7r0" path="res://Assets/concepts/symbols/symbol5.png" id="80_6w012"]
+[ext_resource type="Texture2D" uid="uid://dlr05glf53xd0" path="res://Assets/cursor/cursor1.png" id="80_mhrbp"]
+[ext_resource type="Texture2D" uid="uid://wyl0pleccm7f" path="res://Assets/cursor/cursor2.png" id="81_c1qkb"]
 [ext_resource type="Texture2D" uid="uid://7og0ijkl7rpk" path="res://Assets/concepts/symbols/symbol4.png" id="81_rqlcv"]
 [ext_resource type="Texture2D" uid="uid://b5fepqg0vve3i" path="res://Assets/concepts/symbols/symbol8.png" id="82_bnwoa"]
 [ext_resource type="Texture2D" uid="uid://dabv7gh5cfui0" path="res://Assets/concepts/symbols/symbol10.png" id="83_2lywu"]
@@ -1222,7 +1223,7 @@ size = Vector3(3.4240723, 4.498291, 9.817078)
 [sub_resource type="BoxShape3D" id="BoxShape3D_nfcrg"]
 size = Vector3(4.4628906, 10.067139, 3.6013184)
 
-[node name="MainScene" type="Node3D" unique_id=350775679]
+[node name="Cursor" type="Node3D" unique_id=350775679]
 
 [node name="World" type="Node" parent="." unique_id=1861547874]
 
@@ -2618,19 +2619,18 @@ layer = 10000
 
 [node name="Mouse" type="Node2D" parent="MouseLayer" unique_id=2070419755]
 script = ExtResource("48_vuse5")
+move_particles_scene = null
 
 [node name="Cursor" type="Sprite2D" parent="MouseLayer/Mouse" unique_id=2068333559]
 z_index = 345
 position = Vector2(20.643991, 27.060059)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("49_s0ebu")
+texture = ExtResource("80_mhrbp")
 
 [node name="Cursor2" type="Sprite2D" parent="MouseLayer/Mouse" unique_id=1546842233]
 visible = false
 z_index = 345
 position = Vector2(20.643991, 27.060059)
-scale = Vector2(0.17465632, 0.1746563)
-texture = ExtResource("45_0x4kb")
+texture = ExtResource("81_c1qkb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2049604939]
 libraries/ = SubResource("AnimationLibrary_lhp3t")

@@ -46,9 +46,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7001367, 1.597275, 0.13055
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("5_6ev3c")
-cursor_visual_path = NodePath("../../../../MouseLayer/Mouse/Cursor")
-speed_for_min = 50.0
-click_squash = 0.487
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/CursorBody" unique_id=739913599]
 shape = SubResource("SphereShape3D_lr0h6")
