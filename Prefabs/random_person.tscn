@@ -24,8 +24,11 @@ point_count = 2
 [node name="RandomPerson" type="Node3D" unique_id=1055277779 node_paths=PackedStringArray("hit_particles", "visual")]
 script = ExtResource("1_t8clt")
 hit_particles = NodePath("CPUParticles3D")
-hitstop_duration = 0.014
 visual = NodePath("RigidBody3D/Sprite3D")
+hitstop_duration = 0.0
+shake_strength = 50.0
+shake_duration = 0.53
+shake_frequency = 24.5
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=368135441]
 collision_layer = 2

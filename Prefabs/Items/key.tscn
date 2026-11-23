@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://clluv3r6m72c2" path="res://Scripts/items/random_item.gd" id="1_pthlj"]
 [ext_resource type="Texture2D" uid="uid://boow2vghn68sl" path="res://Assets/Itemmodels/Custom/Key_Atlas.png" id="2_gi224"]
-[ext_resource type="Material" uid="uid://wnhcr6p104hg" path="res://Materials/materials/OutlineShaderMat.tres" id="4_5jpib"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vkqkw"]
 size = Vector3(0.8125, 1.3603516, 0.81970215)
@@ -52,15 +51,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gmrs5")
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_gi224"]
-height = 0.347
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_2bx6n"]
-height = 2.146
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_pthlj"]
-height = 2.146
-
 [node name="key" type="RigidBody3D" unique_id=1837871512]
 collision_layer = 3
 mass = 0.35
@@ -77,27 +67,3 @@ debug_color = Color(0, 11.618606, 13.50434, 0.41960785)
 transform = Transform3D(0.024408, 13.5789795, 0, -13.984977, 0.02369941, 0, 0, 0, 13.985, 0, 0.0031738281, 0)
 mesh = SubResource("ArrayMesh_2bx6n")
 skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=817283874]
-transform = Transform3D(0.188, 0, 0, 0, -8.217741e-09, -0.188, 0, 0.188, -8.217741e-09, 0, 0.0033874512, 0)
-sorting_offset = 3.64
-material_override = ExtResource("4_5jpib")
-mesh = SubResource("CylinderMesh_gi224")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=2123598762]
-transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, -0.12774658, 0)
-sorting_offset = 3.64
-material_override = ExtResource("4_5jpib")
-mesh = SubResource("CylinderMesh_2bx6n")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=776741537]
-transform = Transform3D(-2.5352604e-09, -0.058, 0, 0.058, -2.5352604e-09, 0, 0, 0, 0.058, -0.026786804, -0.1690216, 0)
-sorting_offset = 3.64
-material_override = ExtResource("4_5jpib")
-mesh = SubResource("CylinderMesh_pthlj")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=519232934]
-transform = Transform3D(-2.5352604e-09, -0.058, 0, 0.058, -2.5352604e-09, 0, 0, 0, 0.058, -0.01858902, -0.12496948, 0)
-sorting_offset = 3.64
-material_override = ExtResource("4_5jpib")
-mesh = SubResource("CylinderMesh_pthlj")

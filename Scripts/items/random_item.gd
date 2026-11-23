@@ -3,10 +3,16 @@ class_name RandomItem extends RigidBody3D
 @export var item_name : String
 @export var item_type : Array[String]
 @export var saying : String
+## Draws an even outline around every mesh of the item (see ItemOutline).
+@export var outlined := true
 
 var in_slot : ItemSlot
 
 var hit_speed : int
+
+func _ready() -> void:
+	if outlined:
+		ItemOutline.apply(self)
 
 func take_out_of_slot() -> void:
 	in_slot.slot_occupied = false

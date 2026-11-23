@@ -48,14 +48,12 @@
 [ext_resource type="Texture2D" uid="uid://b157jvk7vnkux" path="res://Assets/concepts/tubes1.png" id="64_0a3c2"]
 [ext_resource type="Material" uid="uid://bfuew5nfqk7t3" path="res://Materials/materials/ColorAdjustmentMat.material" id="64_8swbj"]
 [ext_resource type="Texture2D" uid="uid://jhmqg2ncgu7t" path="res://Assets/concepts/tubes2.png" id="65_243dh"]
-[ext_resource type="Texture2D" uid="uid://ijc6882pbune" path="res://Assets/concepts/heartKeychain.png" id="66_qpkor"]
 [ext_resource type="Texture2D" uid="uid://dhqh1ea3md2mj" path="res://Assets/concepts/borderAutomat.png" id="66_vtxsy"]
 [ext_resource type="Texture2D" uid="uid://12fpxkb3tbcb" path="res://Assets/concepts/borderGameView.png" id="66_xai13"]
 [ext_resource type="Texture2D" uid="uid://ck5i0m8r655us" path="res://Assets/concepts/borderTextbox.png" id="67_xai13"]
 [ext_resource type="Texture2D" uid="uid://dac3pmqjjl5vx" path="res://Assets/concepts/flowerbed3.png" id="67_yqe4d"]
 [ext_resource type="Texture2D" uid="uid://cfh3t0be35uno" path="res://Assets/concepts/flowerbed2.png" id="68_yqe4d"]
 [ext_resource type="Texture2D" uid="uid://c2n1e48qlwqnt" path="res://Assets/concepts/flowerbed1.png" id="69_m2yrj"]
-[ext_resource type="Texture2D" uid="uid://cxgfactpr3ald" path="res://Assets/concepts/battery.png" id="70_m2yrj"]
 [ext_resource type="Texture2D" uid="uid://bn5djhmr1lyyl" path="res://Assets/concepts/coloredWires.png" id="71_mhrbp"]
 [ext_resource type="Texture2D" uid="uid://dpkxdv74lot02" path="res://Assets/concepts/symbols/symbol1.png" id="75_0x4kb"]
 [ext_resource type="Script" uid="uid://dkwqfeewc47kx" path="res://Scripts/ui/Board.gd" id="75_m757g"]
@@ -98,16 +96,12 @@ material = SubResource("StandardMaterial3D_t7s67")
 background_mode = 1
 background_color = Color(0.703125, 0.703125, 0.703125, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vuse5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yqe4d"]
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.23173828, 0.27029297, 0.328125, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0ebu"]
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.9125, 0.866875, 0.866875, 1)
+albedo_color = Color(0.25914064, 0.27512792, 0.33437502, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_vuse5"]
-material = SubResource("StandardMaterial3D_s0ebu")
+material = SubResource("StandardMaterial3D_yqe4d")
 size = Vector3(38.591, 1, 30.979)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnwoa"]
@@ -1233,8 +1227,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.998743, 0, 0)
 [node name="Disposable_worker" parent="World/Characters" unique_id=1055277779 instance=ExtResource("2_nfcrg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.558, 1.038, 0.877)
 person_name = "disposable_worker"
-hitstop_duration = 0.029
+hitstop_duration = 0.1
 hitstop_scale = 0.297
+shake_strength = 14.0
+shake_duration = 0.2
+shake_frequency = 35.0
 
 [node name="CoffeeCup" type="Sprite3D" parent="World/Characters/Disposable_worker" unique_id=126945428]
 transform = Transform3D(0.5601482, 0.2150207, 0, -0.2150207, 0.5601482, 0, 0, 0, 0.6, 0.821, 0.099, 0)
@@ -1244,12 +1241,24 @@ texture = ExtResource("2_vyhah")
 
 [node name="small_worker" parent="World/Characters" unique_id=1980563931 instance=ExtResource("2_qo0gs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.612469, 16.472914, 0)
+hitstop_duration = 0.07
+shake_strength = 14.0
+shake_duration = 0.2
+shake_frequency = 35.0
 
 [node name="Boss" parent="World/Characters" unique_id=830950824 instance=ExtResource("3_xaya4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.884, 16.815, 0.847)
+hitstop_duration = 0.07
+shake_strength = 14.0
+shake_duration = 0.2
+shake_frequency = 35.0
 
 [node name="Printer" parent="World/Characters" unique_id=2018004010 instance=ExtResource("3_nfcrg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.30207, 0.09223, 0.11178)
+hitstop_duration = 0.07
+shake_strength = 14.0
+shake_duration = 0.2
+shake_frequency = 35.0
 
 [node name="CPUParticles3D3" type="CPUParticles3D" parent="World/Characters/Printer" unique_id=2125974410]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.074410915)
@@ -1268,6 +1277,10 @@ gravity = Vector3(0, 0, 0)
 radial_accel_max = 2.0
 
 [node name="dramatic_worker" parent="World/Characters" unique_id=973186517 instance=ExtResource("5_fcgxk")]
+hitstop_duration = 0.07
+shake_strength = 14.0
+shake_duration = 0.2
+shake_frequency = 35.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=2137756423]
 environment = SubResource("Environment_8swbj")
@@ -1282,18 +1295,19 @@ directional_shadow_mode = 0
 [node name="OfficeBG" type="Node3D" parent="World" unique_id=1644820740]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.596189, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/OfficeBG" unique_id=47736958]
+[node name="Floor" type="MeshInstance3D" parent="World/OfficeBG" unique_id=47736958]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2266659, -1.4664477, -4.4914713)
-material_override = SubResource("StandardMaterial3D_vuse5")
 mesh = SubResource("BoxMesh_vuse5")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/OfficeBG/MeshInstance3D" unique_id=1616888049]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.293, 6.867, -11.728)
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="World/OfficeBG" unique_id=1616888049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.066335, 5.4005523, -16.219471)
 mesh = SubResource("BoxMesh_s0ebu")
+skeleton = NodePath("../Floor")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="World/OfficeBG/MeshInstance3D" unique_id=10655538]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.314585, 6.867209, -11.728329)
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="World/OfficeBG" unique_id=10655538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.54125, 5.400761, -16.219799)
 mesh = SubResource("BoxMesh_s0ebu")
+skeleton = NodePath("../Floor")
 
 [node name="Node3D2" type="Node3D" parent="World/OfficeBG" unique_id=1205396388]
 
@@ -1662,17 +1676,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.465, 1.461, 3.071)
 [node name="WorldView" type="Camera3D" parent="UI Control/Right viewport/SubViewport/Node3D" unique_id=1226399393 node_paths=PackedStringArray("shoot_particles_root")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.683)
 fov = 70.0
+far = 500.0
 script = ExtResource("53_2lywu")
-shoot_particles_root = NodePath("../../ShootParticles")
 spawn_scale = 1.9
-shoot_strength = 4.0
-throw_arc = 0.0
+max_charge_duration = 3.0
+charge_speed = 7.0
 charge_fov = 72.0
 fov_speed = 79.0
+shoot_strength = 4.0
+throw_arc = 0.0
+shoot_particles_root = NodePath("../../ShootParticles")
 tilt_max_angle = 3.0
 tilt_smooth_speed = 6.0
-max_charge_duration = 2.544
-charge_speed = 8.0
 
 [node name="ShootingHands" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" unique_id=962925162 instance=ExtResource("shooting_hands_prefab")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.051, -0.036, -1.25)
@@ -1681,7 +1696,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.051, -0.036, -1.25)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46343565, -0.6999998)
 
 [node name="SpawnPosition" type="Node3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView/AimRotation" unique_id=1983533065]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012969136, -0.08476317, -0.026266575)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022272944, 0.15093267, -0.18324518)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="UI Control/Right viewport/SubViewport/Node3D/WorldView" unique_id=1095333742]
 
@@ -2276,17 +2291,6 @@ scale = Vector2(0.9, 0.9)
 mouse_filter = 2
 texture = ExtResource("65_243dh")
 
-[node name="keychain" type="TextureRect" parent="Borders" unique_id=198641863]
-modulate = Color(0.865625, 0.865625, 0.865625, 1)
-z_index = 60
-layout_mode = 0
-offset_left = 1764.0
-offset_right = 1946.2786
-offset_bottom = 266.9079
-scale = Vector2(0.79, 0.79)
-mouse_filter = 2
-texture = ExtResource("66_qpkor")
-
 [node name="Flowerbed" type="TextureRect" parent="Borders" unique_id=1264581943]
 z_index = 60
 layout_mode = 0
@@ -2319,17 +2323,6 @@ offset_bottom = 683.0
 scale = Vector2(0.9, 0.9)
 mouse_filter = 2
 texture = ExtResource("69_m2yrj")
-
-[node name="battery" type="TextureRect" parent="Borders" unique_id=1023398947]
-z_index = 60
-layout_mode = 0
-offset_left = 1777.0001
-offset_top = 305.00003
-offset_right = 1891.0001
-offset_bottom = 613.0
-scale = Vector2(0.841, 0.841)
-mouse_filter = 2
-texture = ExtResource("70_m2yrj")
 
 [node name="wiresColor" type="TextureRect" parent="Borders" unique_id=789755538]
 z_index = 50

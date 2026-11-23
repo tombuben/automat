@@ -9,8 +9,8 @@ enum State { DEFAULT, CLICKABLE, AIMING }
 @export_group("Aiming")
 ## Shown instead of the cursor while an item is ready to shoot and the mouse is over the world view.
 ## Leave empty to draw a simple placeholder crosshair.
-@export var crosshair_texture : Texture2D
-@export var crosshair_scale := 1.0
+@export var crosshair_texture : Texture2D = preload("res://Assets/cursor/crosshair.png")
+@export var crosshair_scale := 0.4
 @export var crosshair_color := Color(1, 1, 1, 0.9)
 
 @export_group("Move particles")

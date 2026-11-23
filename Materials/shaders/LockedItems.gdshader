@@ -1,18 +1,18 @@
 shader_type canvas_item;
 // Turns everything under it into shades of green, so the items look locked behind glass.
+// Each pixel's brightness picks a colour from the gradient: left = dark, right = bright.
+// The gradient is set on the LockedItemsOverlay node.
 
 uniform sampler2D screen_texture : hint_screen_texture, filter_linear;
+uniform sampler2D gradient : filter_linear, repeat_disable;
 
-// Darkest and lightest green. Everything underneath is mapped between these by brightness.
-uniform vec4 dark_color : source_color = vec4(0.06, 0.26, 0.13, 1.0);
-uniform vec4 light_color : source_color = vec4(0.58, 0.86, 0.55, 1.0);
-// Pushes the brightness apart (above 1) or together (below 1).
-uniform float contrast : hint_range(0.0, 3.0) = 1.2;
-// Brightens (positive) or darkens (negative) before the colours are mapped.
+// Pushes the brightness apart (above 1) or together (below 1) before picking a colour.
+uniform float contrast : hint_range(0.0, 3.0) = 1.0;
+// Brightens (positive) or darkens (negative) before picking a colour.
 uniform float brightness : hint_range(-1.0, 1.0) = 0.0;
 // Number of flat shades. 0 = smooth.
-uniform float steps : hint_range(0.0, 8.0, 1.0) = 4.0;
-// Set by code: 0 = off, 1 = fully green.
+uniform float steps : hint_range(0.0, 8.0, 1.0) = 0.0;
+// 0 = original colours, 1 = fully green.
 uniform float amount : hint_range(0.0, 1.0) = 1.0;
 
 void fragment() {
@@ -22,6 +22,6 @@ void fragment() {
 	if (steps > 0.0) {
 		shade = floor(shade * steps + 0.5) / steps;
 	}
-	vec3 green = mix(dark_color.rgb, light_color.rgb, shade);
+	vec3 green = texture(gradient, vec2(shade, 0.5)).rgb;
 	COLOR = vec4(mix(under, green, amount), 1.0);
 }

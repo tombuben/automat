@@ -1,0 +1,53 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/ui/hover_frame.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dmvaiy2keyyqm" path="res://Assets/cursor/corner3.png" id="2_top_left"]
+[ext_resource type="Texture2D" uid="uid://ceuo1fwcf2h62" path="res://Assets/cursor/corner4.png" id="3_top_right"]
+[ext_resource type="Texture2D" uid="uid://c3hma633al47p" path="res://Assets/cursor/corner1.png" id="4_bottom_left"]
+[ext_resource type="Texture2D" uid="uid://ngaseehdmvar" path="res://Assets/cursor/corner2.png" id="5_bottom_right"]
+
+[node name="HoverFrame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_script")
+
+[node name="TopLeft" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 22.0
+mouse_filter = 2
+texture = ExtResource("2_top_left")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TopRight" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 22.0
+mouse_filter = 2
+texture = ExtResource("3_top_right")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BottomLeft" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 22.0
+mouse_filter = 2
+texture = ExtResource("4_bottom_left")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BottomRight" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 22.0
+mouse_filter = 2
+texture = ExtResource("5_bottom_right")
+expand_mode = 1
+stretch_mode = 5

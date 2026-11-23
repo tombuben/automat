@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://clluv3r6m72c2" path="res://Scripts/items/random_item.gd" id="1_osvde"]
 [ext_resource type="Texture2D" uid="uid://jwpsjlviefxe" path="res://Assets/Itemmodels/KenneyPlaceholders/Textures/colormap.png" id="2_v3hhq"]
-[ext_resource type="Material" uid="uid://wnhcr6p104hg" path="res://Materials/materials/OutlineShaderMat.tres" id="3_eplis"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vkqkw"]
 size = Vector3(0.6447754, 0.7774048, 0.5761719)
@@ -59,12 +58,5 @@ shape = SubResource("BoxShape3D_vkqkw")
 
 [node name="loaf" type="MeshInstance3D" parent="." unique_id=1968110747]
 transform = Transform3D(-0.004591874, 0, 0.5213767, 0, 0.522, 0, -0.09388776, 0, -0.025499556, -0.0021276772, -0.119090684, 0.0040253997)
-mesh = SubResource("ArrayMesh_ee48o")
-skeleton = NodePath("")
-
-[node name="loaf2" type="MeshInstance3D" parent="." unique_id=909243696]
-transform = Transform3D(-0.007913656, 0, 0.6062753, 0, 0.578, 0, -0.1618066, 0, -0.029651785, -0.0021276772, -0.13273378, 0.0040253997)
-sorting_offset = 9.527
-material_override = ExtResource("3_eplis")
 mesh = SubResource("ArrayMesh_ee48o")
 skeleton = NodePath("")

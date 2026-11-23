@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://nux01nqmsxn7"]
+
+[ext_resource type="Shader" uid="uid://du8w7oqamya0a" path="res://Materials/color_overlay.gdshader" id="1_hcx5a"]
+
+[resource]
+shader = ExtResource("1_hcx5a")
+shader_parameter/blend_mode = 2
+shader_parameter/blend_color = Color(0, 0, 0, 0.6666667)
+shader_parameter/use_texture = false
+shader_parameter/texture_scale = 1.0
+shader_parameter/strength = 0.850000040375

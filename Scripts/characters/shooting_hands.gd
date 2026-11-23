@@ -9,10 +9,14 @@ class_name ShootingHands extends Node3D
 ## How much the hands trail behind the camera tilt. 0 = glued to the camera.
 @export var tilt_lag := 0.35
 @export var tilt_lag_speed := 4.0
+## How far the hands rise while an item is being dragged. 0 = no rise.
+@export var drag_raise := 0.04
+@export var drag_raise_speed := 6.0
 
 @onready var world_view : WorldView = get_parent()
 @onready var base_position : Vector3 = position
 var lagged_tilt := Vector3.ZERO
+var raise := 0.0
 
 var current_animation : StringName
 var once_animation : StringName
@@ -21,6 +25,7 @@ var playing_once := false
 
 func _process(delta : float) -> void:
 	_follow_tilt(delta)
+	_follow_drag(delta)
 
 	if playing_once:
 		if _is_once_animation_playing():
@@ -41,6 +46,14 @@ func _follow_tilt(delta : float) -> void:
 	var behind := world_view.tilt - lagged_tilt
 	var distance := -base_position.z
 	position = base_position + Vector3(behind.y, -behind.x, 0.0) * distance * tilt_lag
+
+
+## Lifts the hands a little while an item is dragged, and lowers them again after.
+func _follow_drag(delta : float) -> void:
+	var cursor := GlobalManager.cursor_body
+	var target := drag_raise if cursor and cursor.dragging else 0.0
+	raise = lerp(raise, target, 1.0 - exp(-drag_raise_speed * delta))
+	position.y += raise
 
 
 func catch_item() -> void:

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://clluv3r6m72c2" path="res://Scripts/items/random_item.gd" id="1_hb3gc"]
 [ext_resource type="Texture2D" uid="uid://jwpsjlviefxe" path="res://Assets/Itemmodels/KenneyPlaceholders/Textures/colormap.png" id="2_1fa7s"]
-[ext_resource type="Material" uid="uid://wnhcr6p104hg" path="res://Materials/materials/OutlineShaderMat.tres" id="3_ac5ai"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vkqkw"]
 size = Vector3(0.6447754, 0.7774048, 0.7036133)
@@ -61,12 +60,5 @@ debug_color = Color(0, 11.618606, 13.50434, 0.41960785)
 
 [node name="avocado3" type="MeshInstance3D" parent="." unique_id=614385061]
 transform = Transform3D(0.809704, 0, 0, 0, 0.547428, 0, 0, 0, 0.782572, -0.01933156, -0.120346606, -0.0069027543)
-mesh = SubResource("ArrayMesh_f75ku")
-skeleton = NodePath("")
-
-[node name="avocado4" type="MeshInstance3D" parent="." unique_id=1581227077]
-transform = Transform3D(0.948, 0, 0, 0, 0.64, 0, 0, 0, 0.917, -0.01933156, -0.13725927, -0.0069027543)
-sorting_offset = 1.066
-material_override = ExtResource("3_ac5ai")
 mesh = SubResource("ArrayMesh_f75ku")
 skeleton = NodePath("")

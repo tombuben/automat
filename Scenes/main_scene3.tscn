@@ -838,7 +838,6 @@ texture = ExtResource("2_6ksj2")
 
 [node name="duckman" parent="World" unique_id=1055277779 instance=ExtResource("3_lvblg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.483951, 0.9286897, 0.079600334)
-hitstop_duration = 0.01
 
 [node name="DrowningPerson" parent="World" unique_id=118794775 instance=ExtResource("4_7xmc4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.652418, 0.487, 0.761)

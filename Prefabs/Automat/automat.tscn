@@ -49,6 +49,10 @@ albedo_color = Color(0, 0, 0, 0.3137255)
 material = SubResource("StandardMaterial3D_dim")
 size = Vector2(40, 40)
 
+[sub_resource type="Gradient" id="Gradient_locked"]
+offsets = PackedFloat32Array(0, 0.12, 0.36, 0.45, 0.56, 0.78, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0.157, 0.051, 1, 0, 0.443, 0.141, 1, 0.098, 0.58, 0.255, 1, 0.141, 0.627, 0.298, 1, 0.447, 0.749, 0.545, 1, 0.651, 0.867, 0.706, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_locked"]
 transparency = 1
 shading_mode = 0
@@ -206,15 +210,17 @@ visible = false
 sorting_offset = 4.858
 texture = ExtResource("24_nvk46")
 
-[node name="InteractDim" type="MeshInstance3D" parent="." unique_id=1733920451]
+[node name="InteractDim" type="MeshInstance3D" parent="." unique_id=1733920451 node_paths=PackedStringArray("cut_out")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0.15)
 sorting_offset = 4.5
 cast_shadow = 0
 mesh = SubResource("QuadMesh_dim")
 script = ExtResource("60_dim")
+cut_out = NodePath("../LockedItemsOverlay")
 
 [node name="LockedItemsOverlay" type="MeshInstance3D" parent="." unique_id=1584203317]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.421, 0.9)
 cast_shadow = 0
 mesh = SubResource("QuadMesh_locked")
 script = ExtResource("61_locked")
+gradient = SubResource("Gradient_locked")

@@ -1,0 +1,191 @@
+[gd_scene format=3 uid="uid://cega3a7dkdoei"]
+
+[ext_resource type="Script" uid="uid://vvhs6v83dnet" path="res://Scripts/ui/aim_frame.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cfa7hl8tqmrwi" path="res://Assets/cursor/GradientShootingUI.png" id="2_gradient"]
+[ext_resource type="Material" uid="uid://nux01nqmsxn7" path="res://Materials/materials/color_ovelay.tres" id="2_j2iqd"]
+[ext_resource type="Texture2D" uid="uid://dmvaiy2keyyqm" path="res://Assets/cursor/corner3.png" id="3_top_left"]
+[ext_resource type="Texture2D" uid="uid://ceuo1fwcf2h62" path="res://Assets/cursor/corner4.png" id="4_top_right"]
+[ext_resource type="Texture2D" uid="uid://c3hma633al47p" path="res://Assets/cursor/corner1.png" id="5_bottom_left"]
+[ext_resource type="Texture2D" uid="uid://ngaseehdmvar" path="res://Assets/cursor/corner2.png" id="6_bottom_right"]
+[ext_resource type="FontFile" uid="uid://cvd5j8d7y4hxx" path="res://Assets/Fonts/WinkySans-VariableFont_wght.ttf" id="7_font"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_track"]
+bg_color = Color(0.035, 0.114, 0, 0.9)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fill"]
+bg_color = Color(0.314, 0.992, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="AimFrame" type="Control" unique_id=1784659154]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_script")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1019559372]
+material = ExtResource("2_j2iqd")
+layout_mode = 0
+offset_right = 1940.0
+offset_bottom = 1091.0
+color = Color(0, 0, 0, 0.47058824)
+
+[node name="GradientTop" type="TextureRect" parent="." unique_id=1263688501]
+visible = false
+modulate = Color(1, 1, 1, 0.50980395)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.22
+offset_bottom = 365.4
+grow_horizontal = 2
+mouse_filter = 2
+texture = ExtResource("2_gradient")
+expand_mode = 1
+
+[node name="GradientBottom" type="TextureRect" parent="." unique_id=1336110670]
+visible = false
+modulate = Color(1, 1, 1, 0.50980395)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.85
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -368.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("2_gradient")
+expand_mode = 1
+flip_v = true
+
+[node name="Corners" type="Control" parent="." unique_id=56936996]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+mouse_filter = 2
+
+[node name="TopLeft" type="TextureRect" parent="Corners" unique_id=2104972756]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 538.8
+offset_top = 118.79999
+offset_right = 614.39996
+offset_bottom = 194.4
+mouse_filter = 2
+texture = ExtResource("3_top_left")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TopRight" type="TextureRect" parent="Corners" unique_id=909585936]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 1305.6
+offset_top = 118.79999
+offset_right = 1381.2
+offset_bottom = 194.4
+grow_horizontal = 0
+mouse_filter = 2
+texture = ExtResource("4_top_right")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BottomLeft" type="TextureRect" parent="Corners" unique_id=1283667516]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 538.8
+offset_top = 885.6
+offset_right = 614.39996
+offset_bottom = 961.19995
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("5_bottom_left")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BottomRight" type="TextureRect" parent="Corners" unique_id=1815842077]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 1305.6
+offset_top = 885.6
+offset_right = 1381.2
+offset_bottom = 961.19995
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("6_bottom_right")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ChargeBar" type="Control" parent="." unique_id=1898857409]
+layout_mode = 1
+anchor_left = 0.76
+anchor_top = 0.33
+anchor_right = 0.76
+anchor_bottom = 0.73
+offset_left = -8.199951
+offset_top = -41.400024
+offset_right = 21.800049
+offset_bottom = 0.5999756
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Track" type="Panel" parent="ChargeBar" unique_id=1418822827]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.233
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_right = -7.9900017
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_track")
+
+[node name="Fill" type="Panel" parent="ChargeBar" unique_id=303874811]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -12.0
+offset_right = -1.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fill")
+
+[node name="Number" type="Label" parent="ChargeBar" unique_id=1774554307]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -29.0
+offset_right = 83.0
+offset_bottom = 25.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.314, 0.992, 0, 1)
+theme_override_fonts/font = ExtResource("7_font")
+theme_override_font_sizes/font_size = 40
+text = "000"
+vertical_alignment = 1
